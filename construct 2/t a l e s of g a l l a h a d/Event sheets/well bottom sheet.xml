@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>well bottom sheet</name>
+    <events>
+        <include># common events</include>
+        <event-group bookmark="1" description="" sid="517483331295400" title="Intro">
+            <sub-events>
+                <comment>Setup cutscene</comment>
+                <event-block sid="435276477879179">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="129514761718300" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="839318971908215" type="System">
+                            <param id="0" name="Variable">currentCutscene</param>
+                            <param id="1" name="Value">&quot;well&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="521254328112450" type="player">
+                            <param id="0" name="Instance variable">playerDirection</param>
+                            <param id="1" name="Value">&quot;middle&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="666927968543305">
+                            <conditions>
+                                <condition id="-7" name="Compare time" sid="834936928657456" type="System">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Time (seconds)">1.0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="823166011202453" type="System">
+                                    <param id="0" name="Variable">currentCutscene</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;well&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>cutscene setup. Stop player as well as setup scene for fades, effects, and blurs.</comment>
+                                <event-block sid="148001115136847">
+                                    <conditions />
+                                    <actions>
+                                        <action id="0" name="Play" sid="154584885994200" type="objAudio">
+                                            <param id="0" name="Audio file">fallingsound</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-10</param>
+                                            <param id="1" name="Tag (optional)">&quot;falling&quot;</param>
+                                        </action>
+                                        <action id="-18" name="Set layer opacity" sid="407373065290796" type="System">
+                                            <param id="0" name="Layer">5</param>
+                                            <param id="1" name="Opacity">100</param>
+                                        </action>
+                                        <action behavior="Platform" id="11" name="Set enabled" sid="896815768282826" type="player">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="888394060273714" type="player">
+                                            <param id="0" name="Instance variable">stopMovement</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="615504913307610" type="objFunction">
+                                            <param id="0" name="Name">&quot;removeFade&quot;</param>
+                                            <param id="1" name="Parameter {n}">1{###}100{###}0.03</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="327438342125664" type="System">
+                                            <param id="0" name="Seconds">1.5</param>
+                                        </action>
+                                        <action behavior="Platform" id="11" name="Set enabled" sid="755466633243994" type="player">
+                                            <param id="0" name="State">1</param>
+                                        </action>
+                                        <action behavior="Platform" id="5" name="Set gravity" sid="937689042326419" type="player">
+                                            <param id="0" name="Gravity">170</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="904613308793419" type="player">
+                                            <param id="0" name="Animation">&quot;Falling&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="343210399823385" type="objFunction">
+                                            <param id="0" name="Name">&quot;callBlur&quot;</param>
+                                            <param id="1" name="Parameter {n}">10{###}10{###}0.5</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>when player collides with water top, play next part of cutscene.</comment>
+                <event-block sid="963380048680755">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="348385964215561" type="player">
+                            <param id="0" name="Object">sprWaterTop32</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="102020610444613" type="System">
+                            <param id="0" name="Variable">currentCutscene</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;well&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>Set to black when he hits the water, scroll up and show top of well.</comment>
+                        <event-block sid="498601508112385">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="306773786434394" type="objFunction">
+                                    <param id="0" name="Name">&quot;RemoveBlur&quot;</param>
+                                    <param id="1" name="Parameter {n}">10{###}10{###}0.05</param>
+                                </action>
+                                <action id="6" name="Stop" sid="128387881117597" type="objAudio">
+                                    <param id="0" name="Tag">&quot;Falling&quot;</param>
+                                </action>
+                                <action id="0" name="Play" sid="697476186868688" type="objAudio">
+                                    <param id="0" name="Audio file">player_splash</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action disabled="1" id="-18" name="Set layer opacity" sid="755475841908464" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Opacity">100</param>
+                                </action>
+                                <action behavior="Platform" id="6" name="Set max fall speed" sid="698623600926969" type="player">
+                                    <param id="0" name="Max fall speed">30</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="786733821832717" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="604054492239698" type="objFunction">
+                                    <param id="0" name="Name">&quot;removeFade&quot;</param>
+                                    <param id="1" name="Parameter {n}">5{###}20{###}0.05</param>
+                                </action>
+                                <action id="0" name="Call function" sid="365961430995822" type="objFunction">
+                                    <param id="0" name="Name">&quot;callFade&quot;</param>
+                                    <param id="1" name="Parameter {n}">10{###}20{###}0.05</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="136036394797298" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-18" name="Set layer opacity" sid="958596253268140" type="System">
+                                    <param id="0" name="Layer">5</param>
+                                    <param id="1" name="Opacity">100</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="567293342131336" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action id="6" name="Stop" sid="414104954675704" type="objAudio">
+                                    <param id="0" name="Tag">&quot;drips&quot;</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="240676180345766" type="player" />
+                                <action id="-2" name="Go to layout" sid="420252409095631" type="System">
+                                    <param id="0" name="Layout">well water</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="901026736368725" type="System">
+                                    <param id="0" name="Variable">currentCutscene</param>
+                                    <param id="1" name="Value">&quot;welloutro&quot;</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="748417336182142" type="System">
+                                    <param id="0" name="Group name">&quot;Intro&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>when player collides with bridge, send objects flying.</comment>
+                <event-block sid="356323477518623">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="812625702691153" type="player">
+                            <param id="0" name="Object">woodenbridge_breakable</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="746084373073173" type="System">
+                            <param id="0" name="Variable">currentCutscene</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;well&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="268998696800993">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="808718646518198" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="660050730750738" type="woodenbridge_breakable">
+                                    <param id="0" name="Object">objWellBridge</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action behavior="Physics" id="1" name="Apply force towards position" sid="466857243458959" type="objWellBridge">
+                                    <param id="0" name="Force">0.5</param>
+                                    <param id="1" name="X">254</param>
+                                    <param id="2" name="Y">776</param>
+                                    <param id="3" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="985569864662198" type="woodenbridge_breakable">
+                                    <param id="0" name="Object">objWellBridge</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">2</param>
+                                </action>
+                                <action behavior="Physics" id="1" name="Apply force towards position" sid="256434874859095" type="objWellBridge">
+                                    <param id="0" name="Force">0.5</param>
+                                    <param id="1" name="X">264</param>
+                                    <param id="2" name="Y">776</param>
+                                    <param id="3" name="Image point">2</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="106570563830580" type="woodenbridge_breakable">
+                                    <param id="0" name="Object">objWellBridge</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">3</param>
+                                </action>
+                                <action behavior="Physics" id="1" name="Apply force towards position" sid="680538963621723" type="objWellBridge">
+                                    <param id="0" name="Force">0.5</param>
+                                    <param id="1" name="X">264</param>
+                                    <param id="2" name="Y">776</param>
+                                    <param id="3" name="Image point">3</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="485895102062683" type="woodenbridge_breakable">
+                                    <param id="0" name="Object">objWellBridge</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">4</param>
+                                </action>
+                                <action behavior="Physics" id="1" name="Apply force towards position" sid="929472630540312" type="objWellBridge">
+                                    <param id="0" name="Force">0.5</param>
+                                    <param id="1" name="X">264</param>
+                                    <param id="2" name="Y">776</param>
+                                    <param id="3" name="Image point">04</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="370046982321096" type="woodenbridge_breakable">
+                                    <param id="0" name="Object">objWellBridge</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">5</param>
+                                </action>
+                                <action behavior="Physics" id="1" name="Apply force towards position" sid="982291845189849" type="objWellBridge">
+                                    <param id="0" name="Force">0.5</param>
+                                    <param id="1" name="X">264</param>
+                                    <param id="2" name="Y">776</param>
+                                    <param id="3" name="Image point">5</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="244330662866091" type="woodenbridge_breakable">
+                                    <param id="0" name="Object">objWellBridge</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="503710541809296" type="woodenbridge_breakable">
+                                    <param id="0" name="Animation">&quot;Aftermath&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="705548430288830" type="objAudio">
+                                    <param id="0" name="Audio file">woodbreaking</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>Call cutscene</comment>
+        <event-block sid="464054458676348">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="293721874071598" type="player">
+                    <param id="0" name="Instance variable">health</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="295895486958988" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="256732978309035">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="827808209900792" type="System" />
+                <condition id="-14" name="Compare variable" sid="111661639410978" type="System">
+                    <param id="0" name="Variable">currentCutscene</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;welloutro&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="374405759146532" type="objAudio">
+                    <param id="0" name="Audio file">drips</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;drips&quot;</param>
+                </action>
+                <action id="-18" name="Set layer opacity" sid="459800861284376" type="System">
+                    <param id="0" name="Layer">5</param>
+                    <param id="1" name="Opacity">100</param>
+                </action>
+                <action id="0" name="Call function" sid="294137356374489" type="objFunction">
+                    <param id="0" name="Name">&quot;removeFade&quot;</param>
+                    <param id="1" name="Parameter {n}">1{###}100{###}0.03</param>
+                </action>
+                <action id="-9" name="Destroy" sid="387722326963594" type="player" />
+                <action id="-3" name="Create object" sid="712115208324769" type="System">
+                    <param id="0" name="Object to create">player</param>
+                    <param id="1" name="Layer">1</param>
+                    <param id="2" name="X">200</param>
+                    <param id="3" name="Y">968</param>
+                </action>
+                <action id="4" name="Set animation" sid="282558212810056" type="player">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action behavior="Platform" id="11" name="Set enabled" sid="784940714245092" type="player">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="6" name="Stop" sid="986140244727257" type="objAudio">
+                    <param id="0" name="Tag">&quot;spook&quot;</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="735908685393916" type="player">
+                    <param id="0" name="Max fall speed">700</param>
+                </action>
+                <action id="4" name="Set animation" sid="254183454083236" type="woodenbridge_breakable">
+                    <param id="0" name="Animation">&quot;Aftermath&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="0" name="Call function" sid="743325680751722" type="objFunction">
+                    <param id="0" name="Name">&quot;scrollingText&quot;</param>
+                    <param id="1" name="Parameter {n}">112{###}115{###}&quot;Spirit Well&quot;{###}0.2{###}8</param>
+                </action>
+                <action id="-16" name="Wait" sid="306424730718529" type="System">
+                    <param id="0" name="Seconds">2</param>
+                </action>
+                <action id="-10" name="Set value" sid="459575945643677" type="player">
+                    <param id="0" name="Instance variable">stopMovement</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="190625504622806">
+            <conditions>
+                <condition behavior="Platform" id="8" name="On moved" sid="541262261959507" type="player" />
+                <condition id="-14" name="Compare variable" sid="982789584716434" type="System">
+                    <param id="0" name="Variable">currentCutscene</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;welloutro&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="734506927456671" type="System">
+                    <param id="0" name="Variable">currentCutscene</param>
+                    <param id="1" name="Value">&quot;null&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <variable constant="0" name="layoutVig" sid="949036242038614" static="1" type="number">65</variable>
+                <event-block sid="494611802766420">
+                    <conditions>
+                        <condition id="-10" name="For" sid="230532240721894" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">200</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="550326034035881" type="System">
+                            <param id="0" name="Seconds">0.01*loopindex</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="633596575750645" type="System">
+                            <param id="0" name="Effect">&quot;Vignette&quot;</param>
+                            <param id="1" name="Parameter index">1</param>
+                            <param id="2" name="Value">layoutVig+1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="219944719642554" type="System">
+                            <param id="0" name="Variable">layoutVig</param>
+                            <param id="1" name="Value">layoutVig+1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="112817371338559">
+                    <conditions>
+                        <condition id="-10" name="For" sid="301902717997609" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="648204026030088" type="System">
+                            <param id="0" name="Seconds">0.08*loopindex</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="517174357478460" type="hud">
+                            <param id="0" name="Opacity">HUD.Opacity+5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="682859550714483">
+                    <conditions>
+                        <condition id="-10" name="For" sid="609246592824898" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">20</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="959121633237484" type="System">
+                            <param id="0" name="Seconds">0.08*loopindex</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="572138200565699" type="hudTextbox">
+                            <param id="0" name="Opacity">hudTextbox.Opacity - 5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="232236872557905">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="113973045310191" type="player">
+                    <param id="0" name="Object">objCaveEntrance</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="282567372327986" type="objAudio">
+                    <param id="0" name="Tag">&quot;drops&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="698942963325342">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="399319361125360" type="objKeyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="719713190740750" type="player">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="448923644378410" type="objFunction">
+                            <param id="0" name="Name">&quot;callFade&quot;</param>
+                            <param id="1" name="Parameter {n}">10{###}20{###}0.05</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="871416648895509" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="769579514962921" type="player" />
+                        <action id="-2" name="Go to layout" sid="719322502777103" type="System">
+                            <param id="0" name="Layout">first cave</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="362926148261205" type="player">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="795906024793578">
+                    <conditions>
+                        <condition id="6" name="On button pressed" sid="101058978365474" type="objGamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Button">12</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="472546405297650" type="player">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="483778498343240" type="objFunction">
+                            <param id="0" name="Name">&quot;callFade&quot;</param>
+                            <param id="1" name="Parameter {n}">10{###}20{###}0.05</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="162075633358925" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="953459226186401" type="player" />
+                        <action id="-2" name="Go to layout" sid="902111998908845" type="System">
+                            <param id="0" name="Layout">first cave</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="673273379618335" type="player">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

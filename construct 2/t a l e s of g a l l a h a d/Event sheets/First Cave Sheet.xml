@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>First Cave Sheet</name>
+    <events>
+        <include># functions</include>
+        <include># common events</include>
+        <event-block sid="764339761211313">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="310500790504149" type="player">
+                    <param id="0" name="Object">objLevelFadeTrigger</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="866720359325661" type="player">
+                    <param id="0" name="Instance variable">stopMovement</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Call function" sid="772279077412678" type="objFunction">
+                    <param id="0" name="Name">&quot;callFade&quot;</param>
+                    <param id="1" name="Parameter {n}">2{###}2{###}0.05</param>
+                </action>
+                <action id="4" name="Set animation" sid="771326590789415" type="player">
+                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="225449243194452" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="627217102567670" type="System">
+                    <param id="0" name="Layout">lets go right</param>
+                </action>
+                <action id="0" name="Call function" sid="446682198280085" type="objFunction">
+                    <param id="0" name="Name">&quot;removeFade&quot;</param>
+                    <param id="1" name="Parameter {n}">5{###}20{###}0.05</param>
+                </action>
+                <action id="-9" name="Destroy" sid="904795001342115" type="player" />
+            </actions>
+        </event-block>
+        <event-block sid="500476996524501">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="284768143936400" type="player">
+                    <param id="0" name="Object">objMagic_Get</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="260076844340137" type="player">
+                    <param id="0" name="Instance variable">mana</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="241516390069586" type="Magic_Light" />
+                <action id="-9" name="Destroy" sid="382395357382103" type="objMagic_Get" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

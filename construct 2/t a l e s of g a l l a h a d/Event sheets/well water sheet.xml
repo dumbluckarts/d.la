@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>well water sheet</name>
+    <events>
+        <include># common events</include>
+        <event-block sid="836289529322211">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="263744980094823" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="825395006705595">
+                    <conditions />
+                    <actions>
+                        <action disabled="1" id="0" name="Call function" sid="252930514785319" type="objFunction">
+                            <param id="0" name="Name">&quot;removeFade&quot;</param>
+                            <param id="1" name="Parameter {n}">5{###}20{###}0.05</param>
+                        </action>
+                        <action id="0" name="Play" sid="526602867761771" type="objAudio">
+                            <param id="0" name="Audio file">underwater_spook</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;spook&quot;</param>
+                        </action>
+                        <action id="0" name="Call function" sid="713138541591390" type="objFunction">
+                            <param id="0" name="Name">&quot;removeFade&quot;</param>
+                            <param id="1" name="Parameter {n}">10{###}10{###}0.05</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="943996261951554" type="sprTentacle_2">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="2" name="Stop" sid="684899489512091" type="sprTentacle_2" />
+                        <action id="-10" name="Set value" sid="336401798497397" type="player">
+                            <param id="0" name="Instance variable">playerDirection</param>
+                            <param id="1" name="Value">&quot;middle&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="503163454832315" type="player">
+                            <param id="0" name="Instance variable">stopMovement</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="Platform" id="6" name="Set max fall speed" sid="250506400540508" type="player">
+                            <param id="0" name="Max fall speed">15</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="233431412496287" type="player">
+                            <param id="0" name="Animation">&quot;Sink&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="911545146371448" type="System">
+                            <param id="0" name="Seconds">6</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="361594767937374" type="player">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="544890604626579" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="804984882517136" type="player">
+                            <param id="0" name="Frame number">2</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="771471948170970" type="System">
+                            <param id="0" name="Seconds">4</param>
+                        </action>
+                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="927187099129363" type="player">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Platform" id="6" name="Set max fall speed" sid="296891354763637" type="player">
+                            <param id="0" name="Max fall speed">0</param>
+                        </action>
+                        <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="126043309391410" type="player">
+                            <param id="0" name="Acceleration">2000</param>
+                            <param id="1" name="X">230</param>
+                            <param id="2" name="Y">7</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="945339033711643" type="player">
+                            <param id="0" name="Animation">&quot;Swim&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="883183119728781" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="0" name="Call function" sid="660108128194617" type="objFunction">
+                            <param id="0" name="Name">&quot;callFade&quot;</param>
+                            <param id="1" name="Parameter {n}">10{###}20{###}0.05</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="838007824561547" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="243073936875247" type="player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="0" name="Play" sid="392015218211965" type="objAudio">
+                            <param id="0" name="Audio file">splashreturn</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="217305824131254" type="System">
+                            <param id="0" name="Layout">well bottom</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="587072067027261">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="652680482315493" type="sprDeadbody_1">
+                    <param id="0" name="Object">sprTentacle_2</param>
+                </condition>
+                <condition id="-4" name="Trigger once while true" sid="753612819304350" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="976532751433064" type="sprTentacle_2">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action behavior="Platform" id="6" name="Set max fall speed" sid="683404106576200" type="sprDeadbody_1">
+                    <param id="0" name="Max fall speed">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="750581925150444" type="sprDeadbody_1">
+                    <param id="0" name="Object">sprTentacle_2</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="657287993893750" type="sprBodyBubbles_1_particle">
+                    <param id="0" name="Object">sprDeadbody_1</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="869893049365917" type="sprBlood_particle">
+                    <param id="0" name="Object">sprBodyBubbles_particle</param>
+                    <param id="1" name="Image point (optional)">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
