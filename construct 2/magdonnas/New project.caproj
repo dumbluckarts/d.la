@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>New project</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>1uo1cvfgyb2w8</unique-id>
+    <saved-with-version>26600</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Scirra" id="XML" version="1">XML</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>768</width>
+        <height>432</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Downscaling">Medium quality</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Construct 2 splash</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preload sounds">Yes</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-folder name="# hud and display">
+            <object-type name="turn_timer" sid="620403209981822">
+                <plugin id="Text" />
+            </object-type>
+        </object-folder>
+        <object-folder name="# input and output">
+            <object-type name="Keyboard" sid="527807612885092">
+                <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="Function" sid="140287007409452">
+                <plugin id="Function" />
+            </object-type>
+            <object-type global="1" name="XML" sid="770254457326943">
+                <plugin id="XML" />
+            </object-type>
+            <object-type name="Touch" sid="335610978573950">
+                <plugin id="Touch" />
+            </object-type>
+        </object-folder>
+        <object-folder name="# masks">
+            <object-type name="mask_black" sid="734010329397084">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+        </object-folder>
+        <object-folder name="# tilemaps">
+            <object-type name="tm_ground" sid="302066102296244">
+                <plugin id="Tilemap" />
+                <texture />
+                <tiles />
+            </object-type>
+        </object-folder>
+        <object-folder name="# triggers" />
+        <object-folder name="characters">
+            <object-type name="player1" sid="492601463734521">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="406163153650583" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="player2" sid="908762976013004">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="334361426481262" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
+        <object-folder name="objects" />
+        <object-folder name="sprites" />
+    </object-folder>
+    <families>
+        <family name="solid_tilemaps" plugin-id="Tilemap" sid="486467842721190">
+            <members>
+                <member>tm_ground</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Solid" sid="288480534904171">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Physics" sid="412025649399203">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="players" plugin-id="Sprite" sid="598828605972617">
+            <members>
+                <member>player1</member>
+                <member>player2</member>
+            </members>
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="615800965013673">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="Physics" sid="450079958895312">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Layout 1.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet># common.xml</event-sheet>
+        <event-sheet># controls.xml</event-sheet>
+        <event-sheet># dev tools.xml</event-sheet>
+        <event-sheet># enemies.xml</event-sheet>
+        <event-sheet>Layout 1 sheet.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="0" />
+        <global-instance type="Function" uid="2" />
+        <global-instance type="Touch" uid="1">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

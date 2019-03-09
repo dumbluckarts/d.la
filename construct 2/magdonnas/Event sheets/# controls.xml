@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name># controls</name>
+    <events>
+        <event-group description="" sid="605056747253551" title="aiming">
+            <sub-events>
+                <variable constant="0" name="initial_x" sid="452040430867489" static="1" type="number">0</variable>
+                <variable constant="0" name="initial_y" sid="518605303099329" static="1" type="number">0</variable>
+                <event-block sid="397815341289869">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="374906379127842" type="Touch" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="942586472279907">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="671491981204514" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="531275849995432" type="System">
+                                    <param id="0" name="Variable">initial_x</param>
+                                    <param id="1" name="Value">player1.X</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="348187076142744" type="System">
+                                    <param id="0" name="Variable">initial_y</param>
+                                    <param id="1" name="Value">player1.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="534847017311550">
+                            <conditions />
+                            <actions>
+                                <action id="-8" name="Set angle" sid="928681259967702" type="player1">
+                                    <param id="0" name="Angle">angle(Touch.X, Touch.Y, initial_x, initial_y)</param>
+                                </action>
+                                <action id="-23" name="Move at angle" sid="617892466885784" type="player1">
+                                    <param id="0" name="Angle">min(distance(Touch.X, Touch.Y, initial_x, initial_y) / 3, 45)</param>
+                                    <param id="1" name="Distance">Self.Angle + 180</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="177520711606786">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="417935577366041" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="137009107962227" type="System">
+                            <param id="0" name="Group name">&quot;aiming&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="789680746677452" type="player1">
+                            <param id="0" name="Impulse">distance(Self.X, Self.Y, initial_x, initial_y) / 1.4</param>
+                            <param id="1" name="Angle">Self.Angle</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
