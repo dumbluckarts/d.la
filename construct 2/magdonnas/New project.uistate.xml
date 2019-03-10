@@ -20,10 +20,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="1" name="Window Size" />
         <property expanded="1" name="Configuration Settings" />
     </properties>
-    <families-expanded root="1">
-        <family expanded="0" name="solid_tilemaps" />
-        <family expanded="0" name="players" />
-    </families-expanded>
+    <families-expanded root="1" />
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="object-folder/# hud and display/" />

@@ -4,169 +4,236 @@
     <name># common</name>
     <events>
         <include># controls</include>
-        <variable comment="game time in ticks. 60 ticks = 1 second" constant="0" name="gameTime" sid="509222849306805" static="0" type="number">0</variable>
-        <variable comment="which player has control of the game" constant="0" name="playerControl" sid="913479999266849" static="0" type="number">0</variable>
-        <event-group description="game events like round timers, game start events, etc." sid="118538209252851" title="# game instance">
+        <event-group description="" sid="345188905183826" title="# movement">
             <sub-events>
-                <variable comment="in seconds how long do player shave" constant="1" name="TURN_TIME" sid="134221275688356" static="1" type="number">5</variable>
-                <comment># start game for now since we dont have any sort of menu</comment>
-                <event-block sid="234770159388075">
+                <variable constant="1" name="PLAYER_MAX_SPEED" sid="655261531245804" static="1" type="number">80</variable>
+                <variable constant="1" name="PLAYER_ACCEL" sid="154912448119858" static="1" type="number">2000</variable>
+                <variable constant="1" name="PLAYER_DECEL" sid="607649357723423" static="1" type="number">2000</variable>
+                <variable constant="1" name="PLAYER_JUMP_STRENGTH" sid="593968603152882" static="1" type="number">150</variable>
+                <variable constant="1" name="PLAYER_GRAVITY" sid="982273801417748" static="1" type="number">500</variable>
+                <variable constant="1" name="PLAYER_MAX_FALLSPEED" sid="748036275241452" static="1" type="number">1000</variable>
+                <event-block sid="912665838948343">
                     <conditions>
-                        <condition id="0" name="On function" sid="280527940556797" type="Function">
-                            <param id="0" name="Name">&quot;start_game&quot;</param>
+                        <condition id="0" name="On function" sid="867627290809519" type="Function">
+                            <param id="0" name="Name">&quot;moveRight&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
+                    <sub-events>
+                        <variable constant="0" name="param0" sid="462585815146033" static="1" type="number">0</variable>
+                        <event-block sid="436612584656584">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="514799247408091" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="636486283023935">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="986261421948617" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="932382606498831" type="player1">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="363854195932171">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="290979239471049" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="189628395298388" type="player2">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
-                <comment>! groups below set to inactive until play_game function is called</comment>
-                <event-group description="" inactive="1" sid="142790266703768" title="game time">
+                <event-block sid="728940476277993">
+                    <conditions>
+                        <condition id="0" name="On function" sid="963192034276596" type="Function">
+                            <param id="0" name="Name">&quot;moveLeft&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
                     <sub-events>
-                        <event-block sid="212370135086701">
+                        <variable constant="0" name="param0" sid="352289501207635" static="1" type="number">0</variable>
+                        <event-block sid="192217506313223">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="797132937882692" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="244085564141838">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="134889709792662" type="System" />
+                                <condition id="-14" name="Compare variable" sid="770858827983314" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Add to" sid="151706125260634" type="System">
-                                    <param id="0" name="Variable">gameTime</param>
-                                    <param id="1" name="Value">1</param>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="985714900929537" type="player1">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="501963375462078">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="157497282935469" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="529618255165209" type="player2">
+                                    <param id="0" name="Control">0</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
-                </event-group>
-                <event-group description="" inactive="1" sid="638577621228308" title="turn timer">
+                </event-block>
+                <event-block sid="468836956267078">
+                    <conditions>
+                        <condition id="0" name="On function" sid="189581168062079" type="Function">
+                            <param id="0" name="Name">&quot;jump&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
                     <sub-events>
-                        <variable constant="0" name="turnTime" sid="559688797604472" static="1" type="number">0</variable>
-                        <event-block sid="882723770367333">
+                        <variable constant="0" name="param0" sid="728810660997438" static="1" type="number">0</variable>
+                        <event-block sid="652739791113966">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="421938373115825" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="371933075607707">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="201540850287573" type="System">
-                                    <param id="0" name="Variable">turnTime</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">0</param>
+                                <condition id="-14" name="Compare variable" sid="323208425172484" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-15" name="Set visible" sid="558780029817383" type="turn_timer">
-                                    <param id="0" name="Visibility">1</param>
-                                </action>
-                                <action id="0" name="Set text" sid="305702779919936" type="turn_timer">
-                                    <param id="0" name="Text">turnTime &amp; &quot;s remaining.&quot;</param>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="140821521749959" type="player1">
+                                    <param id="0" name="Control">2</param>
                                 </action>
                             </actions>
-                            <sub-events>
-                                <comment>update display on screen for player.</comment>
-                                <event-block sid="889389307719660">
-                                    <conditions>
-                                        <condition id="-6" name="Every X seconds" sid="499629911031422" type="System">
-                                            <param id="0" name="Interval (seconds)">1.0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-11" name="Subtract from" sid="648105947404480" type="System">
-                                            <param id="0" name="Variable">turnTime</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
                         </event-block>
-                        <comment># switch to other player</comment>
-                        <event-block sid="710313271092559">
+                        <event-block sid="976697822466303">
                             <conditions>
-                                <condition id="-22" name="Else" sid="941825749307716" type="System" />
+                                <condition id="-22" name="Else" sid="262036239482525" type="System" />
                             </conditions>
                             <actions>
-                                <action id="-15" name="Set visible" sid="981157592473805" type="turn_timer">
-                                    <param id="0" name="Visibility">0</param>
-                                </action>
-                                <action id="0" name="Call function" sid="522398853032328" type="Function">
-                                    <param id="0" name="Name">&quot;reset_turn_timer&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block sid="143804670328612">
-                                    <conditions>
-                                        <condition id="-14" name="Compare variable" sid="564494991034353" type="System">
-                                            <param id="0" name="Variable">playerControl</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="328082450263359" type="System">
-                                            <param id="0" name="Variable">playerControl</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="908974098780552">
-                                    <conditions>
-                                        <condition id="-14" name="Compare variable" sid="960305977497250" type="System">
-                                            <param id="0" name="Variable">playerControl</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">1</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="646686921442804" type="System">
-                                            <param id="0" name="Variable">playerControl</param>
-                                            <param id="1" name="Value">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <comment># reset turn timer at top of screen.</comment>
-                        <event-block sid="848754016039388">
-                            <conditions>
-                                <condition id="0" name="On function" sid="422822676870118" type="Function">
-                                    <param id="0" name="Name">&quot;reset_turn_timer&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="442924922232538" type="System">
-                                    <param id="0" name="Variable">turnTime</param>
-                                    <param id="1" name="Value">TURN_TIME</param>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="567536591722095" type="player2">
+                                    <param id="0" name="Control">2</param>
                                 </action>
                             </actions>
                         </event-block>
                     </sub-events>
-                </event-group>
-                <comment>! end groups to be inactive until play_game called.</comment>
+                </event-block>
+                <event-block sid="743292078808777">
+                    <conditions>
+                        <condition id="0" name="On function" sid="239105628831789" type="Function">
+                            <param id="0" name="Name">&quot;reset_player_movement&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="param0" sid="745157745418621" static="1" type="number">0</variable>
+                        <event-block sid="791056669866979">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="439067924774925" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="232612882755235">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="530262658235069" type="System">
+                                    <param id="0" name="Variable">param0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="1" name="Set max speed" sid="618716079198582" type="player1">
+                                    <param id="0" name="Max Speed">PLAYER_MAX_SPEED</param>
+                                </action>
+                                <action behavior="Platform" id="2" name="Set acceleration" sid="191832266423962" type="player1">
+                                    <param id="0" name="Acceleration">PLAYER_ACCEL</param>
+                                </action>
+                                <action behavior="Platform" id="3" name="Set deceleration" sid="154557670034055" type="player1">
+                                    <param id="0" name="Deceleration">PLAYER_DECEL</param>
+                                </action>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="328102970369026" type="player1">
+                                    <param id="0" name="Jump strength">PLAYER_JUMP_STRENGTH</param>
+                                </action>
+                                <action behavior="Platform" id="5" name="Set gravity" sid="219579816910022" type="player1">
+                                    <param id="0" name="Gravity">PLAYER_GRAVITY</param>
+                                </action>
+                                <action behavior="Platform" id="6" name="Set max fall speed" sid="431440739059301" type="player1">
+                                    <param id="0" name="Max fall speed">PLAYER_MAX_FALLSPEED</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="394261603350378">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="466691455288748" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="1" name="Set max speed" sid="763065894230293" type="player2">
+                                    <param id="0" name="Max Speed">PLAYER_MAX_SPEED</param>
+                                </action>
+                                <action behavior="Platform" id="2" name="Set acceleration" sid="272899194501812" type="player2">
+                                    <param id="0" name="Acceleration">PLAYER_ACCEL</param>
+                                </action>
+                                <action behavior="Platform" id="3" name="Set deceleration" sid="506142855206729" type="player2">
+                                    <param id="0" name="Deceleration">PLAYER_DECEL</param>
+                                </action>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="721414181641351" type="player2">
+                                    <param id="0" name="Jump strength">PLAYER_JUMP_STRENGTH</param>
+                                </action>
+                                <action behavior="Platform" id="5" name="Set gravity" sid="345947394154818" type="player2">
+                                    <param id="0" name="Gravity">PLAYER_GRAVITY</param>
+                                </action>
+                                <action behavior="Platform" id="6" name="Set max fall speed" sid="526270602219246" type="player2">
+                                    <param id="0" name="Max fall speed">PLAYER_MAX_FALLSPEED</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="156228579200905">
+        <event-block sid="564921290341585">
             <conditions>
-                <condition id="-2" name="On start of layout" sid="459202163420127" type="System" />
+                <condition id="-2" name="On start of layout" sid="817533741991070" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="369454143659305" type="Function">
-                    <param id="0" name="Name">&quot;start_game&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="0" name="Call function" sid="455389286135388" type="Function">
+                    <param id="0" name="Name">&quot;reset_player_movement&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;p1&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="676109800962711" type="Function">
+                    <param id="0" name="Name">&quot;reset_player_movement&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;p2&quot;</param>
                 </action>
             </actions>
         </event-block>
-        <event-group description="camera object functions events" sid="257502997194143" title="camera obj">
-            <sub-events>
-                <comment>disable this group if youd like to turn off camera tracking.</comment>
-                <event-group description="" sid="412329274548944" title="auto camera">
-                    <sub-events>
-                        <event-block sid="406559647097704">
-                            <conditions />
-                            <actions />
-                        </event-block>
-                    </sub-events>
-                </event-group>
-                <event-group description="" sid="808361455015119" title="camera functions">
-                    <sub-events>
-                        <event-block sid="601636437910208">
-                            <conditions />
-                            <actions />
-                        </event-block>
-                    </sub-events>
-                </event-group>
-            </sub-events>
-        </event-group>
     </events>
 </c2eventsheet>
