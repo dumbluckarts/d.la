@@ -380,8 +380,8 @@
     <families />
     <layout-folder>
         <layout>menu.xml</layout>
-        <layout>Layout 1.xml</layout>
-        <layout>Layout 2.xml</layout>
+        <layout>level1.xml</layout>
+        <layout>level2.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet># common.xml</event-sheet>
