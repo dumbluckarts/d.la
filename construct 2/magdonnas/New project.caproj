@@ -13,6 +13,7 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="XML" version="1">XML</plugin>
@@ -22,7 +23,9 @@
         <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="inverse">Inverse</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -49,7 +52,49 @@
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
     <object-folder>
-        <object-folder name="# hud and display" />
+        <object-folder name="# hud and display">
+            <object-type name="p1text" sid="192372678974794">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="943223541745391" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="p2text" sid="938401319636945">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="480326022878687" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="scorefont" sid="974768165986044">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="Inverse">
+                        <effect id="inverse" />
+                    </effect-type>
+                </effects>
+                <texture />
+            </object-type>
+            <object-type name="play_button" sid="273875399540964">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="696340261037729" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="play_button2" sid="896632343138379">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="889804964291896" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-folder name="# input and output">
             <object-type name="Keyboard" sid="527807612885092">
                 <plugin id="Keyboard" />
@@ -86,6 +131,16 @@
                     </tile>
                 </tiles>
             </object-type>
+            <object-type name="tm_noahtexturesplusnel" sid="781583731979527">
+                <plugin id="Tilemap" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="562818350324927">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+                <tiles />
+            </object-type>
         </object-folder>
         <object-folder name="# triggers" />
         <object-folder name="characters">
@@ -103,34 +158,28 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381252359254348" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\red.png">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
                                 <point x="0.685547" y="0.189453" />
                                 <point x="0.685547" y="1" />
                                 <point x="0.375" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.375" y="0.1875" />
                             </collision-poly>
                         </frame>
                     </animation>
                     <animation framecount="2" loop="0" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="778374623307386" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
                                 <point x="0.685547" y="0.189453" />
                                 <point x="0.685547" y="1" />
                                 <point x="0.375" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.375" y="0.1875" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
                                 <point x="0.685547" y="0.189453" />
                                 <point x="0.685547" y="1" />
                                 <point x="0.375" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.375" y="0.1875" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -150,54 +199,44 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393574452469439" speed="5">
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
+                                <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.378906" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.25" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
                     <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="617832404064653" speed="10">
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
+                                <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.378906" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.25" y="1" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
+                                <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.378906" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.25" y="1" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
+                                <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.378906" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.25" y="1" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
                             <collision-poly>
-                                <point x="0.5" y="0.5" />
-                                <point x="0.5" y="0.1875" />
+                                <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.378906" y="1" />
-                                <point x="0.375" y="0.5" />
+                                <point x="0.25" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -205,10 +244,6 @@
             </object-type>
         </object-folder>
         <object-folder name="objects">
-            <object-type name="obj_spikes" sid="527216009629151">
-                <plugin id="TiledBg" />
-                <texture />
-            </object-type>
             <object-type name="obj_door" sid="934374295510890">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -286,13 +321,13 @@
             <object-type name="locked_door" sid="135308869017817">
                 <plugin id="Sprite" />
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="869912506092031" speed="5">
+                    <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="869912506092031" speed="5">
                         <frame duration="1" hotspotX="0" hotspotY="0">
                             <collision-poly>
-                                <point x="0" y="0" />
-                                <point x="0.5" y="0" />
-                                <point x="0.5" y="0.75" />
-                                <point x="0" y="0.75" />
+                                <point x="0.25" y="0.125" />
+                                <point x="0.8125" y="0.125" />
+                                <point x="0.8125" y="1" />
+                                <point x="0.25" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -306,7 +341,7 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="270689800713437" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.428571" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -318,16 +353,35 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="blue_spikes2" sid="240373622850050">
+            <object-type name="red_spikes" sid="240373622850050">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="spikes" sid="253277048000279">
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
         </object-folder>
-        <object-folder name="sprites" />
+        <object-folder name="sprites">
+            <object-type name="swirlyvines" sid="651023444319996">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="plantguy" sid="377386353839406">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="683341805352526" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
     </object-folder>
     <families />
     <layout-folder>
+        <layout>menu.xml</layout>
         <layout>Layout 1.xml</layout>
+        <layout>Layout 2.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet># common.xml</event-sheet>
