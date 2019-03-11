@@ -94,6 +94,15 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="player_died" sid="970633502607642">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="Inverse">
+                        <effect id="inverse" />
+                    </effect-type>
+                </effects>
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="# input and output">
             <object-type name="Keyboard" sid="527807612885092">
@@ -158,8 +167,8 @@
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381252359254348" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\red.png">
                             <collision-poly>
-                                <point x="0.685547" y="0.189453" />
-                                <point x="0.685547" y="1" />
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -197,12 +206,12 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393574452469439" speed="5">
-                        <frame duration="1" hotspotX="0.375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
                             <collision-poly>
-                                <point x="0.25" y="0.1875" />
+                                <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.25" y="1" />
+                                <point x="0.1875" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -377,7 +386,17 @@
             </object-type>
         </object-folder>
     </object-folder>
-    <families />
+    <families>
+        <family name="players" plugin-id="Sprite" sid="786555140864415">
+            <members>
+                <member>player1</member>
+                <member>player2</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="ableToMove" sid="282580544373766" type="boolean" />
+            </instance-variables>
+        </family>
+    </families>
     <layout-folder>
         <layout>menu.xml</layout>
         <layout>level1.xml</layout>
