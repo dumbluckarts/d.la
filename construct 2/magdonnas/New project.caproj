@@ -76,7 +76,15 @@
                     </behavior-type>
                 </behaviors>
                 <texture original-source="C:\Users\Noah\Desktop\tiolemap.png" />
-                <tiles />
+                <tiles>
+                    <tile id="66">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                </tiles>
             </object-type>
         </object-folder>
         <object-folder name="# triggers" />
@@ -201,74 +209,121 @@
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
+            <object-type name="obj_door" sid="934374295510890">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="436877301128378" speed="5">
+                        <frame duration="1" hotspotX="0.625" hotspotY="0.5625" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Button_1" sid="515868044110994">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="902154063870487" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="501473900364922" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Button_2" sid="111348114566133">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="578252970590300" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="411126175834919" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Elevator_1" sid="756799749150550">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="CustomMovement" sid="420657655959884">
+                        <behavior id="custom" />
+                    </behavior-type>
+                    <behavior-type name="Solid" sid="802103799126790">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="847052471984454" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0" y="0.6875" />
+                                <point x="1" y="0.6875" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Door_Red" sid="612232522765947">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="289085568018436" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="RedBarrier" sid="804671479062014">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="CustomMovement" sid="473694751823661">
+                        <behavior id="custom" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577882039035052" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="locked_door" sid="135308869017817">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="869912506092031" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="0.5" y="0" />
+                                <point x="0.5" y="0.75" />
+                                <point x="0" y="0.75" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="blue_spikes" sid="933490813976005">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="gold_ley" sid="697705788838907">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="270689800713437" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="gold_ley2" sid="740813733246105">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="512226462422920" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="blue_spikes2" sid="240373622850050">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="sprites" />
-        <object-type name="Button_1" sid="515868044110994">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="902154063870487" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="501473900364922" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Elevator_1" sid="756799749150550">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="CustomMovement" sid="420657655959884">
-                    <behavior id="custom" />
-                </behavior-type>
-                <behavior-type name="Solid" sid="802103799126790">
-                    <behavior id="solid" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="847052471984454" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <collision-poly>
-                            <point x="0" y="0.6875" />
-                            <point x="1" y="0.6875" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Button_2" sid="111348114566133">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="578252970590300" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="411126175834919" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="RedBarrier" sid="804671479062014">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="CustomMovement" sid="473694751823661">
-                    <behavior id="custom" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577882039035052" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Door_Red" sid="612232522765947">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="289085568018436" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
     </object-folder>
     <families />
     <layout-folder>

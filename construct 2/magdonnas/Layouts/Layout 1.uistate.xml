@@ -4,18 +4,18 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>212.96</position-x>
-        <position-y>112.31</position-y>
-        <position-z>26.3331</position-z>
-        <lookat-x>212.96</lookat-x>
-        <lookat-y>112.31</lookat-y>
+        <position-x>196.491</position-x>
+        <position-y>109.956</position-y>
+        <position-z>21.7629</position-z>
+        <lookat-x>196.491</lookat-x>
+        <lookat-y>109.956</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
     <show-grid>0</show-grid>
     <snap-width>8</snap-width>
     <snap-height>8</snap-height>
-    <show-collision-polys>1</show-collision-polys>
+    <show-collision-polys>0</show-collision-polys>
     <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>
         <property expanded="1" name="Layout properties" />
@@ -23,7 +23,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="max parallax" />
+    <active-layer name="foreground" />
     <layers>
         <layer locked="0" name="max parallax" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="background" parallax-in-editor="0" visible="1" />
