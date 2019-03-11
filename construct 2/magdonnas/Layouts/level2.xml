@@ -189,17 +189,18 @@
                     </properties>
                     <instance-variables>
                         <ableToMove>true</ableToMove>
+                        <direction>right</direction>
                         <hasKey>false</hasKey>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
                             <properties>
-                                <max-speed>330</max-speed>
-                                <acceleration>1500</acceleration>
-                                <deceleration>1500</deceleration>
-                                <jump-strength>650</jump-strength>
-                                <gravity>1500</gravity>
-                                <max-fall-speed>1000</max-fall-speed>
+                                <max-speed>0</max-speed>
+                                <acceleration>0</acceleration>
+                                <deceleration>0</deceleration>
+                                <jump-strength>0</jump-strength>
+                                <gravity>0</gravity>
+                                <max-fall-speed>0</max-fall-speed>
                                 <double-jump>Disabled</double-jump>
                                 <jump-sustain>0</jump-sustain>
                                 <default-controls>No</default-controls>
@@ -236,17 +237,18 @@
                     </properties>
                     <instance-variables>
                         <ableToMove>true</ableToMove>
+                        <direction>right</direction>
                         <hasKey>false</hasKey>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
                             <properties>
-                                <max-speed>80</max-speed>
-                                <acceleration>900</acceleration>
-                                <deceleration>900</deceleration>
-                                <jump-strength>150</jump-strength>
-                                <gravity>500</gravity>
-                                <max-fall-speed>1000</max-fall-speed>
+                                <max-speed>0</max-speed>
+                                <acceleration>0</acceleration>
+                                <deceleration>0</deceleration>
+                                <jump-strength>0</jump-strength>
+                                <gravity>0</gravity>
+                                <max-fall-speed>0</max-fall-speed>
                                 <double-jump>Disabled</double-jump>
                                 <jump-sustain>0</jump-sustain>
                                 <default-controls>No</default-controls>
@@ -269,7 +271,7 @@
                         <height>16</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotY>0.4375</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

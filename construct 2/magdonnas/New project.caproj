@@ -168,17 +168,9 @@
                 <instance-variables>
                     <instance-variable name="hasKey" sid="719187487290947" type="boolean" />
                 </instance-variables>
-                <behaviors>
-                    <behavior-type name="Platform" sid="169897007900841">
-                        <behavior id="Platform" />
-                    </behavior-type>
-                    <behavior-type name="Solid" sid="686040105747095">
-                        <behavior id="solid" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381252359254348" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\red.png">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375" original-source="C:\Users\Noah\Desktop\red.png">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
@@ -190,42 +182,108 @@
                         </frame>
                     </animation>
                     <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="0" repeatto="0" sid="778374623307386" speed="10">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
-                                <point x="0.685547" y="0.189453" />
-                                <point x="0.685547" y="1" />
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
-                                <point x="0.685547" y="0.189453" />
-                                <point x="0.685547" y="1" />
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
-                                <point x="0.685547" y="0.189453" />
-                                <point x="0.685547" y="1" />
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
-                                <point x="0.685547" y="0.189453" />
-                                <point x="0.685547" y="1" />
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="2" loop="0" name="Land" pingpong="0" repeatcount="1" repeatto="0" sid="239454159559340" speed="7">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="3" loop="0" name="Fall" pingpong="0" repeatcount="1" repeatto="0" sid="934409695534782" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="920960570415619" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.4375">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.625" y="0.189453" />
+                                <point x="0.625" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -238,14 +296,6 @@
                 <instance-variables>
                     <instance-variable name="hasKey" sid="430421714823970" type="boolean" />
                 </instance-variables>
-                <behaviors>
-                    <behavior-type name="Platform" sid="439597676870217">
-                        <behavior id="Platform" />
-                    </behavior-type>
-                    <behavior-type name="Solid" sid="862793327777226">
-                        <behavior id="solid" />
-                    </behavior-type>
-                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393574452469439" speed="5">
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
@@ -260,44 +310,44 @@
                         </frame>
                     </animation>
                     <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="617832404064653" speed="10">
-                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
-                                <point x="0.25" y="0.1875" />
+                                <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.25" y="1" />
+                                <point x="0.1875" y="1" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
-                                <point x="0.25" y="0.1875" />
+                                <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.25" y="1" />
+                                <point x="0.1875" y="1" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
-                                <point x="0.25" y="0.1875" />
+                                <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.25" y="1" />
+                                <point x="0.1875" y="1" />
                             </collision-poly>
                         </frame>
-                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
-                                <point x="0.25" y="0.1875" />
+                                <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
                                 <point x="0.6875" y="1" />
-                                <point x="0.25" y="1" />
+                                <point x="0.1875" y="1" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -474,7 +524,16 @@
             </members>
             <instance-variables>
                 <instance-variable name="ableToMove" sid="282580544373766" type="boolean" />
+                <instance-variable name="direction" sid="176189942026559" type="string" />
             </instance-variables>
+            <behaviors>
+                <behavior-type name="Platform" sid="777371260136764">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="937343829623547">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
         </family>
     </families>
     <layout-folder>
