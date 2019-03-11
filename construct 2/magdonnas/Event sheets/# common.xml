@@ -42,6 +42,9 @@
                                 <action behavior="Platform" id="7" name="Simulate control" sid="932382606498831" type="player1">
                                     <param id="0" name="Control">1</param>
                                 </action>
+                                <action id="7" name="Set mirrored" sid="267945813430592" type="player1">
+                                    <param id="0" name="State">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="363854195932171">
@@ -51,6 +54,13 @@
                             <actions>
                                 <action behavior="Platform" id="7" name="Simulate control" sid="189628395298388" type="player2">
                                     <param id="0" name="Control">1</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="700206690232104" type="player2">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="655678592748771" type="player2">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -86,6 +96,9 @@
                                 <action behavior="Platform" id="7" name="Simulate control" sid="985714900929537" type="player1">
                                     <param id="0" name="Control">0</param>
                                 </action>
+                                <action id="7" name="Set mirrored" sid="958297849362733" type="player1">
+                                    <param id="0" name="State">0</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="501963375462078">
@@ -95,6 +108,13 @@
                             <actions>
                                 <action behavior="Platform" id="7" name="Simulate control" sid="529618255165209" type="player2">
                                     <param id="0" name="Control">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="612363657993033" type="player2">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="627872451323368" type="player2">
+                                    <param id="0" name="Animation">&quot;Run&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -218,6 +238,28 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="914964049901223">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="398596472438686" type="player2" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="775483212225254" type="player2">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="135463473056151">
+                    <conditions>
+                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="939658799229109" type="player1" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="795372411333671" type="player1">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-block sid="564921290341585">
@@ -232,6 +274,86 @@
                 <action id="0" name="Call function" sid="676109800962711" type="Function">
                     <param id="0" name="Name">&quot;reset_player_movement&quot;</param>
                     <param id="1" name="Parameter {n}">&quot;p2&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="765823677289854">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="830583740606513" type="player2">
+                    <param id="0" name="Object">Button_1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="634152088649185" type="Button_1">
+                    <param id="0" name="Animation">&quot;Down&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="509992959395455" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="116108301937149" type="Elevator_1">
+                    <param id="0" name="Acceleration">40</param>
+                    <param id="1" name="X">104</param>
+                    <param id="2" name="Y">101</param>
+                </action>
+                <action id="-16" name="Wait" sid="352115523511422" type="System">
+                    <param id="0" name="Seconds">1.7</param>
+                </action>
+                <action behavior="CustomMovement" id="12" name="Set enabled" sid="674588342074116" type="Elevator_1">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="312024819720294">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="693882474647721" type="player1">
+                    <param id="0" name="Object">Button_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="734787815096488" type="Button_2">
+                    <param id="0" name="Animation">&quot;Down&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="110559559336424" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="967155024352175" type="RedBarrier">
+                    <param id="0" name="Acceleration">60</param>
+                    <param id="1" name="X">292</param>
+                    <param id="2" name="Y">128</param>
+                </action>
+                <action id="-16" name="Wait" sid="281771678705535" type="System">
+                    <param id="0" name="Seconds">0.9</param>
+                </action>
+                <action behavior="CustomMovement" id="12" name="Set enabled" sid="432640465118609" type="RedBarrier">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="717013790597534">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="151231284487771" type="player1">
+                    <param id="0" name="Object">Button_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="475134603249824" type="Button_2">
+                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="742124189396375">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="590894414226817" type="player2">
+                    <param id="0" name="Object">Button_1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="332238381990877" type="Button_1">
+                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                    <param id="1" name="From">1</param>
                 </action>
             </actions>
         </event-block>

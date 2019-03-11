@@ -19,6 +19,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
@@ -74,7 +75,7 @@
                         <behavior id="solid" />
                     </behavior-type>
                 </behaviors>
-                <texture />
+                <texture original-source="C:\Users\Noah\Desktop\tiolemap.png" />
                 <tiles />
             </object-type>
         </object-folder>
@@ -92,7 +93,38 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381252359254348" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\red.png">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.685547" y="0.189453" />
+                                <point x="0.685547" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="2" loop="0" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="778374623307386" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.685547" y="0.189453" />
+                                <point x="0.685547" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.685547" y="0.189453" />
+                                <point x="0.685547" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -108,7 +140,58 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393574452469439" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.378906" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="617832404064653" speed="10">
+                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.378906" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.378906" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.378906" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.5" y="0.5" />
+                                <point x="0.5" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.378906" y="1" />
+                                <point x="0.375" y="0.5" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -120,6 +203,72 @@
             </object-type>
         </object-folder>
         <object-folder name="sprites" />
+        <object-type name="Button_1" sid="515868044110994">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="902154063870487" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="501473900364922" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Elevator_1" sid="756799749150550">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="CustomMovement" sid="420657655959884">
+                    <behavior id="custom" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="802103799126790">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="847052471984454" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.6875" />
+                            <point x="1" y="0.6875" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Button_2" sid="111348114566133">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="578252970590300" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="411126175834919" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="RedBarrier" sid="804671479062014">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="CustomMovement" sid="473694751823661">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577882039035052" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Door_Red" sid="612232522765947">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="289085568018436" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
