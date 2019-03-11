@@ -10,15 +10,20 @@
     <unique-id>1uo1cvfgyb2w8</unique-id>
     <saved-with-version>26600</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Scirra" id="XML" version="1">XML</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -56,7 +61,8 @@
             <object-type name="p1text" sid="192372678974794">
                 <plugin id="Sprite" />
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="943223541745391" speed="5">
+                    <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="943223541745391" speed="3">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -64,7 +70,8 @@
             <object-type name="p2text" sid="938401319636945">
                 <plugin id="Sprite" />
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="480326022878687" speed="5">
+                    <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="480326022878687" speed="3">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -82,6 +89,9 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="696340261037729" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Press" pingpong="0" repeatcount="1" repeatto="0" sid="418791190411746" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
                     </animation>
                 </animation-folder>
@@ -155,6 +165,9 @@
         <object-folder name="characters">
             <object-type name="player1" sid="182993421714756">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="hasKey" sid="719187487290947" type="boolean" />
+                </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="169897007900841">
                         <behavior id="Platform" />
@@ -166,6 +179,8 @@
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381252359254348" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\red.png">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
                                 <point x="0.625" y="0.189453" />
                                 <point x="0.625" y="1" />
@@ -174,8 +189,10 @@
                             </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="2" loop="0" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="778374623307386" speed="5">
+                    <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="0" repeatto="0" sid="778374623307386" speed="10">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
                                 <point x="0.685547" y="0.189453" />
                                 <point x="0.685547" y="1" />
@@ -184,6 +201,28 @@
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.685547" y="0.189453" />
+                                <point x="0.685547" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <collision-poly>
+                                <point x="0.685547" y="0.189453" />
+                                <point x="0.685547" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
                             <collision-poly>
                                 <point x="0.685547" y="0.189453" />
                                 <point x="0.685547" y="1" />
@@ -196,6 +235,9 @@
             </object-type>
             <object-type name="player2" sid="980777863899948">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="hasKey" sid="430421714823970" type="boolean" />
+                </instance-variables>
                 <behaviors>
                     <behavior-type name="Platform" sid="439597676870217">
                         <behavior id="Platform" />
@@ -207,6 +249,8 @@
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393574452469439" speed="5">
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -217,6 +261,8 @@
                     </animation>
                     <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="617832404064653" speed="10">
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
                                 <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -225,6 +271,8 @@
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
                                 <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -233,6 +281,8 @@
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
                                 <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -241,6 +291,8 @@
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
                             <collision-poly>
                                 <point x="0.25" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -340,6 +392,16 @@
                             </collision-poly>
                         </frame>
                     </animation>
+                    <animation framecount="1" loop="1" name="Unlocked" pingpong="0" repeatcount="0" repeatto="0" sid="748356768552790" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.25" y="0.125" />
+                                <point x="0.8125" y="0.125" />
+                                <point x="0.8125" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
                 </animation-folder>
             </object-type>
             <object-type name="blue_spikes" sid="933490813976005">
@@ -348,6 +410,11 @@
             </object-type>
             <object-type name="gold_ley" sid="697705788838907">
                 <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Physics" sid="981405810518989">
+                        <behavior id="Physics" />
+                    </behavior-type>
+                </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="270689800713437" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.428571" />
@@ -385,6 +452,19 @@
                 </animation-folder>
             </object-type>
         </object-folder>
+        <object-type name="Red_Death" sid="984364666632153">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="Audio" sid="123648382480352">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="Touch" sid="334107175091870">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="Mouse" sid="500537519316210">
+            <plugin id="Mouse" />
+        </object-type>
     </object-folder>
     <families>
         <family name="players" plugin-id="Sprite" sid="786555140864415">
@@ -407,14 +487,51 @@
         <event-sheet># controls.xml</event-sheet>
         <event-sheet># dev tools.xml</event-sheet>
         <event-sheet># enemies.xml</event-sheet>
-        <event-sheet>Layout 1 sheet.xml</event-sheet>
+        <event-sheet>Level1 Events.xml</event-sheet>
+        <event-sheet>Menu.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="0" />
         <global-instance type="Function" uid="2" />
+        <global-instance type="Audio" uid="47">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="Touch" uid="50">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Mouse" uid="51" />
     </global-instances>
-    <sounds-folder />
-    <music-folder />
+    <sounds-folder>
+        <file name="splode.m4a" />
+        <file name="splode.ogg" />
+        <file name="elevator.m4a" />
+        <file name="elevator.ogg" />
+        <file name="death.m4a" />
+        <file name="death.ogg" />
+        <file name="hasKey.m4a" />
+        <file name="hasKey.ogg" />
+        <file name="jump.m4a" />
+        <file name="jump.ogg" />
+    </sounds-folder>
+    <music-folder>
+        <file name="SongJuanIntro.m4a" />
+        <file name="SongJuanIntro.ogg" />
+        <file name="SongJuanLoop.m4a" />
+        <file name="SongJuanLoop.ogg" />
+    </music-folder>
     <files-folder>
         <file-folder name="Icons">
             <file name="icon-16.png" />
