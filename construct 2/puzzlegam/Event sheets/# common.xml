@@ -821,6 +821,65 @@
         </event-group>
         <event-group description="functions to all game related objects" sid="461257620727156" title="game obj(s)">
             <sub-events>
+                <comment>set score</comment>
+                <event-block sid="972242198203609">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Set text" sid="325869739936279" type="scorefont">
+                            <param id="0" name="Text">&quot;score: &quot; &amp; score</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="618392882700411">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="984083747166784" type="gold_key">
+                            <param id="0" name="Object">locked_door</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="981525222916205" type="locked_door">
+                            <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="890628080915936" type="gold_key" />
+                        <action id="4" name="Set animation" sid="357937235937537" type="locked_door">
+                            <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="900087372517276" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">100</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="428018582700428">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="101845621802757" type="gold_key">
+                                    <param id="0" name="Instance variable">key_timer</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">30</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="342985786007287" type="System">
+                                    <param id="0" name="Variable">score</param>
+                                    <param id="1" name="Value">1000</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="467806455499009" type="locked_door">
+                                    <param id="0" name="Animation">&quot;plus100&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="930251472352945" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="815237058393477" type="locked_door">
+                                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="936361029919602">
                     <conditions>
                         <condition id="1" name="Is overlapping another object" sid="779362081645455" type="player2">
@@ -1162,64 +1221,5 @@
                 </event-group>
             </sub-events>
         </event-group>
-        <event-block sid="618392882700411">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="984083747166784" type="gold_key">
-                    <param id="0" name="Object">locked_door</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="981525222916205" type="locked_door">
-                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="-9" name="Destroy" sid="890628080915936" type="gold_key" />
-                <action id="4" name="Set animation" sid="357937235937537" type="locked_door">
-                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="-10" name="Add to" sid="900087372517276" type="System">
-                    <param id="0" name="Variable">score</param>
-                    <param id="1" name="Value">100</param>
-                </action>
-            </actions>
-            <sub-events>
-                <event-block sid="428018582700428">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="101845621802757" type="gold_key">
-                            <param id="0" name="Instance variable">key_timer</param>
-                            <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Value">30</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-10" name="Add to" sid="342985786007287" type="System">
-                            <param id="0" name="Variable">score</param>
-                            <param id="1" name="Value">1000</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="467806455499009" type="locked_door">
-                            <param id="0" name="Animation">&quot;plus100&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                        <action id="-16" name="Wait" sid="930251472352945" type="System">
-                            <param id="0" name="Seconds">1</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="815237058393477" type="locked_door">
-                            <param id="0" name="Animation">&quot;Unlocked&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <comment>set score</comment>
-        <event-block sid="972242198203609">
-            <conditions />
-            <actions>
-                <action id="0" name="Set text" sid="325869739936279" type="scorefont">
-                    <param id="0" name="Text">&quot;score: &quot; &amp; score</param>
-                </action>
-            </actions>
-        </event-block>
     </events>
 </c2eventsheet>
