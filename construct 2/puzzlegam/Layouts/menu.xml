@@ -2,7 +2,7 @@
 <c2layout>
     <name>menu</name>
     <sid>118645562421915</sid>
-    <event-sheet>Menu</event-sheet>
+    <event-sheet># menu sheet</event-sheet>
     <size>
         <width>384</width>
         <height>216</height>
@@ -104,8 +104,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>0</x>
-                        <y>24</y>
+                        <x>-8</x>
+                        <y>0</y>
                         <z>0</z>
                         <width>384</width>
                         <height>216</height>
@@ -162,6 +162,28 @@
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.722222209</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="blu" uid="52">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>264</x>
+                        <y>112</y>
+                        <z>0</z>
+                        <width>128</width>
+                        <height>128</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

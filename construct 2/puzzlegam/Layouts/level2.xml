@@ -2,7 +2,7 @@
 <c2layout>
     <name>level2</name>
     <sid>839526504754713</sid>
-    <event-sheet># common</event-sheet>
+    <event-sheet></event-sheet>
     <size>
         <width>384</width>
         <height>216</height>
@@ -189,7 +189,7 @@
                     </properties>
                     <instance-variables>
                         <ableToMove>true</ableToMove>
-                        <direction>right</direction>
+                        <direction>&quot;right&quot;</direction>
                         <hasKey>false</hasKey>
                     </instance-variables>
                     <behavior-instances>
@@ -237,7 +237,7 @@
                     </properties>
                     <instance-variables>
                         <ableToMove>true</ableToMove>
-                        <direction>right</direction>
+                        <direction>&quot;right&quot;</direction>
                         <hasKey>false</hasKey>
                     </instance-variables>
                     <behavior-instances>
@@ -271,7 +271,7 @@
                         <height>16</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.4375</hotspotY>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -416,6 +416,19 @@
                                 <angular-damping>0.01</angular-damping>
                                 <bullet>No</bullet>
                                 <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Horizontal</movement>
+                                <wave>Sine</wave>
+                                <period>4</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>50</magnitude>
+                                <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>

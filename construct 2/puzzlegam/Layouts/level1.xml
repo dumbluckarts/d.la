@@ -2,7 +2,7 @@
 <c2layout>
     <name>level1</name>
     <sid>638124419573360</sid>
-    <event-sheet>Level1 Events</event-sheet>
+    <event-sheet>level1 sheet</event-sheet>
     <size>
         <width>384</width>
         <height>216</height>
@@ -118,7 +118,7 @@
                     </properties>
                     <instance-variables>
                         <ableToMove>true</ableToMove>
-                        <direction>right</direction>
+                        <direction>&quot;right&quot;</direction>
                         <hasKey>false</hasKey>
                     </instance-variables>
                     <behavior-instances>
@@ -152,7 +152,7 @@
                         <height>16</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.4375</hotspotY>
+                        <hotspotY>0.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -166,7 +166,7 @@
                     </properties>
                     <instance-variables>
                         <ableToMove>true</ableToMove>
-                        <direction>right</direction>
+                        <direction>&quot;right&quot;</direction>
                         <hasKey>false</hasKey>
                     </instance-variables>
                     <behavior-instances>
@@ -225,6 +225,19 @@
                                 <angular-damping>0.01</angular-damping>
                                 <bullet>Yes</bullet>
                                 <initial-state>Disabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Sine">
+                            <properties>
+                                <active-on-start>Yes</active-on-start>
+                                <movement>Vertical</movement>
+                                <wave>Sine</wave>
+                                <period>3</period>
+                                <period-random>0</period-random>
+                                <period-offset>0</period-offset>
+                                <period-offset-random>0</period-offset-random>
+                                <magnitude>1</magnitude>
+                                <magnitude-random>0</magnitude-random>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
