@@ -12,6 +12,12 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="0" name="Play" sid="379268679844316" type="Audio">
+                    <param id="0" name="Audio file">click</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
                 <action id="4" name="Set animation" sid="204409231547022" type="play_button">
                     <param id="0" name="Animation">&quot;Press&quot;</param>
                     <param id="1" name="From">1</param>

@@ -2,7 +2,7 @@
 <c2layout>
     <name>level2</name>
     <sid>839526504754713</sid>
-    <event-sheet></event-sheet>
+    <event-sheet>Level2 sheet</event-sheet>
     <size>
         <width>384</width>
         <height>216</height>
@@ -191,6 +191,7 @@
                         <ableToMove>true</ableToMove>
                         <direction>&quot;right&quot;</direction>
                         <hasKey>false</hasKey>
+                        <teleporting>false</teleporting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -239,6 +240,7 @@
                         <ableToMove>true</ableToMove>
                         <direction>&quot;right&quot;</direction>
                         <hasKey>false</hasKey>
+                        <teleporting>false</teleporting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -306,8 +308,8 @@
                         <width>16</width>
                         <height>16</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

@@ -169,6 +169,7 @@
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="hasKey" sid="719187487290947" type="boolean" />
+                    <instance-variable name="teleporting" sid="827333860154775" type="boolean" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381252359254348" speed="5">
@@ -301,6 +302,7 @@
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="hasKey" sid="430421714823970" type="boolean" />
+                    <instance-variable name="teleporting" sid="461370661358815" type="boolean" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393574452469439" speed="5">
@@ -357,6 +359,62 @@
                             </collision-poly>
                         </frame>
                     </animation>
+                    <animation framecount="2" loop="0" name="Land" pingpong="0" repeatcount="1" repeatto="0" sid="478430226776505" speed="5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="2" loop="0" name="Fall" pingpong="0" repeatcount="1" repeatto="0" sid="453048866066557" speed="5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="765684704720528" speed="5">
+                        <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
+                            <image-point name="P2" x="0.625" y="-0.5625" />
+                            <image-point name="Key" x="1.125" y="0.4375" />
+                            <collision-poly>
+                                <point x="0.1875" y="0.1875" />
+                                <point x="0.683594" y="0.1875" />
+                                <point x="0.6875" y="1" />
+                                <point x="0.1875" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
                 </animation-folder>
             </object-type>
         </object-folder>
@@ -376,7 +434,7 @@
                         <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                     <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="501473900364922" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -387,7 +445,7 @@
                         <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                     <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="411126175834919" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -403,7 +461,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="847052471984454" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <frame duration="1" hotspotX="0" hotspotY="0">
                             <collision-poly>
                                 <point x="0" y="0.6875" />
                                 <point x="1" y="0.6875" />
@@ -542,6 +600,59 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="redd" sid="198227943824836">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526119927853033" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\redd.png">
+                        <collision-poly>
+                            <point x="0.109375" y="0.109375" />
+                            <point x="0.5" y="0.15625" />
+                            <point x="0.554688" y="0.445313" />
+                            <point x="0.554688" y="0.554688" />
+                            <point x="0.5" y="0.789063" />
+                            <point x="0.203125" y="0.796875" />
+                            <point x="0.226563" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="decor_tm" sid="142069925390152">
+            <plugin id="Tilemap" />
+            <texture />
+            <tiles />
+        </object-type>
+        <object-type name="portal" sid="617057327606568">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="233280203336315" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="portal2" sid="823969964466961">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="697631332869341" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="red_lever" sid="558044775494679">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="951069963726675" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="2" loop="0" name="Lever" pingpong="0" repeatcount="1" repeatto="0" sid="588838585912456" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="players" plugin-id="Sprite" sid="786555140864415">
@@ -567,6 +678,7 @@
         <layout>menu.xml</layout>
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
+        <layout>level3.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet># controls.xml</event-sheet>
@@ -575,6 +687,8 @@
         <event-sheet>level1 sheet.xml</event-sheet>
         <event-sheet># menu sheet.xml</event-sheet>
         <event-sheet># common.xml</event-sheet>
+        <event-sheet>Level2 sheet.xml</event-sheet>
+        <event-sheet>Level3 sheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="0" />
@@ -603,14 +717,26 @@
     <sounds-folder>
         <file name="splode.m4a" />
         <file name="splode.ogg" />
-        <file name="elevator.m4a" />
-        <file name="elevator.ogg" />
         <file name="death.m4a" />
         <file name="death.ogg" />
         <file name="hasKey.m4a" />
         <file name="hasKey.ogg" />
         <file name="jump.m4a" />
         <file name="jump.ogg" />
+        <file name="button (1).m4a" />
+        <file name="button (1).ogg" />
+        <file name="stepsexit.m4a" />
+        <file name="stepsexit.ogg" />
+        <file name="trap.m4a" />
+        <file name="trap.ogg" />
+        <file name="dip.m4a" />
+        <file name="dip.ogg" />
+        <file name="click.m4a" />
+        <file name="click.ogg" />
+        <file name="Portal.m4a" />
+        <file name="Portal.ogg" />
+        <file name="elevatorup.m4a" />
+        <file name="elevatorup.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="SongJuanIntro.m4a" />

@@ -498,16 +498,8 @@
                                 <action id="-16" name="Wait" sid="760638589218248" type="System">
                                     <param id="0" name="Seconds">1.0</param>
                                 </action>
-                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="252123166910279" type="Elevator_1">
-                                    <param id="0" name="Acceleration">40</param>
-                                    <param id="1" name="X">104</param>
-                                    <param id="2" name="Y">101</param>
-                                </action>
                                 <action id="-16" name="Wait" sid="235260620453698" type="System">
                                     <param id="0" name="Seconds">1.7</param>
-                                </action>
-                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="464391309460141" type="Elevator_1">
-                                    <param id="0" name="State">0</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -521,20 +513,6 @@
                                 <action id="4" name="Set animation" sid="574592431569287" type="Button_2">
                                     <param id="0" name="Animation">&quot;Down&quot;</param>
                                     <param id="1" name="From">1</param>
-                                </action>
-                                <action id="-16" name="Wait" sid="294469951275822" type="System">
-                                    <param id="0" name="Seconds">1.0</param>
-                                </action>
-                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="969944941738313" type="RedBarrier">
-                                    <param id="0" name="Acceleration">60</param>
-                                    <param id="1" name="X">292</param>
-                                    <param id="2" name="Y">128</param>
-                                </action>
-                                <action id="-16" name="Wait" sid="523027006483077" type="System">
-                                    <param id="0" name="Seconds">0.9</param>
-                                </action>
-                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="546134966391766" type="RedBarrier">
-                                    <param id="0" name="State">0</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -636,20 +614,6 @@
                                     <param id="0" name="Animation">&quot;Down&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
-                                <action id="-16" name="Wait" sid="629564698752668" type="System">
-                                    <param id="0" name="Seconds">1.0</param>
-                                </action>
-                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="391002158423049" type="Elevator_1">
-                                    <param id="0" name="Acceleration">40</param>
-                                    <param id="1" name="X">104</param>
-                                    <param id="2" name="Y">101</param>
-                                </action>
-                                <action id="-16" name="Wait" sid="882505011456891" type="System">
-                                    <param id="0" name="Seconds">1.7</param>
-                                </action>
-                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="150540738605701" type="Elevator_1">
-                                    <param id="0" name="State">0</param>
-                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="736623759430922">
@@ -662,20 +626,6 @@
                                 <action id="4" name="Set animation" sid="683007224405640" type="Button_2">
                                     <param id="0" name="Animation">&quot;Down&quot;</param>
                                     <param id="1" name="From">1</param>
-                                </action>
-                                <action id="-16" name="Wait" sid="880945091070944" type="System">
-                                    <param id="0" name="Seconds">1.0</param>
-                                </action>
-                                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="188452389875204" type="RedBarrier">
-                                    <param id="0" name="Acceleration">60</param>
-                                    <param id="1" name="X">292</param>
-                                    <param id="2" name="Y">128</param>
-                                </action>
-                                <action id="-16" name="Wait" sid="352274734279176" type="System">
-                                    <param id="0" name="Seconds">0.9</param>
-                                </action>
-                                <action behavior="CustomMovement" id="12" name="Set enabled" sid="273084033034686" type="RedBarrier">
-                                    <param id="0" name="State">0</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -766,6 +716,166 @@
         </event-group>
         <event-group description="functions to all game related objects" sid="461257620727156" title="game obj(s)">
             <sub-events>
+                <event-block sid="936361029919602">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="779362081645455" type="player2">
+                            <param id="0" name="Object">portal</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="656032918763765" type="player2">
+                            <param id="0" name="Instance variable">teleporting</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="819614462583851" type="player2">
+                            <param id="0" name="Object">portal2</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="280607741517308" type="player2">
+                            <param id="0" name="Instance variable">teleporting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="738717621954160" type="Audio">
+                            <param id="0" name="Audio file">Portal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="926346429068655">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="124862453296604" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="146706622918942" type="player2">
+                                    <param id="0" name="Instance variable">teleporting</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="182167565424106">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="625495971159596" type="player1">
+                            <param id="0" name="Object">portal</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="962095578623357" type="player1">
+                            <param id="0" name="Instance variable">teleporting</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="650385448882188" type="player1">
+                            <param id="0" name="Object">portal2</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="403291426925009" type="player1">
+                            <param id="0" name="Instance variable">teleporting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="928461682893773" type="Audio">
+                            <param id="0" name="Audio file">Portal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="630938260421347">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="230636692454615" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="624308289504449" type="player2">
+                                    <param id="0" name="Instance variable">teleporting</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="272546525901844">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="204972497043539" type="player1">
+                            <param id="0" name="Object">portal2</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="395647435588503" type="player1">
+                            <param id="0" name="Instance variable">teleporting</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="300709810206349" type="player1">
+                            <param id="0" name="Object">portal</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="685197848838529" type="player1">
+                            <param id="0" name="Instance variable">teleporting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="297757629335532" type="Audio">
+                            <param id="0" name="Audio file">Portal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="748608655684453">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="263034825653483" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="659024524026212" type="player2">
+                                    <param id="0" name="Instance variable">teleporting</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="875415717368222">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="967619550608690" type="player2">
+                            <param id="0" name="Object">portal2</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="117709374243177" type="player2">
+                            <param id="0" name="Instance variable">teleporting</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set position to another object" sid="692324475693583" type="player2">
+                            <param id="0" name="Object">portal</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="966979652935587" type="player2">
+                            <param id="0" name="Instance variable">teleporting</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="261003412747572" type="Audio">
+                            <param id="0" name="Audio file">Portal</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="711331481913425">
+                            <conditions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="375050662732195" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="724691906829559" type="player2">
+                                    <param id="0" name="Instance variable">teleporting</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-group description="" sid="596229316534258" title="player indicators">
                     <sub-events>
                         <comment>set player indicator text</comment>

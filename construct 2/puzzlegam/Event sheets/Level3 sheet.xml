@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Level3 sheet</name>
+    <events>
+        <include># common</include>
+        <event-block sid="701738126575325">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="249734025998646" type="player1">
+                    <param id="0" name="Object">locked_door</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="247874520218503" type="player2">
+                    <param id="0" name="Object">locked_door</param>
+                </condition>
+                <condition id="2" name="Is playing" sid="653350161220004" type="locked_door">
+                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="258839940392987" type="Audio">
+                    <param id="0" name="Audio file">stepsexit</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="367577200892569" type="System">
+                    <param id="0" name="Layout">level2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="172609740918093">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="504181363443566" type="player1">
+                    <param id="0" name="Object">Button_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="334319679863151" type="Audio">
+                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;button&quot;</param>
+                </action>
+                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="755617805401420" type="RedBarrier">
+                    <param id="0" name="Acceleration">250</param>
+                    <param id="1" name="X">192</param>
+                    <param id="2" name="Y">8</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="983978365755402">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="727822333475250" type="player2">
+                    <param id="0" name="Object">Button_1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="465374034537132" type="Audio">
+                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;button&quot;</param>
+                </action>
+                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="250263058137235" type="Elevator_1">
+                    <param id="0" name="Acceleration">250</param>
+                    <param id="1" name="X">294</param>
+                    <param id="2" name="Y">144</param>
+                </action>
+                <action behavior="CustomMovement" id="12" name="Set enabled" sid="742770586560910" type="Elevator_1">
+                    <param id="0" name="State">1</param>
+                </action>
+                <action id="0" name="Play" sid="669446315577540" type="Audio">
+                    <param id="0" name="Audio file">elevatorup</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="779317251138460">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="981708866079398" type="Elevator_1">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">150</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="0" name="Stop" sid="651168366217176" type="Elevator_1" />
+                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="292698182825494" type="Elevator_1">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
