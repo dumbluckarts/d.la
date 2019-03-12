@@ -247,6 +247,8 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances />
+    <nonworld-instances>
+        <instance type="XML" uid="3" />
+    </nonworld-instances>
     <effects />
 </c2layout>

@@ -23,9 +23,6 @@
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
-                <action id="-2" name="Go to layout" sid="367577200892569" type="System">
-                    <param id="0" name="Layout">level3</param>
-                </action>
             </actions>
         </event-block>
         <event-block sid="172609740918093">
@@ -41,10 +38,42 @@
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
                 </action>
-                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="755617805401420" type="RedBarrier">
-                    <param id="0" name="Acceleration">250</param>
-                    <param id="1" name="X">192</param>
-                    <param id="2" name="Y">8</param>
+                <action id="-16" name="Wait" sid="412294998718036" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="796535235911477" type="RedBarrier">
+                    <param id="0" name="Instance variable">Elevating</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="749288038329717">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="381484241468471" type="RedBarrier">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="109445047041260" type="RedBarrier">
+                            <param id="0" name="Instance variable">Elevating</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="779317251138460">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="981708866079398" type="Elevator_1">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Y co-ordinate">143</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="432525773277452" type="Elevator_1">
+                    <param id="0" name="Instance variable">Elevating</param>
+                    <param id="1" name="Value">0</param>
                 </action>
             </actions>
         </event-block>
@@ -61,13 +90,8 @@
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
                 </action>
-                <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="250263058137235" type="Elevator_1">
-                    <param id="0" name="Acceleration">250</param>
-                    <param id="1" name="X">294</param>
-                    <param id="2" name="Y">144</param>
-                </action>
-                <action behavior="CustomMovement" id="12" name="Set enabled" sid="742770586560910" type="Elevator_1">
-                    <param id="0" name="State">1</param>
+                <action id="-16" name="Wait" sid="484745278632952" type="System">
+                    <param id="0" name="Seconds">1</param>
                 </action>
                 <action id="0" name="Play" sid="669446315577540" type="Audio">
                     <param id="0" name="Audio file">elevatorup</param>
@@ -75,23 +99,36 @@
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
+                <action id="-13" name="Set boolean" sid="270565617609484" type="Elevator_1">
+                    <param id="0" name="Instance variable">Elevating</param>
+                    <param id="1" name="Value">1</param>
+                </action>
             </actions>
-            <sub-events>
-                <event-block sid="779317251138460">
-                    <conditions>
-                        <condition id="-2" name="Compare Y" sid="981708866079398" type="Elevator_1">
-                            <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">150</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="CustomMovement" id="0" name="Stop" sid="651168366217176" type="Elevator_1" />
-                        <action behavior="CustomMovement" id="12" name="Set enabled" sid="292698182825494" type="Elevator_1">
-                            <param id="0" name="State">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
+        </event-block>
+        <event-block sid="134919718350808">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="542718186543058" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="500803761737880" type="player2">
+                    <param id="0" name="Object">blue_lever</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="993798740875304" type="blue_lever">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="0" name="Play" sid="609077648208478" type="Audio">
+                    <param id="0" name="Audio file">Lever</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="356920229170548" type="spikes_retractable">
+                    <param id="0" name="Animation">&quot;Retract&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

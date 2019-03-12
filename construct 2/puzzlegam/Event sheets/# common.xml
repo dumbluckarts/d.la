@@ -788,6 +788,19 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="723853418125499">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="598779839672958" type="player1">
+                            <param id="0" name="Object">spikes_retractable</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="259476484254090" type="Function">
+                            <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="419918144057138">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="710460514421150" type="player2">
@@ -1039,6 +1052,63 @@
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <comment>Elevator elevatin&apos;</comment>
+                <event-block sid="304120922419114">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="174793062714534" type="Elevator_1">
+                            <param id="0" name="Instance variable">Elevating</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="4" name="Accelerate toward angle" sid="717758516452714" type="Elevator_1">
+                            <param id="0" name="Acceleration">100</param>
+                            <param id="1" name="Angle">-90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="322184543251838">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="729440404516701" type="Elevator_1">
+                            <param id="0" name="Instance variable">Elevating</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="0" name="Stop" sid="143224711286300" type="Elevator_1" />
+                    </actions>
+                </event-block>
+                <event-block sid="688008662503969">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="565296613565677" type="RedBarrier">
+                            <param id="0" name="Instance variable">Elevating</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="4" name="Accelerate toward angle" sid="879668913741304" type="RedBarrier">
+                            <param id="0" name="Acceleration">60</param>
+                            <param id="1" name="Angle">-90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="361278754661571">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="826659074661518" type="RedBarrier">
+                            <param id="0" name="Instance variable">Elevating</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="0" name="Stop" sid="767609640045093" type="RedBarrier" />
+                    </actions>
+                </event-block>
+                <event-block sid="290076658296736">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="276656815475965" type="spikes_retractable">
+                            <param id="0" name="Animation">&quot;Retract&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="369883365448693" type="spikes_retractable" />
+                    </actions>
                 </event-block>
                 <event-group description="" sid="596229316534258" title="player indicators">
                     <sub-events>

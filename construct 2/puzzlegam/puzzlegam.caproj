@@ -509,12 +509,15 @@
             </object-type>
             <object-type name="Elevator_1" sid="756799749150550">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="Elevating" sid="520674083817067" type="boolean" />
+                </instance-variables>
                 <behaviors>
-                    <behavior-type name="CustomMovement" sid="420657655959884">
-                        <behavior id="custom" />
-                    </behavior-type>
                     <behavior-type name="Solid" sid="802103799126790">
                         <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="CustomMovement" sid="390346094882198">
+                        <behavior id="custom" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
@@ -540,14 +543,27 @@
             </object-type>
             <object-type name="RedBarrier" sid="804671479062014">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="Elevating" sid="602345619166596" type="boolean" />
+                </instance-variables>
                 <behaviors>
-                    <behavior-type name="CustomMovement" sid="473694751823661">
+                    <behavior-type name="Solid" sid="907849670858528">
+                        <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="CustomMovement" sid="758639239172174">
                         <behavior id="custom" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="577882039035052" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.125" hotspotY="0.0294118">
+                            <collision-poly>
+                                <point x="0.234375" y="0" />
+                                <point x="0.875" y="0.00367647" />
+                                <point x="0.859375" y="1" />
+                                <point x="0.234375" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -782,13 +798,15 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="red_lever" sid="558044775494679">
+        <object-type name="spikes_retractable" sid="239602271395571">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="951069963726675" speed="5">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="370041582403929" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
-                <animation framecount="2" loop="0" name="Lever" pingpong="0" repeatcount="1" repeatto="0" sid="588838585912456" speed="5">
+                <animation framecount="4" loop="0" name="Retract" pingpong="0" repeatcount="1" repeatto="0" sid="251776655365323" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
@@ -820,7 +838,6 @@
         <layout>menu.xml</layout>
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
-        <layout>level3.xml</layout>
         <layout>level4.xml</layout>
     </layout-folder>
     <event-folder>
@@ -879,6 +896,10 @@
         <file name="Portal.ogg" />
         <file name="elevatorup.m4a" />
         <file name="elevatorup.ogg" />
+        <file name="Lever.m4a" />
+        <file name="Lever.ogg" />
+        <file name="keydoor.m4a" />
+        <file name="keydoor.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="SongJuanIntro.m4a" />
