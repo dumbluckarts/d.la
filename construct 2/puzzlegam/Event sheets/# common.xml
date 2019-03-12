@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name># common</name>
     <events>
+        <variable comment="current game score" constant="0" name="score" sid="516467331796811" static="0" type="number">0</variable>
         <include># controls</include>
         <event-group description="functions related to invividual player movement" sid="721516088806860" title="#movement">
             <sub-events>
@@ -430,11 +431,62 @@
                                     <param id="0" name="Instance variable">ableToMove</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
+                                <action id="4" name="Set animation" sid="351866748322261" type="player1">
+                                    <param id="0" name="Animation">&quot;Fall&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="926921898409449" type="player1">
+                                    <param id="0" name="Frame number">3</param>
+                                </action>
+                                <action id="2" name="Stop" sid="278359912780164" type="player1" />
+                                <action id="4" name="Set animation" sid="582680181852866" type="player2">
+                                    <param id="0" name="Animation">&quot;Fall&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="243645311608541" type="player2">
+                                    <param id="0" name="Frame number">3</param>
+                                </action>
+                                <action id="2" name="Stop" sid="283613051495576" type="player2" />
                                 <action id="-15" name="Set visible" sid="816540750862361" type="player_died">
                                     <param id="0" name="Visibility">1</param>
                                 </action>
                             </actions>
                             <sub-events>
+                                <variable constant="0" name="param0" sid="229368101891034" static="1" type="text"></variable>
+                                <event-block sid="262645972337609">
+                                    <conditions />
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="505817276127445">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="432633075276704" type="System">
+                                                    <param id="0" name="Variable">param0</param>
+                                                    <param id="1" name="Comparison">1</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-9" name="Set value" sid="706110414952873" type="System">
+                                                    <param id="0" name="Variable">param0</param>
+                                                    <param id="1" name="Value">Function.Param(0)</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="951632613209081" type="player_died">
+                                                    <param id="0" name="Text">param0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="585776184510877">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="363188799579074" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Set text" sid="446042761444709" type="player_died">
+                                                    <param id="0" name="Text">&quot;player died!&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
                                 <event-block sid="849198771539349">
                                     <conditions>
                                         <condition id="-4" name="Trigger once while true" sid="534214572726184" type="System" />
@@ -515,41 +567,6 @@
                                     <param id="1" name="From">1</param>
                                 </action>
                             </actions>
-                        </event-block>
-                        <event-block sid="484371269593592">
-                            <conditions>
-                                <condition id="0" name="On function" sid="864083998455076" type="Function">
-                                    <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-13" name="Set boolean" sid="371788851486664" type="players">
-                                    <param id="0" name="Instance variable">ableToMove</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                                <action id="-15" name="Set visible" sid="515375771487360" type="player_died">
-                                    <param id="0" name="Visibility">1</param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block sid="298943946142102">
-                                    <conditions>
-                                        <condition id="-4" name="Trigger once while true" sid="997118627538899" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="0" name="Play" sid="534323104343986" type="Audio">
-                                            <param id="0" name="Audio file">death</param>
-                                            <param id="2" name="Loop">0</param>
-                                            <param id="3" name="Volume">-10</param>
-                                            <param id="1" name="Tag (optional)">&quot;death&quot;</param>
-                                        </action>
-                                        <action id="-16" name="Wait" sid="567120801333991" type="System">
-                                            <param id="0" name="Seconds">2</param>
-                                        </action>
-                                        <action id="-26" name="Restart layout" sid="888410596054441" type="System" />
-                                    </actions>
-                                </event-block>
-                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>
@@ -666,6 +683,94 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+                <event-group description="" sid="715739259401378" title="headhitbox">
+                    <sub-events>
+                        <comment>if players head hits the roof while riding on player 2</comment>
+                        <event-block sid="302499026523546">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="686151260252724" type="trgP1Head">
+                                    <param id="0" name="Object">tm_noahtexturesplusnel</param>
+                                </condition>
+                                <condition behavior="Solid" id="0" inverted="1" name="Is enabled" sid="337415244935598" type="player1" />
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="423630357043988" type="player1">
+                                    <param id="0" name="Height">12</param>
+                                </action>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="287137304205815" type="player2">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="141621804743082" type="Function">
+                                    <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>turn of solid so p2 can jump</comment>
+                        <event-block sid="545176021893110">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="338662905308587" type="player1">
+                                    <param id="0" name="Object">trgP2Head</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="392645254454864" type="player1">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="147693881361589">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="946067960773282" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="113159404379813" type="player1">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>if players head hits the roof while riding on player 2</comment>
+                        <event-block sid="450589200594876">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="774065828772729" type="trgP2Head">
+                                    <param id="0" name="Object">tm_noahtexturesplusnel</param>
+                                </condition>
+                                <condition behavior="Solid" id="0" inverted="1" name="Is enabled" sid="581447944417503" type="player2" />
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="502876133334594" type="player2">
+                                    <param id="0" name="Height">12</param>
+                                </action>
+                                <action id="0" name="Call function" sid="815079042030722" type="Function">
+                                    <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="331581962335628">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="727195552707525" type="player2">
+                                    <param id="0" name="Object">trgP1Head</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="421876035390788" type="player2">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="416576542909586">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="453577861664189" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="Solid" id="0" name="Set enabled" sid="109793359742967" type="player2">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
         <event-group description="functions related to all spike and hazard objects" sid="710436190668190" title="hazard obj(s)">
@@ -679,7 +784,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="628028562097827" type="Function">
                             <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                            <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -692,7 +797,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="814673820618120" type="Function">
                             <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                            <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -708,7 +813,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="613720697706664" type="Function">
                             <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                            <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -888,6 +993,10 @@
                                     <param id="0" name="Object">player1</param>
                                     <param id="1" name="Image point (optional)">1</param>
                                 </action>
+                                <action id="-4" name="Set position to another object" sid="976700975066787" type="trgP1Head">
+                                    <param id="0" name="Object">player1</param>
+                                    <param id="1" name="Image point (optional)">3</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="478093356218384">
@@ -899,165 +1008,163 @@
                                     <param id="0" name="Object">player2</param>
                                     <param id="1" name="Image point (optional)">1</param>
                                 </action>
+                                <action id="-4" name="Set position to another object" sid="576353699860362" type="trgP2Head">
+                                    <param id="0" name="Object">player2</param>
+                                    <param id="1" name="Image point (optional)">3</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
                 </event-group>
                 <event-group description="" sid="392608796599955" title="keys">
                     <sub-events>
-                        <event-block sid="962597538396795">
+                        <event-block sid="880805664134724">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="345180931340110" type="player1">
-                                    <param id="0" name="Object">gold_ley</param>
+                                <condition id="0" name="On collision with another object" sid="494618653985327" type="players">
+                                    <param id="0" name="Object">gold_key</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="444953361671245" type="players">
+                                    <param id="0" name="Instance variable">holdingKey</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-13" name="Set boolean" sid="672294023991294" type="player1">
-                                    <param id="0" name="Instance variable">hasKey</param>
-                                    <param id="1" name="Value">1</param>
+                                <action behavior="Sine" id="0" name="Set active" sid="191017300309196" type="gold_key">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Physics" id="27" name="Set enabled" sid="952798224928860" type="gold_key">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                                <action id="-14" name="Toggle boolean" sid="835710325239190" type="players">
+                                    <param id="0" name="Instance variable">holdingKey</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="769606640958300">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="673835122197971" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="166674968234263" type="players">
+                                    <param id="0" name="Instance variable">holdingKey</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-14" name="Toggle boolean" sid="278762212328716" type="players">
+                                    <param id="0" name="Instance variable">holdingKey</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="264353427982635" type="gold_key">
+                                    <param id="0" name="Instance variable">key_timer</param>
+                                    <param id="1" name="Value">0</param>
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block sid="643400471689037">
+                                <event-block sid="823849804722123">
                                     <conditions>
-                                        <condition id="-4" name="Trigger once while true" sid="365161149447464" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="774202694786125" type="players">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;right&quot;</param>
+                                        </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="0" name="Play" sid="241021588666268" type="Audio">
-                                            <param id="0" name="Audio file">hasKey</param>
-                                            <param id="2" name="Loop">0</param>
-                                            <param id="3" name="Volume">0</param>
-                                            <param id="1" name="Tag (optional)">&quot;key&quot;</param>
+                                        <action behavior="Physics" id="27" name="Set enabled" sid="699211895720234" type="gold_key">
+                                            <param id="0" name="Mode">1</param>
+                                        </action>
+                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="585869627108237" type="gold_key">
+                                            <param id="0" name="Impulse">0.11</param>
+                                            <param id="1" name="Angle">-55</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action behavior="Sine" id="0" name="Set active" sid="970482345365643" type="gold_key">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="850844886259914">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="849345424403053" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="27" name="Set enabled" sid="283309536728475" type="gold_key">
+                                            <param id="0" name="Mode">1</param>
+                                        </action>
+                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="711982082177547" type="gold_key">
+                                            <param id="0" name="Impulse">-0.11</param>
+                                            <param id="1" name="Angle">55</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                        <action behavior="Sine" id="0" name="Set active" sid="685633303311457" type="gold_key">
+                                            <param id="0" name="State">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="743740790094595">
+                        <event-block sid="207922688994929">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="186826903434389" type="player2">
-                                    <param id="0" name="Object">gold_ley</param>
+                                <condition id="-8" name="Is boolean instance variable set" sid="662648791949195" type="players">
+                                    <param id="0" name="Instance variable">holdingKey</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-13" name="Set boolean" sid="754314619007204" type="player2">
-                                    <param id="0" name="Instance variable">hasKey</param>
+                                <action id="-4" name="Set position to another object" sid="578705802592612" type="gold_key">
+                                    <param id="0" name="Object">players</param>
+                                    <param id="1" name="Image point (optional)">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="989136402603171">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="556661901301076" type="gold_key">
+                                    <param id="0" name="Object">spikes</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="827002165402056" type="Function">
+                                    <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;key lost!&quot;</param>
+                                </action>
+                                <action behavior="Physics" id="27" name="Set enabled" sid="664906096758492" type="gold_key">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="463761841944112">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="861218170350713" type="gold_key">
+                                    <param id="0" name="Object">tm_noahtexturesplusnel</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="882324099345242" type="gold_key">
+                                    <param id="0" name="Instance variable">key_timer</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="117050491670558">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="504885422216383" type="System" />
+                                <condition id="-7" name="Compare instance variable" sid="544619453064396" type="gold_key">
+                                    <param id="0" name="Instance variable">key_timer</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="733768897455219" type="gold_key">
+                                    <param id="0" name="Instance variable">key_timer</param>
                                     <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
-                            <sub-events>
-                                <event-block sid="419397991807112">
-                                    <conditions>
-                                        <condition id="-4" name="Trigger once while true" sid="577479854095780" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="0" name="Play" sid="128261840099476" type="Audio">
-                                            <param id="0" name="Audio file">hasKey</param>
-                                            <param id="2" name="Loop">0</param>
-                                            <param id="3" name="Volume">0</param>
-                                            <param id="1" name="Tag (optional)">&quot;key&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block sid="988215512876105">
-                            <conditions>
-                                <condition id="-8" name="Is boolean instance variable set" sid="187606276650462" type="player1">
-                                    <param id="0" name="Instance variable">hasKey</param>
-                                </condition>
-                                <condition id="-3" name="Is on-screen" sid="531921820662253" type="gold_ley" />
-                            </conditions>
-                            <actions>
-                                <action id="-4" name="Set position to another object" sid="813656012108425" type="gold_ley">
-                                    <param id="0" name="Object">player1</param>
-                                    <param id="1" name="Image point (optional)">2</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="624012277738710">
-                            <conditions>
-                                <condition id="-8" name="Is boolean instance variable set" sid="198658231676105" type="player2">
-                                    <param id="0" name="Instance variable">hasKey</param>
-                                </condition>
-                                <condition id="-3" name="Is on-screen" sid="757766937682596" type="gold_ley" />
-                            </conditions>
-                            <actions>
-                                <action id="-4" name="Set position to another object" sid="914664483051413" type="gold_ley">
-                                    <param id="0" name="Object">player2</param>
-                                    <param id="1" name="Image point (optional)">2</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="498122219619091">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="276129550228732" type="player2">
-                                    <param id="0" name="Object">locked_door</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="857075507628000" type="player1">
-                                    <param id="0" name="Object">locked_door</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block any="1" sid="657006547107435">
-                                    <conditions>
-                                        <condition id="-8" name="Is boolean instance variable set" sid="717070718142351" type="player1">
-                                            <param id="0" name="Instance variable">hasKey</param>
-                                        </condition>
-                                        <condition id="-8" name="Is boolean instance variable set" sid="638631805575176" type="player2">
-                                            <param id="0" name="Instance variable">hasKey</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                </event-block>
-                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>
             </sub-events>
         </event-group>
-        <event-block sid="669302378599645">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="557853387031627" type="Keyboard">
-                    <param id="0" name="Key">32</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block any="1" sid="436732337993911">
-                    <conditions>
-                        <condition id="-8" name="Is boolean instance variable set" sid="857991898234813" type="player1">
-                            <param id="0" name="Instance variable">hasKey</param>
-                        </condition>
-                        <condition id="-8" name="Is boolean instance variable set" sid="735990359543712" type="player2">
-                            <param id="0" name="Instance variable">hasKey</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-13" name="Set boolean" sid="313144568004856" type="player2">
-                            <param id="0" name="Instance variable">hasKey</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-13" name="Set boolean" sid="325608296652198" type="player1">
-                            <param id="0" name="Instance variable">hasKey</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action behavior="Physics" id="27" name="Set enabled" sid="689015878394209" type="gold_ley">
-                            <param id="0" name="Mode">1</param>
-                        </action>
-                        <action behavior="Physics" id="2" name="Apply force at angle" sid="822819585398828" type="gold_ley">
-                            <param id="0" name="Force">500</param>
-                            <param id="1" name="Angle">180</param>
-                            <param id="2" name="Image point">2</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
         <event-block sid="618392882700411">
             <conditions>
-                <condition id="0" name="On collision with another object" sid="984083747166784" type="gold_ley">
+                <condition id="0" name="On collision with another object" sid="984083747166784" type="gold_key">
                     <param id="0" name="Object">locked_door</param>
                 </condition>
             </conditions>
@@ -1065,6 +1172,52 @@
                 <action id="4" name="Set animation" sid="981525222916205" type="locked_door">
                     <param id="0" name="Animation">&quot;Unlocked&quot;</param>
                     <param id="1" name="From">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="890628080915936" type="gold_key" />
+                <action id="4" name="Set animation" sid="357937235937537" type="locked_door">
+                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Add to" sid="900087372517276" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="428018582700428">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="101845621802757" type="gold_key">
+                            <param id="0" name="Instance variable">key_timer</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">30</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="342985786007287" type="System">
+                            <param id="0" name="Variable">score</param>
+                            <param id="1" name="Value">1000</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="467806455499009" type="locked_door">
+                            <param id="0" name="Animation">&quot;plus100&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="930251472352945" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="815237058393477" type="locked_door">
+                            <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>set score</comment>
+        <event-block sid="972242198203609">
+            <conditions />
+            <actions>
+                <action id="0" name="Set text" sid="325869739936279" type="scorefont">
+                    <param id="0" name="Text">&quot;score: &quot; &amp; score</param>
                 </action>
             </actions>
         </event-block>

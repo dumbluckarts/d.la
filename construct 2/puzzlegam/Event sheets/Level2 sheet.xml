@@ -1,38 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Level2 sheet</name>
+    <name>level2 sheet</name>
     <events>
         <include># common</include>
-        <event-block sid="602399470854549">
+        <event-block sid="999464976771657">
             <conditions>
-                <condition id="1" name="Is overlapping another object" sid="212123959339802" type="player1">
-                    <param id="0" name="Object">locked_door</param>
+                <condition id="0" name="On function" sid="121500167071717" type="Function">
+                    <param id="0" name="Name">&quot;set_bridge_active&quot;</param>
                 </condition>
-                <condition id="1" name="Is overlapping another object" sid="393628178935004" type="player2">
-                    <param id="0" name="Object">locked_door</param>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable comment="bridge number" constant="0" name="param0" sid="135182684222782" static="1" type="number">0</variable>
+                <event-block sid="385310553795417">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="676897387345887" type="System">
+                            <param id="0" name="Variable">param0</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="659739253332390">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="694985087354819" type="System">
+                            <param id="0" name="Object">physics_bridge</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="256999119379751" type="physics_bridge">
+                            <param id="0" name="Instance variable">bridge_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">param0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="21" name="Set immovable" sid="783865914102060" type="physics_bridge">
+                            <param id="0" name="Setting">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="819223022981861">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="992065100839285" type="Keyboard">
+                    <param id="0" name="Key">32</param>
                 </condition>
-                <condition id="2" name="Is playing" sid="480757737633827" type="locked_door">
-                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                <condition id="1" name="Is overlapping another object" sid="294181402018717" type="player1">
+                    <param id="0" name="Object">Button_2</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-2" name="Go to layout" sid="118522526234768" type="System">
-                    <param id="0" name="Layout">level3</param>
-                </action>
-                <action id="0" name="Play" sid="172008229937740" type="Audio">
-                    <param id="0" name="Audio file">stepsexit</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">0</param>
-                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                <action id="0" name="Call function" sid="971615774613469" type="Function">
+                    <param id="0" name="Name">&quot;set_bridge_active&quot;</param>
+                    <param id="1" name="Parameter {n}">2</param>
                 </action>
             </actions>
         </event-block>
-        <event-block sid="516883188331993">
+        <event-block sid="551591468414713">
             <conditions>
-                <condition id="-2" name="On start of layout" sid="660174976237167" type="System" />
+                <condition id="0" name="On key pressed" sid="172654745483025" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="760851801411491" type="player1">
+                    <param id="0" name="Object">blue_lever</param>
+                </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="5" name="Set frame" sid="642229469617423" type="blue_lever">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+                <action id="0" name="Call function" sid="744418515566860" type="Function">
+                    <param id="0" name="Name">&quot;set_bridge_active&quot;</param>
+                    <param id="1" name="Parameter {n}">1</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

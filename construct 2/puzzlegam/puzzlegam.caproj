@@ -26,8 +26,10 @@
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+        <behavior author="Scirra" id="wrap" version="1">Wrap</behavior>
     </used-behaviors>
     <used-effects>
         <effect author="Scirra" id="inverse">Inverse</effect>
@@ -45,7 +47,7 @@
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
-        <prop name="Downscaling">High quality</prop>
+        <prop name="Downscaling">Low quality</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Letterbox scale</prop>
         <prop name="Fullscreen scaling">High quality</prop>
@@ -115,6 +117,15 @@
                 </effects>
                 <texture />
             </object-type>
+            <object-type name="throw_timer" sid="840437878156857">
+                <plugin id="Spritefont2" />
+                <effects>
+                    <effect-type name="Inverse">
+                        <effect id="inverse" />
+                    </effect-type>
+                </effects>
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="# input and output">
             <object-type name="Keyboard" sid="527807612885092">
@@ -158,17 +169,44 @@
                     <behavior-type name="Solid" sid="562818350324927">
                         <behavior id="solid" />
                     </behavior-type>
+                    <behavior-type name="Physics" sid="559499248887361">
+                        <behavior id="Physics" />
+                    </behavior-type>
                 </behaviors>
                 <texture />
-                <tiles />
+                <tiles>
+                    <tile id="4">
+                        <collision-poly>
+                            <point x="0" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </tile>
+                </tiles>
             </object-type>
         </object-folder>
-        <object-folder name="# triggers" />
+        <object-folder name="# triggers">
+            <object-type name="trgP1Head" sid="334242471163342">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="105704264289091" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="trgP2Head" sid="951201379494679">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="211990315170647" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-folder name="characters">
             <object-type name="player1" sid="182993421714756">
                 <plugin id="Sprite" />
                 <instance-variables>
-                    <instance-variable name="hasKey" sid="719187487290947" type="boolean" />
                     <instance-variable name="teleporting" sid="827333860154775" type="boolean" />
                 </instance-variables>
                 <animation-folder>
@@ -176,9 +214,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\red.png">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -189,9 +228,10 @@
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -200,9 +240,10 @@
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -211,9 +252,10 @@
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -222,9 +264,10 @@
                             <image-point name="Imagepoint 1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
                             <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -234,9 +277,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -244,9 +288,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -256,9 +301,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -266,9 +312,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -276,9 +323,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -288,9 +336,10 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
                             <collision-poly>
-                                <point x="0.625" y="0.189453" />
-                                <point x="0.625" y="1" />
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
                                 <point x="0.375" y="1" />
                                 <point x="0.375" y="0.1875" />
                             </collision-poly>
@@ -301,7 +350,6 @@
             <object-type name="player2" sid="980777863899948">
                 <plugin id="Sprite" />
                 <instance-variables>
-                    <instance-variable name="hasKey" sid="430421714823970" type="boolean" />
                     <instance-variable name="teleporting" sid="461370661358815" type="boolean" />
                 </instance-variables>
                 <animation-folder>
@@ -309,6 +357,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blue.png">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -321,6 +370,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -331,6 +381,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -341,6 +392,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -351,6 +403,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -363,6 +416,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -373,6 +427,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -385,6 +440,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -395,6 +451,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -407,6 +464,7 @@
                         <frame duration="1" hotspotX="0.4375" hotspotY="0.5">
                             <image-point name="P2" x="0.625" y="-0.5625" />
                             <image-point name="Key" x="1.125" y="0.4375" />
+                            <image-point name="headhitbox" x="0.4375" y="0.1875" />
                             <collision-poly>
                                 <point x="0.1875" y="0.1875" />
                                 <point x="0.683594" y="0.1875" />
@@ -496,8 +554,32 @@
             <object-type name="locked_door" sid="135308869017817">
                 <plugin id="Sprite" />
                 <animation-folder>
-                    <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="869912506092031" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0">
+                    <animation framecount="4" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="869912506092031" speed="5">
+                        <frame duration="1" hotspotX="0.1" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.25" y="0.125" />
+                                <point x="0.8125" y="0.125" />
+                                <point x="0.8125" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.1" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.25" y="0.125" />
+                                <point x="0.8125" y="0.125" />
+                                <point x="0.8125" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.1" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.25" y="0.125" />
+                                <point x="0.8125" y="0.125" />
+                                <point x="0.8125" y="1" />
+                                <point x="0.25" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.1" hotspotY="0">
                             <collision-poly>
                                 <point x="0.25" y="0.125" />
                                 <point x="0.8125" y="0.125" />
@@ -516,20 +598,52 @@
                             </collision-poly>
                         </frame>
                     </animation>
+                    <animation framecount="3" loop="0" name="plus100" pingpong="0" repeatcount="0" repeatto="0" sid="864859262043810" speed="5">
+                        <frame duration="1" hotspotX="0.1" hotspotY="0.2">
+                            <collision-poly>
+                                <point x="0.25" y="0.2" />
+                                <point x="0.8125" y="0.2" />
+                                <point x="0.8125" y="0.9" />
+                                <point x="0.25" y="0.9" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.1" hotspotY="0.2">
+                            <collision-poly>
+                                <point x="0.25" y="0.2" />
+                                <point x="0.8125" y="0.2" />
+                                <point x="0.8125" y="0.9" />
+                                <point x="0.25" y="0.9" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.1" hotspotY="0.2">
+                            <collision-poly>
+                                <point x="0.25" y="0.2" />
+                                <point x="0.8125" y="0.2" />
+                                <point x="0.8125" y="0.9" />
+                                <point x="0.25" y="0.9" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
                 </animation-folder>
             </object-type>
             <object-type name="blue_spikes" sid="933490813976005">
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
-            <object-type name="gold_ley" sid="697705788838907">
+            <object-type name="gold_key" sid="697705788838907">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable comment="time key is in the air fof" name="key_timer" sid="312521440676209" type="number" />
+                </instance-variables>
                 <behaviors>
-                    <behavior-type name="Physics" sid="981405810518989">
-                        <behavior id="Physics" />
-                    </behavior-type>
                     <behavior-type name="Sine" sid="520893625014861">
                         <behavior id="Sin" />
+                    </behavior-type>
+                    <behavior-type name="Physics" sid="414580229258984">
+                        <behavior id="Physics" />
+                    </behavior-type>
+                    <behavior-type name="BoundToLayout" sid="448104325420198">
+                        <behavior id="bound" />
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
@@ -552,6 +666,33 @@
             </object-type>
             <object-type name="spikes" sid="253277048000279">
                 <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="blue_lever" sid="865985064875028">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="504960985987796" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="physics_bridge" sid="501116545826871">
+                <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="bridge_number" sid="262013877083988" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Physics" sid="528890119414044">
+                        <behavior id="Physics" />
+                    </behavior-type>
+                    <behavior-type name="Solid" sid="866449922271834">
+                        <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="Wrap" sid="942855570771522">
+                        <behavior id="wrap" />
+                    </behavior-type>
+                </behaviors>
                 <texture />
             </object-type>
         </object-folder>
@@ -663,6 +804,7 @@
             <instance-variables>
                 <instance-variable name="ableToMove" sid="282580544373766" type="boolean" />
                 <instance-variable name="direction" sid="862873310324591" type="string" />
+                <instance-variable name="holdingKey" sid="279909295926612" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="810945687161542">
@@ -679,16 +821,16 @@
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
         <layout>level3.xml</layout>
+        <layout>level4.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet># controls.xml</event-sheet>
-        <event-sheet># dev tools.xml</event-sheet>
-        <event-sheet># enemies.xml</event-sheet>
         <event-sheet>level1 sheet.xml</event-sheet>
         <event-sheet># menu sheet.xml</event-sheet>
         <event-sheet># common.xml</event-sheet>
-        <event-sheet>Level2 sheet.xml</event-sheet>
-        <event-sheet>Level3 sheet.xml</event-sheet>
+        <event-sheet>level3 sheet.xml</event-sheet>
+        <event-sheet>level4 sheet.xml</event-sheet>
+        <event-sheet>level2 sheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="0" />
