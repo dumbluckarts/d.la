@@ -834,6 +834,81 @@
         </event-group>
         <event-group description="functions to all game related objects" sid="461257620727156" title="game obj(s)">
             <sub-events>
+                <comment>Arrow block</comment>
+                <event-block sid="632811166923483">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="467124104971097" type="System">
+                            <param id="0" name="Interval (seconds)">1.5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="746972443326059" type="arrow_block">
+                            <param id="0" name="Object">arrow_sprite</param>
+                            <param id="1" name="Layer">2</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="336970527594286" type="Audio">
+                            <param id="0" name="Audio file">click</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="692137287807528">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="300356955861256" type="arrow_sprite">
+                            <param id="0" name="Object">tm_noahtexturesplusnel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="5" name="Set enabled" sid="733415089193061" type="arrow_sprite">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="651849726653312" type="arrow_sprite">
+                            <param id="0" name="Animation">&quot;broken&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="923411106880525">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="853918658829093" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="747656964632485" type="Audio">
+                                    <param id="0" name="Audio file">Lever</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-15</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="859857768544535" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="142673593574583" type="arrow_sprite" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="862865271977199">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="217017279252971" type="arrow_sprite">
+                            <param id="0" name="Object">players</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="0" name="Set ignoring input" sid="266465527669698" type="players">
+                            <param id="0" name="Input">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="117752687688882" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="483025653727764" type="Function">
+                            <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Skewered!&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <comment>set score</comment>
                 <event-block sid="972242198203609">
                     <conditions />
@@ -1059,6 +1134,9 @@
                         <condition id="-8" name="Is boolean instance variable set" sid="174793062714534" type="Elevator_1">
                             <param id="0" name="Instance variable">Elevating</param>
                         </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="123511890206805" type="Elevator_1">
+                            <param id="0" name="Instance variable">Descending</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action behavior="CustomMovement" id="4" name="Accelerate toward angle" sid="717758516452714" type="Elevator_1">
@@ -1067,14 +1145,33 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="322184543251838">
+                <event-block sid="888878277667838">
                     <conditions>
-                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="729440404516701" type="Elevator_1">
+                        <condition id="-8" name="Is boolean instance variable set" sid="359121847646765" type="Elevator_1">
+                            <param id="0" name="Instance variable">Descending</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="128030055015365" type="Elevator_1">
                             <param id="0" name="Instance variable">Elevating</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="CustomMovement" id="0" name="Stop" sid="143224711286300" type="Elevator_1" />
+                        <action behavior="CustomMovement" id="4" name="Accelerate toward angle" sid="853364073223187" type="Elevator_1">
+                            <param id="0" name="Acceleration">100</param>
+                            <param id="1" name="Angle">90</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="647370876996741">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="169290879489824" type="Elevator_1">
+                            <param id="0" name="Instance variable">Descending</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="118152088630912" type="Elevator_1">
+                            <param id="0" name="Instance variable">Elevating</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="CustomMovement" id="0" name="Stop" sid="973388535448734" type="Elevator_1" />
                     </actions>
                 </event-block>
                 <event-block sid="688008662503969">
@@ -1165,6 +1262,12 @@
                                 </action>
                                 <action id="-14" name="Toggle boolean" sid="835710325239190" type="players">
                                     <param id="0" name="Instance variable">holdingKey</param>
+                                </action>
+                                <action id="0" name="Play" sid="863810539889734" type="Audio">
+                                    <param id="0" name="Audio file">key</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>

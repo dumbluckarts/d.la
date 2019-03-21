@@ -25,6 +25,20 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="749288038329717">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="381484241468471" type="RedBarrier">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Y co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="109445047041260" type="RedBarrier">
+                    <param id="0" name="Instance variable">Elevating</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="172609740918093">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="504181363443566" type="player1">
@@ -46,22 +60,6 @@
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
-            <sub-events>
-                <event-block sid="749288038329717">
-                    <conditions>
-                        <condition id="-2" name="Compare Y" sid="381484241468471" type="RedBarrier">
-                            <param id="0" name="Comparison">0</param>
-                            <param id="1" name="Y co-ordinate">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-13" name="Set boolean" sid="109445047041260" type="RedBarrier">
-                            <param id="0" name="Instance variable">Elevating</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
         </event-block>
         <event-block sid="779317251138460">
             <conditions>
@@ -77,10 +75,28 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="335891235602719">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="767321492737372" type="Elevator_1">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Y co-ordinate">190</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="251902621836938" type="Elevator_1">
+                    <param id="0" name="Instance variable">Descending</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="983978365755402">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="727822333475250" type="player2">
                     <param id="0" name="Object">Button_1</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="818181447126706" type="Elevator_1">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Y co-ordinate">190</param>
                 </condition>
             </conditions>
             <actions>
@@ -101,6 +117,38 @@
                 </action>
                 <action id="-13" name="Set boolean" sid="270565617609484" type="Elevator_1">
                     <param id="0" name="Instance variable">Elevating</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="703669143442021">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="168129642175523" type="player2">
+                    <param id="0" name="Object">Button_1</param>
+                </condition>
+                <condition id="-2" name="Compare Y" sid="382868257723509" type="Elevator_1">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Y co-ordinate">143</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="852205496720368" type="Audio">
+                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;button&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="889887670766450" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="0" name="Play" sid="913555231993252" type="Audio">
+                    <param id="0" name="Audio file">elevatorup</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-13" name="Set boolean" sid="739988023162664" type="Elevator_1">
+                    <param id="0" name="Instance variable">Descending</param>
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>

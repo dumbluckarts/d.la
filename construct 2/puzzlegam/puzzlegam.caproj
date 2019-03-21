@@ -23,6 +23,7 @@
         <plugin author="Scirra" id="XML" version="1">XML</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
@@ -511,6 +512,7 @@
                 <plugin id="Sprite" />
                 <instance-variables>
                     <instance-variable name="Elevating" sid="520674083817067" type="boolean" />
+                    <instance-variable name="Descending" sid="462983417752350" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="Solid" sid="802103799126790">
@@ -783,8 +785,7 @@
         <object-type name="portal" sid="617057327606568">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="233280203336315" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="233280203336315" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -792,8 +793,7 @@
         <object-type name="portal2" sid="823969964466961">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="697631332869341" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="697631332869341" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -809,6 +809,36 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="portalmagic" sid="861613598372139">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="arrow_sprite" sid="327723878705917">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="951445558790261">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="311526757932439" speed="5">
+                    <frame duration="1" hotspotX="0.857143" hotspotY="0.333333" />
+                </animation>
+                <animation framecount="1" loop="0" name="Broken" pingpong="0" repeatcount="1" repeatto="0" sid="599865183500110" speed="5">
+                    <frame duration="1" hotspotX="0.857143" hotspotY="0.333333" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="arrow_block" sid="917588050613284">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="807108954857074" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.375">
+                        <image-point name="Imagepoint 1" x="0.5" y="0.5" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -900,6 +930,8 @@
         <file name="Lever.ogg" />
         <file name="keydoor.m4a" />
         <file name="keydoor.ogg" />
+        <file name="key.m4a" />
+        <file name="key.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="SongJuanIntro.m4a" />
