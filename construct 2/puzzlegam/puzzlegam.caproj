@@ -869,6 +869,7 @@
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
         <layout>level4.xml</layout>
+        <layout>Level5.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet># controls.xml</event-sheet>

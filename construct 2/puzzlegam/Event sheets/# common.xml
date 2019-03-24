@@ -895,9 +895,13 @@
                         <condition id="0" name="On collision with another object" sid="217017279252971" type="arrow_sprite">
                             <param id="0" name="Object">players</param>
                         </condition>
+                        <condition behavior="Bullet" id="0" name="Compare speed" sid="746660424587782" type="arrow_sprite">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Speed">120</param>
+                        </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Platform" id="0" name="Set ignoring input" sid="266465527669698" type="players">
+                        <action behavior="Platform" disabled="1" id="0" name="Set ignoring input" sid="266465527669698" type="players">
                             <param id="0" name="Input">1</param>
                         </action>
                         <action id="-16" name="Wait" sid="117752687688882" type="System">
