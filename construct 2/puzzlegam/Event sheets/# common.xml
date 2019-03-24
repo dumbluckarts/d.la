@@ -1145,7 +1145,7 @@
                     <actions>
                         <action behavior="CustomMovement" id="4" name="Accelerate toward angle" sid="717758516452714" type="Elevator_1">
                             <param id="0" name="Acceleration">100</param>
-                            <param id="1" name="Angle">-90</param>
+                            <param id="1" name="Angle">270</param>
                         </action>
                     </actions>
                 </event-block>

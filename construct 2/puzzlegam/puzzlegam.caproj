@@ -842,6 +842,14 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="portal3" sid="170622475820541">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="681463229211283" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="players" plugin-id="Sprite" sid="786555140864415">
@@ -868,6 +876,7 @@
         <layout>menu.xml</layout>
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
+        <layout>level3.xml</layout>
         <layout>level4.xml</layout>
         <layout>Level5.xml</layout>
     </layout-folder>
