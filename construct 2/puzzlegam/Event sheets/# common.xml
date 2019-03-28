@@ -791,11 +791,30 @@
                 <event-block sid="723853418125499">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="598779839672958" type="player1">
-                            <param id="0" name="Object">spikes_retractable</param>
+                            <param id="0" name="Object">spikes_retractableRed</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="691984986644535" type="spikes_retractableRed">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Call function" sid="259476484254090" type="Function">
+                            <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="702665591942433">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="130795709246326" type="player2">
+                            <param id="0" name="Object">spikes_retractableBlu</param>
+                        </condition>
+                        <condition id="2" name="Is playing" sid="583816442812999" type="spikes_retractableBlu">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="945051755448630" type="Function">
                             <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
                         </action>
@@ -840,6 +859,7 @@
                         <condition id="-6" name="Every X seconds" sid="467124104971097" type="System">
                             <param id="0" name="Interval (seconds)">1.5</param>
                         </condition>
+                        <condition id="-3" name="Is on-screen" sid="316015792589355" type="arrow_block" />
                     </conditions>
                     <actions>
                         <action id="0" name="Spawn another object" sid="746972443326059" type="arrow_block">
@@ -1201,14 +1221,47 @@
                         <action behavior="CustomMovement" id="0" name="Stop" sid="767609640045093" type="RedBarrier" />
                     </actions>
                 </event-block>
+                <comment>Retractable spikes</comment>
                 <event-block sid="290076658296736">
                     <conditions>
-                        <condition id="4" name="On finished" sid="276656815475965" type="spikes_retractable">
+                        <condition id="4" name="On finished" sid="276656815475965" type="spikes_retractableRed">
                             <param id="0" name="Animation">&quot;Retract&quot;</param>
                         </condition>
                     </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="576568003711992">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="292873333569153" type="spikes_retractableRed">
+                            <param id="0" name="Animation">&quot;Reverse&quot;</param>
+                        </condition>
+                    </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="369883365448693" type="spikes_retractable" />
+                        <action id="4" name="Set animation" sid="521721224173252" type="spikes_retractableRed">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="111611789948788">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="343706932590854" type="spikes_retractableBlu">
+                            <param id="0" name="Animation">&quot;Retract&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="810046050083276">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="923470228295965" type="spikes_retractableBlu">
+                            <param id="0" name="Animation">&quot;Reverse&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="582859073097017" type="spikes_retractableBlu">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-group description="" sid="596229316534258" title="player indicators">

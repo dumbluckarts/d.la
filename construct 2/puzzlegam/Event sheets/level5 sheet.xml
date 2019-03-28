@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>level5 sheet</name>
+    <events>
+        <include># common</include>
+        <event-block sid="751736745326940">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="402038125812803" type="player1">
+                    <param id="0" name="Object">locked_door</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="247482864634656" type="player2">
+                    <param id="0" name="Object">locked_door</param>
+                </condition>
+                <condition id="2" name="Is playing" sid="254954993522460" type="locked_door">
+                    <param id="0" name="Animation">&quot;Unlocked&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="874397995898640" type="Audio">
+                    <param id="0" name="Audio file">stepsexit</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="110451199800453" type="System">
+                    <param id="0" name="Layout">menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="365854278222816">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="518395330983945" type="RedBarrier">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Y co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-13" name="Set boolean" sid="177867466410823" type="RedBarrier">
+                    <param id="0" name="Instance variable">Elevating</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="107563615313592">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="665722997176107" type="player1">
+                    <param id="0" name="Object">Button_2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="259153053552196" type="Audio">
+                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;button&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="502340648718742" type="Audio">
+                    <param id="0" name="Audio file">Lever</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="127805795158626" type="spikes_retractableBlu">
+                    <param id="0" name="Animation">&quot;Retract&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="839527943085870" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="0" name="Play" sid="256363247723607" type="Audio">
+                    <param id="0" name="Audio file">click</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="198190816947584" type="spikes_retractableBlu">
+                    <param id="0" name="Animation">&quot;Reverse&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="979895770698675">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="214602108498397" type="player2">
+                    <param id="0" name="Object">Button_1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="257746522920057" type="Audio">
+                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;button&quot;</param>
+                </action>
+                <action id="0" name="Play" sid="343776513891275" type="Audio">
+                    <param id="0" name="Audio file">Lever</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="335204072704773" type="spikes_retractableRed">
+                    <param id="0" name="Animation">&quot;Retract&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="273721291201805" type="System">
+                    <param id="0" name="Seconds">1.5</param>
+                </action>
+                <action id="0" name="Play" sid="118436806016163" type="Audio">
+                    <param id="0" name="Audio file">click</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="4" name="Set animation" sid="794967786748893" type="spikes_retractableRed">
+                    <param id="0" name="Animation">&quot;Reverse&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

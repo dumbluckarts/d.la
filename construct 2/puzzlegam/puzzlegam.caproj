@@ -8,7 +8,7 @@
     <author-website>https://dumbluckarts.com</author-website>
     <app-id>com.dumbluckarts.puzzle</app-id>
     <unique-id>1uo1cvfgyb2w8</unique-id>
-    <saved-with-version>26600</saved-with-version>
+    <saved-with-version>26700</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
@@ -63,6 +63,44 @@
     </configuration-settings>
     <object-folder>
         <object-folder name="# hud and display">
+            <object-folder name="MenuSprites">
+                <object-type name="Level1" sid="333776599384768">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level2" sid="362523369174947">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level3" sid="691641837260475">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level4" sid="411492453132894">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level5" sid="163497965575085">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level6" sid="144427309872267">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level7" sid="668251833414355">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level8" sid="627608278014181">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+                <object-type name="Level9" sid="935271213326250">
+                    <plugin id="Spritefont2" />
+                    <texture />
+                </object-type>
+            </object-folder>
             <object-type name="p1text" sid="192372678974794">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -126,6 +164,17 @@
                     </effect-type>
                 </effects>
                 <texture />
+            </object-type>
+            <object-type name="levelbutton" sid="293850688331805">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="589402835672735" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Press" pingpong="0" repeatcount="1" repeatto="0" sid="212734864025372" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="# input and output">
@@ -798,13 +847,19 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="spikes_retractable" sid="239602271395571">
+        <object-type name="spikes_retractableRed" sid="239602271395571">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="370041582403929" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
                 <animation framecount="4" loop="0" name="Retract" pingpong="0" repeatcount="1" repeatto="0" sid="251776655365323" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="0" name="Reverse" pingpong="0" repeatcount="1" repeatto="0" sid="527481807984244" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -850,6 +905,38 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Text" sid="438153903063377">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="lvlCursor" sid="831375122614857">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="928963976491033" speed="5">
+                    <frame duration="1" hotspotX="0.636364" hotspotY="0.416667" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="spikes_retractableBlu" sid="969623065758021">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="696317475000253" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="0" name="Retract" pingpong="0" repeatcount="1" repeatto="0" sid="143907578554738" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="0" name="Reverse" pingpong="0" repeatcount="1" repeatto="0" sid="535525236139434" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="players" plugin-id="Sprite" sid="786555140864415">
@@ -874,6 +961,7 @@
     </families>
     <layout-folder>
         <layout>menu.xml</layout>
+        <layout>levelselect.xml</layout>
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
         <layout>level3.xml</layout>
@@ -888,6 +976,7 @@
         <event-sheet>level3 sheet.xml</event-sheet>
         <event-sheet>level4 sheet.xml</event-sheet>
         <event-sheet>level2 sheet.xml</event-sheet>
+        <event-sheet>level5 sheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="0" />
