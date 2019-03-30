@@ -27,6 +27,31 @@
                     <param id="0" name="Layout">Level5</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="590291998024857">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="549394701799565" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="285032654151219" type="Function">
+                            <param id="0" name="Name">&quot;callFade&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Play" sid="686108527244311" type="Audio">
+                            <param id="0" name="Audio file">stepsexit</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="646760148899652" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="319095883603365" type="System">
+                            <param id="0" name="Layout">Level5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="749288038329717">
             <conditions>
@@ -41,6 +66,21 @@
                     <param id="1" name="Value">0</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="313787167408746">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="760407822656766" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="351389740703901" type="Audio">
+                            <param id="0" name="Audio file">heavy</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="172609740918093">
             <conditions>
@@ -50,7 +90,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Play" sid="334319679863151" type="Audio">
-                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="0" name="Audio file">button</param>
                     <param id="2" name="Loop">0</param>
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
@@ -104,7 +144,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Play" sid="465374034537132" type="Audio">
-                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="0" name="Audio file">button</param>
                     <param id="2" name="Loop">0</param>
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
@@ -136,7 +176,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Play" sid="852205496720368" type="Audio">
-                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="0" name="Audio file">button</param>
                     <param id="2" name="Loop">0</param>
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
@@ -178,6 +218,17 @@
                 <action id="4" name="Set animation" sid="356920229170548" type="spikes_retractableRed">
                     <param id="0" name="Animation">&quot;Retract&quot;</param>
                     <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="229348885695526">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="732487822095140" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="443356998568537" type="Function">
+                    <param id="0" name="Name">&quot;callFadein&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>

@@ -281,7 +281,7 @@
                             <properties>
                                 <immovable>No</immovable>
                                 <collision-mask>Use collision polygon</collision-mask>
-                                <prevent-rotation>No</prevent-rotation>
+                                <prevent-rotation>Yes</prevent-rotation>
                                 <density>1</density>
                                 <friction>0.1</friction>
                                 <elasticity>0.4</elasticity>
@@ -877,5 +877,14 @@
         </layer>
     </layers>
     <nonworld-instances />
-    <effects />
+    <effects>
+        <effect-type name="Pixellate">
+            <effect id="pixellate" />
+            <effect-instance type="Pixellate">
+                <parameters>
+                    <size>1</size>
+                </parameters>
+            </effect-instance>
+        </effect-type>
+    </effects>
 </c2layout>

@@ -870,5 +870,14 @@
         </layer>
     </layers>
     <nonworld-instances />
-    <effects />
+    <effects>
+        <effect-type name="Pixellate">
+            <effect id="pixellate" />
+            <effect-instance type="Pixellate">
+                <parameters>
+                    <size>1</size>
+                </parameters>
+            </effect-instance>
+        </effect-type>
+    </effects>
 </c2layout>

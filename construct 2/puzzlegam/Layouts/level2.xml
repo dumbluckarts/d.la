@@ -828,7 +828,7 @@
                             <properties>
                                 <immovable>No</immovable>
                                 <collision-mask>Use collision polygon</collision-mask>
-                                <prevent-rotation>No</prevent-rotation>
+                                <prevent-rotation>Yes</prevent-rotation>
                                 <density>1</density>
                                 <friction>0.1</friction>
                                 <elasticity>0.4</elasticity>

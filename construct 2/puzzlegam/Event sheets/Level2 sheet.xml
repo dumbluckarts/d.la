@@ -43,14 +43,20 @@
         </event-block>
         <event-block sid="819223022981861">
             <conditions>
-                <condition id="0" name="On key pressed" sid="992065100839285" type="Keyboard">
-                    <param id="0" name="Key">32</param>
-                </condition>
-                <condition id="1" name="Is overlapping another object" sid="294181402018717" type="player1">
+                <condition id="0" name="On collision with another object" sid="294181402018717" type="player1">
                     <param id="0" name="Object">Button_2</param>
                 </condition>
             </conditions>
             <actions>
+                <action id="0" name="Play" sid="874444336057081" type="Audio">
+                    <param id="0" name="Audio file">button</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;button&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="326374138541300" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
                 <action id="0" name="Call function" sid="971615774613469" type="Function">
                     <param id="0" name="Name">&quot;set_bridge_active&quot;</param>
                     <param id="1" name="Parameter {n}">2</param>
@@ -97,6 +103,65 @@
                 </action>
                 <action id="-2" name="Go to layout" sid="168624305172534" type="System">
                     <param id="0" name="Layout">level4</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="725790888955631">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="682147275795396" type="physics_bridge">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Y co-ordinate">95</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="844575780858005">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="506008312117753" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="935856052704549" type="Audio">
+                            <param id="0" name="Audio file">heavy</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="506833068463743">
+            <conditions>
+                <condition behavior="Physics" id="2" name="Compare angular velocity" sid="988005669387841" type="physics_bridge">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Value">45</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="612747622267532">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="813188410133645" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="899636962286790" type="Audio">
+                            <param id="0" name="Audio file">heavy</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="843598964410620">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="588315111879263" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="147250242344814" type="Function">
+                    <param id="0" name="Name">&quot;callFade&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>

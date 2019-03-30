@@ -34,6 +34,7 @@
     </used-behaviors>
     <used-effects>
         <effect author="Scirra" id="inverse">Inverse</effect>
+        <effect author="Scirra" id="pixellate">Pixellate</effect>
     </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -835,7 +836,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="233280203336315" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -843,7 +844,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="697631332869341" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -891,7 +892,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="807108954857074" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.375">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
                         <image-point name="Imagepoint 1" x="0.5" y="0.5" />
                     </frame>
                 </animation>
@@ -901,7 +902,7 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="681463229211283" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -933,6 +934,14 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Eye" sid="873338047215817">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="609171108415350" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -1003,34 +1012,40 @@
         <global-instance type="Mouse" uid="51" />
     </global-instances>
     <sounds-folder>
-        <file name="splode.m4a" />
-        <file name="splode.ogg" />
-        <file name="death.m4a" />
-        <file name="death.ogg" />
-        <file name="hasKey.m4a" />
-        <file name="hasKey.ogg" />
-        <file name="jump.m4a" />
-        <file name="jump.ogg" />
-        <file name="button (1).m4a" />
-        <file name="button (1).ogg" />
-        <file name="stepsexit.m4a" />
-        <file name="stepsexit.ogg" />
-        <file name="trap.m4a" />
-        <file name="trap.ogg" />
-        <file name="dip.m4a" />
-        <file name="dip.ogg" />
-        <file name="click.m4a" />
-        <file name="click.ogg" />
-        <file name="Portal.m4a" />
-        <file name="Portal.ogg" />
-        <file name="elevatorup.m4a" />
-        <file name="elevatorup.ogg" />
-        <file name="Lever.m4a" />
-        <file name="Lever.ogg" />
-        <file name="keydoor.m4a" />
-        <file name="keydoor.ogg" />
-        <file name="key.m4a" />
-        <file name="key.ogg" />
+        <sound-folder name="Environment Sounds">
+            <file name="heavy.m4a" />
+            <file name="heavy.ogg" />
+            <file name="click.m4a" />
+            <file name="click.ogg" />
+            <file name="button.m4a" />
+            <file name="button.ogg" />
+            <file name="dip.m4a" />
+            <file name="dip.ogg" />
+            <file name="elevatorup.m4a" />
+            <file name="elevatorup.ogg" />
+            <file name="Lever.m4a" />
+            <file name="Lever.ogg" />
+            <file name="splode.m4a" />
+            <file name="splode.ogg" />
+            <file name="trap.m4a" />
+            <file name="trap.ogg" />
+        </sound-folder>
+        <sound-folder name="Player Sounds">
+            <file name="hasKey.m4a" />
+            <file name="hasKey.ogg" />
+            <file name="stepsexit.m4a" />
+            <file name="stepsexit.ogg" />
+            <file name="key.m4a" />
+            <file name="key.ogg" />
+            <file name="jump.m4a" />
+            <file name="jump.ogg" />
+            <file name="death.m4a" />
+            <file name="death.ogg" />
+            <file name="keydoor.m4a" />
+            <file name="keydoor.ogg" />
+            <file name="Portal.m4a" />
+            <file name="Portal.ogg" />
+        </sound-folder>
     </sounds-folder>
     <music-folder>
         <file name="SongJuanIntro.m4a" />

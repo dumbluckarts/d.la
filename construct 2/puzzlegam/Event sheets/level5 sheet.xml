@@ -27,20 +27,28 @@
                     <param id="0" name="Layout">menu</param>
                 </action>
             </actions>
-        </event-block>
-        <event-block sid="365854278222816">
-            <conditions>
-                <condition id="-2" name="Compare Y" sid="518395330983945" type="RedBarrier">
-                    <param id="0" name="Comparison">3</param>
-                    <param id="1" name="Y co-ordinate">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-13" name="Set boolean" sid="177867466410823" type="RedBarrier">
-                    <param id="0" name="Instance variable">Elevating</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
+            <sub-events>
+                <event-block sid="296718006854530">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="230580876465087" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="844509416088042" type="Function">
+                            <param id="0" name="Name">&quot;callFade&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Play" sid="450635651869724" type="Audio">
+                            <param id="0" name="Audio file">stepsexit</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="725821936578311" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="107563615313592">
             <conditions>
@@ -50,7 +58,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Play" sid="259153053552196" type="Audio">
-                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="0" name="Audio file">button</param>
                     <param id="2" name="Loop">0</param>
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
@@ -88,7 +96,7 @@
             </conditions>
             <actions>
                 <action id="0" name="Play" sid="257746522920057" type="Audio">
-                    <param id="0" name="Audio file">button (1)</param>
+                    <param id="0" name="Audio file">button</param>
                     <param id="2" name="Loop">0</param>
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;button&quot;</param>
@@ -115,6 +123,17 @@
                 <action id="4" name="Set animation" sid="794967786748893" type="spikes_retractableRed">
                     <param id="0" name="Animation">&quot;Reverse&quot;</param>
                     <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="348367735128412">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="855117646485990" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="910794170735323" type="Function">
+                    <param id="0" name="Name">&quot;callFadein&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>
