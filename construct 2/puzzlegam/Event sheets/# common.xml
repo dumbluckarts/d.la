@@ -803,13 +803,36 @@
                             <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block any="1" sid="487211694061269">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                        <event-block disabled="1" sid="725595326616360">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="152300699689222" type="spikes_retractableRed">
+                                    <param id="0" name="Animation">&quot;Reverse&quot;</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="764848478201508" type="spikes_retractableRed">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Number">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="188265709732880" type="Function">
+                                    <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="702665591942433">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="130795709246326" type="player2">
                             <param id="0" name="Object">spikes_retractableBlu</param>
                         </condition>
-                        <condition id="2" name="Is playing" sid="583816442812999" type="spikes_retractableBlu">
+                        <condition id="2" name="Is playing" sid="958682991203909" type="spikes_retractableBlu">
                             <param id="0" name="Animation">&quot;Default&quot;</param>
                         </condition>
                     </conditions>
@@ -819,6 +842,29 @@
                             <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block any="1" sid="434921671746913">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                        <event-block disabled="1" sid="504600034930339">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="372103623945654" type="spikes_retractableBlu">
+                                    <param id="0" name="Animation">&quot;Reverse&quot;</param>
+                                </condition>
+                                <condition id="3" name="Compare frame" sid="934252267812419" type="spikes_retractableBlu">
+                                    <param id="0" name="Comparison">3</param>
+                                    <param id="1" name="Number">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="682547646978182" type="Function">
+                                    <param id="0" name="Name">&quot;PlayerDeath&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;player died!&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="419918144057138">
                     <conditions>
