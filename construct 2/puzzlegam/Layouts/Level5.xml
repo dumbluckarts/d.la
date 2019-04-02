@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Level5</name>
+    <name>level5</name>
     <sid>545383981965077</sid>
     <event-sheet>level5 sheet</event-sheet>
     <size>
@@ -657,8 +657,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>80</x>
-                        <y>192</y>
+                        <x>24</x>
+                        <y>176</y>
                         <z>0</z>
                         <width>16</width>
                         <height>16</height>
@@ -679,8 +679,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>104</x>
-                        <y>112</y>
+                        <x>184</x>
+                        <y>64</y>
                         <z>0</z>
                         <width>16</width>
                         <height>16</height>
