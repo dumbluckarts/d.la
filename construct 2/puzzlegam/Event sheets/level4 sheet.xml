@@ -24,7 +24,7 @@
                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
                 <action id="-2" name="Go to layout" sid="138877658770149" type="System">
-                    <param id="0" name="Layout">Level5</param>
+                    <param id="0" name="Layout">level5</param>
                 </action>
             </actions>
             <sub-events>
@@ -47,7 +47,7 @@
                             <param id="0" name="Seconds">1.0</param>
                         </action>
                         <action id="-2" name="Go to layout" sid="319095883603365" type="System">
-                            <param id="0" name="Layout">Level5</param>
+                            <param id="0" name="Layout">level5</param>
                         </action>
                     </actions>
                 </event-block>
