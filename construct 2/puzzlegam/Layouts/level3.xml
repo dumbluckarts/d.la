@@ -672,42 +672,52 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="RedBarrier" uid="1">
+                <instance type="physics_bridge" uid="1">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <hotspot>Top-left</hotspot>
                     </properties>
                     <instance-variables>
-                        <Elevating>false</Elevating>
+                        <bridge_number>2</bridge_number>
                     </instance-variables>
                     <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>100</density>
+                                <friction>1</friction>
+                                <elasticity>0</elasticity>
+                                <linear-damping>1</linear-damping>
+                                <angular-damping>1</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
                         <behavior-instance type="Solid">
                             <properties>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="CustomMovement">
+                        <behavior-instance type="Wrap">
                             <properties>
-                                <stepping-mode>None</stepping-mode>
-                                <pixels-per-step>5</pixels-per-step>
-                                <initial-state>Enabled</initial-state>
+                                <wrap-to>Layout</wrap-to>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>73</x>
+                        <x>80</x>
                         <y>152</y>
                         <z>0</z>
-                        <width>8</width>
-                        <height>34</height>
+                        <width>32</width>
+                        <height>8</height>
                         <depth>0</depth>
-                        <hotspotX>0.125</hotspotX>
-                        <hotspotY>0.029411765</hotspotY>
-                        <angle>0</angle>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>1.570796371</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>

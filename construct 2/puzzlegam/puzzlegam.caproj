@@ -15,14 +15,12 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
-        <plugin author="Scirra" id="NodeWebkit" version="1">NW.js</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
-        <plugin author="Scirra" id="XML" version="1">XML</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -69,44 +67,6 @@
     <object-folder>
         <object-folder name="# hud and display">
             <object-folder name="MenuSprites">
-                <object-folder name="LevelSelect">
-                    <object-type name="Level1" sid="333776599384768">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level2" sid="362523369174947">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level3" sid="691641837260475">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level4" sid="411492453132894">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level5" sid="163497965575085">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level6" sid="144427309872267">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level7" sid="668251833414355">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level8" sid="627608278014181">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                    <object-type name="Level9" sid="935271213326250">
-                        <plugin id="Spritefont2" />
-                        <texture />
-                    </object-type>
-                </object-folder>
                 <object-type name="MenuBorder" sid="840187735371775">
                     <plugin id="Sprite" />
                     <animation-folder>
@@ -140,19 +100,11 @@
                         <behavior-type name="8Direction" sid="259595040062075">
                             <behavior id="EightDir" />
                         </behavior-type>
+                        <behavior-type name="Sine" sid="319771437012005">
+                            <behavior id="Sin" />
+                        </behavior-type>
                     </behaviors>
                     <texture />
-                </object-type>
-                <object-type name="levelbutton" sid="293850688331805">
-                    <plugin id="Sprite" />
-                    <animation-folder>
-                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="589402835672735" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0" />
-                        </animation>
-                        <animation framecount="1" loop="0" name="Press" pingpong="0" repeatcount="1" repeatto="0" sid="212734864025372" speed="5">
-                            <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
-                        </animation>
-                    </animation-folder>
                 </object-type>
                 <object-type name="menuCursor" sid="168447513867383">
                     <plugin id="Sprite" />
@@ -163,7 +115,7 @@
                     </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="885319726476995" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.4375" />
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -171,7 +123,7 @@
                     <plugin id="Sprite" />
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="996507260640831" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.545455" />
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -179,7 +131,7 @@
                     <plugin id="Sprite" />
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="617743020917755" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.545455" />
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -187,7 +139,23 @@
                     <plugin id="Sprite" />
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="883672479579524" speed="5">
-                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                            <frame duration="1" hotspotX="0.5" hotspotY="0.545455" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="selectSprite" sid="365016814965004">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="100913685551611" speed="5">
+                            <frame duration="1" hotspotX="0.5625" hotspotY="0.53125" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="PauseScreen" sid="478612866716452">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="123276005659614" speed="5">
+                            <frame duration="1" hotspotX="0.504951" hotspotY="0.5" />
                         </animation>
                     </animation-folder>
                 </object-type>
@@ -244,9 +212,6 @@
             </object-type>
             <object-type name="Function" sid="140287007409452">
                 <plugin id="Function" />
-            </object-type>
-            <object-type global="1" name="XML" sid="770254457326943">
-                <plugin id="XML" />
             </object-type>
         </object-folder>
         <object-folder name="# masks">
@@ -882,26 +847,11 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="redd" sid="198227943824836">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="526119927853033" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\redd.png">
-                        <collision-poly>
-                            <point x="0.109375" y="0.109375" />
-                            <point x="0.5" y="0.15625" />
-                            <point x="0.554688" y="0.445313" />
-                            <point x="0.554688" y="0.554688" />
-                            <point x="0.5" y="0.789063" />
-                            <point x="0.203125" y="0.796875" />
-                            <point x="0.226563" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="portal" sid="617057327606568">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="portal number" name="portal" sid="746802901277596" type="number" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="233280203336315" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0" />
@@ -974,7 +924,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Text" sid="438153903063377">
+        <object-type name="levelSelectFont" sid="438153903063377">
             <plugin id="Spritefont2" />
             <texture />
         </object-type>
@@ -1006,14 +956,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="PauseScreen" sid="478612866716452">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="123276005659614" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="esc_exit" sid="519647507868398">
             <plugin id="Sprite" />
             <animation-folder>
@@ -1027,9 +969,6 @@
         </object-type>
         <object-type name="Browser" sid="828986622003246">
             <plugin id="Browser" />
-        </object-type>
-        <object-type name="NWjs" sid="127120080971923">
-            <plugin id="NodeWebkit" />
         </object-type>
     </object-folder>
     <families>
@@ -1052,16 +991,23 @@
                 </behavior-type>
             </behaviors>
         </family>
+        <family name="menuButtons" plugin-id="Sprite" sid="799051738725756">
+            <members>
+                <member>CreditsButton</member>
+                <member>OptionsButton</member>
+                <member>PlayButton</member>
+            </members>
+        </family>
     </families>
     <layout-folder>
         <layout>menu.xml</layout>
-        <layout>levelselect.xml</layout>
+        <layout>instance.xml</layout>
         <layout>level1.xml</layout>
         <layout>level2.xml</layout>
         <layout>level3.xml</layout>
-        <layout>level6.xml</layout>
         <layout>level4.xml</layout>
         <layout>level5.xml</layout>
+        <layout>level6.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet># controls.xml</event-sheet>
@@ -1097,7 +1043,6 @@
         </global-instance>
         <global-instance type="Mouse" uid="51" />
         <global-instance type="Browser" uid="209" />
-        <global-instance type="NWjs" uid="210" />
     </global-instances>
     <sounds-folder>
         <sound-folder name="Environment Sounds">

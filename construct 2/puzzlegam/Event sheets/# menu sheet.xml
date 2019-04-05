@@ -3,23 +3,15 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name># menu sheet</name>
     <events>
-        <event-block sid="177557198187776">
+        <event-block sid="645867764060686">
             <conditions>
-                <condition id="-2" name="On start of layout" sid="495677254343549" type="System" />
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block sid="733246857737384">
-            <conditions>
-                <condition id="0" name="On ended" sid="186783750172149" type="Audio">
-                    <param id="0" name="Tag">&quot;menuintro&quot;</param>
-                </condition>
+                <condition id="-2" name="On start of layout" sid="574574192033189" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Play" sid="406247710432569" type="Audio">
+                <action id="0" name="Play" sid="281811337772746" type="Audio">
                     <param id="0" name="Audio file">menulooping</param>
                     <param id="2" name="Loop">1</param>
-                    <param id="3" name="Volume">0</param>
+                    <param id="3" name="Volume">-5</param>
                     <param id="1" name="Tag (optional)">&quot;menuloop&quot;</param>
                 </action>
             </actions>
@@ -50,186 +42,347 @@
                 </action>
             </actions>
         </event-block>
-        <event-group description="" sid="840162972827480" title="Menu Selection" />
-        <comment>Start</comment>
-        <event-block sid="496544783647166">
+        <event-group description="" sid="373159688270543" title="Menu Select">
+            <sub-events>
+                <comment>go back to main menu and exit</comment>
+                <event-block sid="780484923548975">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="891670337071470" type="Keyboard">
+                            <param id="0" name="Key">27</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="128782350910880">
+                            <conditions>
+                                <condition id="-9" name="Is visible" sid="516106469495182" type="levelSelectFont" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="876638583859885" type="esc_exit">
+                                    <param id="0" name="Animation">&quot;Press&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="132240223216240" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="0" name="Call function" sid="438100093825224" type="Function">
+                                    <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Call function" sid="617699433736339" type="Function">
+                                    <param id="0" name="Name">&quot;toggleLevelSelect&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="730332805606095">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="706450245172400" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="204190477569973" type="esc_exit">
+                                    <param id="0" name="Animation">&quot;Press&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="279770415999811" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="1" name="Close" sid="661563574806941" type="Browser" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="529154147157670">
+                    <conditions>
+                        <condition id="3" name="On key released" sid="780984575425847" type="Keyboard">
+                            <param id="0" name="Key">27</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="242096431974328" type="esc_exit">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>set menu cursor</comment>
+                <event-block sid="605292753886705">
+                    <conditions>
+                        <condition id="7" name="Cursor is over object" sid="893019484581333" type="Mouse">
+                            <param id="0" name="Object">menuButtons</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="281287650420472" type="menuButtons" />
+                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="837927478524358" type="menuCursor" />
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="790904494190853" type="menuCursor">
+                            <param id="0" name="Y">menuButtons.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>menu buttons pressed</comment>
+                <event-block sid="720218824553139">
+                    <conditions>
+                        <condition id="0" name="On click" sid="111735895431666" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>main menu buttons</comment>
+                        <event-block sid="708949387259612">
+                            <conditions>
+                                <condition id="-9" name="Is visible" sid="772636098516751" type="menuButtons" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="323324635643899">
+                                    <conditions>
+                                        <condition id="7" name="Cursor is over object" sid="952109817680450" type="Mouse">
+                                            <param id="0" name="Object">PlayButton</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Flash" id="0" name="Flash" sid="439276515827733" type="menuCursor">
+                                            <param id="0" name="&apos;On&apos; time">0.08</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.08</param>
+                                            <param id="2" name="Duration">0.4</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="410130956727327" type="Audio">
+                                            <param id="0" name="Audio file">button</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="945330015238342" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="993365558474335" type="Function">
+                                            <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="355703970604902" type="Function">
+                                            <param id="0" name="Name">&quot;toggleLevelSelect&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="151904947447085">
+                                    <conditions>
+                                        <condition id="7" name="Cursor is over object" sid="456572532509472" type="Mouse">
+                                            <param id="0" name="Object">OptionsButton</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Flash" id="0" name="Flash" sid="884333494839187" type="menuCursor">
+                                            <param id="0" name="&apos;On&apos; time">0.08</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.08</param>
+                                            <param id="2" name="Duration">0.4</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="519423352957907" type="Audio">
+                                            <param id="0" name="Audio file">button</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="450306080780623" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="637001557894869" type="Function">
+                                            <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="730142239104921" type="Function">
+                                            <param id="0" name="Name">&quot;toggleLevelSelect&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="724326303765781">
+                                    <conditions>
+                                        <condition id="7" name="Cursor is over object" sid="531030157048305" type="Mouse">
+                                            <param id="0" name="Object">CreditsButton</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Flash" id="0" name="Flash" sid="634645627128274" type="menuCursor">
+                                            <param id="0" name="&apos;On&apos; time">0.08</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.08</param>
+                                            <param id="2" name="Duration">0.4</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="320230095597435" type="Audio">
+                                            <param id="0" name="Audio file">button</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="314141912697200" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="322465148880817" type="Function">
+                                            <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="451755984564094" type="Function">
+                                            <param id="0" name="Name">&quot;toggleLevelSelect&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>level select buttons</comment>
+                        <event-block sid="585593263554923">
+                            <conditions>
+                                <condition id="-9" name="Is visible" sid="999793726210064" type="levelSelectFont" />
+                                <condition id="7" name="Cursor is over object" sid="233393472206485" type="Mouse">
+                                    <param id="0" name="Object">levelSelectFont</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="352892044330271" type="Function">
+                                    <param id="0" name="Name">&quot;playLevel&quot;</param>
+                                    <param id="1" name="Parameter {n}">levelSelectFont.Text</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>set level select cursor</comment>
+                <event-block sid="940280654132240">
+                    <conditions>
+                        <condition id="-9" name="Is visible" sid="647450229235026" type="levelSelectFont" />
+                        <condition id="7" name="Cursor is over object" sid="253743443770679" type="Mouse">
+                            <param id="0" name="Object">levelSelectFont</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-1" name="Set X" sid="679462017872814" type="selectSprite">
+                            <param id="0" name="X">levelSelectFont.X</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="298234038129151" type="selectSprite">
+                            <param id="0" name="X">levelSelectFont.X</param>
+                            <param id="1" name="Y">levelSelectFont.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="932121393712814">
             <conditions>
-                <condition id="-2" name="Compare Y" sid="500892655238364" type="menuCursor">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">144</param>
+                <condition id="0" name="On function" sid="615730213243873" type="Function">
+                    <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
                 </condition>
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="989403766941093">
+                <event-block sid="198581344882819">
                     <conditions>
-                        <condition id="8" name="On mouse wheel" sid="511353134781934" type="Mouse">
-                            <param id="0" name="Direction">0</param>
-                        </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="184803092181296" type="menuCursor" />
+                        <condition id="-9" name="Is visible" sid="176159049612961" type="menuButtons" />
                     </conditions>
                     <actions>
-                        <action id="-2" name="Set Y" sid="188209154451408" type="menuCursor">
-                            <param id="0" name="Y">158</param>
+                        <action id="-15" name="Set visible" sid="339158397890255" type="menuButtons">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="951121523014324" type="menuCursor">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="905505459753674" type="menuFellas">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="604392456208934" type="tm_noahtexturesplusnel">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="480965066819370" type="decor_tm">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="730866453744667">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="124334505292074" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="277026049024717" type="menuButtons">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="577212419139716" type="menuCursor">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="891732031559199" type="menuFellas">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="185951459912359" type="tm_noahtexturesplusnel">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="435772851524766" type="decor_tm">
+                            <param id="0" name="Visibility">1</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
-        <comment>Options</comment>
-        <event-block sid="806999218868454">
+        <event-block sid="914439494004532">
             <conditions>
-                <condition id="-2" name="Compare Y" sid="544568347142447" type="menuCursor">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">158</param>
+                <condition id="0" name="On function" sid="694814479791701" type="Function">
+                    <param id="0" name="Name">&quot;toggleLevelSelect&quot;</param>
                 </condition>
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="912570653044449">
+                <event-block sid="136707356357247">
                     <conditions>
-                        <condition id="8" name="On mouse wheel" sid="102976161347791" type="Mouse">
-                            <param id="0" name="Direction">0</param>
-                        </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="766127496262477" type="menuCursor" />
+                        <condition id="-9" name="Is visible" sid="123852202986553" type="levelSelectFont" />
                     </conditions>
                     <actions>
-                        <action id="-2" name="Set Y" sid="623514148699760" type="menuCursor">
-                            <param id="0" name="Y">172</param>
+                        <action id="-15" name="Set visible" sid="803529057183407" type="levelSelectFont">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="953706853611363" type="selectSprite">
+                            <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="426478282197912">
+                <event-block sid="947470285119620">
                     <conditions>
-                        <condition id="8" name="On mouse wheel" sid="347110494555565" type="Mouse">
-                            <param id="0" name="Direction">1</param>
-                        </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="313323918898980" type="menuCursor" />
+                        <condition id="-22" name="Else" sid="778615743659878" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-2" name="Set Y" sid="104987578197053" type="menuCursor">
-                            <param id="0" name="Y">144</param>
+                        <action id="-15" name="Set visible" sid="413652898008069" type="levelSelectFont">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="481920261322108" type="selectSprite">
+                            <param id="0" name="Visibility">1</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
-        <comment>Credits</comment>
-        <event-block sid="726064542987009">
+        <event-block sid="800916037908197">
             <conditions>
-                <condition id="-2" name="Compare Y" sid="162716610358157" type="menuCursor">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">172</param>
+                <condition id="0" name="On function" sid="354425590351526" type="Function">
+                    <param id="0" name="Name">&quot;playLevel&quot;</param>
                 </condition>
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="255568335542898">
-                    <conditions>
-                        <condition id="8" name="On mouse wheel" sid="549473408585935" type="Mouse">
-                            <param id="0" name="Direction">1</param>
-                        </condition>
-                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="570682385670049" type="menuCursor" />
-                    </conditions>
+                <event-block sid="422520662702122">
+                    <conditions />
                     <actions>
-                        <action id="-2" name="Set Y" sid="402619653127881" type="menuCursor">
-                            <param id="0" name="Y">158</param>
+                        <action id="6" name="Stop" sid="749162303468699" type="Audio">
+                            <param id="0" name="Tag">&quot;menuloop&quot;</param>
                         </action>
+                        <action id="6" name="Stop" sid="519566137079677" type="Audio">
+                            <param id="0" name="Tag">&quot;menuintro&quot;</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="225698594669398" type="System">
+                            <param id="0" name="Layout">&quot;level&quot; &amp; Function.Param(0)</param>
+                        </action>
+                        <action id="-26" name="Restart layout" sid="865545948450943" type="System" />
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="780484923548975">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="891670337071470" type="Keyboard">
-                    <param id="0" name="Key">27</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="204190477569973" type="esc_exit">
-                    <param id="0" name="Animation">&quot;Press&quot;</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="-16" name="Wait" sid="279770415999811" type="System">
-                    <param id="0" name="Seconds">0.8</param>
-                </action>
-                <action id="1" name="Close" sid="661563574806941" type="Browser" />
-            </actions>
-        </event-block>
-        <event-block sid="605292753886705">
-            <conditions>
-                <condition id="7" name="Cursor is over object" sid="893019484581333" type="Mouse">
-                    <param id="0" name="Object">PlayButton</param>
-                </condition>
-                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="837927478524358" type="menuCursor" />
-            </conditions>
-            <actions>
-                <action id="-2" name="Set Y" sid="790904494190853" type="menuCursor">
-                    <param id="0" name="Y">144</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="604833452588206">
-            <conditions>
-                <condition id="7" name="Cursor is over object" sid="946035703812625" type="Mouse">
-                    <param id="0" name="Object">OptionsButton</param>
-                </condition>
-                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="312435075716677" type="menuCursor" />
-            </conditions>
-            <actions>
-                <action id="-2" name="Set Y" sid="805394385477628" type="menuCursor">
-                    <param id="0" name="Y">158</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="414749284434133">
-            <conditions>
-                <condition id="7" name="Cursor is over object" sid="153866129028468" type="Mouse">
-                    <param id="0" name="Object">CreditsButton</param>
-                </condition>
-                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="365092051345864" type="menuCursor" />
-            </conditions>
-            <actions>
-                <action id="-2" name="Set Y" sid="959730841663416" type="menuCursor">
-                    <param id="0" name="Y">172</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="650900701545643">
-            <conditions>
-                <condition id="0" name="On click" sid="710042709931052" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                </condition>
-                <condition id="7" name="Cursor is over object" sid="345743250866061" type="Mouse">
-                    <param id="0" name="Object">PlayButton</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Flash" id="0" name="Flash" sid="394157849445218" type="menuCursor">
-                    <param id="0" name="&apos;On&apos; time">0.08</param>
-                    <param id="1" name="&apos;Off&apos; time">0.08</param>
-                    <param id="2" name="Duration">2</param>
-                </action>
-                <action id="6" name="Stop" sid="749162303468699" type="Audio">
-                    <param id="0" name="Tag">&quot;menuloop&quot;</param>
-                </action>
-                <action id="6" name="Stop" sid="519566137079677" type="Audio">
-                    <param id="0" name="Tag">&quot;menuintro&quot;</param>
-                </action>
-                <action id="0" name="Play" sid="458044644552722" type="Audio">
-                    <param id="0" name="Audio file">button</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">0</param>
-                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                </action>
-                <action id="-16" name="Wait" sid="255729805534478" type="System">
-                    <param id="0" name="Seconds">1.0</param>
-                </action>
-                <action id="-2" name="Go to layout" sid="262593353977557" type="System">
-                    <param id="0" name="Layout">level1</param>
-                </action>
-            </actions>
         </event-block>
     </events>
 </c2eventsheet>
