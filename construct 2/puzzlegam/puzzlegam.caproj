@@ -167,10 +167,26 @@
                         </animation>
                     </animation-folder>
                 </object-type>
-                <object-type name="menuButtons" sid="709688297194649">
+                <object-type name="PlayButton" sid="709688297194649">
                     <plugin id="Sprite" />
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="996507260640831" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="OptionsButton" sid="216498655922868">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="617743020917755" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="CreditsButton" sid="227042555943271">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="883672479579524" speed="5">
                             <frame duration="1" hotspotX="0" hotspotY="0" />
                         </animation>
                     </animation-folder>
@@ -202,25 +218,6 @@
                     </effect-type>
                 </effects>
                 <texture />
-            </object-type>
-            <object-type name="play_button" sid="273875399540964">
-                <plugin id="Sprite" />
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="696340261037729" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Press" pingpong="0" repeatcount="1" repeatto="0" sid="418791190411746" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
-                    </animation>
-                </animation-folder>
-            </object-type>
-            <object-type name="play_button2" sid="896632343138379">
-                <plugin id="Sprite" />
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="889804964291896" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.722222" />
-                    </animation>
-                </animation-folder>
             </object-type>
             <object-type name="player_died" sid="970633502607642">
                 <plugin id="Spritefont2" />
