@@ -77,6 +77,11 @@
                 </object-type>
                 <object-type name="menuTitle" sid="321490326137109">
                     <plugin id="Sprite" />
+                    <behaviors>
+                        <behavior-type name="Sine" sid="315310373178077">
+                            <behavior id="Sin" />
+                        </behavior-type>
+                    </behaviors>
                     <animation-folder>
                         <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="823600759238354" speed="5">
                             <frame duration="1" hotspotX="0" hotspotY="0" />
@@ -205,6 +210,23 @@
                 </effects>
                 <texture />
             </object-type>
+            <object-type name="Credits" sid="170650649509767">
+                <plugin id="Spritefont2" />
+                <behaviors>
+                    <behavior-type name="CustomMovement" sid="341357656992028">
+                        <behavior id="custom" />
+                    </behavior-type>
+                    <behavior-type name="Sine" sid="846007934145278">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
+                <effects>
+                    <effect-type name="Inverse">
+                        <effect id="inverse" />
+                    </effect-type>
+                </effects>
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="# input and output">
             <object-type name="Keyboard" sid="527807612885092">
@@ -221,24 +243,6 @@
             </object-type>
         </object-folder>
         <object-folder name="# tilemaps">
-            <object-type name="tm_ground" sid="449903522984414">
-                <plugin id="Tilemap" />
-                <behaviors>
-                    <behavior-type name="Solid" sid="780995371788395">
-                        <behavior id="solid" />
-                    </behavior-type>
-                </behaviors>
-                <texture original-source="C:\Users\Noah\Desktop\tiolemap.png" />
-                <tiles>
-                    <tile id="66">
-                        <collision-poly>
-                            <point x="0" y="0" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                        </collision-poly>
-                    </tile>
-                </tiles>
-            </object-type>
             <object-type name="tm_noahtexturesplusnel" sid="781583731979527">
                 <plugin id="Tilemap" />
                 <behaviors>
@@ -414,6 +418,19 @@
                         </frame>
                     </animation>
                     <animation framecount="1" loop="0" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="322855641291470" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="P1" x="0.5625" y="-0.5" />
+                            <image-point name="Key" x="1.0625" y="0.5" />
+                            <image-point name="headhitbox" x="0.5" y="0.125" />
+                            <collision-poly>
+                                <point x="0.75" y="0.1875" />
+                                <point x="0.75" y="1" />
+                                <point x="0.375" y="1" />
+                                <point x="0.375" y="0.1875" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Death" pingpong="0" repeatcount="1" repeatto="0" sid="129720732821485" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="P1" x="0.5625" y="-0.5" />
                             <image-point name="Key" x="1.0625" y="0.5" />
@@ -615,14 +632,6 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="Door_Red" sid="612232522765947">
-                <plugin id="Sprite" />
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="289085568018436" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                </animation-folder>
-            </object-type>
             <object-type name="RedBarrier" sid="804671479062014">
                 <plugin id="Sprite" />
                 <instance-variables>
@@ -750,14 +759,6 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="gold_ley2" sid="740813733246105">
-                <plugin id="Sprite" />
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="512226462422920" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                </animation-folder>
-            </object-type>
             <object-type name="red_spikes" sid="240373622850050">
                 <plugin id="TiledBg" />
                 <texture />
@@ -793,6 +794,33 @@
                 </behaviors>
                 <texture />
             </object-type>
+            <object-type name="Elevator_2" sid="854347868850421">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="Elevating" sid="177640656033871" type="boolean" />
+                    <instance-variable name="Descending" sid="556893300063501" type="boolean" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Solid" sid="793267938561885">
+                        <behavior id="solid" />
+                    </behavior-type>
+                    <behavior-type name="CustomMovement" sid="577132823646340">
+                        <behavior id="custom" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="594954937521684" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0" y="0.6875" />
+                                <point x="1" y="0.6875" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="sprites">
             <object-type name="swirlyvines" sid="651023444319996">
@@ -816,10 +844,6 @@
                 <texture />
             </object-type>
         </object-folder>
-        <object-type name="Red_Death" sid="984364666632153">
-            <plugin id="Particles" />
-            <texture />
-        </object-type>
         <object-type name="Audio" sid="123648382480352">
             <plugin id="Audio" />
         </object-type>
@@ -828,24 +852,6 @@
         </object-type>
         <object-type name="Mouse" sid="500537519316210">
             <plugin id="Mouse" />
-        </object-type>
-        <object-type name="blu" sid="929478434079703">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="684322243670035" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Noah\Desktop\blu.png">
-                        <collision-poly>
-                            <point x="0.640625" y="0.640625" />
-                            <point x="0.5" y="0.09375" />
-                            <point x="0.757813" y="0.242188" />
-                            <point x="0.867188" y="0.5" />
-                            <point x="0.898438" y="0.898438" />
-                            <point x="0.5" y="0.414063" />
-                            <point x="0.757813" y="0.5" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
         </object-type>
         <object-type name="portal" sid="617057327606568">
             <plugin id="Sprite" />
@@ -928,14 +934,6 @@
             <plugin id="Spritefont2" />
             <texture />
         </object-type>
-        <object-type name="lvlCursor" sid="831375122614857">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="928963976491033" speed="5">
-                    <frame duration="1" hotspotX="0.636364" hotspotY="0.416667" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="spikes_retractableBlu" sid="969623065758021">
             <plugin id="Sprite" />
             <animation-folder>
@@ -969,6 +967,22 @@
         </object-type>
         <object-type name="Browser" sid="828986622003246">
             <plugin id="Browser" />
+        </object-type>
+        <object-type name="Cursor" sid="450367896219661">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="481919098038039" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="brand_menu" sid="315248161352886">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="575643940466688" speed="5">
+                    <frame duration="1" hotspotX="0.507937" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families>
@@ -1018,6 +1032,7 @@
         <event-sheet>level4 sheet.xml</event-sheet>
         <event-sheet>level2 sheet.xml</event-sheet>
         <event-sheet>level5 sheet.xml</event-sheet>
+        <event-sheet>level6 sheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Keyboard" uid="0" />
@@ -1081,12 +1096,16 @@
         </sound-folder>
     </sounds-folder>
     <music-folder>
-        <file name="SongJuanIntro.m4a" />
-        <file name="SongJuanIntro.ogg" />
-        <file name="SongJuanLoop.m4a" />
-        <file name="SongJuanLoop.ogg" />
         <file name="menulooping.m4a" />
         <file name="menulooping.ogg" />
+        <file name="MenaceIntro.m4a" />
+        <file name="MenaceIntro.ogg" />
+        <file name="MenaceLoop.m4a" />
+        <file name="MenaceLoop.ogg" />
+        <file name="BAMFIntro.m4a" />
+        <file name="BAMFIntro.ogg" />
+        <file name="BAMFLoop.m4a" />
+        <file name="BAMFLoop.ogg" />
     </music-folder>
     <files-folder>
         <file-folder name="Icons">

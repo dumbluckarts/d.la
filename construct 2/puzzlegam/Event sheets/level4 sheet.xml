@@ -224,11 +224,33 @@
         <event-block sid="229348885695526">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="732487822095140" type="System" />
+                <condition id="-7" name="Compare time" sid="285265627653526" type="System">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Time (seconds)">0.0</param>
+                </condition>
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="443356998568537" type="Function">
-                    <param id="0" name="Name">&quot;callFadein&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="33" name="Stop all" sid="614956245446568" type="Audio" />
+                <action id="0" name="Play" sid="992952504738454" type="Audio">
+                    <param id="0" name="Audio file">MenaceIntro</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;menaceintro&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="621063552693956">
+            <conditions>
+                <condition id="0" name="On ended" sid="412661662378123" type="Audio">
+                    <param id="0" name="Tag">&quot;menaceintro&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="257094944231813" type="Audio">
+                    <param id="0" name="Audio file">MenaceLoop</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-10</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>

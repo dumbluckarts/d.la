@@ -57,9 +57,9 @@
                     <param id="1" name="Parameter {n}"></param>
                 </action>
                 <action id="0" name="Play" sid="221669214936017" type="Audio">
-                    <param id="0" name="Audio file">SongJuanIntro</param>
+                    <param id="0" name="Audio file">BAMFIntro</param>
                     <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">0</param>
+                    <param id="3" name="Volume">-10</param>
                     <param id="1" name="Tag (optional)">&quot;intro1&quot;</param>
                 </action>
             </actions>
@@ -72,9 +72,9 @@
             </conditions>
             <actions>
                 <action id="0" name="Play" sid="156795239820075" type="Audio">
-                    <param id="0" name="Audio file">SongJuanLoop</param>
+                    <param id="0" name="Audio file">BAMFLoop</param>
                     <param id="2" name="Loop">1</param>
-                    <param id="3" name="Volume">0</param>
+                    <param id="3" name="Volume">-10</param>
                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
             </actions>

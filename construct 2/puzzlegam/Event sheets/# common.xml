@@ -1504,5 +1504,42 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="393651043265570">
+            <conditions>
+                <condition id="0" name="On function" sid="273566718718414" type="Function">
+                    <param id="0" name="Name">&quot;set_bridge_active&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable comment="bridge number" constant="0" name="param0" sid="518731013573969" static="1" type="number">0</variable>
+                <event-block sid="294878323630144">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="465226730740958" type="System">
+                            <param id="0" name="Variable">param0</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="568693643719208">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="826496435230460" type="System">
+                            <param id="0" name="Object">physics_bridge</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="575189079345796" type="physics_bridge">
+                            <param id="0" name="Instance variable">bridge_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">param0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="21" name="Set immovable" sid="441907231257234" type="physics_bridge">
+                            <param id="0" name="Setting">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>

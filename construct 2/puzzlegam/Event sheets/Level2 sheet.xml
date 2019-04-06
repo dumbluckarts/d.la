@@ -4,43 +4,6 @@
     <name>level2 sheet</name>
     <events>
         <include># common</include>
-        <event-block sid="999464976771657">
-            <conditions>
-                <condition id="0" name="On function" sid="121500167071717" type="Function">
-                    <param id="0" name="Name">&quot;set_bridge_active&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <variable comment="bridge number" constant="0" name="param0" sid="135182684222782" static="1" type="number">0</variable>
-                <event-block sid="385310553795417">
-                    <conditions />
-                    <actions>
-                        <action id="-9" name="Set value" sid="676897387345887" type="System">
-                            <param id="0" name="Variable">param0</param>
-                            <param id="1" name="Value">Function.Param(0)</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="659739253332390">
-                    <conditions>
-                        <condition id="-11" name="For Each" sid="694985087354819" type="System">
-                            <param id="0" name="Object">physics_bridge</param>
-                        </condition>
-                        <condition id="-7" name="Compare instance variable" sid="256999119379751" type="physics_bridge">
-                            <param id="0" name="Instance variable">bridge_number</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">param0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Physics" id="21" name="Set immovable" sid="783865914102060" type="physics_bridge">
-                            <param id="0" name="Setting">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
         <event-block sid="819223022981861">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="294181402018717" type="player1">
@@ -153,17 +116,6 @@
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="843598964410620">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="588315111879263" type="System" />
-            </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="147250242344814" type="Function">
-                    <param id="0" name="Name">&quot;callFade&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
         </event-block>
     </events>
 </c2eventsheet>

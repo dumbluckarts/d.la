@@ -14,6 +14,9 @@
                     <param id="3" name="Volume">-5</param>
                     <param id="1" name="Tag (optional)">&quot;menuloop&quot;</param>
                 </action>
+                <action id="1" name="Set cursor from sprite" sid="613392535797093" type="Mouse">
+                    <param id="0" name="Sprite">Cursor</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="345151904857662">
@@ -78,6 +81,7 @@
                         <event-block sid="730332805606095">
                             <conditions>
                                 <condition id="-22" name="Else" sid="706450245172400" type="System" />
+                                <condition id="-9" inverted="1" name="Is visible" sid="837173180189525" type="Credits" />
                             </conditions>
                             <actions>
                                 <action id="4" name="Set animation" sid="204190477569973" type="esc_exit">
@@ -88,6 +92,30 @@
                                     <param id="0" name="Seconds">0.5</param>
                                 </action>
                                 <action id="1" name="Close" sid="661563574806941" type="Browser" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="687951832138501">
+                            <conditions>
+                                <condition behavior="Sine" id="0" name="Is active" sid="103146238233444" type="Credits" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="979939126293881" type="Function">
+                                    <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action behavior="Sine" id="0" name="Set active" sid="427594138655683" type="Credits">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                                <action id="-3" name="Set position" sid="654894315942528" type="Credits">
+                                    <param id="0" name="X">32</param>
+                                    <param id="1" name="Y">216</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="468312596826490" type="menuTitle">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="389145201284478" type="brand_menu">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
@@ -224,9 +252,16 @@
                                             <param id="0" name="Name">&quot;toggleMainMenu&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
                                         </action>
-                                        <action id="0" name="Call function" sid="451755984564094" type="Function">
-                                            <param id="0" name="Name">&quot;toggleLevelSelect&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
+                                        <action id="-15" name="Set visible" sid="559845354364076" type="menuTitle">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="246280707105393" type="brand_menu">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action behavior="CustomMovement" id="5" name="Accelerate toward position" sid="381412532114946" type="Credits">
+                                            <param id="0" name="Acceleration">1300</param>
+                                            <param id="1" name="X">32</param>
+                                            <param id="2" name="Y">80</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -383,6 +418,20 @@
                     </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="344861296437491">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="725530962926052" type="Credits">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="Y co-ordinate">80</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="CustomMovement" id="0" name="Stop" sid="519258132283907" type="Credits" />
+                <action behavior="Sine" id="0" name="Set active" sid="226228508881604" type="Credits">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
