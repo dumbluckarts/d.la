@@ -142,7 +142,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="blue_spikes" uid="64">
+                <instance type="bspikes" uid="64">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -304,7 +304,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="blue_spikes" uid="63">
+                <instance type="bspikes" uid="63">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -324,7 +324,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="red_spikes" uid="68">
+                <instance type="rspikes" uid="68">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -428,7 +428,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="red_spikes" uid="77">
+                <instance type="rspikes" uid="77">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -686,7 +686,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="red_spikes" uid="80">
+                <instance type="rspikes" uid="80">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -759,8 +759,8 @@
                         <width>10</width>
                         <height>7</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.428571433</hotspotY>
+                        <hotspotX>0.100000001</hotspotX>
+                        <hotspotY>0.714285731</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

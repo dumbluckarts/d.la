@@ -10,6 +10,7 @@
     <unique-id>1uo1cvfgyb2w8</unique-id>
     <saved-with-version>26700</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
@@ -227,6 +228,10 @@
                 </effects>
                 <texture />
             </object-type>
+            <object-type name="health" sid="531239315377834">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="# input and output">
             <object-type name="Keyboard" sid="527807612885092">
@@ -235,9 +240,16 @@
             <object-type name="Function" sid="140287007409452">
                 <plugin id="Function" />
             </object-type>
+            <object-type global="1" name="playMovement" sid="835935184823825">
+                <plugin id="Arr" />
+            </object-type>
         </object-folder>
         <object-folder name="# masks">
             <object-type name="mask_black" sid="734010329397084">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="mask_white" sid="761614221534627">
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
@@ -575,6 +587,94 @@
             </object-type>
         </object-folder>
         <object-folder name="objects">
+            <object-folder name="action objects">
+                <object-type name="bbutton" sid="859482927663555">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="476897345962201" speed="0">
+                            <frame duration="1" hotspotX="0" hotspotY="0.75" />
+                            <frame duration="1" hotspotX="0" hotspotY="0.75" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="blever" sid="324551603033277">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="228587853252012" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.888889" />
+                            <frame duration="1" hotspotX="0.111111" hotspotY="0.888889">
+                                <collision-poly>
+                                    <point x="1" y="0.888889" />
+                                    <point x="0.111111" y="0.888889" />
+                                    <point x="0.111111" y="0" />
+                                    <point x="1" y="0" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="rlever" sid="992344963441536">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="395271311452719" speed="5">
+                            <frame duration="1" hotspotX="0" hotspotY="0.888889" />
+                            <frame duration="1" hotspotX="0.111111" hotspotY="0.888889">
+                                <collision-poly>
+                                    <point x="1" y="0.888889" />
+                                    <point x="0.111111" y="0.888889" />
+                                    <point x="0.111111" y="0" />
+                                    <point x="1" y="0" />
+                                </collision-poly>
+                            </frame>
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="rbutton" sid="858776577846020">
+                    <plugin id="Sprite" />
+                    <animation-folder>
+                        <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="313500160076941" speed="0">
+                            <frame duration="1" hotspotX="0" hotspotY="0.75" />
+                            <frame duration="1" hotspotX="0" hotspotY="0.75" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+                <object-type name="gold_key" sid="697705788838907">
+                    <plugin id="Sprite" />
+                    <instance-variables>
+                        <instance-variable comment="time key is in the air fof" name="key_timer" sid="312521440676209" type="number" />
+                    </instance-variables>
+                    <behaviors>
+                        <behavior-type name="Sine" sid="520893625014861">
+                            <behavior id="Sin" />
+                        </behavior-type>
+                        <behavior-type name="Physics" sid="414580229258984">
+                            <behavior id="Physics" />
+                        </behavior-type>
+                        <behavior-type name="BoundToLayout" sid="448104325420198">
+                            <behavior id="bound" />
+                        </behavior-type>
+                    </behaviors>
+                    <animation-folder>
+                        <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="270689800713437" speed="5">
+                            <frame duration="1" hotspotX="0.1" hotspotY="0.714286" />
+                        </animation>
+                    </animation-folder>
+                </object-type>
+            </object-folder>
+            <object-folder name="reaction objects">
+                <object-type name="bspikes" sid="933490813976005">
+                    <plugin id="TiledBg" />
+                    <texture />
+                </object-type>
+                <object-type name="rspikes" sid="240373622850050">
+                    <plugin id="TiledBg" />
+                    <texture />
+                </object-type>
+                <object-type name="spikes" sid="253277048000279">
+                    <plugin id="TiledBg" />
+                    <texture />
+                </object-type>
+            </object-folder>
             <object-type name="obj_door" sid="934374295510890">
                 <plugin id="Sprite" />
                 <animation-folder>
@@ -732,40 +832,6 @@
                         </frame>
                     </animation>
                 </animation-folder>
-            </object-type>
-            <object-type name="blue_spikes" sid="933490813976005">
-                <plugin id="TiledBg" />
-                <texture />
-            </object-type>
-            <object-type name="gold_key" sid="697705788838907">
-                <plugin id="Sprite" />
-                <instance-variables>
-                    <instance-variable comment="time key is in the air fof" name="key_timer" sid="312521440676209" type="number" />
-                </instance-variables>
-                <behaviors>
-                    <behavior-type name="Sine" sid="520893625014861">
-                        <behavior id="Sin" />
-                    </behavior-type>
-                    <behavior-type name="Physics" sid="414580229258984">
-                        <behavior id="Physics" />
-                    </behavior-type>
-                    <behavior-type name="BoundToLayout" sid="448104325420198">
-                        <behavior id="bound" />
-                    </behavior-type>
-                </behaviors>
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="270689800713437" speed="5">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.428571" />
-                    </animation>
-                </animation-folder>
-            </object-type>
-            <object-type name="red_spikes" sid="240373622850050">
-                <plugin id="TiledBg" />
-                <texture />
-            </object-type>
-            <object-type name="spikes" sid="253277048000279">
-                <plugin id="TiledBg" />
-                <texture />
             </object-type>
             <object-type name="blue_lever" sid="865985064875028">
                 <plugin id="Sprite" />

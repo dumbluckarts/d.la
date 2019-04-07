@@ -306,13 +306,13 @@
                         <width>10</width>
                         <height>7</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.428571433</hotspotY>
+                        <hotspotX>0.100000001</hotspotX>
+                        <hotspotY>0.714285731</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="blue_spikes" uid="23">
+                <instance type="bspikes" uid="23">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -320,10 +320,10 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>176</x>
+                        <x>168</x>
                         <y>112</y>
                         <z>0</z>
-                        <width>32</width>
+                        <width>48</width>
                         <height>8</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -332,7 +332,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="red_spikes" uid="24">
+                <instance type="rspikes" uid="24">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -547,7 +547,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>8</x>
+                        <x>2</x>
                         <y>-8</y>
                         <z>0</z>
                         <width>4</width>
@@ -569,7 +569,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>24</x>
+                        <x>16</x>
                         <y>-8</y>
                         <z>0</z>
                         <width>4</width>
@@ -754,7 +754,7 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
-            <global>0</global>
+            <global>1</global>
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
@@ -764,8 +764,8 @@
                         <character-width>16</character-width>
                         <character-height>16</character-height>
                         <character-set>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#&quot;&apos;&amp;()[]|`\/@°+=*$£€&lt;&gt;</character-set>
-                        <text>score: 000</text>
-                        <scale>0.4</scale>
+                        <text>000</text>
+                        <scale>0.38</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Top</vertical-alignment>
@@ -784,7 +784,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>304</x>
+                        <x>32</x>
                         <y>8</y>
                         <z>0</z>
                         <width>72</width>
@@ -826,6 +826,46 @@
                         <z>0</z>
                         <width>80</width>
                         <height>8</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="mask_white" uid="105">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>28</x>
+                        <y>8</y>
+                        <z>0</z>
+                        <width>1</width>
+                        <height>5</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="health" uid="89">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>8</x>
+                        <y>8</y>
+                        <z>0</z>
+                        <width>17</width>
+                        <height>5</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>

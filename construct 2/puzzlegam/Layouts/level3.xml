@@ -410,7 +410,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="blue_spikes" uid="133">
+                <instance type="bspikes" uid="133">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -605,8 +605,8 @@
                         <width>10</width>
                         <height>7</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.428571433</hotspotY>
+                        <hotspotX>0.100000001</hotspotX>
+                        <hotspotY>0.714285731</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
