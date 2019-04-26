@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name># js test</name>
+    <events>
+        <event-block sid="538879277199777">
+            <conditions>
+                <condition id="3" name="All scripts loaded" sid="825089261691867" type="JS" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-group description="" sid="335800924311194" title="space attack">
+                    <sub-events>
+                        <event-block sid="684279180193632">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="468208930612125" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="578764226081853" type="Function">
+                                    <param id="0" name="Name">&quot;attack&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="359014283935259">
+                            <conditions>
+                                <condition id="0" name="On function" sid="649904917236996" type="Function">
+                                    <param id="0" name="Name">&quot;attack&quot;</param>
+                                </condition>
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="747582527519726" type="Player">
+                                    <param id="0" name="Instance variable">attacking</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-14" name="Toggle boolean" sid="740067137036157" type="Player">
+                                    <param id="0" name="Instance variable">attacking</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="916072283533854" type="Player">
+                                    <param id="0" name="Object">attackHitbox</param>
+                                    <param id="1" name="Layer">0</param>
+                                    <param id="2" name="Image point">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="285446476554226" type="Audio">
+                                    <param id="0" name="Audio file">slashtemp</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="395671000364576" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="976528582596862" type="attackHitbox" />
+                                <action id="-14" name="Toggle boolean" sid="964187416497867" type="Player">
+                                    <param id="0" name="Instance variable">attacking</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="900349019747669">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="603768796876832" type="Player">
+                                    <param id="0" name="Instance variable">attacking</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="901501629610556" type="attackHitbox">
+                                    <param id="0" name="Object">Player</param>
+                                    <param id="1" name="Image point (optional)">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="628964564190820">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="990693735437702" type="attackHitbox">
+                                    <param id="0" name="Object">Bush_1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="404772019213488" type="Bush_1">
+                                    <param id="0" name="Animation">&quot;Destroy&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="415375423268911" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="883586181777281">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="941164322279074" type="attackHitbox">
+                                    <param id="0" name="Object">GruntEnemies</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="684898412231980">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="558445232012963" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-12" name="Subtract from" sid="929872657494398" type="GruntEnemies">
+                                            <param id="0" name="Instance variable">enemyHealth</param>
+                                            <param id="1" name="Value">35</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="707695168173826" type="GruntEnemies">
+                                            <param id="0" name="Instance variable">enemyhurt</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="334950754733292" title="wasd movement">
+                    <sub-events>
+                        <event-block sid="302327735786066">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="534490540193053" type="JS">
+                                    <param id="0" name="Value">1</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;player.dat.control&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>input</comment>
+                                <event-block any="1" sid="956290004999264">
+                                    <conditions>
+                                        <condition id="1" name="On any key pressed" sid="721694793038211" type="Keyboard" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="6" name="Call function" sid="411462118485152" type="JS">
+                                            <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                            <param id="1" name="Parameter {n}">Keyboard.LastKeyCode</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block any="1" sid="509935270632013">
+                                    <conditions>
+                                        <condition id="7" name="On any key released" sid="444435216879436" type="Keyboard" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="6" name="Call function" sid="992564183674282" type="JS">
+                                            <param id="0" name="Expression">&quot;player.input.remove&quot;</param>
+                                            <param id="1" name="Parameter {n}">Keyboard.LastKeyCode</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="399450724360403">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="232938027724836" type="Keyboard">
+                                                    <param id="0" name="Key">87</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="867864938967572" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">87</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="810877916528967">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="481486053578678" type="Keyboard">
+                                                    <param id="0" name="Key">65</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="221522980981743" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">65</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="800834934838550">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="362575782478770" type="Keyboard">
+                                                    <param id="0" name="Key">83</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="128266945356567" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">83</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="360921972882369">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="192322512188199" type="Keyboard">
+                                                    <param id="0" name="Key">68</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="774954241524773" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">68</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <comment>movement</comment>
+                                <event-block sid="574904202692708">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="916327180438284" type="JS">
+                                            <param id="0" name="Value">&quot;w&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Expression">&quot;player.input.key&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="468835013060606" type="Player">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="682585604224816">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="648356266264228" type="JS">
+                                            <param id="0" name="Value">&quot;a&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Expression">&quot;player.input.key&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="491253545375969" type="Player">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="289096644568764">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="629552793340322" type="JS">
+                                            <param id="0" name="Value">&quot;s&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Expression">&quot;player.input.key&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="729618138036231" type="Player">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="247240535344394">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="940565080859674" type="JS">
+                                            <param id="0" name="Value">&quot;d&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Expression">&quot;player.input.key&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="661073830455144" type="Player">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>animation</comment>
+                                <event-block sid="693214986059692">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="497424121963699" type="JS">
+                                            <param id="0" name="Value">0</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Expression">&quot;player.input.key&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="637490034097996" type="Player">
+                                            <param id="0" name="Animation">&quot;walking&quot; &amp; JS.Value(&quot;player.input.key&quot;)</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="651444792752224">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="281795388459822" type="System" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block any="1" sid="334938696877427">
+                                            <conditions>
+                                                <condition id="6" name="Compare value" sid="437304999761337" type="JS">
+                                                    <param id="0" name="Value">&quot;stopped-w&quot;</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;player.state.val&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="303976788751868" type="Player">
+                                                    <param id="0" name="Animation">&quot;standingup&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="374910232089286">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="558085736065397" type="System" />
+                                                <condition id="6" name="Compare value" sid="923755187645964" type="JS">
+                                                    <param id="0" name="Value">&quot;stopped-s&quot;</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;player.state.val&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="332480636983808" type="Player">
+                                                    <param id="0" name="Animation">&quot;standingdown&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="642706011254180">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="675032311645766" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="368548334850732" type="Player">
+                                                    <param id="0" name="Animation">&quot;standingdown&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

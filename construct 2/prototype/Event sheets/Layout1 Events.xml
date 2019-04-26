@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Layout1 Events</name>
+    <events>
+        <include># common</include>
+        <event-block sid="453474221054680">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="277256108727124" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="198043609481316" type="Audio">
+                    <param id="0" name="Audio file">backgroundmusic</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">-5</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
