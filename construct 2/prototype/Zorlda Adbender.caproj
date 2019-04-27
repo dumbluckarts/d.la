@@ -51,7 +51,7 @@
     <configuration-settings>
         <prop name="Clear background">No</prop>
         <prop name="Enable WebGL">On</prop>
-        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Fullscreen scaling quality">Low</prop>
         <prop name="Hide address bar">No</prop>
@@ -137,8 +137,8 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -149,8 +149,8 @@
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -161,8 +161,8 @@
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.46875" />
+                                <point x="0.65625" y="0.46875" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -171,8 +171,8 @@
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.5625" />
+                                <point x="0.65625" y="0.5625" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -181,8 +181,8 @@
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.660156" />
+                                <point x="0.65625" y="0.65625" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -193,8 +193,8 @@
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.6875" />
+                                <point x="0.65625" y="0.6875" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -203,8 +203,8 @@
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.71875" />
+                                <point x="0.658203" y="0.71875" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -215,8 +215,8 @@
                             <image-point name="Attack" x="0.5" y="1" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -228,8 +228,8 @@
                             <image-point name="Item1" x="0.5" y="0" />
                             <image-point name="Pickup" x="0.5" y="-0.15625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -240,8 +240,8 @@
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -250,8 +250,8 @@
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -262,10 +262,10 @@
                             <image-point name="Attack" x="0" y="0.5" />
                             <image-point name="Item1" x="0.84375" y="0.9375" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
@@ -274,8 +274,8 @@
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -284,8 +284,8 @@
                             <image-point name="Attack" x="0.5" y="1.1875" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -294,8 +294,8 @@
                             <image-point name="Attack" x="0.5" y="1.1875" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.375" />
+                                <point x="0.65625" y="0.375" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
                             </collision-poly>
@@ -308,18 +308,18 @@
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
+                                <point x="0.34375" y="0.40625" />
+                                <point x="0.65625" y="0.40625" />
                             </collision-poly>
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="1" y="0.5" />
                             <image-point name="Item1" x="0.5" y="1.0625" />
                             <collision-poly>
-                                <point x="0.34375" y="0.125" />
-                                <point x="0.65625" y="0.125" />
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
+                                <point x="0.34375" y="0.40625" />
+                                <point x="0.65625" y="0.40625" />
                             </collision-poly>
                         </frame>
                     </animation>
@@ -377,7 +377,14 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="958222173589138" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0" y="0.0625" />
+                                <point x="1" y="0.0625" />
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                     <animation framecount="3" loop="0" name="Destroy" pingpong="0" repeatcount="1" repeatto="0" sid="955529476115173" speed="5">
                         <frame duration="1" hotspotX="0" hotspotY="0" />
@@ -395,7 +402,14 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="547561987164656" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.0625" y="0.1875" />
+                                <point x="0.8125" y="0.1875" />
+                                <point x="0.810547" y="0.9375" />
+                                <point x="0.0625" y="0.9375" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                     <animation framecount="3" loop="0" name="Destroy" pingpong="0" repeatcount="1" repeatto="0" sid="292502990755973" speed="5">
                         <frame duration="1" hotspotX="0" hotspotY="0" />
@@ -403,6 +417,11 @@
                         <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                 </animation-folder>
+            </object-type>
+            <object-type name="Tilemap" sid="785325390434068">
+                <plugin id="Tilemap" />
+                <texture original-source="D:\arttestprototype.png" />
+                <tiles />
             </object-type>
         </object-folder>
         <object-folder name="Input">
@@ -554,6 +573,12 @@
                 </animation-folder>
             </object-type>
         </object-folder>
+        <object-folder name="Masks">
+            <object-type name="TiledBackground" sid="271377552041809">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+        </object-folder>
         <object-type name="Hearts" sid="292174317956252">
             <plugin id="TiledBg" />
             <texture />
@@ -562,9 +587,9 @@
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="652722701743206" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0">
-                        <image-point name="Imagepoint 1" x="0.234375" y="1.03125" />
-                        <image-point name="Imagepoint 2" x="0.78125" y="1.03125" />
+                    <frame duration="1" hotspotX="-0.0645161" hotspotY="-0.210526">
+                        <image-point name="Imagepoint 1" x="0.290323" y="1.10526" />
+                        <image-point name="Imagepoint 2" x="1.16129" y="1.10526" />
                     </frame>
                 </animation>
             </animation-folder>

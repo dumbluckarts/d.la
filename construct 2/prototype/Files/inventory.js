@@ -4,6 +4,11 @@ var inv = (function() {
 
     let items = [];
 
+    let slots = [
+        "sword",
+        "empty"
+    ];
+
     let getItemsArray = function() {
         return items;
     };
@@ -78,6 +83,9 @@ var inv = (function() {
         add: pushToArray,
         remove: removeFromArray,
         put: putAmount,
-        run: run
+        run: run,
+        //start slots
+        one: slots[0],
+        two: slots[1],
     };
 })();

@@ -192,7 +192,14 @@
                         </event-group>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="270925801006901" title="inventory" />
+                <event-group description="" sid="270925801006901" title="inventory">
+                    <sub-events>
+                        <event-block sid="604504420098943">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-group>
                 <event-group description="" sid="839441861916248" title="enemies">
                     <sub-events>
                         <event-group description="" sid="240592970082005" title="serpent">
