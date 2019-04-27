@@ -632,26 +632,18 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="invArrpw" sid="900605538861699">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="211475326075240" speed="5">
-                    <frame duration="1" hotspotX="0.555556" hotspotY="0.285714">
-                        <collision-poly>
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0" y="0" />
-                            <point x="1" y="0" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="rupee" sid="933419620676675">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="227477934796621" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="-0.166667" hotspotY="0.0434783">
+                        <collision-poly>
+                            <point x="0" y="0.0434783" />
+                            <point x="1" y="0.0434783" />
+                            <point x="1" y="0.73913" />
+                            <point x="0" y="0.73913" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -683,19 +675,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="ArrowQuiver" sid="529964466169187">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Bullet" sid="204580422739935">
-                    <behavior id="Bullet" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="599253717669032" speed="5">
-                    <frame duration="1" hotspotX="-0.571429" hotspotY="0.0588235" />
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="rupee2" sid="388321527327599">
             <plugin id="Sprite" />
             <animation-folder>
@@ -712,6 +691,21 @@
                 </effect-type>
             </effects>
             <texture />
+        </object-type>
+        <object-type name="arrowPickup" sid="859377471882023">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="212067780842626" speed="5">
+                    <frame duration="1" hotspotX="0.0909091" hotspotY="0.941176">
+                        <collision-poly>
+                            <point x="1" y="0.647059" />
+                            <point x="1" y="0" />
+                            <point x="0" y="0" />
+                            <point x="0" y="0.647059" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families>

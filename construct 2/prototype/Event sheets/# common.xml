@@ -1194,6 +1194,9 @@
                                                 <condition id="1" name="Is overlapping another object" sid="606233759606414" type="bombsSprite">
                                                     <param id="0" name="Object">Destructible</param>
                                                 </condition>
+                                                <condition id="-11" name="For Each" sid="968487563757895" type="System">
+                                                    <param id="0" name="Object">Destructible</param>
+                                                </condition>
                                                 <condition id="-4" name="Trigger once while true" sid="921731586056883" type="System" />
                                             </conditions>
                                             <actions>
@@ -1345,14 +1348,14 @@
                         <event-block sid="810486515046546">
                             <conditions>
                                 <condition id="1" name="Is overlapping another object" sid="301975066961365" type="Player">
-                                    <param id="0" name="Object">ArrowQuiver</param>
+                                    <param id="0" name="Object">arrowPickup</param>
                                 </condition>
                                 <condition id="-11" name="For Each" sid="370048128699577" type="System">
-                                    <param id="0" name="Object">ArrowQuiver</param>
+                                    <param id="0" name="Object">arrowPickup</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="974906028951680" type="ArrowQuiver" />
+                                <action id="-9" name="Destroy" sid="881683308180071" type="arrowPickup" />
                                 <action id="6" name="Call function" sid="562366497114079" type="JS">
                                     <param id="0" name="Expression">&quot;inv.add&quot;</param>
                                     <param id="1" name="Parameter {n}">&quot;arrows&quot;{###}10</param>
