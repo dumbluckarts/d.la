@@ -17,6 +17,7 @@
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
@@ -37,7 +38,9 @@
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="inverse">Inverse</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -111,8 +114,19 @@
                     <instance-variable name="itemID" sid="825843416907510" type="number" />
                 </instance-variables>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="bomb" pingpong="0" repeatcount="1" repeatto="0" sid="323175916680673" speed="5">
+                    <animation framecount="1" loop="0" name="bomb" pingpong="0" repeatcount="1" repeatto="0" sid="323175916680673" speed="8">
                         <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
+                    </animation>
+                    <animation framecount="5" loop="0" name="lit" pingpong="0" repeatcount="1" repeatto="0" sid="584206510355086" speed="5">
+                        <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
+                        <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
+                        <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
+                        <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
+                        <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
+                    </animation>
+                    <animation framecount="2" loop="0" name="splode" pingpong="0" repeatcount="1" repeatto="0" sid="400069062256589" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.516667" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.483333" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -682,6 +696,23 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="rupee2" sid="388321527327599">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="325312413714984" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SpriteFont" sid="914041766358538">
+            <plugin id="Spritefont2" />
+            <effects>
+                <effect-type name="Inverse">
+                    <effect id="inverse" />
+                </effect-type>
+            </effects>
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="GruntEnemies" plugin-id="Sprite" sid="524917910702722">
@@ -802,7 +833,7 @@
         <global-instance type="Function" uid="10" />
         <global-instance type="JS" uid="78">
             <properties>
-                <script-files>inventory.js;player.js</script-files>
+                <script-files>inv.min.js;player.js</script-files>
             </properties>
         </global-instance>
     </global-instances>
@@ -830,8 +861,8 @@
             <file name="loading-logo.png" />
         </file-folder>
         <file-folder name="js">
-            <file name="inventory.js" />
             <file name="player.js" />
+            <file name="inv.min.js" />
         </file-folder>
     </files-folder>
 </c2project>

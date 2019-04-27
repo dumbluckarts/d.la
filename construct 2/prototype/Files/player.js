@@ -65,14 +65,9 @@ var player = (function() {
         }
 
         function remove(key) {
-            if ((data.input == key) ||
-                (data.input == key) ||
-                (data.input == key) ||
-                (data.input == key)) {
-                data.state = "stopped-" + getKey();
-                data.input = 0;
-            }
-
+        	if (data.input == key) {
+        		data.input = 0;
+        	}
         }
 
         return {

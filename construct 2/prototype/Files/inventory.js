@@ -2,90 +2,71 @@
 
 var inv = (function() {
 
-    let items = [];
-
-    let slots = [
-        "empty",
-        "empty"
-    ];
-
-    let getItemsArray = function() {
-        return items;
+    let items = {
+        slots: [
+            "sword",
+            "empty"
+        ],
     };
 
-    let getKeys = function() {
-        let keys = [];
-        for (let i in items) keys.push(items[i].split(",")[0]); return keys;
+    let keys = () => {
+        return Object.keys(items)
     };
 
-    let getValues = function() {
-        let vals = [];
-        for (let i in items) vals.push(items[i].split(",")[1]); return vals;
+    let vals = () => {
+        return Object.values(items)
     };
 
-    let getIndex = function(item) {
-        for (let i in items) if (getKeys()[i] == item) return i;
+    let key = function(item) {
+        for (let i in key) {
+            if (key == item) {
+                return key[i];
+            }
+        }
     }
 
-    let getValue = function(item) {
-        for (let i in items) {
-            if (getKeys()[i] == item) return parseInt(getValues()[i]);
-        }
-    };
+    let val = function(item) {
+        if (keys().includes(item))
+            return parseInt(items[item], 10);
+        else
+            return "0000";
+    }
 
-    function printArray() {
+    function printObj() {
         console.log(items);
     }
 
-    function pushToArray(item, amount) {
-        if (getKeys().includes(item)) {
-            let toAdd = (amount ? amount : 1);
-            let val = getValue(item) + toAdd;
-            items[getIndex(item)] = item + "," + val;
+    function pushToObj(item, amount) {
+        if (!keys().includes(item)) {
+            items[item] = (amount ? amount : 1);
         } else {
-            if (amount) // != null
-                item += "," + amount; 
-            else 
-                item += ",1";
-
-            // create new item in array.
-            items.push(item);
+            let newAmnt = val(item) + (amount ? amount : 0);
+            items[item] = newAmnt;
         }
     }
 
-    function putAmount(item, amount) {
-        for (let i in items) {
-            if (getKeys()[i] == item) {
-                let itm = getKeys()[i];
-                let amnt = amount;
-                let newStr = itm + "," + amnt;
-                items[i] = newStr;
-            }
+    function putInObj(item, amount) {
+        if (amount) {
+            items[item] = amount;
+        } else {
+            items[item] = 1;
         }
     }
 
-    function removeFromArray(item) {
-        for (let i in items) {
-            if (items[i].includes(item)) {
-                items.splice(i, 1);
-            }
-        }
-    }
-
-    function run(func) {
-        func(items);
+    function removeFromObj(item) {
+        delete items[item];
     }
 
     return {
-        dat: getItemsArray,
-        val: getValue,
-        print: printArray,
-        add: pushToArray,
-        remove: removeFromArray,
-        put: putAmount,
-        run: run,
-        //start slots
-        one: slots[0],
-        two: slots[1],
+        dat: items,
+        key: key,
+        val: val,
+        print: printObj,
+        add: pushToObj,
+        put: putInObj,
+        remove: removeFromObj,
+        // slots
+        one: items.slots[0],
+        two: items.slots[1],
     };
 })();
