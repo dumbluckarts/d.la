@@ -29,7 +29,7 @@ var inv = (function() {
         if (keys().includes(item))
             return parseInt(items[item], 10);
         else
-            return "0000";
+            return 0;
     }
 
     function printObj() {
