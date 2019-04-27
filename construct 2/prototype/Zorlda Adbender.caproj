@@ -62,21 +62,26 @@
     </configuration-settings>
     <object-folder>
         <object-folder name="Items">
-            <object-type name="bombSprite" sid="850137650664949">
+            <object-type name="itemSelector" sid="850137650664949">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="itemID" sid="155943503703502" type="number" />
+                </instance-variables>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="314425526152662" speed="5">
-                        <frame duration="1" hotspotX="0.454545" hotspotY="0.6" />
+                    <animation framecount="1" loop="0" name="sword" pingpong="0" repeatcount="1" repeatto="0" sid="700254715457913" speed="5">
+                        <frame duration="1" hotspotX="0.0909091" hotspotY="0.933333" />
                     </animation>
-                    <animation framecount="4" loop="0" name="Lit" pingpong="0" repeatcount="1" repeatto="0" sid="559098249028740" speed="5">
-                        <frame duration="1" hotspotX="0.454545" hotspotY="0.6" />
-                        <frame duration="1" hotspotX="0.454545" hotspotY="0.6" />
-                        <frame duration="1" hotspotX="0.454545" hotspotY="0.625" />
-                        <frame duration="1" hotspotX="0.454545" hotspotY="0.5" />
+                    <animation framecount="1" loop="0" name="bow" pingpong="0" repeatcount="1" repeatto="0" sid="979212647966404" speed="5">
+                        <frame duration="1" hotspotX="0.0909091" hotspotY="0.933333" />
                     </animation>
-                    <animation framecount="2" loop="0" name="Splode" pingpong="0" repeatcount="1" repeatto="0" sid="539758775388273" speed="5">
-                        <frame duration="1" hotspotX="0.46875" hotspotY="0.46875" />
-                        <frame duration="1" hotspotX="0.46875" hotspotY="0.46875" />
+                    <animation framecount="1" loop="0" name="bomb" pingpong="0" repeatcount="1" repeatto="0" sid="314425526152662" speed="5">
+                        <frame duration="1" hotspotX="0.0909091" hotspotY="0.933333" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="grapple" pingpong="0" repeatcount="1" repeatto="0" sid="865128065413930" speed="5">
+                        <frame duration="1" hotspotX="0.0909091" hotspotY="0.933333" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="empty" pingpong="0" repeatcount="1" repeatto="0" sid="136893583199768" speed="5">
+                        <frame duration="1" hotspotX="0.0909091" hotspotY="0.933333" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -97,6 +102,17 @@
                     <animation framecount="2" loop="0" name="Splode" pingpong="0" repeatcount="1" repeatto="0" sid="778462409608847" speed="5">
                         <frame duration="1" hotspotX="0.46875" hotspotY="0.46875" />
                         <frame duration="1" hotspotX="0.46875" hotspotY="0.46875" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="bombsSprite" sid="412219595515851">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="itemID" sid="825843416907510" type="number" />
+                </instance-variables>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="bomb" pingpong="0" repeatcount="1" repeatto="0" sid="323175916680673" speed="5">
+                        <frame duration="1" hotspotX="0.444444" hotspotY="0.545455" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -662,7 +678,7 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="599253717669032" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="-0.571429" hotspotY="0.0588235" />
                 </animation>
             </animation-folder>
         </object-type>

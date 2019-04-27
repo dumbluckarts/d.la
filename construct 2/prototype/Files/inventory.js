@@ -5,7 +5,7 @@ var inv = (function() {
     let items = [];
 
     let slots = [
-        "sword",
+        "empty",
         "empty"
     ];
 

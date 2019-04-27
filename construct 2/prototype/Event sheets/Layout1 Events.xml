@@ -44,17 +44,9 @@
                     <param id="0" name="Animation">&quot;Open&quot;</param>
                     <param id="1" name="From">1</param>
                 </action>
-                <action id="-4" name="Set position to another object" sid="203941323243152" type="bombSprite">
-                    <param id="0" name="Object">Player</param>
-                    <param id="1" name="Image point (optional)">3</param>
-                </action>
                 <action id="4" name="Set animation" sid="743412374280723" type="Player">
                     <param id="0" name="Animation">&quot;UpFind&quot;</param>
                     <param id="1" name="From">1</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="598845821362663" type="Player">
-                    <param id="0" name="Instance variable">stopControls</param>
-                    <param id="1" name="Value">1</param>
                 </action>
                 <action id="0" name="Execute JS code" sid="459434282371123" type="JS">
                     <param id="0" name="JS code">&quot;player.dat.control = 0&quot;</param>
@@ -69,15 +61,10 @@
                     <param id="3" name="Volume">0</param>
                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
-                <action id="-13" name="Set boolean" sid="821618832102858" type="Player">
-                    <param id="0" name="Instance variable">stopControls</param>
-                    <param id="1" name="Value">0</param>
-                </action>
                 <action id="0" name="Execute JS code" sid="707786958610748" type="JS">
                     <param id="0" name="JS code">&quot;player.dat.control = 1&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="-9" name="Destroy" sid="428675900147961" type="bombSprite" />
             </actions>
         </event-block>
         <event-block sid="654748243153144">
@@ -105,10 +92,6 @@
                 <action id="4" name="Set animation" sid="427734627989570" type="BasicChest">
                     <param id="0" name="Animation">&quot;Open&quot;</param>
                     <param id="1" name="From">1</param>
-                </action>
-                <action id="-4" name="Set position to another object" sid="416844709885375" type="BowSprite">
-                    <param id="0" name="Object">Player</param>
-                    <param id="1" name="Image point (optional)">3</param>
                 </action>
                 <action id="4" name="Set animation" sid="552838664148442" type="Player">
                     <param id="0" name="Animation">&quot;UpFind&quot;</param>
@@ -139,7 +122,6 @@
                     <param id="0" name="JS code">&quot;player.dat.control = 1&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="-9" name="Destroy" sid="171680489949957" type="BowSprite" />
             </actions>
         </event-block>
     </events>
