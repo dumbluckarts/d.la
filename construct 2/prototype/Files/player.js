@@ -1,42 +1,52 @@
 var player = (function() {
 
     let data = {
-    	control: 1,
+        control: 1,
         state: "",
+        direction: 0,
         input: 0
     };
 
     var state = (function() {
-    	function val() {
-    		return data.state;
-    	}
+        function val() {
+            return data.state;
+        }
 
-    	function put(str) {
-	    	data.state = str;
-	    }
+        function put(str) {
+            data.state = str;
+        }
 
-    	return {
-    		val: val,
-    		put: put
-    	};
+        return {
+            val: val,
+            put: put
+        };
     })();
 
     var input = (function() {
 
         function getKey() {
-            if (data.input == 87)
+            if (data.input == 87) {
+            	data.direction = 0;
                 return "w";
+            }
             else
-            if (data.input == 65)
+            if (data.input == 65) {
+            	data.direction = 1;
                 return "a";
+            }
             else
-            if (data.input == 83)
+            if (data.input == 83) {
+            	data.direction = 2;
                 return "s";
+            }
             else
-            if (data.input == 68)
+            if (data.input == 68) {
+            	data.direction = 3;
                 return "d";
-            else
+            }
+            else {
                 return 0;
+            }
         }
 
         function validate(key) {
@@ -48,6 +58,7 @@ var player = (function() {
 
         function send(key) {
             if (validate(key)) {
+            	getKey();
                 data.input = key;
                 data.state = "walking";
             }

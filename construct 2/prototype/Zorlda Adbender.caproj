@@ -259,7 +259,7 @@
                     </animation>
                     <animation framecount="2" loop="1" name="walkinga" pingpong="0" repeatcount="1" repeatto="0" sid="532881087039931" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="Attack" x="1" y="0.5" />
+                            <image-point name="Attack" x="0" y="0.5" />
                             <image-point name="Item1" x="0.84375" y="0.9375" />
                             <collision-poly>
                                 <point x="0.34375" y="0.125" />
@@ -303,7 +303,7 @@
                     </animation>
                     <animation framecount="2" loop="1" name="walkingd" pingpong="0" repeatcount="1" repeatto="0" sid="507312001631329" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="Attack" x="0" y="0.5" />
+                            <image-point name="Attack" x="1" y="0.5" />
                             <image-point name="Item1" x="0.15625" y="0.9375" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
@@ -389,9 +389,6 @@
             <object-type name="Rock_1" sid="308155281066649">
                 <plugin id="Sprite" />
                 <behaviors>
-                    <behavior-type name="Solid" sid="656886867578825">
-                        <behavior id="solid" />
-                    </behavior-type>
                     <behavior-type name="Flash" sid="239275902841493">
                         <behavior id="Flash" />
                     </behavior-type>
@@ -718,7 +715,7 @@
                 <member>Rock_1</member>
             </members>
             <behaviors>
-                <behavior-type name="Solid2" sid="528019978198977">
+                <behavior-type name="Solid" sid="528019978198977">
                     <behavior id="solid" />
                 </behavior-type>
             </behaviors>
@@ -729,9 +726,8 @@
         <layout>instance layout.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet># common.xml</event-sheet>
         <event-sheet>Layout1 Events.xml</event-sheet>
-        <event-sheet># js test.xml</event-sheet>
+        <event-sheet># common.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />
