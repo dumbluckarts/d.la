@@ -4,7 +4,7 @@
     <name># common</name>
     <events>
         <variable constant="0" name="playermaxspeed" sid="313840913914781" static="0" type="number">100</variable>
-        <variable constant="0" name="PlayerHealth" sid="630550525625006" static="0" type="number">72</variable>
+        <variable constant="0" name="PlayerHealth" sid="630550525625006" static="0" type="number">40</variable>
         <event-block sid="538879277199777">
             <conditions>
                 <condition id="3" name="All scripts loaded" sid="825089261691867" type="JS" />
@@ -13,44 +13,80 @@
             <sub-events>
                 <event-group description="" sid="822403751889820" title="player">
                     <sub-events>
-                        <event-block sid="932124143259663">
+                        <event-block sid="306393204403483">
                             <conditions>
-                                <condition id="0" name="On function" sid="250550903761188" type="Function">
-                                    <param id="0" name="Name">&quot;playerHurt&quot;</param>
+                                <condition id="0" name="On function" sid="273269413416676" type="Function">
+                                    <param id="0" name="Name">&quot;damagePlayer&quot;</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="499055253179448" type="System">
+                                    <param id="0" name="Variable">PlayerHealth</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">4</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Play" sid="820135284806674" type="Audio">
+                                <action id="-11" name="Subtract from" sid="717457973804622" type="System">
+                                    <param id="0" name="Variable">PlayerHealth</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action id="0" name="Play" sid="160694758558309" type="Audio">
                                     <param id="0" name="Audio file">hurttemp</param>
                                     <param id="2" name="Loop">0</param>
                                     <param id="3" name="Volume">0</param>
                                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
-                                <action behavior="ScrollTo" id="0" name="Shake" sid="675792544861544" type="Player">
-                                    <param id="0" name="Magnitude">5</param>
-                                    <param id="1" name="Duration">0.2</param>
-                                    <param id="2" name="Mode">0</param>
-                                </action>
-                                <action id="-13" name="Set boolean" sid="485237448075356" type="Player">
-                                    <param id="0" name="Instance variable">stopControls</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="4" name="Set animation" sid="502305237851448" type="Player">
-                                    <param id="0" name="Animation">&quot;Hurt1&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action behavior="Flash" id="0" name="Flash" sid="991147544064256" type="Player">
+                                <action behavior="Flash" id="0" name="Flash" sid="498754631178812" type="Player">
                                     <param id="0" name="&apos;On&apos; time">0.1</param>
                                     <param id="1" name="&apos;Off&apos; time">0.1</param>
                                     <param id="2" name="Duration">1.0</param>
                                 </action>
-                                <action id="-16" name="Wait" sid="641413169552283" type="System">
+                            </actions>
+                        </event-block>
+                        <event-block sid="275533975599692">
+                            <conditions />
+                            <actions>
+                                <action id="-5" name="Set width" sid="864415432180598" type="Hearts">
+                                    <param id="0" name="Width">PlayerHealth</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="879511032052328">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="604402946513254" type="System">
+                                    <param id="0" name="Variable">PlayerHealth</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="243961736159904" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="207664711661709" type="Audio">
+                                    <param id="0" name="Audio file">hurttemp</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action behavior="Flash" id="0" name="Flash" sid="647942940859764" type="Player">
+                                    <param id="0" name="&apos;On&apos; time">0.1</param>
+                                    <param id="1" name="&apos;Off&apos; time">0.1</param>
+                                    <param id="2" name="Duration">1.0</param>
+                                </action>
+                                <action id="0" name="Execute JS code" sid="591602355060625" type="JS">
+                                    <param id="0" name="JS code">&quot;player.dat.control = 0&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-16" name="Wait" sid="704582353620478" type="System">
                                     <param id="0" name="Seconds">0.3</param>
                                 </action>
-                                <action id="-13" name="Set boolean" sid="394872287587917" type="Player">
-                                    <param id="0" name="Instance variable">stopControls</param>
-                                    <param id="1" name="Value">0</param>
+                                <action id="0" name="Execute JS code" sid="743941937646438" type="JS">
+                                    <param id="0" name="JS code">&quot;player.dat.control = 1&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
+                                <action id="-9" name="Set value" sid="222976994774135" type="System">
+                                    <param id="0" name="Variable">PlayerHealth</param>
+                                    <param id="1" name="Value">40</param>
+                                </action>
+                                <action id="-26" name="Restart layout" sid="893854422017594" type="System" />
                             </actions>
                         </event-block>
                         <event-group description="" sid="664786649165101" title="roll">
@@ -136,6 +172,7 @@
                                         <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="851621530398840" type="Player">
                                             <param id="0" name="Instance variable">Rolling</param>
                                         </condition>
+                                        <condition behavior="8Direction" id="0" name="Is moving" sid="684739020558261" type="Player" />
                                     </conditions>
                                     <actions>
                                         <action behavior="8Direction" id="4" name="Set max speed" sid="470300178870777" type="Player">
@@ -548,16 +585,8 @@
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Call function" sid="418532800170028" type="Function">
-                                                    <param id="0" name="Name">&quot;playerHurt&quot;</param>
-                                                    <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="-11" name="Subtract from" sid="717457973804622" type="System">
-                                                    <param id="0" name="Variable">PlayerHealth</param>
-                                                    <param id="1" name="Value">6</param>
-                                                </action>
-                                                <action id="-23" name="Move at angle" sid="423481745294469" type="Player">
-                                                    <param id="0" name="Angle">GruntEnemies.Angle</param>
-                                                    <param id="1" name="Distance">5</param>
+                                                    <param id="0" name="Name">&quot;damagePlayer&quot;</param>
+                                                    <param id="1" name="Parameter {n}">5</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -1112,11 +1141,30 @@
                                                 <condition id="1" name="Is overlapping another object" sid="211579329588073" type="bombsSprite">
                                                     <param id="0" name="Object">GruntEnemies</param>
                                                 </condition>
+                                                <condition id="-4" name="Trigger once while true" sid="562371812079446" type="System" />
                                             </conditions>
                                             <actions>
                                                 <action id="-12" name="Subtract from" sid="597422237237628" type="GruntEnemies">
                                                     <param id="0" name="Instance variable">enemyHealth</param>
                                                     <param id="1" name="Value">100</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="659131822478647">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="813045533144380" type="bombsSprite">
+                                                    <param id="0" name="Object">Player</param>
+                                                </condition>
+                                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="951819352663962" type="Player" />
+                                                <condition id="-11" name="For Each" sid="700671032531584" type="System">
+                                                    <param id="0" name="Object">bombsSprite</param>
+                                                </condition>
+                                                <condition id="-4" name="Trigger once while true" sid="239589270753412" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="595729708106166" type="Function">
+                                                    <param id="0" name="Name">&quot;damagePlayer&quot;</param>
+                                                    <param id="1" name="Parameter {n}">20</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -1126,6 +1174,7 @@
                                                 <condition id="1" name="Is overlapping another object" sid="792774789212411" type="bombsSprite">
                                                     <param id="0" name="Object">ProjectileEnemies</param>
                                                 </condition>
+                                                <condition id="-4" name="Trigger once while true" sid="711894544853295" type="System" />
                                             </conditions>
                                             <actions />
                                         </event-block>
@@ -1135,6 +1184,7 @@
                                                 <condition id="1" name="Is overlapping another object" sid="342830612887465" type="bombsSprite">
                                                     <param id="0" name="Object">SerpentTypes</param>
                                                 </condition>
+                                                <condition id="-4" name="Trigger once while true" sid="423970166486123" type="System" />
                                             </conditions>
                                             <actions />
                                         </event-block>
@@ -1144,6 +1194,7 @@
                                                 <condition id="1" name="Is overlapping another object" sid="606233759606414" type="bombsSprite">
                                                     <param id="0" name="Object">Destructible</param>
                                                 </condition>
+                                                <condition id="-4" name="Trigger once while true" sid="921731586056883" type="System" />
                                             </conditions>
                                             <actions>
                                                 <action id="4" name="Set animation" sid="447670588585366" type="Destructible">
@@ -1557,6 +1608,60 @@
                                             <param id="1" name="Parameter {n}">Keyboard.LastKeyCode</param>
                                         </action>
                                     </actions>
+                                    <sub-events>
+                                        <event-block sid="347044735275719">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="444236083434265" type="Keyboard">
+                                                    <param id="0" name="Key">87</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="629749117196989" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">87</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="244232831985004">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="357313691604861" type="Keyboard">
+                                                    <param id="0" name="Key">65</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="769022478800483" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">65</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="919150528889804">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="770887738502361" type="Keyboard">
+                                                    <param id="0" name="Key">83</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="452699263325242" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">83</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="389165345743306">
+                                            <conditions>
+                                                <condition id="2" name="Key is down" sid="992607985831904" type="Keyboard">
+                                                    <param id="0" name="Key">68</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="6" name="Call function" sid="459996981959236" type="JS">
+                                                    <param id="0" name="Expression">&quot;player.input.send&quot;</param>
+                                                    <param id="1" name="Parameter {n}">68</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
