@@ -733,12 +733,17 @@
         </object-type>
         <object-type name="playerHouse" sid="150851650954986">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="326061307827439">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="371297948426374" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0">
                         <collision-poly>
-                            <point x="0" y="0.203125" />
-                            <point x="1" y="0.203125" />
+                            <point x="0" y="0.078125" />
+                            <point x="1" y="0.0761719" />
                             <point x="1" y="0.804688" />
                             <point x="0" y="0.804688" />
                         </collision-poly>
@@ -748,12 +753,17 @@
         </object-type>
         <object-type name="townHouse1" sid="601130861986562">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="661016229509996">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="931224753229638" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0">
                         <collision-poly>
-                            <point x="0.0075188" y="0.15" />
-                            <point x="1" y="0.15" />
+                            <point x="0" y="0.0125" />
+                            <point x="1" y="0.0125" />
                             <point x="1" y="0.791667" />
                             <point x="0.0075188" y="0.791667" />
                         </collision-poly>
@@ -763,6 +773,11 @@
         </object-type>
         <object-type name="shopHouse" sid="879362831718968">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="989514780813576">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="164876369941812" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0">
@@ -778,14 +793,19 @@
         </object-type>
         <object-type name="Chapel" sid="440403912033120">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="588287833650296">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="511476211073884" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0">
                         <collision-poly>
                             <point x="0" y="0.203125" />
                             <point x="1" y="0.203125" />
-                            <point x="1" y="0.804688" />
-                            <point x="0" y="0.804688" />
+                            <point x="1" y="0.925782" />
+                            <point x="0" y="0.925782" />
                         </collision-poly>
                     </frame>
                 </animation>
