@@ -8,7 +8,7 @@
     <author-website></author-website>
     <app-id></app-id>
     <unique-id>2qpiupr2gjili</unique-id>
-    <saved-with-version>26700</saved-with-version>
+    <saved-with-version>26900</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
@@ -33,6 +33,7 @@
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
         <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
@@ -453,6 +454,11 @@
                 <texture original-source="D:\arttestprototype.png" />
                 <tiles />
             </object-type>
+            <object-type name="Solids" sid="738151956063068">
+                <plugin id="Tilemap" />
+                <texture original-source="D:\arttestprototype.png" />
+                <tiles />
+            </object-type>
         </object-folder>
         <object-folder name="Input">
             <object-type name="Keyboard" sid="4436305314906168">
@@ -615,6 +621,53 @@
                         </frame>
                     </animation>
                     <animation framecount="1" loop="0" name="Damage" pingpong="0" repeatcount="1" repeatto="0" sid="879729446518477" speed="10">
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="FishEnemy" sid="644747189784648">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="288619084888515" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Noah\Desktop\newslime.png">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="2" loop="0" name="Death" pingpong="0" repeatcount="1" repeatto="0" sid="533193471884156" speed="8">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Noah\Desktop\sprite_0.png">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Noah\Desktop\sprite_1.png">
+                            <collision-poly>
+                                <point x="0.21875" y="0.21875" />
+                                <point x="0.5" y="0.21875" />
+                                <point x="0.6875" y="0.3125" />
+                                <point x="0.78125" y="0.5" />
+                                <point x="0.75" y="0.75" />
+                                <point x="0.5" y="0.8125" />
+                                <point x="0.25" y="0.75" />
+                                <point x="0.28125" y="0.5" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Damage" pingpong="0" repeatcount="1" repeatto="0" sid="909461268726501" speed="10">
                         <frame duration="1" hotspotX="0" hotspotY="0">
                             <collision-poly>
                                 <point x="0.21875" y="0.402344" />
@@ -811,11 +864,101 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="townHall" sid="788480953764757">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="957947246713162">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="401038354414400" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0.203125" />
+                            <point x="1" y="0.203125" />
+                            <point x="1" y="0.804688" />
+                            <point x="0" y="0.804688" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="townHall2" sid="892981500430921">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="399844672042254">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="398928096011584" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0.203125" />
+                            <point x="1" y="0.203125" />
+                            <point x="1" y="0.804688" />
+                            <point x="0" y="0.804688" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="townHouse2" sid="873142007310364">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="322253225359308">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="869064492569860" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0.0125" />
+                            <point x="1" y="0.0125" />
+                            <point x="1" y="0.791667" />
+                            <point x="0.0120482" y="0.791667" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="townHouse3" sid="345579896204491">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="407129403349184">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="181217896579653" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.151163">
+                        <collision-poly>
+                            <point x="0" y="0.159884" />
+                            <point x="1" y="0.159884" />
+                            <point x="1" y="0.703489" />
+                            <point x="0.0120482" y="0.703489" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="waterStandIn" sid="468789763634928">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Sine" sid="327511624523076">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="GruntEnemies" plugin-id="Sprite" sid="524917910702722">
             <members>
                 <member>enemy1</member>
+                <member>FishEnemy</member>
             </members>
             <instance-variables>
                 <instance-variable name="scatter" sid="461112048375699" type="boolean" />
