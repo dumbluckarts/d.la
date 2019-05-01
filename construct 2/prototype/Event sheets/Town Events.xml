@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Layout1 Events</name>
+    <name>Town Events</name>
     <events>
         <include># common</include>
         <event-block sid="453474221054680">
@@ -157,6 +157,119 @@
                     <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
+        </event-block>
+        <comment>Needs work for better transition trigger</comment>
+        <event-block sid="844554431101241">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="820942063028958" type="Player">
+                    <param id="0" name="Object">shopHouse</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="883610388868700" type="System">
+                    <param id="0" name="Layout">Shop</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <event-group description="" sid="731049593091751" title="Idle Characters">
+            <sub-events>
+                <event-block sid="908475718370756">
+                    <conditions>
+                        <condition behavior="8Direction" id="0" name="Is moving" sid="449852466768175" type="IdleCharacters" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="466859154916757" type="IdleCharacters">
+                            <param id="0" name="Animation">&quot;WalkLeftRight&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="806310472498378">
+                    <conditions>
+                        <condition behavior="8Direction" id="0" name="Is moving" sid="111257902788452" type="IdleCharacters" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="643039466863496" type="IdleCharacters">
+                            <param id="0" name="Animation">&quot;WalkLeftRight&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="390127552837045">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="576069036509356" type="System">
+                    <param id="0" name="Interval (seconds)">4</param>
+                </condition>
+                <condition id="-11" name="For Each" sid="141356916808632" type="System">
+                    <param id="0" name="Object">IdleCharacters</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="305116593892096">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="886493684801114" type="System">
+                            <param id="0" name="First value">int(random(0,4))</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="610014971681976" type="IdleCharacters">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="493859063896183">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="381831328969985" type="System">
+                            <param id="0" name="First value">int(random(0,3))</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="830441217557046" type="IdleCharacters">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="411257890300494">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="498431133611705" type="System">
+                            <param id="0" name="First value">int(random(0,2))</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="159661979174918" type="IdleCharacters">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="938189960194071">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="407233277353625" type="System">
+                            <param id="0" name="First value">int(random(0,1))</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="900739011449224" type="IdleCharacters">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
