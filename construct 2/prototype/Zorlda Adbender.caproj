@@ -955,7 +955,7 @@
             </effects>
             <texture />
         </object-type>
-        <object-type name="Character1" sid="335749292963394">
+        <object-type name="farmerChadious" sid="335749292963394">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="560811568675626" speed="5">
@@ -963,7 +963,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Character2" sid="360199489865937">
+        <object-type name="villager1" sid="360199489865937">
             <plugin id="Sprite" />
             <animation-folder>
                 <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="691261489819400" speed="5">
@@ -980,6 +980,129 @@
                     </frame>
                 </animation>
                 <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="151078900005727" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="room_exit" sid="562961453537725">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="739384363650849" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="villager2" sid="209330990508097">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="460425761431431" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="395059834674687" speed="10">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="1.1875" y="0.34375" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="749456927894173" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="villager3" sid="478419711194032">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="415757944929024" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="911321425516901" speed="10">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="1.1875" y="0.34375" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="321507703403958" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="villager4" sid="437769315093039">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="379696697686586" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="385609232676173" speed="10">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="1.1875" y="0.34375" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="781801051110616" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="villager5" sid="906558370292191">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="872973974227570" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="788127100508464" speed="10">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="1.1875" y="0.34375" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="128091074095230" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="villager6" sid="620610929542331">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="348883220288251" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="801188057507368" speed="10">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="1.1875" y="0.34375" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="953085466349477" speed="5">
                     <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
                         <image-point name="LineofSight" x="0.5" y="-0.125" />
                     </frame>
@@ -1068,7 +1191,12 @@
         </family>
         <family name="IdleCharacters" plugin-id="Sprite" sid="228504547305651">
             <members>
-                <member>Character2</member>
+                <member>villager1</member>
+                <member>villager2</member>
+                <member>villager3</member>
+                <member>villager4</member>
+                <member>villager5</member>
+                <member>villager6</member>
             </members>
             <instance-variables>
                 <instance-variable name="direction" sid="318201698068165" type="number" />
