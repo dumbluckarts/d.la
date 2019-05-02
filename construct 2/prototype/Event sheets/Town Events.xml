@@ -158,19 +158,5 @@
                 </action>
             </actions>
         </event-block>
-        <comment>Needs work for better transition trigger</comment>
-        <event-block sid="844554431101241">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="820942063028958" type="Player">
-                    <param id="0" name="Object">shopHouse</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-2" name="Go to layout" sid="883610388868700" type="System">
-                    <param id="0" name="Layout">Shop</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment></comment>
     </events>
 </c2eventsheet>
