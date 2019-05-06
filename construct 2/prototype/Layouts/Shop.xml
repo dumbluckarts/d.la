@@ -73,6 +73,9 @@
                         <stopControls>false</stopControls>
                         <attacking>false</attacking>
                         <Rolling>false</Rolling>
+                        <KnockedBack>false</KnockedBack>
+                        <KnockBackTimer>0</KnockBackTimer>
+                        <Casting>false</Casting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">

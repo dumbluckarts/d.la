@@ -401,20 +401,17 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <scatter>false</scatter>
-                        <lostplayer>false</lostplayer>
+                        <CanBeKnockedBack>false</CanBeKnockedBack>
                         <enemyHealth>100</enemyHealth>
                         <enemyhurt>false</enemyhurt>
+                        <Hurt_FX>0</Hurt_FX>
+                        <Pair_ID>0</Pair_ID>
+                        <KnockBack_Timer>0</KnockBack_Timer>
+                        <Default_MaxSpeed>0</Default_MaxSpeed>
+                        <Default_Acceleration>60</Default_Acceleration>
+                        <Default_Deceleration>500</Default_Deceleration>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="LineOfSight2">
-                            <properties>
-                                <obstacles>Solids</obstacles>
-                                <range>600</range>
-                                <cone-of-view>360</cone-of-view>
-                                <use-collision-cells>Yes</use-collision-cells>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="Solid">
                             <properties>
                                 <initial-state>Enabled</initial-state>
@@ -427,7 +424,7 @@
                         </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
-                                <max-speed>20</max-speed>
+                                <max-speed>30</max-speed>
                                 <acceleration>600</acceleration>
                                 <deceleration>500</deceleration>
                                 <directions>8 directions</directions>
@@ -437,21 +434,15 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Timer" />
-                        <behavior-instance type="Pathfinding">
-                            <properties>
-                                <cell-size>30</cell-size>
-                                <cell-border>-1</cell-border>
-                                <obstacles>Solids</obstacles>
-                                <max-speed>30</max-speed>
-                                <acceleration>1000</acceleration>
-                                <deceleration>2000</deceleration>
-                                <rotate-speed>135</rotate-speed>
-                                <rotate-object>No</rotate-object>
-                                <diagonals>Enabled</diagonals>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
+                        <behavior-instance type="Flash" />
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Brightness">
+                            <parameters>
+                                <brightness>0</brightness>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -475,20 +466,17 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <scatter>false</scatter>
-                        <lostplayer>false</lostplayer>
+                        <CanBeKnockedBack>false</CanBeKnockedBack>
                         <enemyHealth>100</enemyHealth>
                         <enemyhurt>false</enemyhurt>
+                        <Hurt_FX>0</Hurt_FX>
+                        <Pair_ID>0</Pair_ID>
+                        <KnockBack_Timer>0</KnockBack_Timer>
+                        <Default_MaxSpeed>0</Default_MaxSpeed>
+                        <Default_Acceleration>60</Default_Acceleration>
+                        <Default_Deceleration>500</Default_Deceleration>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="LineOfSight2">
-                            <properties>
-                                <obstacles>Solids</obstacles>
-                                <range>600</range>
-                                <cone-of-view>360</cone-of-view>
-                                <use-collision-cells>Yes</use-collision-cells>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="Solid">
                             <properties>
                                 <initial-state>Enabled</initial-state>
@@ -501,7 +489,7 @@
                         </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
-                                <max-speed>20</max-speed>
+                                <max-speed>30</max-speed>
                                 <acceleration>600</acceleration>
                                 <deceleration>500</deceleration>
                                 <directions>8 directions</directions>
@@ -511,21 +499,15 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Timer" />
-                        <behavior-instance type="Pathfinding">
-                            <properties>
-                                <cell-size>30</cell-size>
-                                <cell-border>-1</cell-border>
-                                <obstacles>Solids</obstacles>
-                                <max-speed>30</max-speed>
-                                <acceleration>1000</acceleration>
-                                <deceleration>2000</deceleration>
-                                <rotate-speed>135</rotate-speed>
-                                <rotate-object>No</rotate-object>
-                                <diagonals>Enabled</diagonals>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
+                        <behavior-instance type="Flash" />
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Brightness">
+                            <parameters>
+                                <brightness>0</brightness>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -999,20 +981,17 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <scatter>false</scatter>
-                        <lostplayer>false</lostplayer>
+                        <CanBeKnockedBack>false</CanBeKnockedBack>
                         <enemyHealth>100</enemyHealth>
                         <enemyhurt>false</enemyhurt>
+                        <Hurt_FX>0</Hurt_FX>
+                        <Pair_ID>0</Pair_ID>
+                        <KnockBack_Timer>0</KnockBack_Timer>
+                        <Default_MaxSpeed>0</Default_MaxSpeed>
+                        <Default_Acceleration>60</Default_Acceleration>
+                        <Default_Deceleration>500</Default_Deceleration>
                     </instance-variables>
                     <behavior-instances>
-                        <behavior-instance type="LineOfSight2">
-                            <properties>
-                                <obstacles>Solids</obstacles>
-                                <range>600</range>
-                                <cone-of-view>360</cone-of-view>
-                                <use-collision-cells>Yes</use-collision-cells>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="Solid">
                             <properties>
                                 <initial-state>Enabled</initial-state>
@@ -1025,7 +1004,7 @@
                         </behavior-instance>
                         <behavior-instance type="8Direction">
                             <properties>
-                                <max-speed>20</max-speed>
+                                <max-speed>30</max-speed>
                                 <acceleration>600</acceleration>
                                 <deceleration>500</deceleration>
                                 <directions>8 directions</directions>
@@ -1035,21 +1014,15 @@
                             </properties>
                         </behavior-instance>
                         <behavior-instance type="Timer" />
-                        <behavior-instance type="Pathfinding">
-                            <properties>
-                                <cell-size>30</cell-size>
-                                <cell-border>-1</cell-border>
-                                <obstacles>Solids</obstacles>
-                                <max-speed>30</max-speed>
-                                <acceleration>1000</acceleration>
-                                <deceleration>2000</deceleration>
-                                <rotate-speed>135</rotate-speed>
-                                <rotate-object>No</rotate-object>
-                                <diagonals>Enabled</diagonals>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
+                        <behavior-instance type="Flash" />
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="Brightness">
+                            <parameters>
+                                <brightness>0</brightness>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -1237,6 +1210,9 @@
                         <stopControls>false</stopControls>
                         <attacking>false</attacking>
                         <Rolling>false</Rolling>
+                        <KnockedBack>false</KnockedBack>
+                        <KnockBackTimer>0</KnockBackTimer>
+                        <Casting>false</Casting>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -1548,6 +1524,46 @@
                         <z>0</z>
                         <width>272</width>
                         <height>24</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="StaminaBar" uid="42">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>7</x>
+                        <y>14</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>2</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ManaBar" uid="47">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>7</x>
+                        <y>18</y>
+                        <z>0</z>
+                        <width>40</width>
+                        <height>2</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
