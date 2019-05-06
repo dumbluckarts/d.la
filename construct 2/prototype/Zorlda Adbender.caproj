@@ -904,8 +904,11 @@
             </object-type>
         </object-folder>
         <object-folder name="Masks">
-            <object-type name="TiledBackground" sid="271377552041809">
+            <object-type name="tb_black_overlay" sid="271377552041809">
                 <plugin id="TiledBg" />
+                <instance-variables>
+                    <instance-variable name="itemID" sid="750187546468138" type="string" />
+                </instance-variables>
                 <texture />
             </object-type>
             <object-type name="badGround" sid="181208132278724">
@@ -1142,6 +1145,15 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="scrollingFont" sid="649592110427009">
+            <plugin id="Spritefont2" />
+            <effects>
+                <effect-type name="Inverse">
+                    <effect id="inverse" />
+                </effect-type>
+            </effects>
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="GruntEnemies" plugin-id="Sprite" sid="524917910702722">
@@ -1245,7 +1257,7 @@
         </family>
     </families>
     <layout-folder>
-        <layout>Layout 1.xml</layout>
+        <layout>Dev Layout.xml</layout>
         <layout>Town1.xml</layout>
         <layout>Forest1.xml</layout>
         <layout>instance layout.xml</layout>
@@ -1288,7 +1300,7 @@
         <global-instance type="Function" uid="10" />
         <global-instance type="JS" uid="78">
             <properties>
-                <script-files>inv.min.js;player.js</script-files>
+                <script-files>inv.min.js;player.js;dialogue.js</script-files>
             </properties>
         </global-instance>
     </global-instances>
@@ -1301,6 +1313,8 @@
         <file name="enemydamagetemp.ogg" />
         <file name="itemgettemp.m4a" />
         <file name="itemgettemp.ogg" />
+        <file name="waves.m4a" />
+        <file name="waves.ogg" />
     </sounds-folder>
     <music-folder>
         <file name="backgroundmusic.m4a" />
@@ -1318,6 +1332,8 @@
         <file-folder name="js">
             <file name="player.js" />
             <file name="inv.min.js" />
+            <file name="dialogue.js" />
+            <file name="dial.min.js" />
         </file-folder>
     </files-folder>
 </c2project>
