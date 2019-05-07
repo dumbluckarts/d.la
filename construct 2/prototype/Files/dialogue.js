@@ -1,7 +1,7 @@
 var dial = function() {
 
     var dat = {
-        state: "waiting",
+        state: "finished",
         speed: 200,
         chars: [],
         output: "",
@@ -38,11 +38,9 @@ var dial = function() {
                     } else if (char != ":end") {
                         dat.output += char;
                         dat.chars.shift();
-                        dial.print();
                     } else {
                         dat.chars.shift();
                         dat.state = "waiting";
-                        dial.print();
                     }
                 }
             }, timeout * dat.speed);
