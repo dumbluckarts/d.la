@@ -11,11 +11,15 @@
             </conditions>
             <actions>
                 <action id="-16" name="Wait" sid="283720532313982" type="System">
-                    <param id="0" name="Seconds">1.0</param>
+                    <param id="0" name="Seconds">0</param>
+                </action>
+                <action id="6" name="Call function" sid="152136597665829" type="JS">
+                    <param id="0" name="Expression">&quot;dial.add&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;;s 50&quot;</param>
                 </action>
                 <action id="6" name="Call function" sid="853298212679357" type="JS">
                     <param id="0" name="Expression">&quot;dial.add&quot;</param>
-                    <param id="1" name="Parameter {n}">&quot;hello&quot;{###}&quot;;s 100&quot;{###}&quot;hello!&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Ugh.. where am I? Im parched.&quot;</param>
                 </action>
                 <action id="0" name="Call function" sid="503691568928915" type="Function">
                     <param id="0" name="Name">&quot;dial&quot;</param>

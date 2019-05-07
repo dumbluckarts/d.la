@@ -697,6 +697,29 @@
                 </behaviors>
                 <texture />
             </object-type>
+            <object-type name="desert_rock" sid="621143448521760">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="830559921729756" speed="5">
+                        <frame duration="1" hotspotX="0.555556" hotspotY="0.533333" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="desert_cactus" sid="933924347760086">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="540187486588081" speed="5">
+                        <frame duration="1" hotspotX="0.576923" hotspotY="0.526316">
+                            <collision-poly>
+                                <point x="0.269231" y="0.0967283" />
+                                <point x="0.576923" y="0.0967283" />
+                                <point x="0.576923" y="1" />
+                                <point x="0.269231" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Input">
             <object-type name="Keyboard" sid="4436305314906168">
@@ -940,6 +963,15 @@
                 <plugin id="Tilemap" />
                 <texture original-source="D:\arttestprototype.png" />
                 <tiles />
+            </object-type>
+            <object-type name="tm_desert" sid="357438294789828">
+                <plugin id="Tilemap" />
+                <texture />
+                <tiles />
+            </object-type>
+            <object-type name="tb_textbox" sid="544289763585135">
+                <plugin id="TiledBg" />
+                <texture />
             </object-type>
         </object-folder>
         <object-type name="rupee" sid="933419620676675">
@@ -1256,6 +1288,7 @@
         <family name="Destructible" plugin-id="Sprite" sid="507763675780623">
             <members>
                 <member>Bush_1</member>
+                <member>desert_rock</member>
                 <member>Rock_1</member>
             </members>
             <behaviors>
@@ -1282,6 +1315,16 @@
                 </behavior-type>
                 <behavior-type name="LineOfSight" sid="783744750082890">
                     <behavior id="LOS" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="Damaging" plugin-id="Sprite" sid="360069782658379">
+            <members>
+                <member>desert_cactus</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Solid" sid="141478691207783">
+                    <behavior id="solid" />
                 </behavior-type>
             </behaviors>
         </family>

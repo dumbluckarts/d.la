@@ -72,11 +72,6 @@
                                             <param id="2" name="Expression">&quot;dial.dat.chars.length&quot;</param>
                                             <param id="3" name="Parameter {n}"></param>
                                         </condition>
-                                        <condition id="-7" name="Compare instance variable" sid="151359221001634" type="tb_black_overlay">
-                                            <param id="0" name="Instance variable">itemID</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;textbox&quot;</param>
-                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="6" name="Call function" sid="194587303663391" type="JS">
@@ -94,7 +89,7 @@
                                         <action id="-15" name="Set visible" sid="754360057627067" type="scrollingFont">
                                             <param id="0" name="Visibility">0</param>
                                         </action>
-                                        <action id="-15" name="Set visible" sid="238556931848199" type="tb_black_overlay">
+                                        <action id="-15" name="Set visible" sid="238556931848199" type="tb_textbox">
                                             <param id="0" name="Visibility">0</param>
                                         </action>
                                         <action id="-9" name="Set value" sid="553147449694452" type="System">
@@ -120,11 +115,6 @@
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;start&quot;</param>
                                         </condition>
-                                        <condition id="-7" name="Compare instance variable" sid="867246205774127" type="tb_black_overlay">
-                                            <param id="0" name="Instance variable">itemID</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;textbox&quot;</param>
-                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="-12" name="Set group active" sid="626914243331238" type="System">
@@ -134,7 +124,7 @@
                                         <action id="-15" name="Set visible" sid="747077169649045" type="scrollingFont">
                                             <param id="0" name="Visibility">1</param>
                                         </action>
-                                        <action id="-15" name="Set visible" sid="218371302060634" type="tb_black_overlay">
+                                        <action id="-15" name="Set visible" sid="942497615547002" type="tb_textbox">
                                             <param id="0" name="Visibility">1</param>
                                         </action>
                                         <action id="6" name="Call function" sid="871641338040411" type="JS">
@@ -449,6 +439,20 @@
                                         </event-block>
                                     </sub-events>
                                 </event-group>
+                                <comment>player damaged by damaging family</comment>
+                                <event-block sid="828536721968843">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="992888219942277" type="Player">
+                                            <param id="0" name="Object">Damaging</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="363876429348977" type="Function">
+                                            <param id="0" name="Name">&quot;damagePlayer&quot;</param>
+                                            <param id="1" name="Parameter {n}">5</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                             </sub-events>
                         </event-group>
                         <event-group description="" sid="270925801006901" title="inventory">
