@@ -6,6 +6,8 @@
         <variable constant="0" name="game" sid="150399928664078" static="0" type="number">1</variable>
         <variable constant="0" name="playermaxspeed" sid="313840913914781" static="0" type="number">90</variable>
         <variable constant="0" name="PlayerHealth" sid="630550525625006" static="0" type="number">40</variable>
+        <variable constant="0" name="PlayerStamina" sid="339140426986209" static="0" type="number">40</variable>
+        <variable constant="0" name="PlayerMana" sid="400847582830422" static="0" type="number">40</variable>
         <event-group description='note: REQUIRES a &quot;scrollingText&quot; sprite font and a tb_black_overlay textbox with an itemID of &quot;textbox&quot; on the layout.' sid="480601314424203" title="Dialogue Module">
             <sub-events>
                 <event-block sid="202460767573387">
@@ -170,6 +172,35 @@
                     <sub-events>
                         <event-group description="" sid="822403751889820" title="player">
                             <sub-events>
+                                <event-block sid="228483331450509">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="873573220963042" type="Player">
+                                            <param id="0" name="Instance variable">Casting</param>
+                                        </condition>
+                                        <condition id="-6" name="Every X seconds" sid="104570656249739" type="System">
+                                            <param id="0" name="Interval (seconds)">1.5</param>
+                                        </condition>
+                                        <condition id="-14" inverted="1" name="Compare variable" sid="947630505032769" type="System">
+                                            <param id="0" name="Variable">PlayerMana</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">40</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="167744816995373" type="System">
+                                            <param id="0" name="Variable">PlayerStamina</param>
+                                            <param id="1" name="Value">10</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="404010150189812">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-5" name="Set width" sid="960100673006627" type="ManaBar">
+                                            <param id="0" name="Width">PlayerMana</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                                 <event-block sid="306393204403483">
                                     <conditions>
                                         <condition id="0" name="On function" sid="273269413416676" type="Function">
@@ -330,8 +361,20 @@
                                                     <param id="0" name="Instance variable">Rolling</param>
                                                 </condition>
                                                 <condition behavior="8Direction" id="0" name="Is moving" sid="684739020558261" type="Player" />
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="571909831892059" type="Player">
+                                                    <param id="0" name="Instance variable">attacking</param>
+                                                </condition>
+                                                <condition id="-14" name="Compare variable" sid="391931026850301" type="System">
+                                                    <param id="0" name="Variable">PlayerStamina</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Value">10</param>
+                                                </condition>
                                             </conditions>
                                             <actions>
+                                                <action id="-11" name="Subtract from" sid="390231086119566" type="System">
+                                                    <param id="0" name="Variable">PlayerStamina</param>
+                                                    <param id="1" name="Value">10</param>
+                                                </action>
                                                 <action behavior="8Direction" id="4" name="Set max speed" sid="470300178870777" type="Player">
                                                     <param id="0" name="Max Speed">250</param>
                                                 </action>
@@ -366,6 +409,43 @@
                                                     <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
+                                        </event-block>
+                                        <event-block sid="115509139985491">
+                                            <conditions>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="111413725490134" type="Player">
+                                                    <param id="0" name="Instance variable">Rolling</param>
+                                                </condition>
+                                                <condition id="-6" name="Every X seconds" sid="759151903774475" type="System">
+                                                    <param id="0" name="Interval (seconds)">1.5</param>
+                                                </condition>
+                                                <condition id="-14" inverted="1" name="Compare variable" sid="588309817844656" type="System">
+                                                    <param id="0" name="Variable">PlayerStamina</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Value">40</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="645618971754835" type="System">
+                                                    <param id="0" name="Variable">PlayerStamina</param>
+                                                    <param id="1" name="Value">10</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="389471606064824">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-5" name="Set width" sid="265746187923741" type="StaminaBar">
+                                                    <param id="0" name="Width">PlayerStamina</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="448239807109971">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="565146336375075" type="Player">
+                                                    <param id="0" name="Instance variable">Rolling</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
                                         </event-block>
                                     </sub-events>
                                 </event-group>
@@ -507,6 +587,62 @@
                         </event-group>
                         <event-group description="" sid="839441861916248" title="enemies">
                             <sub-events>
+                                <comment>Flash white when hit</comment>
+                                <event-block sid="258706396908124">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="523839927862969" type="Function">
+                                            <param id="0" name="Name">&quot;Enemy_Flash&quot;</param>
+                                        </condition>
+                                        <condition id="-14" name="Pick by unique ID" sid="861311072873998" type="GruntEnemies">
+                                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Flash" id="0" name="Flash" sid="387111466465673" type="GruntEnemies">
+                                            <param id="0" name="&apos;On&apos; time">0.03</param>
+                                            <param id="1" name="&apos;Off&apos; time">0.03</param>
+                                            <param id="2" name="Duration">Infinity</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="388762811551445">
+                                    <conditions>
+                                        <condition id="0" name="On function" sid="946251120552821" type="Function">
+                                            <param id="0" name="Name">&quot;Enemy_death&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="929400975295646">
+                                            <conditions>
+                                                <condition id="-4" name="Trigger once while true" sid="680381085096999" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="ScrollTo" id="0" name="Shake" sid="398969747460237" type="Player">
+                                                    <param id="0" name="Magnitude">5</param>
+                                                    <param id="1" name="Duration">0.4</param>
+                                                    <param id="2" name="Mode">0</param>
+                                                </action>
+                                                <action id="0" name="Play" sid="353950960547702" type="Audio">
+                                                    <param id="0" name="Audio file">enemydamagetemp</param>
+                                                    <param id="2" name="Loop">0</param>
+                                                    <param id="3" name="Volume">0</param>
+                                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                                </action>
+                                                <action behavior="Solid" id="0" name="Set enabled" sid="592820299875873" type="GruntEnemies">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action id="11" name="Set collisions enabled" sid="231140601540523" type="GruntEnemies">
+                                                    <param id="0" name="Collisions">0</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="207406927956967" type="GruntEnemies">
+                                                    <param id="0" name="Animation">&quot;Death&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
                                 <event-group description="" sid="240592970082005" title="serpent">
                                     <sub-events>
                                         <comment>To be made into functions later</comment>
@@ -720,296 +856,278 @@
                                 </event-group>
                                 <event-group description="" sid="153865824440856" title="grunt">
                                     <sub-events>
-                                        <event-group description="" sid="221366206884317" title="slime">
-                                            <sub-events>
-                                                <event-block sid="423013893945284">
-                                                    <conditions>
-                                                        <condition id="0" name="On collision with another object" sid="773063982452963" type="GruntEnemies">
-                                                            <param id="0" name="Object">Player</param>
-                                                        </condition>
-                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="324003366187839" type="Player">
-                                                            <param id="0" name="Instance variable">attacking</param>
-                                                        </condition>
-                                                        <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="432794247528356" type="Player" />
-                                                        <condition id="-7" name="Compare instance variable" sid="954213163554570" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">enemyHealth</param>
-                                                            <param id="1" name="Comparison">4</param>
-                                                            <param id="2" name="Value">0</param>
-                                                        </condition>
-                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="652689498175463" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">enemyhurt</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="0" name="Call function" sid="418532800170028" type="Function">
-                                                            <param id="0" name="Name">&quot;damagePlayer&quot;</param>
-                                                            <param id="1" name="Parameter {n}">5</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-group>
-                                        <event-block sid="656417036750104">
+                                        <event-block sid="423013893945284">
                                             <conditions>
-                                                <condition id="2" inverted="1" name="Is playing" sid="399238537962003" type="GruntEnemies">
-                                                    <param id="0" name="Animation">&quot;Death&quot;</param>
-                                                </condition>
-                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="470818600847326" type="GruntEnemies">
-                                                    <param id="0" name="Instance variable">enemyhurt</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="4" name="Set animation" sid="755012316580019" type="GruntEnemies">
-                                                    <param id="0" name="Animation">&quot;Default&quot;</param>
-                                                    <param id="1" name="From">1</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="581729279248542">
-                                            <conditions>
-                                                <condition id="-8" name="Is boolean instance variable set" sid="894234539859150" type="GruntEnemies">
-                                                    <param id="0" name="Instance variable">enemyhurt</param>
-                                                </condition>
-                                                <condition id="2" inverted="1" name="Is playing" sid="828566309295862" type="GruntEnemies">
-                                                    <param id="0" name="Animation">&quot;Death&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions />
-                                            <sub-events>
-                                                <event-block sid="125745175883708">
-                                                    <conditions>
-                                                        <condition id="-4" name="Trigger once while true" sid="968390802416390" type="System" />
-                                                        <condition id="-7" name="Compare instance variable" sid="286878576021878" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">enemyHealth</param>
-                                                            <param id="1" name="Comparison">4</param>
-                                                            <param id="2" name="Value">0</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action behavior="Pathfinding" id="3" name="Set enabled" sid="823058576302711" type="GruntEnemies">
-                                                            <param id="0" name="Set">0</param>
-                                                        </action>
-                                                        <action id="4" name="Set animation" sid="872874993627221" type="GruntEnemies">
-                                                            <param id="0" name="Animation">&quot;Damage&quot;</param>
-                                                            <param id="1" name="From">1</param>
-                                                        </action>
-                                                        <action id="0" name="Play" sid="908831985844448" type="Audio">
-                                                            <param id="0" name="Audio file">enemydamagetemp</param>
-                                                            <param id="2" name="Loop">0</param>
-                                                            <param id="3" name="Volume">0</param>
-                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                                                        </action>
-                                                        <action behavior="ScrollTo" id="0" name="Shake" sid="631128263115507" type="Player">
-                                                            <param id="0" name="Magnitude">5</param>
-                                                            <param id="1" name="Duration">0.2</param>
-                                                            <param id="2" name="Mode">0</param>
-                                                        </action>
-                                                        <action id="-23" name="Move at angle" sid="223840170212388" type="GruntEnemies">
-                                                            <param id="0" name="Angle">attackHitbox.Angle</param>
-                                                            <param id="1" name="Distance">5</param>
-                                                        </action>
-                                                        <action id="-16" name="Wait" sid="842387621663900" type="System">
-                                                            <param id="0" name="Seconds">0.2</param>
-                                                        </action>
-                                                        <action id="-13" name="Set boolean" sid="973426561649742" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">enemyhurt</param>
-                                                            <param id="1" name="Value">0</param>
-                                                        </action>
-                                                        <action behavior="Pathfinding" id="3" name="Set enabled" sid="518380710947779" type="GruntEnemies">
-                                                            <param id="0" name="Set">1</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                        <event-block sid="188908960118599">
-                                            <conditions>
-                                                <condition behavior="LineOfSight2" id="0" name="Has LOS to object" sid="890805284255944" type="GruntEnemies">
+                                                <condition id="0" name="On collision with another object" sid="773063982452963" type="GruntEnemies">
                                                     <param id="0" name="Object">Player</param>
                                                 </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="324003366187839" type="Player">
+                                                    <param id="0" name="Instance variable">attacking</param>
+                                                </condition>
+                                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="432794247528356" type="Player" />
+                                                <condition id="-7" name="Compare instance variable" sid="954213163554570" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">enemyHealth</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="652689498175463" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">enemyhurt</param>
+                                                </condition>
                                             </conditions>
                                             <actions>
-                                                <action behavior="Timer" id="1" name="Stop timer" sid="667598607333785" type="GruntEnemies">
-                                                    <param id="0" name="Tag">&quot;lost_player&quot;</param>
+                                                <action id="0" name="Call function" sid="418532800170028" type="Function">
+                                                    <param id="0" name="Name">&quot;damagePlayer&quot;</param>
+                                                    <param id="1" name="Parameter {n}">5</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="936863711383485">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="420873759323149" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">KnockBack_Timer</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="468813342904982" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">KnockBack_Timer</param>
+                                                    <param id="1" name="Value">dt</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment>Flash white on hit</comment>
+                                        <event-block sid="164228188825521">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="793287432592992" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">Hurt_FX</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-28" name="Set effect parameter" sid="422681175286672" type="GruntEnemies">
+                                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                                    <param id="1" name="Parameter index">0</param>
+                                                    <param id="2" name="Value">200</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="559222071239224" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">Hurt_FX</param>
+                                                    <param id="1" name="Value">dt</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="426348773141987">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="693189448733897" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">Hurt_FX</param>
+                                                    <param id="1" name="Comparison">3</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-28" name="Set effect parameter" sid="367509469178159" type="GruntEnemies">
+                                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                                    <param id="1" name="Parameter index">0</param>
+                                                    <param id="2" name="Value">100</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <comment>Knock back</comment>
+                                        <event-block sid="352440016638220">
+                                            <conditions>
+                                                <condition id="0" name="On function" sid="818090134008794" type="Function">
+                                                    <param id="0" name="Name">&quot;Enemy_Hurt&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="414662484071167" type="GruntEnemies">
+                                                    <param id="0" name="Animation">&quot;Damage&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action behavior="ScrollTo" id="0" name="Shake" sid="565302265244449" type="Player">
+                                                    <param id="0" name="Magnitude">20</param>
+                                                    <param id="1" name="Duration">0.4</param>
+                                                    <param id="2" name="Mode">0</param>
                                                 </action>
                                             </actions>
                                             <sub-events>
-                                                <comment>If enemy not in SCATTER state, look for player</comment>
-                                                <event-block sid="366042317385620">
+                                                <event-block sid="489038356949234">
                                                     <conditions>
-                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="389963573156643" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">scatter</param>
+                                                        <condition id="-14" name="Pick by unique ID" sid="412180875221397" type="GruntEnemies">
+                                                            <param id="0" name="Unique ID">Function.Param(0)</param>
                                                         </condition>
                                                     </conditions>
-                                                    <actions />
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="594218598254909" type="GruntEnemies">
+                                                            <param id="0" name="Instance variable">Hurt_FX</param>
+                                                            <param id="1" name="Value">0.1</param>
+                                                        </action>
+                                                    </actions>
                                                     <sub-events>
-                                                        <event-block sid="412674191296422">
+                                                        <event-block sid="687915211751168">
                                                             <conditions>
-                                                                <condition id="-6" name="Every X seconds" sid="234066944032343" type="System">
-                                                                    <param id="0" name="Interval (seconds)">0.15</param>
+                                                                <condition id="-11" name="For Each" sid="216346687299450" type="System">
+                                                                    <param id="0" name="Object">GruntEnemies</param>
+                                                                </condition>
+                                                                <condition id="-7" name="Compare instance variable" sid="753673261759400" type="GruntEnemies">
+                                                                    <param id="0" name="Instance variable">Pair_ID</param>
+                                                                    <param id="1" name="Comparison">0</param>
+                                                                    <param id="2" name="Value">GruntEnemies.UID</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
-                                                                <action behavior="Pathfinding" id="0" name="Find path" sid="871047642795580" type="GruntEnemies">
-                                                                    <param id="0" name="X">Player.X</param>
-                                                                    <param id="1" name="Y">Player.Y</param>
+                                                                <action id="-13" name="Set boolean" sid="183336854842505" type="GruntEnemies">
+                                                                    <param id="0" name="Instance variable">enemyhurt</param>
+                                                                    <param id="1" name="Value">1</param>
                                                                 </action>
                                                             </actions>
+                                                            <sub-events>
+                                                                <event-block sid="199877355613831">
+                                                                    <conditions>
+                                                                        <condition id="-8" name="Is boolean instance variable set" sid="846213140288429" type="GruntEnemies">
+                                                                            <param id="0" name="Instance variable">CanBeKnockedBack</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-10" name="Set value" sid="712545541037637" type="GruntEnemies">
+                                                                            <param id="0" name="Instance variable">KnockBack_Timer</param>
+                                                                            <param id="1" name="Value">0.3</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="660622901638823" type="GruntEnemies">
+                                                                            <param id="0" name="Max Speed">200</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="6" name="Set deceleration" sid="164964872002762" type="GruntEnemies">
+                                                                            <param id="0" name="Deceleration">500</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="9" name="Set vector X" sid="946987571257822" type="GruntEnemies">
+                                                                            <param id="0" name="Vector X">cos(angle(Self.X,Self.Y,Player.X,Player.Y)+180)*200</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="10" name="Set vector Y" sid="958674935804711" type="GruntEnemies">
+                                                                            <param id="0" name="Vector Y">cos(angle(Self.X,Self.Y,Player.X,Player.Y)+180)*200</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                                <event-block disabled="1" sid="867508155682860">
+                                                                    <conditions>
+                                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="972359382610305" type="GruntEnemies">
+                                                                            <param id="0" name="Instance variable">CanBeKnockedBack</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="-13" name="Set boolean" sid="855338401189391" type="Player">
+                                                                            <param id="0" name="Instance variable">KnockedBack</param>
+                                                                            <param id="1" name="Value">1</param>
+                                                                        </action>
+                                                                        <action id="-10" name="Set value" sid="532884183094962" type="Player">
+                                                                            <param id="0" name="Instance variable">KnockBackTimer</param>
+                                                                            <param id="1" name="Value">0.3</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="2" name="Set ignoring input" sid="458918091289754" type="Player">
+                                                                            <param id="0" name="Input">1</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="896539190706472" type="Player">
+                                                                            <param id="0" name="Max Speed">200</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="6" name="Set deceleration" sid="424599325888019" type="Player">
+                                                                            <param id="0" name="Deceleration">500</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="9" name="Set vector X" sid="635504974064532" type="Player">
+                                                                            <param id="0" name="Vector X">cos(angle(Self.X,Self.Y,GruntEnemies.X,GruntEnemies.Y)+180)*200</param>
+                                                                        </action>
+                                                                        <action behavior="8Direction" id="10" name="Set vector Y" sid="823971732539383" type="Player">
+                                                                            <param id="0" name="Vector Y">cos(angle(Self.X,Self.Y,GruntEnemies.X,GruntEnemies.Y)+180)*200</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                                <event-block sid="357087602074427">
+                                                                    <conditions>
+                                                                        <condition id="-7" name="Compare instance variable" sid="828282290087192" type="GruntEnemies">
+                                                                            <param id="0" name="Instance variable">enemyHealth</param>
+                                                                            <param id="1" name="Comparison">3</param>
+                                                                            <param id="2" name="Value">0</param>
+                                                                        </condition>
+                                                                    </conditions>
+                                                                    <actions>
+                                                                        <action id="0" name="Call function" sid="844721787255045" type="Function">
+                                                                            <param id="0" name="Name">&quot;Enemy_Flash&quot;</param>
+                                                                            <param id="1" name="Parameter {n}">GruntEnemies.UID</param>
+                                                                        </action>
+                                                                    </actions>
+                                                                </event-block>
+                                                            </sub-events>
                                                         </event-block>
                                                     </sub-events>
                                                 </event-block>
                                             </sub-events>
                                         </event-block>
-                                        <comment>if enemy has no LOS to player, start checking timer </comment>
-                                        <event-block sid="821247960298774">
+                                        <comment>Recover from hit</comment>
+                                        <event-block sid="229236931925870">
                                             <conditions>
-                                                <condition behavior="LineOfSight2" id="0" inverted="1" name="Has LOS to object" sid="166827826107597" type="GruntEnemies">
-                                                    <param id="0" name="Object">Player</param>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="924893871271349" type="GruntEnemies">
+                                                    <param id="0" name="Instance variable">enemyhurt</param>
                                                 </condition>
-                                            </conditions>
-                                            <actions />
-                                            <sub-events>
-                                                <event-block sid="512488046272870">
-                                                    <conditions>
-                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="633897349371736" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">lostplayer</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="-13" name="Set boolean" sid="185172167282687" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">lostplayer</param>
-                                                            <param id="1" name="Value">1</param>
-                                                        </action>
-                                                        <action behavior="Timer" id="0" name="Start timer" sid="304300654796990" type="GruntEnemies">
-                                                            <param id="0" name="Duration">0.15</param>
-                                                            <param id="1" name="Type">0</param>
-                                                            <param id="2" name="Tag">&quot;lost_player&quot;</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                        <event-block sid="971144569100239">
-                                            <conditions>
-                                                <condition id="0" name="On collision with another object" sid="627575513748028" type="GruntEnemies">
+                                                <condition id="-11" name="For Each" sid="635025505308064" type="System">
                                                     <param id="0" name="Object">GruntEnemies</param>
                                                 </condition>
                                             </conditions>
-                                            <actions>
-                                                <action id="-13" name="Set boolean" sid="146968137878242" type="GruntEnemies">
-                                                    <param id="0" name="Instance variable">scatter</param>
-                                                    <param id="1" name="Value">1</param>
-                                                </action>
-                                                <action behavior="Pathfinding" id="0" name="Find path" sid="191112025142948" type="GruntEnemies">
-                                                    <param id="0" name="X">Player.X</param>
-                                                    <param id="1" name="Y">Player.Y</param>
-                                                </action>
-                                                <action behavior="Timer" id="0" name="Start timer" sid="840030518365222" type="GruntEnemies">
-                                                    <param id="0" name="Duration">0.20</param>
-                                                    <param id="1" name="Type">0</param>
-                                                    <param id="2" name="Tag">&quot;scatter&quot;</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="675728124141015">
-                                            <conditions>
-                                                <condition behavior="Timer" id="0" name="On timer" sid="820833952944604" type="GruntEnemies">
-                                                    <param id="0" name="Tag">&quot;scatter&quot;</param>
-                                                </condition>
-                                            </conditions>
                                             <actions />
                                             <sub-events>
-                                                <event-block sid="893827976845518">
+                                                <event-block sid="973319108375595">
                                                     <conditions>
-                                                        <condition id="1" inverted="1" name="Is overlapping another object" sid="764710037985965" type="GruntEnemies">
-                                                            <param id="0" name="Object">GruntEnemies</param>
+                                                        <condition id="-7" name="Compare instance variable" sid="326554098898283" type="GruntEnemies">
+                                                            <param id="0" name="Instance variable">KnockBack_Timer</param>
+                                                            <param id="1" name="Comparison">5</param>
+                                                            <param id="2" name="Value">0</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
-                                                        <action id="-13" name="Set boolean" sid="516290418850728" type="GruntEnemies">
-                                                            <param id="0" name="Instance variable">scatter</param>
+                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="984055158140259" type="GruntEnemies">
+                                                            <param id="0" name="Max Speed">Self.Default_MaxSpeed</param>
+                                                        </action>
+                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="773118609444250" type="GruntEnemies">
+                                                            <param id="0" name="Max Speed">Self.Default_Acceleration</param>
+                                                        </action>
+                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="866669519329493" type="GruntEnemies">
+                                                            <param id="0" name="Max Speed">Self.Default_Deceleration</param>
+                                                        </action>
+                                                        <action id="-13" name="Set boolean" sid="619567402612927" type="GruntEnemies">
+                                                            <param id="0" name="Instance variable">enemyhurt</param>
                                                             <param id="1" name="Value">0</param>
                                                         </action>
                                                     </actions>
-                                                </event-block>
-                                                <event-block sid="319568851381248">
-                                                    <conditions>
-                                                        <condition id="1" name="Is overlapping another object" sid="436943137361784" type="GruntEnemies">
-                                                            <param id="0" name="Object">GruntEnemies</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action behavior="Pathfinding" id="0" name="Find path" sid="387871139370974" type="GruntEnemies">
-                                                            <param id="0" name="X">Player.X</param>
-                                                            <param id="1" name="Y">Player.Y</param>
-                                                        </action>
-                                                        <action behavior="Timer" id="0" name="Start timer" sid="592807861229709" type="GruntEnemies">
-                                                            <param id="0" name="Duration">0.20</param>
-                                                            <param id="1" name="Type">0</param>
-                                                            <param id="2" name="Tag">&quot;scatter&quot;</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                        <event-block sid="371215384079245">
-                                            <conditions>
-                                                <condition behavior="Pathfinding" id="0" name="On path found" sid="803602787035750" type="GruntEnemies" />
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Pathfinding" id="1" name="Move along path" sid="666139820045741" type="GruntEnemies" />
-                                            </actions>
-                                        </event-block>
-                                        <event-block sid="868119275370106">
-                                            <conditions>
-                                                <condition id="-7" name="Compare instance variable" sid="322296041012543" type="GruntEnemies">
-                                                    <param id="0" name="Instance variable">enemyHealth</param>
-                                                    <param id="1" name="Comparison">3</param>
-                                                    <param id="2" name="Value">0</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions />
-                                            <sub-events>
-                                                <event-block sid="595868900191235">
-                                                    <conditions>
-                                                        <condition id="-4" name="Trigger once while true" sid="532326174059071" type="System" />
-                                                    </conditions>
-                                                    <actions>
-                                                        <action behavior="ScrollTo" id="0" name="Shake" sid="316467078952008" type="Player">
-                                                            <param id="0" name="Magnitude">5</param>
-                                                            <param id="1" name="Duration">0.4</param>
-                                                            <param id="2" name="Mode">0</param>
-                                                        </action>
-                                                        <action id="0" name="Play" sid="496445532262345" type="Audio">
-                                                            <param id="0" name="Audio file">enemydamagetemp</param>
-                                                            <param id="2" name="Loop">0</param>
-                                                            <param id="3" name="Volume">0</param>
-                                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                                                        </action>
-                                                        <action behavior="Solid" id="0" name="Set enabled" sid="318311307493404" type="GruntEnemies">
-                                                            <param id="0" name="State">0</param>
-                                                        </action>
-                                                        <action id="11" name="Set collisions enabled" sid="559482789500530" type="GruntEnemies">
-                                                            <param id="0" name="Collisions">0</param>
-                                                        </action>
-                                                        <action behavior="Pathfinding" id="3" name="Set enabled" sid="579227259000969" type="GruntEnemies">
-                                                            <param id="0" name="Set">0</param>
-                                                        </action>
-                                                        <action id="4" name="Set animation" sid="874356061387192" type="GruntEnemies">
-                                                            <param id="0" name="Animation">&quot;Death&quot;</param>
-                                                            <param id="1" name="From">1</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                                <event-block sid="143966134598576">
-                                                    <conditions>
-                                                        <condition id="4" name="On finished" sid="766400281750685" type="GruntEnemies">
-                                                            <param id="0" name="Animation">&quot;Death&quot;</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="-9" name="Destroy" sid="951289885394817" type="GruntEnemies" />
-                                                    </actions>
+                                                    <sub-events>
+                                                        <event-block sid="224478735729578">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="391382345353166" type="GruntEnemies">
+                                                                    <param id="0" name="Instance variable">enemyHealth</param>
+                                                                    <param id="1" name="Comparison">4</param>
+                                                                    <param id="2" name="Value">0</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="652534349675893" type="Function">
+                                                                    <param id="0" name="Name">&quot;Enemy_Death&quot;</param>
+                                                                    <param id="1" name="Parameter {n}"></param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                        <event-block sid="145892566283177">
+                                                            <conditions>
+                                                                <condition id="-7" name="Compare instance variable" sid="925035418325191" type="GruntEnemies">
+                                                                    <param id="0" name="Instance variable">enemyHealth</param>
+                                                                    <param id="1" name="Comparison">3</param>
+                                                                    <param id="2" name="Value">0</param>
+                                                                </condition>
+                                                            </conditions>
+                                                            <actions>
+                                                                <action id="0" name="Call function" sid="707176892237866" type="Function">
+                                                                    <param id="0" name="Name">&quot;Enemy_Death&quot;</param>
+                                                                    <param id="1" name="Parameter {n}">GruntEnemies.UID</param>
+                                                                </action>
+                                                            </actions>
+                                                        </event-block>
+                                                    </sub-events>
                                                 </event-block>
                                             </sub-events>
                                         </event-block>
@@ -1195,6 +1313,10 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
+                                                <action id="0" name="Call function" sid="937616836110357" type="Function">
+                                                    <param id="0" name="Name">&quot;Enemy_Hurt&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
                                                 <action id="-9" name="Destroy" sid="761812026282256" type="Arrow" />
                                                 <action id="-12" name="Subtract from" sid="341154961956448" type="GruntEnemies">
                                                     <param id="0" name="Instance variable">enemyHealth</param>
@@ -1408,27 +1530,23 @@
                                                 </event-block>
                                                 <event-block sid="883586181777281">
                                                     <conditions>
-                                                        <condition id="1" name="Is overlapping another object" sid="941164322279074" type="attackHitbox">
+                                                        <condition id="0" name="On collision with another object" sid="941164322279074" type="attackHitbox">
                                                             <param id="0" name="Object">GruntEnemies</param>
                                                         </condition>
                                                     </conditions>
-                                                    <actions />
-                                                    <sub-events>
-                                                        <event-block sid="684898412231980">
-                                                            <conditions>
-                                                                <condition id="-4" name="Trigger once while true" sid="558445232012963" type="System" />
-                                                            </conditions>
-                                                            <actions>
-                                                                <action id="-12" name="Subtract from" sid="929872657494398" type="GruntEnemies">
-                                                                    <param id="0" name="Instance variable">enemyHealth</param>
-                                                                    <param id="1" name="Value">35</param>
-                                                                </action>
-                                                                <action id="-14" name="Toggle boolean" sid="707695168173826" type="GruntEnemies">
-                                                                    <param id="0" name="Instance variable">enemyhurt</param>
-                                                                </action>
-                                                            </actions>
-                                                        </event-block>
-                                                    </sub-events>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="341151375419959" type="Function">
+                                                            <param id="0" name="Name">&quot;Enemy_Hurt&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                        <action id="-12" name="Subtract from" sid="929872657494398" type="GruntEnemies">
+                                                            <param id="0" name="Instance variable">enemyHealth</param>
+                                                            <param id="1" name="Value">35</param>
+                                                        </action>
+                                                        <action id="-14" name="Toggle boolean" sid="707695168173826" type="GruntEnemies">
+                                                            <param id="0" name="Instance variable">enemyhurt</param>
+                                                        </action>
+                                                    </actions>
                                                 </event-block>
                                                 <event-block sid="359014283935259">
                                                     <conditions>

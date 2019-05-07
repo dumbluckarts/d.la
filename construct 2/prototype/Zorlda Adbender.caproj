@@ -32,7 +32,6 @@
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
-        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
@@ -41,6 +40,7 @@
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects>
+        <effect author="Scirra" id="brightness">Brightness</effect>
         <effect author="Scirra" id="inverse">Inverse</effect>
     </used-effects>
     <configurations>
@@ -172,6 +172,9 @@
                     <instance-variable name="stopControls" sid="504933989013853" type="boolean" />
                     <instance-variable name="attacking" sid="501065580131812" type="boolean" />
                     <instance-variable name="Rolling" sid="346873536915716" type="boolean" />
+                    <instance-variable name="KnockedBack" sid="907831269412986" type="boolean" />
+                    <instance-variable name="KnockBackTimer" sid="320912395270035" type="number" />
+                    <instance-variable name="Casting" sid="495051060707145" type="boolean" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="8Direction" sid="853785570626197">
@@ -412,6 +415,18 @@
                 </animation-folder>
             </object-type>
             <object-type name="Hearts" sid="292174317956252">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="StaminaBar" sid="158708139295592">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="dust" sid="877776406131407">
+                <plugin id="Particles" />
+                <texture />
+            </object-type>
+            <object-type name="ManaBar" sid="668891965198501">
                 <plugin id="TiledBg" />
                 <texture />
             </object-type>
@@ -1154,6 +1169,14 @@
             </effects>
             <texture />
         </object-type>
+        <object-type name="houseTRigger" sid="475770879543186">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="897198038699838" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="GruntEnemies" plugin-id="Sprite" sid="524917910702722">
@@ -1162,15 +1185,17 @@
                 <member>FishEnemy</member>
             </members>
             <instance-variables>
-                <instance-variable name="scatter" sid="461112048375699" type="boolean" />
-                <instance-variable name="lostplayer" sid="984036397424799" type="boolean" />
+                <instance-variable name="CanBeKnockedBack" sid="461112048375699" type="boolean" />
                 <instance-variable name="enemyHealth" sid="265533720936650" type="number" />
                 <instance-variable name="enemyhurt" sid="564318053010922" type="boolean" />
+                <instance-variable name="Hurt_FX" sid="840301240568779" type="number" />
+                <instance-variable name="Pair_ID" sid="405339146542280" type="number" />
+                <instance-variable name="KnockBack_Timer" sid="118361295538554" type="number" />
+                <instance-variable name="Default_MaxSpeed" sid="457784288158749" type="number" />
+                <instance-variable name="Default_Acceleration" sid="793082483970249" type="number" />
+                <instance-variable name="Default_Deceleration" sid="141435747144189" type="number" />
             </instance-variables>
             <behaviors>
-                <behavior-type name="LineOfSight2" sid="236199086130641">
-                    <behavior id="LOS" />
-                </behavior-type>
                 <behavior-type name="Solid" sid="575024824700380">
                     <behavior id="solid" />
                 </behavior-type>
@@ -1183,10 +1208,15 @@
                 <behavior-type name="Timer" sid="920624533350674">
                     <behavior id="Timer" />
                 </behavior-type>
-                <behavior-type name="Pathfinding" sid="409639351831546">
-                    <behavior id="Pathfinding" />
+                <behavior-type name="Flash" sid="660304853552113">
+                    <behavior id="Flash" />
                 </behavior-type>
             </behaviors>
+            <effects>
+                <effect-type name="Brightness">
+                    <effect id="brightness" />
+                </effect-type>
+            </effects>
         </family>
         <family name="ProjectileEnemies" plugin-id="Sprite" sid="537681783344666">
             <members>
