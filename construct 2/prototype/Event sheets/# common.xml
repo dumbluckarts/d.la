@@ -597,12 +597,12 @@
                                         <condition id="0" name="On function" sid="523839927862969" type="Function">
                                             <param id="0" name="Name">&quot;Enemy_Flash&quot;</param>
                                         </condition>
-                                        <condition id="-14" name="Pick by unique ID" sid="861311072873998" type="GruntEnemies">
+                                        <condition id="-14" name="Pick by unique ID" sid="861311072873998" type="EnemyGlobal">
                                             <param id="0" name="Unique ID">Function.Param(0)</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="Flash" id="0" name="Flash" sid="387111466465673" type="GruntEnemies">
+                                        <action behavior="Flash" id="0" name="Flash" sid="387111466465673" type="EnemyGlobal">
                                             <param id="0" name="&apos;On&apos; time">0.03</param>
                                             <param id="1" name="&apos;Off&apos; time">0.03</param>
                                             <param id="2" name="Duration">Infinity</param>
@@ -633,13 +633,13 @@
                                                     <param id="3" name="Volume">0</param>
                                                     <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                                 </action>
-                                                <action behavior="Solid" id="0" name="Set enabled" sid="592820299875873" type="GruntEnemies">
+                                                <action behavior="Solid" id="0" name="Set enabled" sid="592820299875873" type="EnemyGlobal">
                                                     <param id="0" name="State">0</param>
                                                 </action>
-                                                <action id="11" name="Set collisions enabled" sid="231140601540523" type="GruntEnemies">
+                                                <action id="11" name="Set collisions enabled" sid="231140601540523" type="EnemyGlobal">
                                                     <param id="0" name="Collisions">0</param>
                                                 </action>
-                                                <action id="4" name="Set animation" sid="207406927956967" type="GruntEnemies">
+                                                <action id="4" name="Set animation" sid="207406927956967" type="EnemyGlobal">
                                                     <param id="0" name="Animation">&quot;Death&quot;</param>
                                                     <param id="1" name="From">1</param>
                                                 </action>
@@ -858,23 +858,23 @@
                                         </event-block>
                                     </sub-events>
                                 </event-group>
-                                <event-group description="" sid="153865824440856" title="grunt">
+                                <event-group description="" sid="153865824440856" title="Enemy Global">
                                     <sub-events>
                                         <event-block sid="423013893945284">
                                             <conditions>
-                                                <condition id="0" name="On collision with another object" sid="773063982452963" type="GruntEnemies">
+                                                <condition id="0" name="On collision with another object" sid="773063982452963" type="EnemyGlobal">
                                                     <param id="0" name="Object">Player</param>
                                                 </condition>
                                                 <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="324003366187839" type="Player">
                                                     <param id="0" name="Instance variable">attacking</param>
                                                 </condition>
                                                 <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="432794247528356" type="Player" />
-                                                <condition id="-7" name="Compare instance variable" sid="954213163554570" type="GruntEnemies">
+                                                <condition id="-7" name="Compare instance variable" sid="954213163554570" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">enemyHealth</param>
                                                     <param id="1" name="Comparison">4</param>
                                                     <param id="2" name="Value">0</param>
                                                 </condition>
-                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="652689498175463" type="GruntEnemies">
+                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="652689498175463" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">enemyhurt</param>
                                                 </condition>
                                             </conditions>
@@ -887,14 +887,14 @@
                                         </event-block>
                                         <event-block sid="936863711383485">
                                             <conditions>
-                                                <condition id="-7" name="Compare instance variable" sid="420873759323149" type="GruntEnemies">
+                                                <condition id="-7" name="Compare instance variable" sid="420873759323149" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">KnockBack_Timer</param>
                                                     <param id="1" name="Comparison">4</param>
                                                     <param id="2" name="Value">0</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-12" name="Subtract from" sid="468813342904982" type="GruntEnemies">
+                                                <action id="-12" name="Subtract from" sid="468813342904982" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">KnockBack_Timer</param>
                                                     <param id="1" name="Value">dt</param>
                                                 </action>
@@ -903,19 +903,19 @@
                                         <comment>Flash white on hit</comment>
                                         <event-block sid="164228188825521">
                                             <conditions>
-                                                <condition id="-7" name="Compare instance variable" sid="793287432592992" type="GruntEnemies">
+                                                <condition id="-7" name="Compare instance variable" sid="793287432592992" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">Hurt_FX</param>
                                                     <param id="1" name="Comparison">4</param>
                                                     <param id="2" name="Value">0</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-28" name="Set effect parameter" sid="422681175286672" type="GruntEnemies">
+                                                <action id="-28" name="Set effect parameter" sid="422681175286672" type="EnemyGlobal">
                                                     <param id="0" name="Effect">&quot;Brightness&quot;</param>
                                                     <param id="1" name="Parameter index">0</param>
                                                     <param id="2" name="Value">200</param>
                                                 </action>
-                                                <action id="-12" name="Subtract from" sid="559222071239224" type="GruntEnemies">
+                                                <action id="-12" name="Subtract from" sid="559222071239224" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">Hurt_FX</param>
                                                     <param id="1" name="Value">dt</param>
                                                 </action>
@@ -923,14 +923,14 @@
                                         </event-block>
                                         <event-block sid="426348773141987">
                                             <conditions>
-                                                <condition id="-7" name="Compare instance variable" sid="693189448733897" type="GruntEnemies">
+                                                <condition id="-7" name="Compare instance variable" sid="693189448733897" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">Hurt_FX</param>
                                                     <param id="1" name="Comparison">3</param>
                                                     <param id="2" name="Value">0</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="-28" name="Set effect parameter" sid="367509469178159" type="GruntEnemies">
+                                                <action id="-28" name="Set effect parameter" sid="367509469178159" type="EnemyGlobal">
                                                     <param id="0" name="Effect">&quot;Brightness&quot;</param>
                                                     <param id="1" name="Parameter index">0</param>
                                                     <param id="2" name="Value">100</param>
@@ -945,25 +945,16 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action id="4" name="Set animation" sid="414662484071167" type="GruntEnemies">
+                                                <action id="4" name="Set animation" sid="414662484071167" type="EnemyGlobal">
                                                     <param id="0" name="Animation">&quot;Damage&quot;</param>
                                                     <param id="1" name="From">1</param>
-                                                </action>
-                                                <action behavior="ScrollTo" id="0" name="Shake" sid="565302265244449" type="Player">
-                                                    <param id="0" name="Magnitude">20</param>
-                                                    <param id="1" name="Duration">0.4</param>
-                                                    <param id="2" name="Mode">0</param>
                                                 </action>
                                             </actions>
                                             <sub-events>
                                                 <event-block sid="489038356949234">
-                                                    <conditions>
-                                                        <condition id="-14" name="Pick by unique ID" sid="412180875221397" type="GruntEnemies">
-                                                            <param id="0" name="Unique ID">Function.Param(0)</param>
-                                                        </condition>
-                                                    </conditions>
+                                                    <conditions />
                                                     <actions>
-                                                        <action id="-10" name="Set value" sid="594218598254909" type="GruntEnemies">
+                                                        <action id="-10" name="Set value" sid="594218598254909" type="EnemyGlobal">
                                                             <param id="0" name="Instance variable">Hurt_FX</param>
                                                             <param id="1" name="Value">0.1</param>
                                                         </action>
@@ -972,16 +963,16 @@
                                                         <event-block sid="687915211751168">
                                                             <conditions>
                                                                 <condition id="-11" name="For Each" sid="216346687299450" type="System">
-                                                                    <param id="0" name="Object">GruntEnemies</param>
+                                                                    <param id="0" name="Object">EnemyGlobal</param>
                                                                 </condition>
-                                                                <condition id="-7" name="Compare instance variable" sid="753673261759400" type="GruntEnemies">
+                                                                <condition id="-7" name="Compare instance variable" sid="753673261759400" type="EnemyGlobal">
                                                                     <param id="0" name="Instance variable">Pair_ID</param>
                                                                     <param id="1" name="Comparison">0</param>
-                                                                    <param id="2" name="Value">GruntEnemies.UID</param>
+                                                                    <param id="2" name="Value">EnemyGlobal.UID</param>
                                                                 </condition>
                                                             </conditions>
                                                             <actions>
-                                                                <action id="-13" name="Set boolean" sid="183336854842505" type="GruntEnemies">
+                                                                <action id="-13" name="Set boolean" sid="183336854842505" type="EnemyGlobal">
                                                                     <param id="0" name="Instance variable">enemyhurt</param>
                                                                     <param id="1" name="Value">1</param>
                                                                 </action>
@@ -989,64 +980,64 @@
                                                             <sub-events>
                                                                 <event-block sid="199877355613831">
                                                                     <conditions>
-                                                                        <condition id="-8" name="Is boolean instance variable set" sid="846213140288429" type="GruntEnemies">
+                                                                        <condition id="-8" name="Is boolean instance variable set" sid="846213140288429" type="EnemyGlobal">
                                                                             <param id="0" name="Instance variable">CanBeKnockedBack</param>
                                                                         </condition>
                                                                     </conditions>
                                                                     <actions>
-                                                                        <action id="-10" name="Set value" sid="712545541037637" type="GruntEnemies">
+                                                                        <action id="-10" name="Set value" sid="712545541037637" type="EnemyGlobal">
                                                                             <param id="0" name="Instance variable">KnockBack_Timer</param>
                                                                             <param id="1" name="Value">0.3</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="660622901638823" type="GruntEnemies">
+                                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="660622901638823" type="EnemyGlobal">
                                                                             <param id="0" name="Max Speed">200</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="6" name="Set deceleration" sid="164964872002762" type="GruntEnemies">
+                                                                        <action behavior="8Direction" id="6" name="Set deceleration" sid="164964872002762" type="EnemyGlobal">
                                                                             <param id="0" name="Deceleration">500</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="9" name="Set vector X" sid="946987571257822" type="GruntEnemies">
+                                                                        <action behavior="8Direction" id="9" name="Set vector X" sid="946987571257822" type="EnemyGlobal">
                                                                             <param id="0" name="Vector X">cos(angle(Self.X,Self.Y,Player.X,Player.Y)+180)*200</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="10" name="Set vector Y" sid="958674935804711" type="GruntEnemies">
+                                                                        <action behavior="8Direction" id="10" name="Set vector Y" sid="958674935804711" type="EnemyGlobal">
                                                                             <param id="0" name="Vector Y">cos(angle(Self.X,Self.Y,Player.X,Player.Y)+180)*200</param>
                                                                         </action>
                                                                     </actions>
                                                                 </event-block>
-                                                                <event-block disabled="1" sid="867508155682860">
+                                                                <event-block sid="867508155682860">
                                                                     <conditions>
-                                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="972359382610305" type="GruntEnemies">
+                                                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="972359382610305" type="EnemyGlobal">
                                                                             <param id="0" name="Instance variable">CanBeKnockedBack</param>
                                                                         </condition>
                                                                     </conditions>
                                                                     <actions>
-                                                                        <action id="-13" name="Set boolean" sid="855338401189391" type="Player">
+                                                                        <action disabled="1" id="-13" name="Set boolean" sid="855338401189391" type="Player">
                                                                             <param id="0" name="Instance variable">KnockedBack</param>
                                                                             <param id="1" name="Value">1</param>
                                                                         </action>
-                                                                        <action id="-10" name="Set value" sid="532884183094962" type="Player">
+                                                                        <action disabled="1" id="-10" name="Set value" sid="532884183094962" type="Player">
                                                                             <param id="0" name="Instance variable">KnockBackTimer</param>
                                                                             <param id="1" name="Value">0.3</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="2" name="Set ignoring input" sid="458918091289754" type="Player">
+                                                                        <action behavior="8Direction" disabled="1" id="2" name="Set ignoring input" sid="458918091289754" type="Player">
                                                                             <param id="0" name="Input">1</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="896539190706472" type="Player">
+                                                                        <action behavior="8Direction" disabled="1" id="4" name="Set max speed" sid="896539190706472" type="Player">
                                                                             <param id="0" name="Max Speed">200</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="6" name="Set deceleration" sid="424599325888019" type="Player">
+                                                                        <action behavior="8Direction" disabled="1" id="6" name="Set deceleration" sid="424599325888019" type="Player">
                                                                             <param id="0" name="Deceleration">500</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="9" name="Set vector X" sid="635504974064532" type="Player">
-                                                                            <param id="0" name="Vector X">cos(angle(Self.X,Self.Y,GruntEnemies.X,GruntEnemies.Y)+180)*200</param>
+                                                                        <action behavior="8Direction" disabled="1" id="9" name="Set vector X" sid="635504974064532" type="Player">
+                                                                            <param id="0" name="Vector X">cos(angle(Self.X,Self.Y,EnemyGlobal.X,EnemyGlobal.Y)+180)*200</param>
                                                                         </action>
-                                                                        <action behavior="8Direction" id="10" name="Set vector Y" sid="823971732539383" type="Player">
-                                                                            <param id="0" name="Vector Y">cos(angle(Self.X,Self.Y,GruntEnemies.X,GruntEnemies.Y)+180)*200</param>
+                                                                        <action behavior="8Direction" disabled="1" id="10" name="Set vector Y" sid="823971732539383" type="Player">
+                                                                            <param id="0" name="Vector Y">cos(angle(Self.X,Self.Y,EnemyGlobal.X,EnemyGlobal.Y)+180)*200</param>
                                                                         </action>
                                                                     </actions>
                                                                 </event-block>
                                                                 <event-block sid="357087602074427">
                                                                     <conditions>
-                                                                        <condition id="-7" name="Compare instance variable" sid="828282290087192" type="GruntEnemies">
+                                                                        <condition id="-7" name="Compare instance variable" sid="828282290087192" type="EnemyGlobal">
                                                                             <param id="0" name="Instance variable">enemyHealth</param>
                                                                             <param id="1" name="Comparison">3</param>
                                                                             <param id="2" name="Value">0</param>
@@ -1055,7 +1046,7 @@
                                                                     <actions>
                                                                         <action id="0" name="Call function" sid="844721787255045" type="Function">
                                                                             <param id="0" name="Name">&quot;Enemy_Flash&quot;</param>
-                                                                            <param id="1" name="Parameter {n}">GruntEnemies.UID</param>
+                                                                            <param id="1" name="Parameter {n}">EnemyGlobal.UID</param>
                                                                         </action>
                                                                     </actions>
                                                                 </event-block>
@@ -1066,44 +1057,44 @@
                                             </sub-events>
                                         </event-block>
                                         <comment>Recover from hit</comment>
-                                        <event-block sid="229236931925870">
+                                        <event-block disabled="1" sid="229236931925870">
                                             <conditions>
-                                                <condition id="-8" name="Is boolean instance variable set" sid="924893871271349" type="GruntEnemies">
+                                                <condition id="-8" name="Is boolean instance variable set" sid="924893871271349" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">enemyhurt</param>
                                                 </condition>
                                                 <condition id="-11" name="For Each" sid="635025505308064" type="System">
-                                                    <param id="0" name="Object">GruntEnemies</param>
+                                                    <param id="0" name="Object">EnemyGlobal</param>
                                                 </condition>
                                             </conditions>
                                             <actions />
                                             <sub-events>
-                                                <event-block sid="973319108375595">
+                                                <event-block disabled="1" sid="973319108375595">
                                                     <conditions>
-                                                        <condition id="-7" name="Compare instance variable" sid="326554098898283" type="GruntEnemies">
+                                                        <condition id="-7" name="Compare instance variable" sid="326554098898283" type="EnemyGlobal">
                                                             <param id="0" name="Instance variable">KnockBack_Timer</param>
                                                             <param id="1" name="Comparison">5</param>
                                                             <param id="2" name="Value">0</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
-                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="984055158140259" type="GruntEnemies">
+                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="984055158140259" type="EnemyGlobal">
                                                             <param id="0" name="Max Speed">Self.Default_MaxSpeed</param>
                                                         </action>
-                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="773118609444250" type="GruntEnemies">
+                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="773118609444250" type="EnemyGlobal">
                                                             <param id="0" name="Max Speed">Self.Default_Acceleration</param>
                                                         </action>
-                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="866669519329493" type="GruntEnemies">
+                                                        <action behavior="8Direction" id="4" name="Set max speed" sid="866669519329493" type="EnemyGlobal">
                                                             <param id="0" name="Max Speed">Self.Default_Deceleration</param>
                                                         </action>
-                                                        <action id="-13" name="Set boolean" sid="619567402612927" type="GruntEnemies">
+                                                        <action id="-13" name="Set boolean" sid="619567402612927" type="EnemyGlobal">
                                                             <param id="0" name="Instance variable">enemyhurt</param>
                                                             <param id="1" name="Value">0</param>
                                                         </action>
                                                     </actions>
                                                     <sub-events>
-                                                        <event-block sid="224478735729578">
+                                                        <event-block disabled="1" sid="224478735729578">
                                                             <conditions>
-                                                                <condition id="-7" name="Compare instance variable" sid="391382345353166" type="GruntEnemies">
+                                                                <condition id="-7" name="Compare instance variable" sid="391382345353166" type="EnemyGlobal">
                                                                     <param id="0" name="Instance variable">enemyHealth</param>
                                                                     <param id="1" name="Comparison">4</param>
                                                                     <param id="2" name="Value">0</param>
@@ -1116,9 +1107,9 @@
                                                                 </action>
                                                             </actions>
                                                         </event-block>
-                                                        <event-block sid="145892566283177">
+                                                        <event-block disabled="1" sid="145892566283177">
                                                             <conditions>
-                                                                <condition id="-7" name="Compare instance variable" sid="925035418325191" type="GruntEnemies">
+                                                                <condition id="-7" name="Compare instance variable" sid="925035418325191" type="EnemyGlobal">
                                                                     <param id="0" name="Instance variable">enemyHealth</param>
                                                                     <param id="1" name="Comparison">3</param>
                                                                     <param id="2" name="Value">0</param>
@@ -1127,7 +1118,7 @@
                                                             <actions>
                                                                 <action id="0" name="Call function" sid="707176892237866" type="Function">
                                                                     <param id="0" name="Name">&quot;Enemy_Death&quot;</param>
-                                                                    <param id="1" name="Parameter {n}">GruntEnemies.UID</param>
+                                                                    <param id="1" name="Parameter {n}">EnemyGlobal.UID</param>
                                                                 </action>
                                                             </actions>
                                                         </event-block>
@@ -1313,7 +1304,7 @@
                                         <event-block sid="168900949119272">
                                             <conditions>
                                                 <condition id="1" name="Is overlapping another object" sid="949618483935263" type="Arrow">
-                                                    <param id="0" name="Object">GruntEnemies</param>
+                                                    <param id="0" name="Object">EnemyGlobal</param>
                                                 </condition>
                                             </conditions>
                                             <actions>
@@ -1322,11 +1313,11 @@
                                                     <param id="1" name="Parameter {n}"></param>
                                                 </action>
                                                 <action id="-9" name="Destroy" sid="761812026282256" type="Arrow" />
-                                                <action id="-12" name="Subtract from" sid="341154961956448" type="GruntEnemies">
+                                                <action id="-12" name="Subtract from" sid="341154961956448" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">enemyHealth</param>
                                                     <param id="1" name="Value">35</param>
                                                 </action>
-                                                <action id="-14" name="Toggle boolean" sid="751940884516973" type="GruntEnemies">
+                                                <action id="-14" name="Toggle boolean" sid="751940884516973" type="EnemyGlobal">
                                                     <param id="0" name="Instance variable">enemyhurt</param>
                                                 </action>
                                             </actions>
@@ -1422,12 +1413,12 @@
                                                 <event-block sid="558482562154681">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="211579329588073" type="bombsSprite">
-                                                            <param id="0" name="Object">GruntEnemies</param>
+                                                            <param id="0" name="Object">EnemyGlobal</param>
                                                         </condition>
                                                         <condition id="-4" name="Trigger once while true" sid="562371812079446" type="System" />
                                                     </conditions>
                                                     <actions>
-                                                        <action id="-12" name="Subtract from" sid="597422237237628" type="GruntEnemies">
+                                                        <action id="-12" name="Subtract from" sid="597422237237628" type="EnemyGlobal">
                                                             <param id="0" name="Instance variable">enemyHealth</param>
                                                             <param id="1" name="Value">100</param>
                                                         </action>
@@ -1535,7 +1526,7 @@
                                                 <event-block sid="883586181777281">
                                                     <conditions>
                                                         <condition id="0" name="On collision with another object" sid="941164322279074" type="attackHitbox">
-                                                            <param id="0" name="Object">GruntEnemies</param>
+                                                            <param id="0" name="Object">EnemyGlobal</param>
                                                         </condition>
                                                     </conditions>
                                                     <actions>
@@ -1543,11 +1534,11 @@
                                                             <param id="0" name="Name">&quot;Enemy_Hurt&quot;</param>
                                                             <param id="1" name="Parameter {n}"></param>
                                                         </action>
-                                                        <action id="-12" name="Subtract from" sid="929872657494398" type="GruntEnemies">
+                                                        <action id="-12" name="Subtract from" sid="929872657494398" type="EnemyGlobal">
                                                             <param id="0" name="Instance variable">enemyHealth</param>
                                                             <param id="1" name="Value">35</param>
                                                         </action>
-                                                        <action id="-14" name="Toggle boolean" sid="707695168173826" type="GruntEnemies">
+                                                        <action id="-14" name="Toggle boolean" sid="707695168173826" type="EnemyGlobal">
                                                             <param id="0" name="Instance variable">enemyhurt</param>
                                                         </action>
                                                     </actions>
@@ -2054,6 +2045,10 @@
                                 <action behavior="8Direction" id="7" name="Simulate control" sid="471221263856027" type="IdleCharacters">
                                     <param id="0" name="Control">0</param>
                                 </action>
+                                <action disabled="1" id="4" name="Set animation" sid="932327958776858" type="IdleCharacters">
+                                    <param id="0" name="Animation">&quot;WalkLeft&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="639575778627926">
@@ -2067,6 +2062,10 @@
                             <actions>
                                 <action behavior="8Direction" id="7" name="Simulate control" sid="451070355352176" type="IdleCharacters">
                                     <param id="0" name="Control">1</param>
+                                </action>
+                                <action disabled="1" id="4" name="Set animation" sid="669521619489569" type="IdleCharacters">
+                                    <param id="0" name="Animation">&quot;WalkRight&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2082,6 +2081,10 @@
                                 <action behavior="8Direction" id="7" name="Simulate control" sid="936902711551286" type="IdleCharacters">
                                     <param id="0" name="Control">3</param>
                                 </action>
+                                <action disabled="1" id="4" name="Set animation" sid="771927159169914" type="IdleCharacters">
+                                    <param id="0" name="Animation">&quot;WalkDown&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="177837489299296">
@@ -2095,6 +2098,10 @@
                             <actions>
                                 <action behavior="8Direction" id="7" name="Simulate control" sid="823571263924406" type="IdleCharacters">
                                     <param id="0" name="Control">2</param>
+                                </action>
+                                <action disabled="1" id="4" name="Set animation" sid="250750405330564" type="IdleCharacters">
+                                    <param id="0" name="Animation">&quot;WalkUp&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -2112,6 +2119,171 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+            </sub-events>
+        </event-block>
+        <event-block sid="240662809686773">
+            <conditions>
+                <condition id="-3" name="Is on-screen" sid="476619896545002" type="Blob" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="339278973663558">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="692429819662758" type="Blob">
+                            <param id="0" name="Instance variable">State_Timer</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="840639030485494" type="Blob">
+                            <param id="0" name="Instance variable">State_Timer</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Idle</comment>
+                <event-block sid="965108755312018">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="160457612030977" type="Blob">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Idle&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="325232230287723" type="Blob">
+                            <param id="0" name="Animation">&quot;Idle&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="651164992244209">
+                            <conditions>
+                                <condition id="6" name="On frame changed" sid="378753843634761" type="Blob" />
+                                <condition id="-7" name="Compare instance variable" sid="856151246261861" type="Blob">
+                                    <param id="0" name="Instance variable">State_Timer</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">0.5 + random(1)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="125774027241510" type="Blob">
+                                    <param id="0" name="Instance variable">State</param>
+                                    <param id="1" name="Value">&quot;Hop&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Hop</comment>
+                <event-block sid="984007832458451">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="766979616416845" type="Blob">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Hop&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="366380332608058" type="Blob">
+                            <param id="0" name="Animation">&quot;Hop&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="445535716419506">
+                    <conditions>
+                        <condition id="6" name="On frame changed" sid="852331083847847" type="Blob" />
+                        <condition id="2" name="Is playing" sid="114226975390568" type="Blob">
+                            <param id="0" name="Animation">&quot;Hop&quot;</param>
+                        </condition>
+                        <condition id="3" name="Compare frame" sid="767896356895264" type="Blob">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="9" name="Set vector X" sid="353255250379495" type="Blob">
+                            <param id="0" name="Vector X">cos(angle(Self.X,Self.Y,Player.X,Player.Y))*150</param>
+                        </action>
+                        <action behavior="8Direction" id="10" name="Set vector Y" sid="300600037742902" type="Blob">
+                            <param id="0" name="Vector Y">cos(angle(Self.X,Self.Y,Player.X,Player.Y))*150</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="285409934672634">
+                    <conditions>
+                        <condition id="4" name="On finished" sid="434486914380470" type="Blob">
+                            <param id="0" name="Animation">&quot;Hop&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="900185507335988" type="Blob">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">&quot;Idle&quot;</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="552962846514744" type="Blob">
+                            <param id="0" name="Instance variable">State_Timer</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="455253963618469">
+            <conditions>
+                <condition id="-11" name="For Each" sid="780015349167523" type="System">
+                    <param id="0" name="Object">Blob</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="632226050146397" type="Blob">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Idle&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="141350896053776">
+                    <conditions>
+                        <condition id="-39" name="Is within angle" sid="629123086652128" type="System">
+                            <param id="0" name="Angle 1">Blob.Angle</param>
+                            <param id="1" name="Within">45</param>
+                            <param id="2" name="Angle 2">270</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="182955075981384">
+                    <conditions>
+                        <condition id="-39" name="Is within angle" sid="784908326262691" type="System">
+                            <param id="0" name="Angle 1">Blob.Angle</param>
+                            <param id="1" name="Within">45</param>
+                            <param id="2" name="Angle 2">180</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="194758281718975">
+                    <conditions>
+                        <condition id="-39" name="Is within angle" sid="979036259185878" type="System">
+                            <param id="0" name="Angle 1">Blob.Angle</param>
+                            <param id="1" name="Within">45</param>
+                            <param id="2" name="Angle 2">90</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="413366867089170">
+                    <conditions>
+                        <condition id="-39" name="Is within angle" sid="585972077963958" type="System">
+                            <param id="0" name="Angle 1">Blob.Angle</param>
+                            <param id="1" name="Within">45</param>
+                            <param id="2" name="Angle 2">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
             </sub-events>
         </event-block>
     </events>

@@ -810,11 +810,23 @@
                     </animation>
                 </animation-folder>
             </object-type>
-            <object-type name="enemy1" sid="493124416396567">
+            <object-type name="Blob" sid="493124416396567">
                 <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="State_Timer" sid="216802559547815" type="number" />
+                    <instance-variable name="State" sid="227562453779742" type="string" />
+                </instance-variables>
                 <animation-folder>
-                    <animation framecount="1" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="749653137366154" speed="5">
+                    <animation framecount="2" loop="1" name="Idle" pingpong="0" repeatcount="0" repeatto="0" sid="749653137366154" speed="5">
                         <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\Noah\Desktop\newslime.png">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0">
                             <collision-poly>
                                 <point x="0.21875" y="0.402344" />
                                 <point x="0.759766" y="0.398438" />
@@ -891,6 +903,32 @@
                             </collision-poly>
                         </frame>
                     </animation>
+                    <animation framecount="3" loop="1" name="Hop" pingpong="0" repeatcount="1" repeatto="0" sid="843347946316883" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0" hotspotY="0">
+                            <collision-poly>
+                                <point x="0.21875" y="0.402344" />
+                                <point x="0.759766" y="0.398438" />
+                                <point x="0.771484" y="1" />
+                                <point x="0.166016" y="1" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
                 </animation-folder>
             </object-type>
             <object-type name="FishEnemy" sid="644747189784648">
@@ -954,7 +992,7 @@
                 <texture original-source="D:\projects\construct 2\prototype\badground.png" />
                 <tiles />
             </object-type>
-            <object-type name="homeBackground" sid="194582861482423">
+            <object-type name="Indoors" sid="194582861482423">
                 <plugin id="Tilemap" />
                 <texture />
                 <tiles />
@@ -1209,11 +1247,34 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Fisherman" sid="330260493530035">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="479045295067752" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="175232957237950" speed="10">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="1.1875" y="0.34375" />
+                    </frame>
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="207795574501567" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                        <image-point name="LineofSight" x="0.5" y="-0.125" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
-        <family name="GruntEnemies" plugin-id="Sprite" sid="524917910702722">
+        <family name="EnemyGlobal" plugin-id="Sprite" sid="524917910702722">
             <members>
-                <member>enemy1</member>
+                <member>Blob</member>
                 <member>FishEnemy</member>
             </members>
             <instance-variables>
