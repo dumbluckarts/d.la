@@ -1,4 +1,4 @@
-# dumbluckarts
+﻿# dumbluckarts
 
 indie development studio hosted at http://dumbluckarts.com
 
@@ -23,7 +23,7 @@ that bug wasn't our fault!
 
 ## whos behind this?
 
-the three main contributors nelsondev, inoahfella, and calerman100 are just a bunch of dudes
+the three main contributors nelsondev, inoahfella, and sir-galahad are just a bunch of dudes
 who love making things on computer. We all have our own skillset and all do our own things.
 Check out our githubs maybe if you're interested, we might have a few projects under our belt.
 Or not, who knows.
@@ -34,11 +34,11 @@ Or not, who knows.
 
 [twitter](https://twitter.com/INoahFella)  [twitch](https://www.twitch.tv/inoahlad)  [website](http://dumbluckarts.com)
 
-### [calerman100]()
+### [sir-galahad](https://github.com/sir-gallahad)
 
-(enter your random bio thing)
+idk computer things n stuffs
 
-[twitter]()     [twitch]()     [website](http://dumbluckarts.com)
+[twitter](https://twitter.com/Male_Caynes)   [website](http://dumbluckarts.com)
 
 ### [nelsondev](https://github.com/nelsondev)
 
