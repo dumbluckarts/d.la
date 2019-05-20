@@ -1270,6 +1270,122 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="SprTable" sid="819100304202177">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="261045475129529" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="0.75" />
+                            <point x="0" y="0.75" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprBed" sid="910672223969755">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="599261600327572" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprDesk" sid="937752101189173">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="238711231674388" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprBookshelf" sid="737014350023006">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="102742864762936" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0.254545" y="0" />
+                            <point x="0.836364" y="0" />
+                            <point x="0.836364" y="0.96875" />
+                            <point x="0.254545" y="0.96875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprFlowerPot1" sid="492710441056535">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="827164020133995" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprFlowerPot2" sid="703051461781741">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="192071386349298" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprFireplace" sid="833625204208182">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="1" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="813858036782570" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="0.75" />
+                            <point x="0" y="0.75" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprBed2" sid="692802577335081">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="732613988016703" speed="5">
+                    <frame duration="1" hotspotX="1" hotspotY="0">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="SprTable2" sid="777068238639265">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="267376971358663" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="0.75" />
+                            <point x="0" y="0.75" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="CharDad" sid="640553869904742">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="782792891258388" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="EnemyGlobal" plugin-id="Sprite" sid="524917910702722">
@@ -1360,6 +1476,7 @@
         </family>
         <family name="IdleCharacters" plugin-id="Sprite" sid="228504547305651">
             <members>
+                <member>CharDad</member>
                 <member>villager1</member>
                 <member>villager2</member>
                 <member>villager3</member>
@@ -1393,6 +1510,7 @@
     <layout-folder>
         <layout>Dev Layout.xml</layout>
         <layout>Town1.xml</layout>
+        <layout>Home Layout.xml</layout>
         <layout>Forest1.xml</layout>
         <layout>instance layout.xml</layout>
         <layout>Shop.xml</layout>

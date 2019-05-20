@@ -46,7 +46,7 @@ var dial = function() {
             }, timeout * dat.speed);
         }
     }
-
+    
     function add(...str) {
         for (var i in str) {
             buildCharList(str[i]);
