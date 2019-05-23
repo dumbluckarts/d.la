@@ -86,7 +86,18 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="198390312150852" speed="5">
+                    <animation framecount="1" loop="0" name="idle" pingpong="0" repeatcount="1" repeatto="0" sid="198390312150852" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Camera" x="0.5" y="0" />
+                        </frame>
+                    </animation>
+                    <animation framecount="3" loop="0" name="landing" pingpong="0" repeatcount="1" repeatto="0" sid="642260023062569" speed="10">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Camera" x="0.5" y="0.40625" />
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Camera" x="0.5" y="0.21875" />
+                        </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Camera" x="0.5" y="0" />
                         </frame>

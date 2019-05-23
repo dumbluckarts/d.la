@@ -89,6 +89,19 @@
                 </event-group>
                 <event-group description="" sid="938686444025676" title="pAnimations">
                     <sub-events>
+                        <event-block sid="300957137734614">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Is playing" sid="942329475939837" type="Player">
+                                    <param id="0" name="Animation">JS.Value(&quot;Player.getState&quot;)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="494189457567747" type="Player">
+                                    <param id="0" name="Animation">JS.Value(&quot;Player.getState&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="562722465536750">
                             <conditions>
                                 <condition behavior="Platform" id="6" name="On fall" sid="941187005691787" type="Player" />
