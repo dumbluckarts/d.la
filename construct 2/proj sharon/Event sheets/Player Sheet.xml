@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Player Sheet</name>
+    <events>
+        <event-group description="all functions related to Player obj. Movement, health, game mechanics etc." sid="436799922404809" title="Player">
+            <sub-events>
+                <event-group description="" sid="842651188236180" title="pUtils">
+                    <sub-events>
+                        <event-block sid="969616734027645">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="443021904441643" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="448941787642196" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>reset player movement values back to default if changed.</comment>
+                        <event-block sid="483856080995995">
+                            <conditions>
+                                <condition id="0" name="On function" sid="973547449946500" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="1" name="Set max speed" sid="152172183510815" type="Player">
+                                    <param id="0" name="Max Speed">JS.Value(&quot;Player.m.maxspd&quot;)</param>
+                                </action>
+                                <action behavior="Platform" id="2" name="Set acceleration" sid="355148621160983" type="Player">
+                                    <param id="0" name="Acceleration">JS.Value(&quot;Player.m.accel&quot;)</param>
+                                </action>
+                                <action behavior="Platform" id="3" name="Set deceleration" sid="898104401556932" type="Player">
+                                    <param id="0" name="Deceleration">JS.Value(&quot;Player.m.decel&quot;)</param>
+                                </action>
+                                <action behavior="Platform" id="4" name="Set jump strength" sid="497565983036266" type="Player">
+                                    <param id="0" name="Jump strength">JS.Value(&quot;Player.m.jump&quot;)</param>
+                                </action>
+                                <action behavior="Platform" id="5" name="Set gravity" sid="112715028474886" type="Player">
+                                    <param id="0" name="Gravity">JS.Value(&quot;Player.m.grav&quot;)</param>
+                                </action>
+                                <action behavior="Platform" id="6" name="Set max fall speed" sid="792732739045717" type="Player">
+                                    <param id="0" name="Max fall speed">JS.Value(&quot;Player.m.fallspd&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>remove action and secondary keys after pressed</comment>
+                        <event-block sid="499321124223946">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="845911671124873" type="JS">
+                                    <param id="0" name="Value">&quot;true&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.c.action&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="663302105320621" type="System">
+                                    <param id="0" name="Seconds">0.001</param>
+                                </action>
+                                <action id="5" name="Set value" sid="548927134050718" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.c.action&quot;</param>
+                                    <param id="1" name="Value">&quot;false&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="231976050623349">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="927922428821102" type="JS">
+                                    <param id="0" name="Value">&quot;true&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.c.secondary&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="266286687300605" type="System">
+                                    <param id="0" name="Seconds">0.001</param>
+                                </action>
+                                <action id="5" name="Set value" sid="826356611142704" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.c.secondary&quot;</param>
+                                    <param id="1" name="Value">&quot;false&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="938686444025676" title="pAnimations">
+                    <sub-events>
+                        <event-block sid="562722465536750">
+                            <conditions>
+                                <condition behavior="Platform" id="6" name="On fall" sid="941187005691787" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Call function" sid="927865949385276" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;falling&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="455042638190792">
+                            <conditions>
+                                <condition behavior="Platform" id="9" name="On landed" sid="261319469028759" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Call function" sid="848425213995096" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;landing&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="152038329277987">
+                                    <conditions>
+                                        <condition behavior="Platform" id="0" inverted="1" name="Is moving" sid="116336011237309" type="Player" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-16" name="Wait" sid="475851107272193" type="System">
+                                            <param id="0" name="Seconds">0.5</param>
+                                        </action>
+                                        <action id="6" name="Call function" sid="212473864393342" type="JS">
+                                            <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;idle&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="315581051171866">
+                            <conditions>
+                                <condition behavior="Platform" id="7" name="On stopped" sid="891071189272444" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Call function" sid="752416717413533" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;idle&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="453072854924799">
+                            <conditions>
+                                <condition behavior="Platform" id="5" name="On jump" sid="661355434404153" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Call function" sid="403436114060018" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;jumping&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="101500163179801">
+                            <conditions>
+                                <condition behavior="Platform" id="8" name="On moved" sid="252889283069872" type="Player" />
+                            </conditions>
+                            <actions>
+                                <action id="6" name="Call function" sid="132226422842813" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;moving&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Keeps player direction consistent</comment>
+                        <event-block sid="730284180995267">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="112076986461617" type="JS">
+                                    <param id="0" name="Value">&quot;right&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.getDirection&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="894230102430281" type="Player">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="676140877030017">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="809574968187297" type="JS">
+                                    <param id="0" name="Value">&quot;left&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.getDirection&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="7" name="Set mirrored" sid="945176680629501" type="Player">
+                                    <param id="0" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="228466696693436" title="pMovement">
+                    <sub-events>
+                        <comment>Default Player movement</comment>
+                        <event-block sid="226434679439963">
+                            <conditions>
+                                <condition id="0" name="On function" sid="794791341690007" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="282234607108604">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="121678306901697" type="JS">
+                                            <param id="0" name="Value">&quot;walljumpingright&quot;</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="794606908259187" type="Player">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="504408194454625">
+                                    <conditions />
+                                    <actions>
+                                        <action id="6" name="Call function" sid="395887706973744" type="JS">
+                                            <param id="0" name="Expression">&quot;Player.setDirection&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;right&quot;{###}1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="251525584860180">
+                            <conditions>
+                                <condition id="0" name="On function" sid="940874608946918" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Left&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="259550543789871">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="306129197410875" type="JS">
+                                            <param id="0" name="Value">&quot;walljumpingleft&quot;</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="977981578934016" type="Player">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="593408722403465">
+                                    <conditions />
+                                    <actions>
+                                        <action id="6" name="Call function" sid="501818110105815" type="JS">
+                                            <param id="0" name="Expression">&quot;Player.setDirection&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;left&quot;{###}-1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="653740716010764">
+                            <conditions>
+                                <condition id="0" name="On function" sid="738584082453369" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Jump&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="965059780981477" type="Player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Wall Jump</comment>
+                        <event-block sid="373897846486113">
+                            <conditions>
+                                <condition id="0" name="On function" sid="378282954796048" type="Function">
+                                    <param id="0" name="Name">&quot;Player.WallJump&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="1" name="WALLJUMP_TIME" sid="846900460866215" static="1" type="number">0.18</variable>
+                                <event-block sid="476394044079007">
+                                    <conditions>
+                                        <condition id="6" name="Compare value" sid="715516216864887" type="JS">
+                                            <param id="0" name="Value">&quot;wallsliding&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                            <param id="3" name="Parameter {n}"></param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="221941916690806">
+                                            <conditions>
+                                                <condition behavior="Platform" id="10" name="Is by wall" sid="894533864759336" type="Player">
+                                                    <param id="0" name="Side">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="487360257821646" type="Function">
+                                                    <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="5" name="Set value" sid="307266409715974" type="JS">
+                                                    <param id="0" name="Expression">&quot;Player.m.active&quot;</param>
+                                                    <param id="1" name="Value">&quot;false&quot;</param>
+                                                </action>
+                                                <action behavior="Platform" id="9" name="Set vector Y" sid="158658031064138" type="Player">
+                                                    <param id="0" name="Vector Y">-500</param>
+                                                </action>
+                                                <action id="6" name="Call function" sid="949668968239883" type="JS">
+                                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;walljumping&quot; &amp; &quot;left&quot;{###}&quot;left&quot;{###}-1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="116994557185086">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="822045283814035" type="System" />
+                                                <condition behavior="Platform" id="10" name="Is by wall" sid="446805485706298" type="Player">
+                                                    <param id="0" name="Side">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="936416333613555" type="Function">
+                                                    <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="5" name="Set value" sid="758767784965023" type="JS">
+                                                    <param id="0" name="Expression">&quot;Player.m.active&quot;</param>
+                                                    <param id="1" name="Value">&quot;false&quot;</param>
+                                                </action>
+                                                <action behavior="Platform" id="9" name="Set vector Y" sid="108280532332025" type="Player">
+                                                    <param id="0" name="Vector Y">-500</param>
+                                                </action>
+                                                <action id="6" name="Call function" sid="447083478130285" type="JS">
+                                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;walljumping&quot; &amp; &quot;right&quot;{###}&quot;right&quot;{###}1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block any="1" sid="256455764521934">
+                                            <conditions>
+                                                <condition id="6" name="Compare value" sid="900910568764038" type="JS">
+                                                    <param id="0" name="Value">&quot;walljumpingright&quot;</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                                <condition id="6" name="Compare value" sid="389654279800073" type="JS">
+                                                    <param id="0" name="Value">&quot;walljumpingleft&quot;</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-16" name="Wait" sid="525266885922224" type="System">
+                                                    <param id="0" name="Seconds">WALLJUMP_TIME</param>
+                                                </action>
+                                                <action id="6" name="Call function" sid="459933161957388" type="JS">
+                                                    <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;falling&quot;</param>
+                                                </action>
+                                                <action id="5" name="Set value" sid="751653074324515" type="JS">
+                                                    <param id="0" name="Expression">&quot;Player.m.active&quot;</param>
+                                                    <param id="1" name="Value">&quot;true&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block any="1" sid="801162228617197">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="443693882427782" type="JS">
+                                    <param id="0" name="Value">&quot;walljumpingright&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                                <condition id="6" name="Compare value" sid="589565704676877" type="JS">
+                                    <param id="0" name="Value">&quot;walljumpingleft&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="314167517754077" type="Player">
+                                    <param id="0" name="Vector X">(JS.Value(&quot;Player.getDirectionNum&quot;) * 300)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Enable Wall Sliding</comment>
+                        <event-block sid="752844834978179">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="776073161101492" type="JS">
+                                    <param id="0" name="Value">&quot;falling&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="107322760247284">
+                                    <conditions>
+                                        <condition behavior="Platform" id="10" name="Is by wall" sid="461240099552676" type="Player">
+                                            <param id="0" name="Side">0</param>
+                                        </condition>
+                                        <condition behavior="Platform" id="10" name="Is by wall" sid="287301517804563" type="Player">
+                                            <param id="0" name="Side">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="6" name="Call function" sid="642876152623483" type="JS">
+                                            <param id="0" name="Expression">&quot;Player.setState&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;wallsliding&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Dash</comment>
+                        <event-block sid="865980386971797">
+                            <conditions>
+                                <condition id="0" name="On function" sid="922445458393152" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Dash&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <comment>Disable controls if Player inactive</comment>
+                        <event-block sid="912298121585436">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="350986433546900" type="JS">
+                                    <param id="0" name="Value">&quot;true&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.m.active&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="100177706978546" type="System">
+                                    <param id="0" name="Group name">&quot;Keyboard&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="490776889085550">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="487168123073228" type="JS">
+                                    <param id="0" name="Value">&quot;false&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.m.active&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="459815354226192" type="System">
+                                    <param id="0" name="Group name">&quot;Keyboard&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="443646798445524" title="pMisc">
+                    <sub-events>
+                        <comment>Use the down arrow to allow the player to deliberately drop down through a jump-thru platform.</comment>
+                        <event-block sid="159075311380715">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="366267190890850" type="Keyboard">
+                                    <param id="0" name="Key">40</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="12" name="Fall through" sid="692198759722033" type="Player" />
+                            </actions>
+                        </event-block>
+                        <comment>If the player falls off the bottom of the layout, restart the level.</comment>
+                        <event-block sid="631812756509664">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="683156500951443" type="Player">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">LayoutHeight</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-26" name="Restart layout" sid="879370065221001" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

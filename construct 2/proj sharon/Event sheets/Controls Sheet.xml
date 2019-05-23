@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Controls Sheet</name>
+    <events>
+        <event-group description="all keyboard control schemes" sid="533941687870603" title="Keyboard">
+            <sub-events>
+                <event-group description="" sid="693894003485979" title="default scheme">
+                    <sub-events>
+                        <comment>Movement</comment>
+                        <event-block sid="371000703607919">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="692250597582437" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="888648087269647" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Right&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="449662969712821">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="604857019981237" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="569592071440389" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Left&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Jump</comment>
+                        <event-block any="1" sid="596422469753127">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="619163547876478" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                                <condition id="0" name="On key pressed" sid="623160700666158" type="Keyboard">
+                                    <param id="0" name="Key">87</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="250996510101180" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Jump&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block any="1" sid="786532863937386">
+                                    <conditions>
+                                        <condition id="2" name="Key is down" sid="483936664360188" type="Keyboard">
+                                            <param id="0" name="Key">68</param>
+                                        </condition>
+                                        <condition id="2" name="Key is down" sid="740357624391393" type="Keyboard">
+                                            <param id="0" name="Key">65</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="304149787339007" type="Function">
+                                            <param id="0" name="Name">&quot;Player.WallJump&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Action</comment>
+                        <event-block sid="318606295314425">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="670543374242537" type="Keyboard">
+                                    <param id="0" name="Key">72</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set value" sid="853231469695787" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.c.action&quot;</param>
+                                    <param id="1" name="Value">&quot;true&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="707081029034952" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Dash&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Secondary Action</comment>
+                        <event-block sid="306546190363886">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="345544319282229" type="Keyboard">
+                                    <param id="0" name="Key">74</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set value" sid="523772229364483" type="JS">
+                                    <param id="0" name="Expression">&quot;Player.c.secondary&quot;</param>
+                                    <param id="1" name="Value">&quot;true&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="826672934606643" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Attack&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="488710418664347" title="bad scheme">
+                    <sub-events>
+                        <event-block sid="841756934940970">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="666166650847281" type="Keyboard">
+                                    <param id="0" name="Key">37</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="551790483632435" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Right&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="493395771004929">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="744220312493982" type="Keyboard">
+                                    <param id="0" name="Key">39</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="568078876892397" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Left&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="976970473271881">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="930967403051054" type="Keyboard">
+                                    <param id="0" name="Key">38</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="704133092449786" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Jump&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Call function" sid="220403144203214" type="Function">
+                                    <param id="0" name="Name">&quot;Player.WallJump&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
