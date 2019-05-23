@@ -91,12 +91,15 @@
                             <image-point name="Camera" x="0.5" y="0" />
                         </frame>
                     </animation>
-                    <animation framecount="3" loop="0" name="landing" pingpong="0" repeatcount="1" repeatto="0" sid="642260023062569" speed="10">
+                    <animation framecount="4" loop="0" name="landing" pingpong="0" repeatcount="1" repeatto="0" sid="642260023062569" speed="10">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="Camera" x="0.5" y="0.40625" />
+                            <image-point name="Camera" x="0.5" y="0.4375" />
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                            <image-point name="Camera" x="0.5" y="0.21875" />
+                            <image-point name="Camera" x="0.5" y="0.28125" />
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                            <image-point name="Camera" x="0.5" y="0.09375" />
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Camera" x="0.5" y="0" />

@@ -111,6 +111,10 @@
                                     <param id="0" name="Expression">&quot;Player.setState&quot;</param>
                                     <param id="1" name="Parameter {n}">&quot;falling&quot;</param>
                                 </action>
+                                <action id="0" name="Call function" sid="644920428163229" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="455042638190792">
@@ -411,6 +415,10 @@
                                 <action behavior="Platform" id="8" name="Set vector X" sid="314167517754077" type="Player">
                                     <param id="0" name="Vector X">(JS.Value(&quot;Player.getDirectionNum&quot;) * 300)</param>
                                 </action>
+                                <action id="0" name="Call function" sid="677891795553044" type="Function">
+                                    <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                             </actions>
                         </event-block>
                         <comment>Enable Wall Sliding</comment>
@@ -438,6 +446,45 @@
                                         <action id="6" name="Call function" sid="642876152623483" type="JS">
                                             <param id="0" name="Expression">&quot;Player.setState&quot;</param>
                                             <param id="1" name="Parameter {n}">&quot;wallsliding&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="633878801347092">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="691503291285999" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="411757493327432" type="Function">
+                                            <param id="0" name="Name">&quot;Player.Reset&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="806961725098429">
+                            <conditions>
+                                <condition id="6" name="Compare value" sid="955935322605016" type="JS">
+                                    <param id="0" name="Value">&quot;wallsliding&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Expression">&quot;Player.getState&quot;</param>
+                                    <param id="3" name="Parameter {n}"></param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="221933288850772">
+                                    <conditions>
+                                        <condition behavior="Platform" id="10" name="Is by wall" sid="700712045677719" type="Player">
+                                            <param id="0" name="Side">0</param>
+                                        </condition>
+                                        <condition behavior="Platform" id="10" name="Is by wall" sid="695220364030302" type="Player">
+                                            <param id="0" name="Side">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="6" name="Set max fall speed" sid="580448957529890" type="Player">
+                                            <param id="0" name="Max fall speed">200</param>
                                         </action>
                                     </actions>
                                 </event-block>
