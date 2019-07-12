@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<style>
+		@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+		/* Main CSS for document, keep it simple so we
+		can not get it all confused. */
+		html {
+			scroll-behavior: smooth;
+		}
+		body {
+			margin: 0;
+			color: white;
+			background-color: black;
+			font-family: 'Roboto', sans-serif;
+		}
+		h1,h2,h3,h4,h5,h6 {
+			padding: 0;
+			margin: 0;
+		}
+		a {
+			color: red;
+			text-decoration: none;
+		}
+		a:hover {
+			color: white;
+		}
+		q {
+			color: gray;
+		}
+		.flex {
+			display: flex;
+		}
+		.bg-gray {
+			background-color: darkred;
+		}
+		.std-size {
+			max-width: 800px;
+		}
+		.std-padding {
+			padding: 25px;
+		}
+		.std-margin  {
+			margin-top: 25px;
+			margin-bottom: 25px;
+		}
+		.std-border {
+			border-color: white;
+			border-left: 4px;
+			border-left-style: solid;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="title" class="bg-gray std-padding">
+			<h1>Corporation Game</h1>
+			<q>We live in a society. as a man once said.</q>
+		</div>
+		<!-- main content -->
+		<div id="main-content" class="std-padding">
+			<!-- introduction to this application -->
+			<div id="introduction" class="std-size">
+				<p>
+					Authors: Noah D && Nelson M <br>
+					Description: a megaman-esque platforming game where you 'fight the corporation'
+					through Mobile Anti-Corporation Unit, or M.A.C.
+				</p>
+			</div>
+			<!-- !end introduction -->
+			<!-- table of contents -->
+			<div id="contents" class="std-padding std-border std-margin std-size">
+				<h2>Contents:</h2>
+				<ul id="contents-list">
+					<li id="contents-planning">
+						<a href="#planning">planning</a>
+						<ul id="contents-planning-list">
+							<li id="contents-platforming"><a href="#platforming">platforming</a></li>
+							<li id="contents-combat"><a href="#combat">combat</a></li>
+							<li id="contents-mechanics"><a href="#mechanics">mechanics</a></li>
+							<li id="contents-enemies"><a href="#enemies">enemies</a></li>
+							<li id="contents-art"><a href="#art">art</a></li>
+							<li id="contents-music"><a href="#music">music</a></li>
+							<li id="contents-programming"><a href="#programming">programming</a></li>
+							<li id="contents-level-planning"><a href="#level-planning">level planning</a></li>
+							<li id="contents-level-design"><a href="#level-design">level design</a></li>
+							<li id="contents-story"><a href="#story">story</a></li>
+							<li id="contents-notes"><a href="#notes">notes</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- !end table of contents -->
+			<!-- planning section -->
+			<div id="planning" class="std-size">
+				<h2>Planning:</h2>
+				<p>
+					corporation game is an action - adventure game based off the same ideas and logic
+					as the capcom classic 'megaman.' With this game we're really trying to focus on making
+					a solid platforming - mechanic game based off of fast movements, interesting hard to
+					traverse environments, simple graphics, and a love for destruction of 'the man.'
+				</p>
+				<!-- planning - platforming -->
+				<div id="platforming" class="std-margin std-padding std-border">
+					<h3>Platforming:</h3>
+					<p>
+						platforming for this game should generally be easier than our last game 'ying + ging'
+						but I'd say still have a challenge to it due to obstacles like: puzzles, enemies,
+						walljumping, and play-skill testing jumps that refrain from pixel based jumps unless
+						a secret area is involved.
+					</p>
+					<h4>ideas summary:</h4>
+					<ul>
+						<li><a href="#plat-puzzles">puzzles</a></li>
+						<li><a href="#plat-enemy-based-jumps">enemy based jumps</a></li>
+						<li><a href="#plat-wall-jumping">wall jumping</a></li>
+						<li><a href="#plat-double-jumping">double jumping</a></li>
+						<li><a href="#plat-dashing">dashing</a></li>
+						<li><a href="#plat-enemy-jumps">enemy jumps</a></li>
+					</ul>
+					<h4 id="plat-puzzles">puzzles</h4>
+					<p>
+						puzzles in this game can be boiled down to simple physics based movement puzzles,
+						enemy jump based puzzles where you have to make tricky jumps involving enemy
+						death explosions to propel you toward a position, as well as pattern puzzles of
+						enemies, and/or environment working against you at a certain rythem to try and
+						kill the player with attacks.
+					</p>
+					<h4 id="plat-double-jumping">double jumping</h4>
+					<p>
+						
+					</p>
+					<h4 id="plat-wall-jumping">wall jumpings a great way to get around</h4>
+					<p>
+						wall jumps are going to be a necessary mechanic to master for this game. Wall
+						jumps should be incorporated into most if not all levels and introduced from early
+						on. All solid walls are going to be wall jump-able and all will propel you outward
+						at a constant rate other than specific wall jump puzzle sections.
+					</p>
+					<h4>Wall jump related puzzling and ideas:</h4>
+					<p>
+						a good wall jumping puzzle idea would be to have industrial fans on the walls which
+						propels you further out rather than upwards when you're wall jumping. We could use
+						these to get the player out quicker as well as further horizontally and use it in
+						platforming scenarios mixed with the double jump mechanic for quick gameplay.
+					</p>
+					<p>
+						sticky goop on the walls could be the opposite of the industrial fans. This will
+						inhibit wall jumping but allow the player to create a bigger degree of verticality.
+						Sticky walls will be able to be basically climbed giving the player better vertical
+						control over sections of wall covered in it.
+					</p>
+					<h4 id="plat-enemy-based-jumps">enemy deaths launch you further!</h4>
+					<p>
+						enemy death explosion platforming puzzles will be less about knowing exactly how
+						to make the jump, but rather how you might be able to get enemies to come your way
+						to make a jump that might not be totally do-able through wall jumping and double
+						jumping alone. Enemies explode in a spectacular fashion making the propulsion from
+						the explosion fling you a little further if you're near. Consider luring enemies
+						closer to a spot you'd like to jump to, use already pre-position enemies for a
+						little bit easier of a jump, or test the players simple mechanic mastery! Combine
+						all the platforming mechanics for all I care.
+					</p>
+					<h4>an example of a great platforming puzzle</h4>
+					<p>
+						a good example of great pattern movement puzzles are 'insides' sonic boom section
+						linked <a href="https://www.youtube.com/watch?v=Fe3VNlhPekc">here</a>. inside has
+						an amazing gameplay loop where you use mind control to control multiple 'minions'
+						that can help you move through the level. A great part is the 'sonic boom' section
+						seen at 6 minutes into the video. It uses a menacing sound wave that booms through
+						the area at a constant rythemic pace to give the players a unique and interesting
+						challenge along with amazing sound design that makes you bite your lip.
+					</p>
+					<h5 id="plat-dashing">dashing</h5>
+					<h5 id="plat-enemy-jumps">enemy jumps</h5>
+				</div>
+				<!-- !end planning - platforming -->
+				<!-- planning - combat -->
+				<div id="combat">
+					<h3>Combat:</h3>
+				</div>
+				<!-- !end planning - combat  -->
+				<div id="mechanics" class="std-margin">
+					<h3>Mechanics:</h3>
+				</div>
+				<div id="enemies" class="std-margin">
+					<h3>Enemies:</h3>
+				</div>
+				<div id="art" class="std-margin">
+					<h3>Art:</h3>
+				</div>
+				<div id="music" class="std-margin">
+					<h3>Music:</h3>
+				</div>
+				<div id="programming" class="std-margin">
+					<h3>Programming:</h3>
+				</div>
+				<div id="level-planning" class="std-margin">
+					<h3>Level Planning:</h3>
+				</div>
+				<div id="level-design" class="std-margin">
+					<h3>Level Design:</h3>
+				</div>
+				<div id="story" class="std-margin">
+					<h3>Story:</h3>
+				</div>
+				<div id="notes" class="std-margin">
+					<h3>Notes:</h3>
+				</div>
+			</div>
+			<!-- !end planning section -->
+		</div>
+		<!-- !end main content -->
+	</body>
+</html>
