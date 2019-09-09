@@ -791,6 +791,26 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="453955812423328">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="567306795861450" type="Player">
+                                            <param id="0" name="Instance variable">carrying</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;holding&quot;</param>
+                                        </condition>
+                                        <condition id="-14" name="Compare variable" sid="405347544202676" type="System">
+                                            <param id="0" name="Variable">objectName</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">Destructible.UID</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set position to another object" sid="205665106491247" type="Destructible">
+                                            <param id="0" name="Object">Player</param>
+                                            <param id="1" name="Image point (optional)">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                                 <comment>destructable family</comment>
                                 <event-block sid="618362633191673">
                                     <conditions>

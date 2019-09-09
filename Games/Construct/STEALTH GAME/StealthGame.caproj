@@ -8,7 +8,7 @@
     <author-website></author-website>
     <app-id></app-id>
     <unique-id>2qpiupr2gjili</unique-id>
-    <saved-with-version>27100</saved-with-version>
+    <saved-with-version>27200</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
@@ -191,6 +191,7 @@
                     <animation framecount="1" loop="0" name="standingdown" pingpong="0" repeatcount="1" repeatto="0" sid="491068331685709" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -214,7 +215,7 @@
                     <animation framecount="3" loop="0" name="preRoll" pingpong="0" repeatcount="1" repeatto="0" sid="365442378958626" speed="15">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.46875" />
                                 <point x="0.65625" y="0.46875" />
@@ -224,7 +225,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.5625" />
                                 <point x="0.65625" y="0.5625" />
@@ -234,7 +235,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.660156" />
                                 <point x="0.65625" y="0.65625" />
@@ -246,7 +247,7 @@
                     <animation framecount="2" loop="1" name="Roll" pingpong="0" repeatcount="1" repeatto="0" sid="284908756255560" speed="10">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.6875" />
                                 <point x="0.65625" y="0.6875" />
@@ -256,7 +257,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.71875" />
                                 <point x="0.658203" y="0.71875" />
@@ -268,7 +269,7 @@
                     <animation framecount="1" loop="0" name="Hurt1" pingpong="0" repeatcount="1" repeatto="0" sid="710719563902274" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -303,7 +304,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="0" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -315,7 +316,7 @@
                     <animation framecount="2" loop="1" name="walkinga" pingpong="0" repeatcount="1" repeatto="0" sid="532881087039931" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0" y="0.5" />
-                            <image-point name="Item1" x="0.84375" y="0.9375" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -325,7 +326,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0" y="0.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -337,7 +338,7 @@
                     <animation framecount="2" loop="0" name="walkings" pingpong="0" repeatcount="1" repeatto="0" sid="346793432126802" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.1875" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -347,7 +348,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.1875" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -359,7 +360,7 @@
                     <animation framecount="2" loop="1" name="walkingd" pingpong="0" repeatcount="1" repeatto="0" sid="507312001631329" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="1" y="0.5" />
-                            <image-point name="Item1" x="0.15625" y="0.9375" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -369,7 +370,7 @@
                         </frame>
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="1" y="0.5" />
-                            <image-point name="Item1" x="0.5" y="1.0625" />
+                            <image-point name="Item1" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
