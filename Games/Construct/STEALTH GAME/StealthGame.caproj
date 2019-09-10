@@ -674,12 +674,9 @@
                         <image-point name="LineofSight" x="0.5" y="-0.125" />
                     </frame>
                 </animation>
-                <animation framecount="2" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="953121100394883" speed="10">
+                <animation framecount="1" loop="1" name="WalkLeftRight" pingpong="0" repeatcount="1" repeatto="0" sid="953121100394883" speed="10">
                     <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
                         <image-point name="LineofSight" x="1.1875" y="0.34375" />
-                    </frame>
-                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
-                        <image-point name="LineofSight" x="0.5" y="-0.125" />
                     </frame>
                 </animation>
                 <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="151078900005727" speed="5">

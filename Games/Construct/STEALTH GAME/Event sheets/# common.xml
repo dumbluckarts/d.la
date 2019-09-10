@@ -191,8 +191,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <comment>NEEDS FIXING, CONSTANTLY SUBTRACTING HEALTH IDK</comment>
-                                <event-block disabled="1" sid="306393204403483">
+                                <event-block sid="306393204403483">
                                     <conditions>
                                         <condition id="0" name="On function" sid="273269413416676" type="Function">
                                             <param id="0" name="Name">&quot;damagePlayer&quot;</param>
@@ -629,97 +628,11 @@
                                         </event-block>
                                     </sub-events>
                                 </event-block>
-                                <event-group description="" sid="153865824440856" title="Enemy Global">
-                                    <sub-events>
-                                        <event-block sid="423013893945284">
-                                            <conditions>
-                                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="324003366187839" type="Player">
-                                                    <param id="0" name="Instance variable">attacking</param>
-                                                </condition>
-                                                <condition behavior="Flash" id="0" inverted="1" name="Is flashing" sid="432794247528356" type="Player" />
-                                            </conditions>
-                                            <actions>
-                                                <action id="0" name="Call function" sid="418532800170028" type="Function">
-                                                    <param id="0" name="Name">&quot;damagePlayer&quot;</param>
-                                                    <param id="1" name="Parameter {n}">5</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                        <comment>Flash white on hit</comment>
-                                        <comment>Knock back</comment>
-                                        <event-block sid="352440016638220">
-                                            <conditions>
-                                                <condition id="0" name="On function" sid="818090134008794" type="Function">
-                                                    <param id="0" name="Name">&quot;Enemy_Hurt&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions />
-                                            <sub-events>
-                                                <event-block sid="489038356949234">
-                                                    <conditions />
-                                                    <actions />
-                                                    <sub-events>
-                                                        <event-block sid="687915211751168">
-                                                            <conditions />
-                                                            <actions />
-                                                            <sub-events>
-                                                                <event-block sid="867508155682860">
-                                                                    <conditions />
-                                                                    <actions>
-                                                                        <action disabled="1" id="-13" name="Set boolean" sid="855338401189391" type="Player">
-                                                                            <param id="0" name="Instance variable">KnockedBack</param>
-                                                                            <param id="1" name="Value">1</param>
-                                                                        </action>
-                                                                        <action disabled="1" id="-10" name="Set value" sid="532884183094962" type="Player">
-                                                                            <param id="0" name="Instance variable">KnockBackTimer</param>
-                                                                            <param id="1" name="Value">0.3</param>
-                                                                        </action>
-                                                                        <action behavior="8Direction" disabled="1" id="2" name="Set ignoring input" sid="458918091289754" type="Player">
-                                                                            <param id="0" name="Input">1</param>
-                                                                        </action>
-                                                                        <action behavior="8Direction" disabled="1" id="4" name="Set max speed" sid="896539190706472" type="Player">
-                                                                            <param id="0" name="Max Speed">200</param>
-                                                                        </action>
-                                                                        <action behavior="8Direction" disabled="1" id="6" name="Set deceleration" sid="424599325888019" type="Player">
-                                                                            <param id="0" name="Deceleration">500</param>
-                                                                        </action>
-                                                                    </actions>
-                                                                </event-block>
-                                                            </sub-events>
-                                                        </event-block>
-                                                    </sub-events>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                        <comment>Recover from hit</comment>
-                                        <event-block disabled="1" sid="229236931925870">
-                                            <conditions />
-                                            <actions />
-                                            <sub-events>
-                                                <event-block disabled="1" sid="973319108375595">
-                                                    <conditions />
-                                                    <actions />
-                                                    <sub-events>
-                                                        <event-block disabled="1" sid="224478735729578">
-                                                            <conditions />
-                                                            <actions>
-                                                                <action id="0" name="Call function" sid="652534349675893" type="Function">
-                                                                    <param id="0" name="Name">&quot;Enemy_Death&quot;</param>
-                                                                    <param id="1" name="Parameter {n}"></param>
-                                                                </action>
-                                                            </actions>
-                                                        </event-block>
-                                                    </sub-events>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                    </sub-events>
-                                </event-group>
                             </sub-events>
                         </event-group>
-                        <variable constant="0" name="objectName" sid="844810243991575" static="0" type="text">null</variable>
                         <event-group description="" sid="783118067131151" title="environment">
                             <sub-events>
+                                <variable constant="0" name="objectName" sid="844810243991575" static="0" type="text">null</variable>
                                 <comment>THROW ITEMS</comment>
                                 <event-block sid="669269140212696">
                                     <conditions>
@@ -730,6 +643,9 @@
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;empty&quot;</param>
+                                        </condition>
+                                        <condition id="1" name="Is overlapping another object" sid="427243684026954" type="Player">
+                                            <param id="0" name="Object">Destructible</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -771,6 +687,9 @@
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;holding&quot;</param>
                                         </condition>
+                                        <condition id="-11" name="For Each" sid="551564297514959" type="System">
+                                            <param id="0" name="Object">Destructible</param>
+                                        </condition>
                                         <condition id="-14" name="Compare variable" sid="502080949386292" type="System">
                                             <param id="0" name="Variable">objectName</param>
                                             <param id="1" name="Comparison">0</param>
@@ -802,6 +721,9 @@
                                             <param id="0" name="Variable">objectName</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">Destructible.UID</param>
+                                        </condition>
+                                        <condition id="-11" name="For Each" sid="546682042158381" type="System">
+                                            <param id="0" name="Object">Destructible</param>
                                         </condition>
                                     </conditions>
                                     <actions>
