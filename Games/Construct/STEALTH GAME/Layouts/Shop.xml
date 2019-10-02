@@ -77,6 +77,7 @@
                         <KnockBackTimer>0</KnockBackTimer>
                         <Casting>false</Casting>
                         <carrying>empty</carrying>
+                        <lightLevel>&quot;null&quot;</lightLevel>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -102,6 +103,15 @@
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
+                    <effect-instances>
+                        <effect-instance type="AdjustHSLMask">
+                            <parameters>
+                                <hue>0</hue>
+                                <luminosity>1</luminosity>
+                                <saturation>1</saturation>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>

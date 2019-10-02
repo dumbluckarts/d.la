@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name># common</name>
     <events>
+        <variable constant="0" name="Variable1" sid="942795854577845" static="0" type="number">0</variable>
         <variable constant="0" name="game" sid="150399928664078" static="0" type="number">1</variable>
         <variable constant="0" name="playermaxspeed" sid="313840913914781" static="0" type="number">90</variable>
         <variable constant="0" name="PlayerHealth" sid="630550525625006" static="0" type="number">40</variable>
@@ -632,134 +633,175 @@
                         </event-group>
                         <event-group description="" sid="783118067131151" title="environment">
                             <sub-events>
-                                <variable constant="0" name="objectName" sid="844810243991575" static="0" type="text">null</variable>
-                                <comment>THROW ITEMS</comment>
-                                <event-block sid="669269140212696">
+                                <variable constant="0" name="objectName" sid="844810243991575" static="1" type="text">null</variable>
+                                <comment>tHRoW iTeMs</comment>
+                                <event-block sid="701009133062099">
                                     <conditions>
-                                        <condition id="0" name="On key pressed" sid="301811006879320" type="Keyboard">
+                                        <condition id="0" name="On key pressed" sid="863719489103243" type="Keyboard">
                                             <param id="0" name="Key">69</param>
                                         </condition>
-                                        <condition id="-7" name="Compare instance variable" sid="630028929873057" type="Player">
+                                        <condition id="-7" name="Compare instance variable" sid="668749220661784" type="Player">
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;empty&quot;</param>
                                         </condition>
-                                        <condition id="1" name="Is overlapping another object" sid="427243684026954" type="Player">
+                                        <condition id="1" name="Is overlapping another object" sid="945036667058908" type="Player">
                                             <param id="0" name="Object">Destructible</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-13" name="Set boolean" sid="643922790068823" type="Player">
+                                        <action id="-13" name="Set boolean" sid="463904400775672" type="Player">
                                             <param id="0" name="Instance variable">stopControls</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
-                                        <action id="-16" name="Wait" sid="329577796578667" type="System">
+                                        <action id="-4" name="Set position to another object" sid="221289478687232" type="Destructible">
+                                            <param id="0" name="Object">Player</param>
+                                            <param id="1" name="Image point (optional)">&quot;item&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="804741403875449" type="System">
                                             <param id="0" name="Seconds">0.2</param>
                                         </action>
-                                        <action id="4" name="Set animation" sid="944097759726327" type="Player">
+                                        <action id="4" name="Set animation" sid="461279541402941" type="Player">
                                             <param id="0" name="Animation">&quot;upFind&quot;</param>
                                             <param id="1" name="From">1</param>
                                         </action>
-                                        <action id="-16" name="Wait" sid="564460539788846" type="System">
+                                        <action id="-16" name="Wait" sid="491570312339804" type="System">
                                             <param id="0" name="Seconds">0.2</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="645988011672428" type="Player">
+                                        <action id="-10" name="Set value" sid="484865915755064" type="Player">
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Value">&quot;holding&quot;</param>
                                         </action>
-                                        <action id="-13" name="Set boolean" sid="243992708010300" type="Player">
+                                        <action id="-13" name="Set boolean" sid="749765798598913" type="Player">
                                             <param id="0" name="Instance variable">stopControls</param>
                                             <param id="1" name="Value">0</param>
                                         </action>
-                                        <action id="-9" name="Set value" sid="834320359148577" type="System">
+                                        <action id="-9" name="Set value" sid="210792154426338" type="System">
                                             <param id="0" name="Variable">objectName</param>
                                             <param id="1" name="Value">Destructible.UID</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="590728437251667">
+                                <event-block sid="194882465066405">
                                     <conditions>
-                                        <condition id="0" name="On key pressed" sid="453343816666554" type="Keyboard">
-                                            <param id="0" name="Key">69</param>
-                                        </condition>
-                                        <condition id="-7" name="Compare instance variable" sid="566430924418299" type="Player">
+                                        <condition id="-7" name="Compare instance variable" sid="658963808590944" type="Player">
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;holding&quot;</param>
                                         </condition>
-                                        <condition id="-11" name="For Each" sid="551564297514959" type="System">
-                                            <param id="0" name="Object">Destructible</param>
-                                        </condition>
-                                        <condition id="-14" name="Compare variable" sid="502080949386292" type="System">
-                                            <param id="0" name="Variable">objectName</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">Destructible.UID</param>
+                                        <condition id="-14" name="Pick by unique ID" sid="340022660187810" type="Destructible">
+                                            <param id="0" name="Unique ID">objectName</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="4" name="Set animation" sid="790799436439841" type="Destructible">
-                                            <param id="0" name="Animation">&quot;destroy&quot;</param>
-                                            <param id="1" name="From">1</param>
+                                        <action id="-4" name="Set position to another object" sid="681286609607367" type="Destructible">
+                                            <param id="0" name="Object">Player</param>
+                                            <param id="1" name="Image point (optional)">&quot;item&quot;</param>
                                         </action>
-                                        <action id="-16" name="Wait" sid="539346780253928" type="System">
-                                            <param id="0" name="Seconds">0.2</param>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="489338988937932">
+                                    <conditions>
+                                        <condition id="0" name="On key pressed" sid="159851647515607" type="Keyboard">
+                                            <param id="0" name="Key">69</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="337014841058971" type="Player">
+                                            <param id="0" name="Instance variable">carrying</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;holding&quot;</param>
+                                        </condition>
+                                        <condition id="-14" name="Pick by unique ID" sid="458999829419319" type="Destructible">
+                                            <param id="0" name="Unique ID">objectName</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="450419363775009" type="Destructible">
+                                            <param id="0" name="Impulse">0.0005</param>
+                                            <param id="1" name="Angle">180</param>
+                                            <param id="2" name="Image point">0</param>
                                         </action>
-                                        <action id="-10" name="Set value" sid="391594307395234" type="Player">
+                                        <action id="-9" name="Set value" sid="440333530971594" type="System">
+                                            <param id="0" name="Variable">objectName</param>
+                                            <param id="1" name="Value">&quot;null&quot;</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="629532969667797" type="Player">
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Value">&quot;empty&quot;</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="453955812423328">
+                                <event-block sid="770897868299872">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="567306795861450" type="Player">
-                                            <param id="0" name="Instance variable">carrying</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;holding&quot;</param>
-                                        </condition>
-                                        <condition id="-14" name="Compare variable" sid="405347544202676" type="System">
-                                            <param id="0" name="Variable">objectName</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">Destructible.UID</param>
-                                        </condition>
-                                        <condition id="-11" name="For Each" sid="546682042158381" type="System">
-                                            <param id="0" name="Object">Destructible</param>
-                                        </condition>
+                                        <condition id="-2" name="On start of layout" sid="678936172792925" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-4" name="Set position to another object" sid="205665106491247" type="Destructible">
-                                            <param id="0" name="Object">Player</param>
-                                            <param id="1" name="Image point (optional)">2</param>
+                                        <action behavior="Physics" id="12" name="Set world gravity" sid="931310792148786" type="Destructible">
+                                            <param id="0" name="Gravity">0</param>
+                                        </action>
+                                        <action behavior="Physics" id="23" name="Enable/disable collisions" sid="134961595744182" type="Destructible">
+                                            <param id="0" name="Object">Destructible</param>
+                                            <param id="1" name="State">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <comment>destructable family</comment>
-                                <event-block sid="618362633191673">
+                                <event-block sid="590808667844317">
                                     <conditions>
-                                        <condition id="2" name="Is playing" sid="272109692357700" type="Destructible">
-                                            <param id="0" name="Animation">&quot;Destroy&quot;</param>
+                                        <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="971085790637404" type="lightSpr">
+                                            <param id="0" name="Object">Player</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="Solid" id="0" name="Set enabled" sid="204532548167916" type="Destructible">
-                                            <param id="0" name="State">0</param>
+                                        <action id="-10" name="Set value" sid="916177372721366" type="Player">
+                                            <param id="0" name="Instance variable">lightLevel</param>
+                                            <param id="1" name="Value">&quot;lit&quot;</param>
                                         </action>
                                     </actions>
-                                    <sub-events>
-                                        <event-block sid="736103427088955">
-                                            <conditions>
-                                                <condition id="4" name="On finished" sid="975973239374959" type="Destructible">
-                                                    <param id="0" name="Animation">&quot;Destroy&quot;</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-9" name="Destroy" sid="570329337816227" type="Destructible" />
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
+                                </event-block>
+                                <event-block sid="704952606700679">
+                                    <conditions>
+                                        <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="212942080206874" type="lightSpr">
+                                            <param id="0" name="Object">Player</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="917857296268884" type="Player">
+                                            <param id="0" name="Instance variable">lightLevel</param>
+                                            <param id="1" name="Value">&quot;hidden&quot;</param>
+                                        </action>
+                                    </actions>
                                 </event-block>
                             </sub-events>
                         </event-group>
+                        <event-block sid="419543084965225">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="331620854736078" type="Player">
+                                    <param id="0" name="Instance variable">lightLevel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;hidden&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-27" name="Set effect enabled" sid="499481114565898" type="Player">
+                                    <param id="0" name="Mode">0</param>
+                                    <param id="1" name="Effect">&quot;AdjustHSLMask&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="806377946388270">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="313626868250520" type="Player">
+                                    <param id="0" name="Instance variable">lightLevel</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;lit&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-27" name="Set effect enabled" sid="473043587745092" type="Player">
+                                    <param id="0" name="Mode">1</param>
+                                    <param id="1" name="Effect">&quot;AdjustHSLMask&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-group description="" sid="234458268904160" title="items">
                             <sub-events>
                                 <event-group description="" sid="602420955756003" title="bow">
@@ -1610,6 +1652,9 @@
                                 <action behavior="8Direction" id="7" name="Simulate control" sid="471221263856027" type="Enemies">
                                     <param id="0" name="Control">0</param>
                                 </action>
+                                <action id="7" name="Set mirrored" sid="877230927277211" type="Enemies">
+                                    <param id="0" name="State">0</param>
+                                </action>
                                 <action disabled="1" id="4" name="Set animation" sid="932327958776858" type="Enemies">
                                     <param id="0" name="Animation">&quot;WalkLeft&quot;</param>
                                     <param id="1" name="From">1</param>
@@ -1632,6 +1677,9 @@
                                     <param id="0" name="Animation">&quot;WalkRight&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
+                                <action id="7" name="Set mirrored" sid="940434859610869" type="Enemies">
+                                    <param id="0" name="State">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="685608263826539">
@@ -1649,6 +1697,9 @@
                                 <action disabled="1" id="4" name="Set animation" sid="771927159169914" type="Enemies">
                                     <param id="0" name="Animation">&quot;WalkDown&quot;</param>
                                     <param id="1" name="From">1</param>
+                                </action>
+                                <action id="8" name="Set flipped" sid="324995368036591" type="Enemies">
+                                    <param id="0" name="State">0</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -1668,6 +1719,9 @@
                                     <param id="0" name="Animation">&quot;WalkUp&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
+                                <action id="8" name="Set flipped" sid="881896842489195" type="Enemies">
+                                    <param id="0" name="State">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="170855211583484">
@@ -1685,6 +1739,19 @@
                     </sub-events>
                 </event-group>
             </sub-events>
+        </event-block>
+        <event-block sid="338923440630601">
+            <conditions>
+                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="540601020549052" type="Guard1">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="989427508386639" type="Player">
+                    <param id="0" name="Instance variable">lightLevel</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;lit&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>

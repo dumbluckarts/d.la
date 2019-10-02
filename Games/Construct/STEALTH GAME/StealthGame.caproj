@@ -26,17 +26,21 @@
         <plugin author="Valera Popov" id="ValerypopoffJSPlugin" version="1">ValerypopoffJS</plugin>
         <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
+        <plugin author="Scirra" id="shadowlight" version="1">Shadow Light</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="shadowcaster" version="1">Shadow Caster</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects>
+        <effect author="Scirra" id="hsladjustmask">Adjust HSL Mask</effect>
         <effect author="Scirra" id="inverse">Inverse</effect>
     </used-effects>
     <configurations>
@@ -172,6 +176,7 @@
                     <instance-variable name="KnockBackTimer" sid="320912395270035" type="number" />
                     <instance-variable name="Casting" sid="495051060707145" type="boolean" />
                     <instance-variable name="carrying" sid="564327255246066" type="string" />
+                    <instance-variable name="lightLevel" sid="432867909809364" type="string" />
                 </instance-variables>
                 <behaviors>
                     <behavior-type name="8Direction" sid="853785570626197">
@@ -187,11 +192,16 @@
                         <behavior id="bound" />
                     </behavior-type>
                 </behaviors>
+                <effects>
+                    <effect-type name="AdjustHSLMask">
+                        <effect id="hsladjustmask" />
+                    </effect-type>
+                </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="standingdown" pingpong="0" repeatcount="1" repeatto="0" sid="491068331685709" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1" />
-                            <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -204,6 +214,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -216,6 +227,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.46875" />
                                 <point x="0.65625" y="0.46875" />
@@ -226,6 +238,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.5625" />
                                 <point x="0.65625" y="0.5625" />
@@ -236,6 +249,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.660156" />
                                 <point x="0.65625" y="0.65625" />
@@ -248,6 +262,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.6875" />
                                 <point x="0.65625" y="0.6875" />
@@ -258,6 +273,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.71875" />
                                 <point x="0.658203" y="0.71875" />
@@ -270,6 +286,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -283,6 +300,7 @@
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="0" />
                             <image-point name="Pickup" x="0.5" y="-0.15625" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -295,6 +313,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -305,6 +324,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="0" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -317,6 +337,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0" y="0.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -327,6 +348,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0" y="0.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -339,6 +361,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.1875" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -349,6 +372,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="0.5" y="1.1875" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.34375" y="0.375" />
                                 <point x="0.65625" y="0.375" />
@@ -361,6 +385,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="1" y="0.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -371,6 +396,7 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <image-point name="Attack" x="1" y="0.5" />
                             <image-point name="Item1" x="0.5" y="0" />
+                            <image-point name="item" x="0.5" y="0" />
                             <collision-poly>
                                 <point x="0.65625" y="1" />
                                 <point x="0.34375" y="1" />
@@ -621,6 +647,13 @@
                 <texture />
             </object-type>
         </object-folder>
+        <object-folder name="Tiles">
+            <object-type name="Ground" sid="400010621800057">
+                <plugin id="Tilemap" />
+                <texture />
+                <tiles />
+            </object-type>
+        </object-folder>
         <object-type name="rupee" sid="933419620676675">
             <plugin id="Sprite" />
             <animation-folder>
@@ -843,12 +876,41 @@
                 <behavior-type name="Solid" sid="503253512152576">
                     <behavior id="solid" />
                 </behavior-type>
+                <behavior-type name="ShadowCaster" sid="424192507685846">
+                    <behavior id="shadowcaster" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="871518641514266" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="ShadowLight" sid="800301340656217">
+            <plugin id="shadowlight" />
+            <behaviors>
+                <behavior-type name="LineOfSight" sid="544318268598382">
+                    <behavior id="LOS" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="lightSpr" sid="614205826011410">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="LineOfSight" sid="576385250501252">
+                    <behavior id="LOS" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="541205495705043" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="testTiles2" sid="974812388063644">
+            <plugin id="Tilemap" />
+            <texture original-source="E:\Source\d.la\Assets\stealthGame\scene.png" />
+            <tiles />
         </object-type>
     </object-folder>
     <families>
@@ -861,6 +923,9 @@
             <behaviors>
                 <behavior-type name="Solid" sid="528019978198977">
                     <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="Physics" sid="161572696980906">
+                    <behavior id="Physics" />
                 </behavior-type>
             </behaviors>
         </family>
@@ -900,6 +965,7 @@
         <layout>Dev Layout.xml</layout>
         <layout>Forest1.xml</layout>
         <layout>TESTLAYOUT.xml</layout>
+        <layout>COLORED.xml</layout>
         <layout>instance layout.xml</layout>
         <layout>Shop.xml</layout>
     </layout-folder>
