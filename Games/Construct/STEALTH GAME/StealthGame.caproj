@@ -33,7 +33,6 @@
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
         <behavior author="Scirra" id="Flash" version="1">Flash</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
-        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="shadowcaster" version="1">Shadow Caster</behavior>
@@ -493,7 +492,7 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="958222173589138" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <collision-poly>
                                 <point x="0" y="0.0625" />
                                 <point x="1" y="0.0625" />
@@ -503,9 +502,9 @@
                         </frame>
                     </animation>
                     <animation framecount="3" loop="0" name="Destroy" pingpong="0" repeatcount="1" repeatto="0" sid="955529476115173" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -518,7 +517,7 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="547561987164656" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                             <collision-poly>
                                 <point x="0.0625" y="0.1875" />
                                 <point x="0.8125" y="0.1875" />
@@ -528,9 +527,9 @@
                         </frame>
                     </animation>
                     <animation framecount="3" loop="0" name="Destroy" pingpong="0" repeatcount="1" repeatto="0" sid="292502990755973" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -703,7 +702,7 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Down" pingpong="0" repeatcount="1" repeatto="0" sid="691261489819400" speed="5">
-                    <frame duration="1" hotspotX="0.4375" hotspotY="0.34375">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <image-point name="LineofSight" x="0.5" y="-0.125" />
                     </frame>
                 </animation>
@@ -912,6 +911,46 @@
             <texture original-source="E:\Source\d.la\Assets\stealthGame\scene.png" />
             <tiles />
         </object-type>
+        <object-type name="enemyTRack" sid="196712274692647">
+            <plugin id="TiledBg" />
+            <instance-variables>
+                <instance-variable name="direction" sid="387321374083361" type="string" />
+                <instance-variable name="groupID" sid="593307012395284" type="number" />
+            </instance-variables>
+            <texture />
+        </object-type>
+        <object-type name="invertBlock" sid="312400258117194">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="direction" sid="886199967323119" type="string" />
+                <instance-variable name="groupID" sid="824049697932377" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="981865550528393" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="turnBlock" sid="674919432306849">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="before" sid="767627408106257" type="string" />
+                <instance-variable name="after" sid="125798643945550" type="string" />
+                <instance-variable name="flipped" sid="506011965935569" type="boolean" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="195997422612905" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="Destructible" plugin-id="Sprite" sid="507763675780623">
@@ -924,8 +963,8 @@
                 <behavior-type name="Solid" sid="528019978198977">
                     <behavior id="solid" />
                 </behavior-type>
-                <behavior-type name="Physics" sid="161572696980906">
-                    <behavior id="Physics" />
+                <behavior-type name="Bullet" sid="406936450214764">
+                    <behavior id="Bullet" />
                 </behavior-type>
             </behaviors>
         </family>
@@ -940,6 +979,7 @@
             </members>
             <instance-variables>
                 <instance-variable name="direction" sid="318201698068165" type="number" />
+                <instance-variable name="tempDirection" sid="813049180821467" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="556893236213498">

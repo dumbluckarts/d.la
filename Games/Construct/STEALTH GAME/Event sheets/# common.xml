@@ -650,6 +650,10 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="-10" name="Set value" sid="484865915755064" type="Player">
+                                            <param id="0" name="Instance variable">carrying</param>
+                                            <param id="1" name="Value">&quot;holding&quot;</param>
+                                        </action>
                                         <action id="-13" name="Set boolean" sid="463904400775672" type="Player">
                                             <param id="0" name="Instance variable">stopControls</param>
                                             <param id="1" name="Value">1</param>
@@ -667,10 +671,6 @@
                                         </action>
                                         <action id="-16" name="Wait" sid="491570312339804" type="System">
                                             <param id="0" name="Seconds">0.2</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="484865915755064" type="Player">
-                                            <param id="0" name="Instance variable">carrying</param>
-                                            <param id="1" name="Value">&quot;holding&quot;</param>
                                         </action>
                                         <action id="-13" name="Set boolean" sid="749765798598913" type="Player">
                                             <param id="0" name="Instance variable">stopControls</param>
@@ -700,6 +700,27 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="652210626592357">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="474704346916366" type="Destructible">
+                                            <param id="0" name="Object">Barrier_spr</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="162470805999824" type="Player">
+                                            <param id="0" name="Instance variable">carrying</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;empty&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="5" name="Set enabled" sid="217554038599424" type="Destructible">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="253276945649520" type="Destructible">
+                                            <param id="0" name="Animation">&quot;Destroy&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                                 <event-block sid="489338988937932">
                                     <conditions>
                                         <condition id="0" name="On key pressed" sid="159851647515607" type="Keyboard">
@@ -715,11 +736,6 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="450419363775009" type="Destructible">
-                                            <param id="0" name="Impulse">0.0005</param>
-                                            <param id="1" name="Angle">180</param>
-                                            <param id="2" name="Image point">0</param>
-                                        </action>
                                         <action id="-9" name="Set value" sid="440333530971594" type="System">
                                             <param id="0" name="Variable">objectName</param>
                                             <param id="1" name="Value">&quot;null&quot;</param>
@@ -729,20 +745,113 @@
                                             <param id="1" name="Value">&quot;empty&quot;</param>
                                         </action>
                                     </actions>
+                                    <sub-events>
+                                        <event-block sid="487231864368566">
+                                            <conditions>
+                                                <condition id="6" name="Compare value" sid="775930059384810" type="JS">
+                                                    <param id="0" name="Value">0</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;player.dat.direction&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="171392006885113" type="Destructible">
+                                                    <param id="0" name="Angle">-90</param>
+                                                </action>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="599047398544347" type="Destructible">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action disabled="1" id="9" name="Set scale" sid="729155245944289" type="Destructible">
+                                                    <param id="0" name="Scale"> lerp(Self.Width, Self.Width+2, 0.2*dt)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="530169712883268">
+                                            <conditions>
+                                                <condition id="6" name="Compare value" sid="660169370913235" type="JS">
+                                                    <param id="0" name="Value">1</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;player.dat.direction&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="828751578303417" type="Destructible">
+                                                    <param id="0" name="Angle">180</param>
+                                                </action>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="998945549098355" type="Destructible">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action disabled="1" id="9" name="Set scale" sid="526964249258064" type="Destructible">
+                                                    <param id="0" name="Scale"> lerp(Self.Width, Self.Width+2, 0.2*dt)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="898038545607039">
+                                            <conditions>
+                                                <condition id="6" name="Compare value" sid="566710584886682" type="JS">
+                                                    <param id="0" name="Value">2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;player.dat.direction&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="674943258373977" type="Destructible">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="153421107012542" type="Destructible">
+                                                    <param id="0" name="Angle">90</param>
+                                                </action>
+                                                <action disabled="1" id="9" name="Set scale" sid="114575746598425" type="Destructible">
+                                                    <param id="0" name="Scale"> lerp(Self.Width, Self.Width+2, 0.2*dt)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="374681618181460">
+                                            <conditions>
+                                                <condition id="6" name="Compare value" sid="135417641554920" type="JS">
+                                                    <param id="0" name="Value">3</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Expression">&quot;player.dat.direction&quot;</param>
+                                                    <param id="3" name="Parameter {n}"></param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="458419557165660" type="Destructible">
+                                                    <param id="0" name="Angle">0</param>
+                                                </action>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="670179505534556" type="Destructible">
+                                                    <param id="0" name="State">1</param>
+                                                </action>
+                                                <action id="9" name="Set scale" sid="910874742970889" type="Destructible">
+                                                    <param id="0" name="Scale"> lerp(1, 1.5, 0.2*dt)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="305334252585970">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-16" name="Wait" sid="711302296560582" type="System">
+                                                    <param id="0" name="Seconds">0.8</param>
+                                                </action>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="606648977056457" type="Destructible">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="595476451443378" type="Destructible">
+                                                    <param id="0" name="Animation">&quot;Destroy&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                                 <event-block sid="770897868299872">
                                     <conditions>
                                         <condition id="-2" name="On start of layout" sid="678936172792925" type="System" />
                                     </conditions>
-                                    <actions>
-                                        <action behavior="Physics" id="12" name="Set world gravity" sid="931310792148786" type="Destructible">
-                                            <param id="0" name="Gravity">0</param>
-                                        </action>
-                                        <action behavior="Physics" id="23" name="Enable/disable collisions" sid="134961595744182" type="Destructible">
-                                            <param id="0" name="Object">Destructible</param>
-                                            <param id="1" name="State">0</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                                 <event-block sid="590808667844317">
                                     <conditions>
@@ -1552,89 +1661,214 @@
                 </event-block>
                 <event-group description="" sid="733747976659751" title="Idle Characters">
                     <sub-events>
-                        <event-block sid="945506232004640">
+                        <event-block sid="364332443814736">
                             <conditions>
-                                <condition id="-6" name="Every X seconds" sid="334639062441958" type="System">
-                                    <param id="0" name="Interval (seconds)">2</param>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="198829345336049" type="Enemies">
+                                    <param id="0" name="Object">turnBlock</param>
                                 </condition>
-                                <condition id="-11" name="For Each" sid="843398928420697" type="System">
-                                    <param id="0" name="Object">Enemies</param>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="662543603245115" type="Enemies">
+                                    <param id="0" name="Object">invertBlock</param>
                                 </condition>
+                                <condition id="1" name="Is overlapping another object" sid="308722963340688" type="Enemies">
+                                    <param id="0" name="Object">enemyTRack</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="992466550358294" type="Enemies">
+                                    <param id="0" name="Instance variable">tempDirection</param>
+                                    <param id="1" name="Value">enemyTRack.direction</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="734351389267824">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="581080821412705" type="Enemies">
+                                    <param id="0" name="Object">invertBlock</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="314227760529867" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="628714460905803" type="System">
+                                    <param id="0" name="Seconds">0.2</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="297200661055267" type="Enemies">
+                                    <param id="0" name="Instance variable">tempDirection</param>
+                                    <param id="1" name="Value">invertBlock.direction</param>
+                                </action>
+                                <action id="0" name="Call function" sid="296127417771889" type="Function">
+                                    <param id="0" name="Name">&quot;inverseTracks&quot;</param>
+                                    <param id="1" name="Parameter {n}">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="369249449832895">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="880332287051252" type="Enemies">
+                                    <param id="0" name="Object">turnBlock</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="396187167612205" type="System" />
                             </conditions>
                             <actions />
                             <sub-events>
-                                <event-block sid="565722176022203">
+                                <event-block any="1" sid="630946779384014">
                                     <conditions>
-                                        <condition id="-8" name="Compare two values" sid="183330194795997" type="System">
-                                            <param id="0" name="First value">int(random(0,4))</param>
-                                            <param id="1" name="Comparison">3</param>
-                                            <param id="2" name="Second value">1</param>
+                                        <condition id="-7" name="Compare instance variable" sid="237822772774321" type="Enemies">
+                                            <param id="0" name="Instance variable">tempDirection</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;down&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="901160771373427" type="Enemies">
+                                            <param id="0" name="Instance variable">tempDirection</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;up&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="448520166085602">
+                                            <conditions>
+                                                <condition id="-2" name="Compare Y" sid="631008663700603" type="Enemies">
+                                                    <param id="0" name="Comparison">3</param>
+                                                    <param id="1" name="Y co-ordinate">(turnBlock.y-30)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-14" name="Toggle boolean" sid="529755919855731" type="turnBlock">
+                                                    <param id="0" name="Instance variable">flipped</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="855570986083672">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="550955591182507" type="turnBlock">
+                                                            <param id="0" name="Instance variable">flipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="321027231964547" type="Enemies">
+                                                            <param id="0" name="Instance variable">tempDirection</param>
+                                                            <param id="1" name="Value">turnBlock.before</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="362781646347942" type="turnBlock">
+                                                            <param id="0" name="Instance variable">before</param>
+                                                            <param id="1" name="Value">turnBlock.after</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="106693875048746">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="904906755544953" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="142213564433053" type="Enemies">
+                                                            <param id="0" name="Instance variable">tempDirection</param>
+                                                            <param id="1" name="Value">turnBlock.after</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="213587228693861" type="turnBlock">
+                                                            <param id="0" name="Instance variable">after</param>
+                                                            <param id="1" name="Value">turnBlock.before</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block any="1" sid="443726584899524">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="199559319648019" type="Enemies">
+                                            <param id="0" name="Instance variable">tempDirection</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;left&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="602577670664471" type="Enemies">
+                                            <param id="0" name="Instance variable">tempDirection</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;right&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="993187853016121">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="239821083122960" type="Enemies">
+                                                    <param id="0" name="Comparison">5</param>
+                                                    <param id="1" name="X co-ordinate">(turnBlock.X+8)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-14" name="Toggle boolean" sid="125959927280298" type="turnBlock">
+                                                    <param id="0" name="Instance variable">flipped</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="204887172864435">
+                                                    <conditions>
+                                                        <condition id="-8" name="Is boolean instance variable set" sid="360016369550762" type="turnBlock">
+                                                            <param id="0" name="Instance variable">flipped</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="509173556618213" type="Enemies">
+                                                            <param id="0" name="Instance variable">tempDirection</param>
+                                                            <param id="1" name="Value">turnBlock.before</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="625033352876682" type="turnBlock">
+                                                            <param id="0" name="Instance variable">before</param>
+                                                            <param id="1" name="Value">turnBlock.after</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                                <event-block sid="979064114375167">
+                                                    <conditions>
+                                                        <condition id="-22" name="Else" sid="620760513736411" type="System" />
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="-10" name="Set value" sid="782306775028152" type="Enemies">
+                                                            <param id="0" name="Instance variable">tempDirection</param>
+                                                            <param id="1" name="Value">turnBlock.after</param>
+                                                        </action>
+                                                        <action id="-10" name="Set value" sid="408578499789062" type="turnBlock">
+                                                            <param id="0" name="Instance variable">after</param>
+                                                            <param id="1" name="Value">turnBlock.before</param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block disabled="1" sid="236897946844804">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="135006264857431" type="turnBlock">
+                                            <param id="0" name="Instance variable">before</param>
+                                            <param id="1" name="Comparison">1</param>
+                                            <param id="2" name="Value">&quot;null&quot;</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="146608238401657" type="Enemies">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">1</param>
+                                        <action id="-10" name="Set value" sid="616268112545637" type="Enemies">
+                                            <param id="0" name="Instance variable">tempDirection</param>
+                                            <param id="1" name="Value">turnBlock.before</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="697557907748297" type="turnBlock">
+                                            <param id="0" name="Instance variable">before</param>
+                                            <param id="1" name="Value">turnBlock.after</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="188936890315100">
+                                <event-block disabled="1" sid="642359765025086">
                                     <conditions>
-                                        <condition id="-8" name="Compare two values" sid="627735378120397" type="System">
-                                            <param id="0" name="First value">int(random(0,4))</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">2</param>
-                                        </condition>
+                                        <condition id="-22" name="Else" sid="613072764553599" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="428475848585802" type="Enemies">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">2</param>
+                                        <action id="-10" name="Set value" sid="372676724703693" type="Enemies">
+                                            <param id="0" name="Instance variable">tempDirection</param>
+                                            <param id="1" name="Value">turnBlock.after</param>
                                         </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="263468858311182">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="901668224514402" type="System">
-                                            <param id="0" name="First value">int(random(0,4))</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">3</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="913505523136871" type="Enemies">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">3</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="588098613229701">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="209662051173243" type="System">
-                                            <param id="0" name="First value">int(random(0,4))</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">4</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="776083065824113" type="Enemies">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">4</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="588496094893264">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="115256620057533" type="System">
-                                            <param id="0" name="First value">int(random(0,4))</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">5</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="922576505835794" type="Enemies">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">5</param>
+                                        <action id="-10" name="Set value" sid="847434034199337" type="turnBlock">
+                                            <param id="0" name="Instance variable">after</param>
+                                            <param id="1" name="Value">turnBlock.before</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1643,9 +1877,9 @@
                         <event-block sid="734054889065237">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="315916028823166" type="Enemies">
-                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="0" name="Instance variable">tempDirection</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
+                                    <param id="2" name="Value">&quot;left&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1664,9 +1898,9 @@
                         <event-block sid="639575778627926">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="691081444627989" type="Enemies">
-                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="0" name="Instance variable">tempDirection</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">2</param>
+                                    <param id="2" name="Value">&quot;right&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1685,9 +1919,9 @@
                         <event-block sid="685608263826539">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="986022077226220" type="Enemies">
-                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="0" name="Instance variable">tempDirection</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">3</param>
+                                    <param id="2" name="Value">&quot;down&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1706,9 +1940,9 @@
                         <event-block sid="177837489299296">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="375069443831379" type="Enemies">
-                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="0" name="Instance variable">tempDirection</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">4</param>
+                                    <param id="2" name="Value">&quot;up&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1727,9 +1961,9 @@
                         <event-block sid="170855211583484">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="748766333187088" type="Enemies">
-                                    <param id="0" name="Instance variable">direction</param>
+                                    <param id="0" name="Instance variable">tempDirection</param>
                                     <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">5</param>
+                                    <param id="2" name="Value">&quot;stop&quot;</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -1752,6 +1986,107 @@
                 </condition>
             </conditions>
             <actions />
+        </event-block>
+        <event-block sid="456502122902600">
+            <conditions>
+                <condition id="0" name="On function" sid="109977295660546" type="Function">
+                    <param id="0" name="Name">&quot;inverseTracks&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="id" sid="136866395242186" static="1" type="number">0</variable>
+                <event-block sid="122046362918881">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="646300230363720" type="System">
+                            <param id="0" name="Object">enemyTRack</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="916164189576899" type="System">
+                            <param id="0" name="Variable">id</param>
+                            <param id="1" name="Value">enemyTRack.groupID</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="293747666479120">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="321007556575649" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">id</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="395139142669672">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="499070196660700" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;left&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="218149687463112" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;right&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="406956687885322">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="515894492297755" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="207055374075670" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;right&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="103839185039086" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;left&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="362628181217398">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="457726541114400" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="989794388794174" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;up&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="713447157783909" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;down&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="777348947371443">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="504346469276685" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="349484188672236" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;down&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="583174360026402" type="enemyTRack">
+                                            <param id="0" name="Instance variable">direction</param>
+                                            <param id="1" name="Value">&quot;up&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
