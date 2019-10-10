@@ -2,7 +2,7 @@
 <c2layout>
     <name>Dev Layout</name>
     <sid>4650502934421703</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet></event-sheet>
     <size>
         <width>384</width>
         <height>384</height>
@@ -1445,11 +1445,6 @@
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
-                        <behavior-instance type="ScrollTo">
-                            <properties>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
                         <behavior-instance type="Flash" />
                         <behavior-instance type="BoundToLayout">
                             <properties>
@@ -1509,7 +1504,7 @@
             </instances>
             <effects />
         </layer>
-        <layer name="UI" sid="554500442054189">
+        <layer name="gui" sid="554500442054189">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -1520,7 +1515,7 @@
             <zoom-rate>1</zoom-rate>
             <opacity>1</opacity>
             <force-own-texture>0</force-own-texture>
-            <global>1</global>
+            <global>0</global>
             <use-render-cells>0</use-render-cells>
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>

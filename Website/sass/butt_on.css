@@ -1,0 +1,74 @@
+.butt-light-bordered, .butt-light, .butt-dark-bordered, .butt-dark, .butt {
+  outline: none;
+  border: none;
+  font-family: Arial, sans-serif;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+[type=button].butt-light-bordered, [type=button].butt-light, [type=button].butt-dark-bordered, [type=button].butt-dark, [type=button].butt {
+  outline: none;
+}
+.butt-light-bordered:hover, .butt-light:hover, .butt-dark-bordered:hover, .butt-dark:hover, .butt:hover {
+  background-color: #ebebeb;
+}
+.butt-light-bordered, .butt-light, .butt-dark-bordered, .butt-dark, .butt {
+  transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+}
+.butt-light-bordered:hover, .butt-light:hover, .butt-dark-bordered:hover, .butt-dark:hover, .butt:hover {
+  transition: 0.1s ease;
+  -o-transition: 0.1s ease;
+  -moz-transition: 0.1s ease;
+  -webkit-transition: 0.1s ease;
+}
+.butt-light-bordered:hover, .butt-light:hover, .butt-dark-bordered:hover, .butt-dark:hover, .butt:hover {
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+.butt-light-bordered:active, .butt-light:active, .butt-dark-bordered:active, .butt-dark:active, .butt:active {
+  -webkit-transform: translateY(2px);
+  -ms-transform: translateY(2px);
+  transform: translateY(2px);
+}
+.butt-light-bordered, .butt-light, .butt-dark-bordered, .butt-dark {
+  border-radius: 5px;
+}
+.butt-light-bordered, .butt-light {
+  color: black;
+  background-color: lightseagreen;
+}
+.butt-light-bordered:hover, .butt-light:hover {
+  background-color: darkseagreen;
+}
+.butt-light-bordered {
+  border: 2px solid lightseagreen;
+  padding: 8px 14px;
+  background-color: transparent;
+}
+.butt-light-bordered:hover {
+  color: black;
+  background-color: lightseagreen;
+}
+.butt-dark-bordered, .butt-dark {
+  color: white;
+  background-color: darkslategray;
+}
+.butt-dark-bordered:hover, .butt-dark:hover {
+  background-color: #5b8585;
+}
+.butt-dark-bordered {
+  color: black;
+  border: 2px solid darkslategrey;
+  background-color: transparent;
+  padding: 8px 14px;
+}
+.butt-dark-bordered:hover {
+  color: white;
+  background-color: darkslategray;
+}
+
+/*# sourceMappingURL=butt_on.css.map */

@@ -1,0 +1,27 @@
+body
+  background-color: black
+  color: whitesmoke
+
+.link
+  &
+    color: var(--light)
+  &:hover
+    color: mediumpurple
+
+.butt
+  &
+    color: var(--light)
+    background-color: transparent
+  &:hover
+    background-color: transparent
+  &-purp
+    border-color: #e93a3a
+    background-color: #e93a3a
+    color: var(--light)
+  &-purp:hover
+    background-color: #e93a3a !important
+    color: var(--light)
+
+.im-gone
+  @media only screen and (max-width: 800px)
+    display: none

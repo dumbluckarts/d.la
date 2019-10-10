@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name># player</name>
+    <events>
+        <event-group description="All events for player. Also includes all local variables" sid="577592348427392" title="Player">
+            <sub-events>
+                <variable constant="1" name="MAX_HEALTH" sid="733200305529232" static="1" type="number">10</variable>
+                <variable constant="1" name="MAX_STAMINA" sid="911588200505251" static="1" type="number">10</variable>
+                <variable constant="1" name="MAX_MANA" sid="167543064549913" static="1" type="number">10</variable>
+                <variable constant="0" name="health" sid="299684502531828" static="1" type="number">10</variable>
+                <variable constant="0" name="stamina" sid="295049597638582" static="1" type="number">10</variable>
+                <variable constant="0" name="mana" sid="580733477379214" static="1" type="number">10</variable>
+                <variable constant="0" name="direction" sid="829841332761625" static="1" type="text">right</variable>
+                <event-group description="" sid="228939394848302" title="player actions">
+                    <sub-events>
+                        <comment>#&#x0D;&#x0A;# controls&#x0D;&#x0A;#</comment>
+                        <event-block sid="990549109582978">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="742140175981532" type="Keyboard">
+                                    <param id="0" name="Key">81</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="931064302547826">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="628263235008229" type="Keyboard">
+                                    <param id="0" name="Key">69</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="771175062189648">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="543356333496927" type="Keyboard">
+                                    <param id="0" name="Key">72</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="648902067638426">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="441738807450619" type="Keyboard">
+                                    <param id="0" name="Key">74</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="254105332174634">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="643811388542088" type="Keyboard">
+                                    <param id="0" name="Key">75</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="650157032098917">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="570193844209897" type="Keyboard">
+                                    <param id="0" name="Key">76</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="691196083660386">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="614643543496567" type="Keyboard">
+                                    <param id="0" name="Key">32</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <comment>#&#x0D;&#x0A;# functions&#x0D;&#x0A;#</comment>
+                        <event-block sid="542827568748989">
+                            <conditions>
+                                <condition id="0" name="On function" sid="987813856239141" type="Function">
+                                    <param id="0" name="Name">&quot;openInv&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="857832325113743">
+                            <conditions>
+                                <condition id="0" name="On function" sid="331681568998261" type="Function">
+                                    <param id="0" name="Name">&quot;action&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="587284971001462">
+                            <conditions>
+                                <condition id="0" name="On function" sid="720502835782580" type="Function">
+                                    <param id="0" name="Name">&quot;attack&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="585515832928408">
+                            <conditions>
+                                <condition id="0" name="On function" sid="526068074159797" type="Function">
+                                    <param id="0" name="Name">&quot;crouch&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-block sid="685357103986626">
+                            <conditions>
+                                <condition id="0" name="On function" sid="323826850005517" type="Function">
+                                    <param id="0" name="Name">&quot;roll&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="251392145952598" title="player movement">
+                    <sub-events>
+                        <event-block sid="924796002210765">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="399661659491541" type="Keyboard">
+                                    <param id="0" name="Key">87</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="473044842835328" type="System">
+                                    <param id="0" name="Variable">direction</param>
+                                    <param id="1" name="Value">&quot;up&quot;</param>
+                                </action>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="119920130565293" type="Player">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="578272433642848">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="618556821458481" type="Keyboard">
+                                    <param id="0" name="Key">65</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="724797446530212" type="System">
+                                    <param id="0" name="Variable">direction</param>
+                                    <param id="1" name="Value">&quot;left&quot;</param>
+                                </action>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="653568034085744" type="Player">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="923505238406034">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="161322426782441" type="Keyboard">
+                                    <param id="0" name="Key">83</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="702769669449579" type="System">
+                                    <param id="0" name="Variable">direction</param>
+                                    <param id="1" name="Value">&quot;down&quot;</param>
+                                </action>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="150687538065388" type="Player">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="666182113790985">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="772740190260155" type="Keyboard">
+                                    <param id="0" name="Key">68</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="473304827744073" type="System">
+                                    <param id="0" name="Variable">direction</param>
+                                    <param id="1" name="Value">&quot;right&quot;</param>
+                                </action>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="557530237763752" type="Player">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <comment>** Publicly avaliable getters and setters&#x0D;&#x0A;- these can be used to grab the spicy info on the players through the normal construct 2 function. Parameter 0 is the function operator, like &quot;get&quot; or &quot;set&quot;&#x0D;&#x0A;parameter 1 is what variable you wanna talk to, and the last parameter is used differently. Just look at the functions use.</comment>
+                <event-block sid="707754463681811">
+                    <conditions>
+                        <condition id="0" name="On function" sid="561264854645244" type="Function">
+                            <param id="0" name="Name">&quot;player&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="474908758169600">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="942416064753931" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;get&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="611242386276596">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="541750492490092" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;maxHealth&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="621779729752580" type="Function">
+                                            <param id="0" name="Value">MAX_HEALTH</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="663164526449453">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="860914711091013" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;maxStamina&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="103896851274421" type="Function">
+                                            <param id="0" name="Value">MAX_STAMINA</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="287736958710287">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="572297750289695" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;maxMana&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="614336846286453" type="Function">
+                                            <param id="0" name="Value">MAX_MANA</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="859793982132821">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="372034098564715" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;health&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="584450555049478" type="Function">
+                                            <param id="0" name="Value">health</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="332926307249008">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="423226931063362" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;stamina&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="753021570395285" type="Function">
+                                            <param id="0" name="Value">stamina</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="750844128040929">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="643064928900338" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;mana&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="331764122831331" type="Function">
+                                            <param id="0" name="Value">mana</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="660514122359860">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="598458947639658" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;mana&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="1" name="Set return value" sid="269636233388135" type="Function">
+                                            <param id="0" name="Value">direction</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>@param 2 - what you&apos;re setting the variable to</comment>
+                        <event-block sid="336996625840136">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="415323633805888" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;set&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="574649687106259">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="687372098346637" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;health&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="999670782827945" type="System">
+                                            <param id="0" name="Variable">health</param>
+                                            <param id="1" name="Value">Function.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="996154773730574">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="463889772840599" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;stamina&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="491668533214215" type="System">
+                                            <param id="0" name="Variable">stamina</param>
+                                            <param id="1" name="Value">Function.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="924186707607990">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="593972082639942" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;mana&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="520465563963578" type="System">
+                                            <param id="0" name="Variable">mana</param>
+                                            <param id="1" name="Value">Function.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="120904712210356">
+                                    <conditions>
+                                        <condition id="1" name="Compare parameter" sid="804142178260273" type="Function">
+                                            <param id="0" name="Index">1</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;direction&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="624565957716361" type="System">
+                                            <param id="0" name="Variable">direction</param>
+                                            <param id="1" name="Value">Function.Param(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

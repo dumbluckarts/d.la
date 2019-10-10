@@ -1,0 +1,92 @@
+@import "mixins"
+
+// button class
+%button
+  &
+    outline: none
+    border: none
+    font-family: Arial, sans-serif
+    padding: 10px 16px
+    text-decoration: none
+    border-radius: 5px
+
+  &[type="button"]
+    outline: none
+
+  &:hover
+    background-color: #ebebeb
+
+  &-anim
+    +transition(0.2s ease)
+  &-anim:hover
+    +transition(0.1s ease)
+
+  &-tran:hover
+    +transform(translateY(-2px))
+  &-tran:active
+    +transform(translateY(2px))
+
+  &-rounded
+    border-radius: 5px
+
+  // light buttons
+  &-light
+    color: black
+    background-color: lightseagreen
+  &-light:hover
+    background-color: darkseagreen
+  &-bordered-light
+    border: 2px solid lightseagreen
+    padding: 8px 14px
+    background-color: transparent
+  &-bordered-light:hover
+    color: black
+    background-color: lightseagreen
+
+  // dark buttons
+  &-dark
+    color: white
+    background-color: darkslategray
+  &-dark:hover
+    background-color: #5b8585
+  &-bordered-dark
+    color: black
+    border: 2px solid darkslategrey
+    background-color: transparent
+    padding: 8px 14px
+  &-bordered-dark:hover
+    color: white
+    background-color: darkslategray
+
+// public
+.butt
+  &
+    @extend %button
+    @extend %button-anim
+    @extend %button-tran
+  &-dark
+    @extend %button
+    @extend %button-anim
+    @extend %button-tran
+    @extend %button-rounded
+    @extend %button-dark
+  &-dark-bordered
+    @extend %button
+    @extend %button-anim
+    @extend %button-tran
+    @extend %button-rounded
+    @extend %button-dark
+    @extend %button-bordered-dark
+  &-light
+    @extend %button
+    @extend %button-anim
+    @extend %button-tran
+    @extend %button-rounded
+    @extend %button-light
+  &-light-bordered
+    @extend %button
+    @extend %button-anim
+    @extend %button-tran
+    @extend %button-rounded
+    @extend %button-light
+    @extend %button-bordered-light

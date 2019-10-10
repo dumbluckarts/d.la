@@ -3,148 +3,15 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name># common</name>
     <events>
+        <include># hud</include>
+        <include># player</include>
         <variable constant="0" name="Variable1" sid="942795854577845" static="0" type="number">0</variable>
         <variable constant="0" name="game" sid="150399928664078" static="0" type="number">1</variable>
         <variable constant="0" name="playermaxspeed" sid="313840913914781" static="0" type="number">90</variable>
         <variable constant="0" name="PlayerHealth" sid="630550525625006" static="0" type="number">40</variable>
         <variable constant="0" name="PlayerStamina" sid="339140426986209" static="0" type="number">40</variable>
         <variable constant="0" name="PlayerMana" sid="400847582830422" static="0" type="number">40</variable>
-        <event-group description='note: REQUIRES a &quot;scrollingText&quot; sprite font and a tb_black_overlay textbox with an itemID of &quot;textbox&quot; on the layout.' sid="480601314424203" title="Dialogue Module">
-            <sub-events>
-                <event-block sid="202460767573387">
-                    <conditions>
-                        <condition id="3" name="All scripts loaded" sid="639118656510008" type="JS" />
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-group description="" inactive="1" sid="288539667533155" title="set dialogue">
-                            <sub-events>
-                                <event-block sid="648283788487340">
-                                    <conditions>
-                                        <condition id="0" name="On key pressed" sid="264288171803634" type="Keyboard">
-                                            <param id="0" name="Key">69</param>
-                                        </condition>
-                                        <condition id="6" name="Compare value" sid="695858677452473" type="JS">
-                                            <param id="0" name="Value">&quot;waiting&quot;</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Expression">&quot;dial.state&quot;</param>
-                                            <param id="3" name="Parameter {n}"></param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="523244101599952">
-                                            <conditions>
-                                                <condition id="6" name="Compare value" sid="986114626698754" type="JS">
-                                                    <param id="0" name="Value">0</param>
-                                                    <param id="1" name="Comparison">3</param>
-                                                    <param id="2" name="Expression">&quot;dial.dat.chars.length&quot;</param>
-                                                    <param id="3" name="Parameter {n}"></param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="6" name="Call function" sid="496692101860283" type="JS">
-                                                    <param id="0" name="Expression">&quot;dial.clear&quot;</param>
-                                                    <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="6" name="Call function" sid="489332891139967" type="JS">
-                                                    <param id="0" name="Expression">&quot;dial.start&quot;</param>
-                                                    <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                                <comment>set dialogue text</comment>
-                                <event-block sid="763237985764050">
-                                    <conditions />
-                                    <actions>
-                                        <action id="0" name="Set text" sid="630714700392816" type="scrollingFont">
-                                            <param id="0" name="Text">JS.Value(&quot;dial.output&quot;)</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <comment>if dialogue is finished, close it</comment>
-                                <event-block sid="632142198732427">
-                                    <conditions>
-                                        <condition id="6" name="Compare value" sid="896216670939957" type="JS">
-                                            <param id="0" name="Value">0</param>
-                                            <param id="1" name="Comparison">5</param>
-                                            <param id="2" name="Expression">&quot;dial.dat.chars.length&quot;</param>
-                                            <param id="3" name="Parameter {n}"></param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="6" name="Call function" sid="194587303663391" type="JS">
-                                            <param id="0" name="Expression">&quot;dial.clear&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
-                                        </action>
-                                        <action id="0" name="Execute JS code" sid="799057605688378" type="JS">
-                                            <param id="0" name="JS code">&quot;dial.dat.state = &apos;finished&apos;&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
-                                        </action>
-                                        <action id="-12" name="Set group active" sid="432051687284119" type="System">
-                                            <param id="0" name="Group name">&quot;set dialogue&quot;</param>
-                                            <param id="1" name="State">0</param>
-                                        </action>
-                                        <action id="-15" name="Set visible" sid="754360057627067" type="scrollingFont">
-                                            <param id="0" name="Visibility">0</param>
-                                        </action>
-                                        <action id="-15" name="Set visible" sid="238556931848199" type="tb_textbox">
-                                            <param id="0" name="Visibility">0</param>
-                                        </action>
-                                        <action id="-9" name="Set value" sid="553147449694452" type="System">
-                                            <param id="0" name="Variable">game</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-group>
-                        <event-block any="1" sid="163143506740670">
-                            <conditions>
-                                <condition id="0" name="On function" sid="617720054196455" type="Function">
-                                    <param id="0" name="Name">&quot;dial&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="951363410599893">
-                                    <conditions>
-                                        <condition id="1" name="Compare parameter" sid="619326549185170" type="Function">
-                                            <param id="0" name="Index">0</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;start&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-12" name="Set group active" sid="626914243331238" type="System">
-                                            <param id="0" name="Group name">&quot;set dialogue&quot;</param>
-                                            <param id="1" name="State">1</param>
-                                        </action>
-                                        <action id="-15" name="Set visible" sid="747077169649045" type="scrollingFont">
-                                            <param id="0" name="Visibility">1</param>
-                                        </action>
-                                        <action id="-15" name="Set visible" sid="942497615547002" type="tb_textbox">
-                                            <param id="0" name="Visibility">1</param>
-                                        </action>
-                                        <action id="6" name="Call function" sid="871641338040411" type="JS">
-                                            <param id="0" name="Expression">&quot;dial.start&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
-                                        </action>
-                                        <action id="-9" name="Set value" sid="762406219625560" type="System">
-                                            <param id="0" name="Variable">game</param>
-                                            <param id="1" name="Value">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
-        </event-group>
-        <event-block sid="795743220755682">
+        <event-block disabled="1" sid="795743220755682">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="413516948382103" type="System">
                     <param id="0" name="Variable">game</param>
@@ -155,15 +22,15 @@
             <actions />
             <sub-events>
                 <comment>anything using javascript functionality</comment>
-                <event-block sid="538879277199777">
+                <event-block disabled="1" sid="538879277199777">
                     <conditions>
                         <condition id="3" name="All scripts loaded" sid="825089261691867" type="JS" />
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-group description="" sid="822403751889820" title="player">
+                        <event-group description="" disabled="1" sid="822403751889820" title="__player">
                             <sub-events>
-                                <event-block sid="228483331450509">
+                                <event-block disabled="1" sid="228483331450509">
                                     <conditions>
                                         <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="873573220963042" type="Player">
                                             <param id="0" name="Instance variable">Casting</param>
@@ -184,7 +51,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="404010150189812">
+                                <event-block disabled="1" sid="404010150189812">
                                     <conditions />
                                     <actions>
                                         <action id="-5" name="Set width" sid="960100673006627" type="ManaBar">
@@ -192,7 +59,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="306393204403483">
+                                <event-block disabled="1" sid="306393204403483">
                                     <conditions>
                                         <condition id="0" name="On function" sid="273269413416676" type="Function">
                                             <param id="0" name="Name">&quot;damagePlayer&quot;</param>
@@ -221,7 +88,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="275533975599692">
+                                <event-block disabled="1" sid="275533975599692">
                                     <conditions />
                                     <actions>
                                         <action id="-5" name="Set width" sid="864415432180598" type="Hearts">
@@ -229,7 +96,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="879511032052328">
+                                <event-block disabled="1" sid="879511032052328">
                                     <conditions>
                                         <condition id="-14" name="Compare variable" sid="604402946513254" type="System">
                                             <param id="0" name="Variable">PlayerHealth</param>
@@ -250,16 +117,8 @@
                                             <param id="1" name="&apos;Off&apos; time">0.1</param>
                                             <param id="2" name="Duration">1.0</param>
                                         </action>
-                                        <action id="0" name="Execute JS code" sid="591602355060625" type="JS">
-                                            <param id="0" name="JS code">&quot;player.dat.control = 0&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
-                                        </action>
                                         <action id="-16" name="Wait" sid="704582353620478" type="System">
                                             <param id="0" name="Seconds">0.3</param>
-                                        </action>
-                                        <action id="0" name="Execute JS code" sid="743941937646438" type="JS">
-                                            <param id="0" name="JS code">&quot;player.dat.control = 1&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
                                         </action>
                                         <action id="-9" name="Set value" sid="222976994774135" type="System">
                                             <param id="0" name="Variable">PlayerHealth</param>
@@ -268,9 +127,9 @@
                                         <action id="-26" name="Restart layout" sid="893854422017594" type="System" />
                                     </actions>
                                 </event-block>
-                                <event-group description="" sid="664786649165101" title="roll">
+                                <event-group description="" disabled="1" sid="664786649165101" title="roll">
                                     <sub-events>
-                                        <event-block sid="260515840421330">
+                                        <event-block disabled="1" sid="260515840421330">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="395894449380664" type="JS">
                                                     <param id="0" name="Value">0</param>
@@ -288,7 +147,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="910752037300169">
+                                        <event-block disabled="1" sid="910752037300169">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="605975193533447" type="JS">
                                                     <param id="0" name="Value">1</param>
@@ -306,7 +165,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="447041272176680">
+                                        <event-block disabled="1" sid="447041272176680">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="926104932561470" type="JS">
                                                     <param id="0" name="Value">2</param>
@@ -324,7 +183,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="248254754944151">
+                                        <event-block disabled="1" sid="248254754944151">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="285789397252621" type="JS">
                                                     <param id="0" name="Value">3</param>
@@ -343,7 +202,7 @@
                                             </actions>
                                         </event-block>
                                         <comment>Roll mechanic</comment>
-                                        <event-block sid="294923032792266">
+                                        <event-block disabled="1" sid="294923032792266">
                                             <conditions>
                                                 <condition id="0" name="On key pressed" sid="145374929150321" type="Keyboard">
                                                     <param id="0" name="Key">16</param>
@@ -401,7 +260,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="115509139985491">
+                                        <event-block disabled="1" sid="115509139985491">
                                             <conditions>
                                                 <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="111413725490134" type="Player">
                                                     <param id="0" name="Instance variable">Rolling</param>
@@ -422,7 +281,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="389471606064824">
+                                        <event-block disabled="1" sid="389471606064824">
                                             <conditions />
                                             <actions>
                                                 <action id="-5" name="Set width" sid="265746187923741" type="StaminaBar">
@@ -430,7 +289,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="448239807109971">
+                                        <event-block disabled="1" sid="448239807109971">
                                             <conditions>
                                                 <condition id="-8" name="Is boolean instance variable set" sid="565146336375075" type="Player">
                                                     <param id="0" name="Instance variable">Rolling</param>
@@ -441,7 +300,7 @@
                                     </sub-events>
                                 </event-group>
                                 <comment>player damaged by damaging family</comment>
-                                <event-block sid="828536721968843">
+                                <event-block disabled="1" sid="828536721968843">
                                     <conditions>
                                         <condition id="0" name="On collision with another object" sid="992888219942277" type="Player">
                                             <param id="0" name="Object">Damaging</param>
@@ -456,9 +315,9 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="270925801006901" title="inventory">
+                        <event-group description="" disabled="1" sid="270925801006901" title="inventory">
                             <sub-events>
-                                <event-block sid="182148682086084">
+                                <event-block disabled="1" sid="182148682086084">
                                     <conditions>
                                         <condition id="2" name="Key is down" sid="874879274533024" type="Keyboard">
                                             <param id="0" name="Key">32</param>
@@ -466,7 +325,7 @@
                                     </conditions>
                                     <actions />
                                     <sub-events>
-                                        <event-block sid="604504420098943">
+                                        <event-block disabled="1" sid="604504420098943">
                                             <conditions>
                                                 <condition id="0" name="On key pressed" sid="300731126185033" type="Keyboard">
                                                     <param id="0" name="Key">49</param>
@@ -488,7 +347,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="395912451836570">
+                                        <event-block disabled="1" sid="395912451836570">
                                             <conditions>
                                                 <condition id="0" name="On key pressed" sid="232217587111138" type="Keyboard">
                                                     <param id="0" name="Key">50</param>
@@ -590,10 +449,10 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="839441861916248" title="enemies">
+                        <event-group description="" disabled="1" sid="839441861916248" title="enemies">
                             <sub-events>
                                 <comment>Flash white when hit</comment>
-                                <event-block sid="258706396908124">
+                                <event-block disabled="1" sid="258706396908124">
                                     <conditions>
                                         <condition id="0" name="On function" sid="523839927862969" type="Function">
                                             <param id="0" name="Name">&quot;Enemy_Flash&quot;</param>
@@ -601,7 +460,7 @@
                                     </conditions>
                                     <actions />
                                 </event-block>
-                                <event-block sid="388762811551445">
+                                <event-block disabled="1" sid="388762811551445">
                                     <conditions>
                                         <condition id="0" name="On function" sid="946251120552821" type="Function">
                                             <param id="0" name="Name">&quot;Enemy_death&quot;</param>
@@ -609,16 +468,11 @@
                                     </conditions>
                                     <actions />
                                     <sub-events>
-                                        <event-block sid="929400975295646">
+                                        <event-block disabled="1" sid="929400975295646">
                                             <conditions>
                                                 <condition id="-4" name="Trigger once while true" sid="680381085096999" type="System" />
                                             </conditions>
                                             <actions>
-                                                <action behavior="ScrollTo" id="0" name="Shake" sid="398969747460237" type="Player">
-                                                    <param id="0" name="Magnitude">5</param>
-                                                    <param id="1" name="Duration">0.4</param>
-                                                    <param id="2" name="Mode">0</param>
-                                                </action>
                                                 <action id="0" name="Play" sid="353950960547702" type="Audio">
                                                     <param id="0" name="Audio file">enemydamagetemp</param>
                                                     <param id="2" name="Loop">0</param>
@@ -631,11 +485,11 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="783118067131151" title="environment">
+                        <event-group description="" disabled="1" sid="783118067131151" title="environment">
                             <sub-events>
                                 <variable constant="0" name="objectName" sid="844810243991575" static="1" type="text">null</variable>
                                 <comment>tHRoW iTeMs</comment>
-                                <event-block sid="701009133062099">
+                                <event-block disabled="1" sid="701009133062099">
                                     <conditions>
                                         <condition id="0" name="On key pressed" sid="863719489103243" type="Keyboard">
                                             <param id="0" name="Key">69</param>
@@ -682,7 +536,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="194882465066405">
+                                <event-block disabled="1" sid="194882465066405">
                                     <conditions>
                                         <condition id="-7" name="Compare instance variable" sid="658963808590944" type="Player">
                                             <param id="0" name="Instance variable">carrying</param>
@@ -700,7 +554,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="652210626592357">
+                                <event-block disabled="1" sid="652210626592357">
                                     <conditions>
                                         <condition id="0" name="On collision with another object" sid="474704346916366" type="Destructible">
                                             <param id="0" name="Object">Barrier_spr</param>
@@ -721,7 +575,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="489338988937932">
+                                <event-block disabled="1" sid="489338988937932">
                                     <conditions>
                                         <condition id="0" name="On key pressed" sid="159851647515607" type="Keyboard">
                                             <param id="0" name="Key">69</param>
@@ -746,7 +600,7 @@
                                         </action>
                                     </actions>
                                     <sub-events>
-                                        <event-block sid="487231864368566">
+                                        <event-block disabled="1" sid="487231864368566">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="775930059384810" type="JS">
                                                     <param id="0" name="Value">0</param>
@@ -767,7 +621,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="530169712883268">
+                                        <event-block disabled="1" sid="530169712883268">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="660169370913235" type="JS">
                                                     <param id="0" name="Value">1</param>
@@ -788,7 +642,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="898038545607039">
+                                        <event-block disabled="1" sid="898038545607039">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="566710584886682" type="JS">
                                                     <param id="0" name="Value">2</param>
@@ -809,7 +663,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="374681618181460">
+                                        <event-block disabled="1" sid="374681618181460">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="135417641554920" type="JS">
                                                     <param id="0" name="Value">3</param>
@@ -830,7 +684,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="305334252585970">
+                                        <event-block disabled="1" sid="305334252585970">
                                             <conditions />
                                             <actions>
                                                 <action id="-16" name="Wait" sid="711302296560582" type="System">
@@ -847,13 +701,13 @@
                                         </event-block>
                                     </sub-events>
                                 </event-block>
-                                <event-block sid="770897868299872">
+                                <event-block disabled="1" sid="770897868299872">
                                     <conditions>
                                         <condition id="-2" name="On start of layout" sid="678936172792925" type="System" />
                                     </conditions>
                                     <actions />
                                 </event-block>
-                                <event-block sid="590808667844317">
+                                <event-block disabled="1" sid="590808667844317">
                                     <conditions>
                                         <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="971085790637404" type="lightSpr">
                                             <param id="0" name="Object">Player</param>
@@ -866,7 +720,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="704952606700679">
+                                <event-block disabled="1" sid="704952606700679">
                                     <conditions>
                                         <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="212942080206874" type="lightSpr">
                                             <param id="0" name="Object">Player</param>
@@ -881,7 +735,7 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-block sid="419543084965225">
+                        <event-block disabled="1" sid="419543084965225">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="331620854736078" type="Player">
                                     <param id="0" name="Instance variable">lightLevel</param>
@@ -896,7 +750,7 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="806377946388270">
+                        <event-block disabled="1" sid="806377946388270">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="313626868250520" type="Player">
                                     <param id="0" name="Instance variable">lightLevel</param>
@@ -911,11 +765,11 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-group description="" sid="234458268904160" title="items">
+                        <event-group description="" disabled="1" sid="234458268904160" title="items">
                             <sub-events>
-                                <event-group description="" sid="602420955756003" title="bow">
+                                <event-group description="" disabled="1" sid="602420955756003" title="bow">
                                     <sub-events>
-                                        <event-block any="1" sid="332439819433477">
+                                        <event-block any="1" disabled="1" sid="332439819433477">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="256510498379953" type="JS">
                                                     <param id="0" name="Value">&quot;bow&quot;</param>
@@ -926,7 +780,7 @@
                                             </conditions>
                                             <actions />
                                             <sub-events>
-                                                <event-block sid="314806792487074">
+                                                <event-block disabled="1" sid="314806792487074">
                                                     <conditions>
                                                         <condition id="0" name="On key pressed" sid="351155948774699" type="Keyboard">
                                                             <param id="0" name="Key">69</param>
@@ -964,7 +818,7 @@
                                                         </action>
                                                     </actions>
                                                     <sub-events>
-                                                        <event-block sid="638465723407910">
+                                                        <event-block disabled="1" sid="638465723407910">
                                                             <conditions>
                                                                 <condition id="6" name="Compare value" sid="594644350482374" type="JS">
                                                                     <param id="0" name="Value">0</param>
@@ -985,7 +839,7 @@
                                                                 </action>
                                                             </actions>
                                                         </event-block>
-                                                        <event-block sid="130223666987262">
+                                                        <event-block disabled="1" sid="130223666987262">
                                                             <conditions>
                                                                 <condition id="6" name="Compare value" sid="685572674892001" type="JS">
                                                                     <param id="0" name="Value">1</param>
@@ -1006,7 +860,7 @@
                                                                 </action>
                                                             </actions>
                                                         </event-block>
-                                                        <event-block sid="516415725810986">
+                                                        <event-block disabled="1" sid="516415725810986">
                                                             <conditions>
                                                                 <condition id="6" name="Compare value" sid="180117434987464" type="JS">
                                                                     <param id="0" name="Value">2</param>
@@ -1027,7 +881,7 @@
                                                                 </action>
                                                             </actions>
                                                         </event-block>
-                                                        <event-block sid="287268068658227">
+                                                        <event-block disabled="1" sid="287268068658227">
                                                             <conditions>
                                                                 <condition id="6" name="Compare value" sid="891112215767121" type="JS">
                                                                     <param id="0" name="Value">3</param>
@@ -1053,7 +907,7 @@
                                             </sub-events>
                                         </event-block>
                                         <comment>damage</comment>
-                                        <event-block sid="168900949119272">
+                                        <event-block disabled="1" sid="168900949119272">
                                             <conditions />
                                             <actions>
                                                 <action id="0" name="Call function" sid="937616836110357" type="Function">
@@ -1065,9 +919,9 @@
                                         </event-block>
                                     </sub-events>
                                 </event-group>
-                                <event-group description="" sid="650662230595920" title="bombs">
+                                <event-group description="" disabled="1" sid="650662230595920" title="bombs">
                                     <sub-events>
-                                        <event-block any="1" sid="497304009730315">
+                                        <event-block any="1" disabled="1" sid="497304009730315">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="148479704138638" type="JS">
                                                     <param id="0" name="Value">&quot;bombs&quot;</param>
@@ -1078,7 +932,7 @@
                                             </conditions>
                                             <actions />
                                             <sub-events>
-                                                <event-block sid="225752338531218">
+                                                <event-block disabled="1" sid="225752338531218">
                                                     <conditions>
                                                         <condition id="0" name="On key pressed" sid="812555187086225" type="Keyboard">
                                                             <param id="0" name="Key">69</param>
@@ -1109,7 +963,7 @@
                                             </sub-events>
                                         </event-block>
                                         <comment>splode</comment>
-                                        <event-block sid="714285013329134">
+                                        <event-block disabled="1" sid="714285013329134">
                                             <conditions>
                                                 <condition id="4" name="On finished" sid="822831200946945" type="bombsSprite">
                                                     <param id="0" name="Animation">&quot;lit&quot;</param>
@@ -1120,11 +974,6 @@
                                                     <param id="0" name="Animation">&quot;splode&quot;</param>
                                                     <param id="1" name="From">1</param>
                                                 </action>
-                                                <action behavior="ScrollTo" id="0" name="Shake" sid="839017726831699" type="Player">
-                                                    <param id="0" name="Magnitude">5</param>
-                                                    <param id="1" name="Duration">0.2</param>
-                                                    <param id="2" name="Mode">0</param>
-                                                </action>
                                                 <action id="0" name="Play" sid="215890116059343" type="Audio">
                                                     <param id="0" name="Audio file">enemydamagetemp</param>
                                                     <param id="2" name="Loop">0</param>
@@ -1133,7 +982,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="183984842268923">
+                                        <event-block disabled="1" sid="183984842268923">
                                             <conditions>
                                                 <condition id="4" name="On finished" sid="437004200086690" type="bombsSprite">
                                                     <param id="0" name="Animation">&quot;splode&quot;</param>
@@ -1143,7 +992,7 @@
                                                 <action id="-9" name="Destroy" sid="126719539699668" type="bombsSprite" />
                                             </actions>
                                         </event-block>
-                                        <event-block sid="929584302226802">
+                                        <event-block disabled="1" sid="929584302226802">
                                             <conditions>
                                                 <condition id="2" name="Is playing" sid="732046746926474" type="bombsSprite">
                                                     <param id="0" name="Animation">&quot;splode&quot;</param>
@@ -1151,13 +1000,13 @@
                                             </conditions>
                                             <actions />
                                             <sub-events>
-                                                <event-block sid="558482562154681">
+                                                <event-block disabled="1" sid="558482562154681">
                                                     <conditions>
                                                         <condition id="-4" name="Trigger once while true" sid="562371812079446" type="System" />
                                                     </conditions>
                                                     <actions />
                                                 </event-block>
-                                                <event-block sid="659131822478647">
+                                                <event-block disabled="1" sid="659131822478647">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="813045533144380" type="bombsSprite">
                                                             <param id="0" name="Object">Player</param>
@@ -1175,21 +1024,21 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="603316532865304">
+                                                <event-block disabled="1" sid="603316532865304">
                                                     <conditions>
                                                         <condition id="-22" name="Else" sid="154134526659670" type="System" />
                                                         <condition id="-4" name="Trigger once while true" sid="711894544853295" type="System" />
                                                     </conditions>
                                                     <actions />
                                                 </event-block>
-                                                <event-block sid="134166132193279">
+                                                <event-block disabled="1" sid="134166132193279">
                                                     <conditions>
                                                         <condition id="-22" name="Else" sid="353840698347730" type="System" />
                                                         <condition id="-4" name="Trigger once while true" sid="423970166486123" type="System" />
                                                     </conditions>
                                                     <actions />
                                                 </event-block>
-                                                <event-block sid="848405329018935">
+                                                <event-block disabled="1" sid="848405329018935">
                                                     <conditions>
                                                         <condition id="-22" name="Else" sid="269643699564541" type="System" />
                                                         <condition id="1" name="Is overlapping another object" sid="606233759606414" type="bombsSprite">
@@ -1211,9 +1060,9 @@
                                         </event-block>
                                     </sub-events>
                                 </event-group>
-                                <event-group description="" sid="335800924311194" title="sword">
+                                <event-group description="" disabled="1" sid="335800924311194" title="sword">
                                     <sub-events>
-                                        <event-block any="1" sid="985490900753873">
+                                        <event-block any="1" disabled="1" sid="985490900753873">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="847826662635634" type="JS">
                                                     <param id="0" name="Value">&quot;sword&quot;</param>
@@ -1224,7 +1073,7 @@
                                             </conditions>
                                             <actions />
                                             <sub-events>
-                                                <event-block sid="900349019747669">
+                                                <event-block disabled="1" sid="900349019747669">
                                                     <conditions>
                                                         <condition id="-8" name="Is boolean instance variable set" sid="603768796876832" type="Player">
                                                             <param id="0" name="Instance variable">attacking</param>
@@ -1237,7 +1086,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="628964564190820">
+                                                <event-block disabled="1" sid="628964564190820">
                                                     <conditions>
                                                         <condition id="1" name="Is overlapping another object" sid="990693735437702" type="attackHitbox">
                                                             <param id="0" name="Object">Bush_1</param>
@@ -1250,7 +1099,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="883586181777281">
+                                                <event-block disabled="1" sid="883586181777281">
                                                     <conditions />
                                                     <actions>
                                                         <action id="0" name="Call function" sid="341151375419959" type="Function">
@@ -1259,7 +1108,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="359014283935259">
+                                                <event-block disabled="1" sid="359014283935259">
                                                     <conditions>
                                                         <condition id="0" name="On function" sid="649904917236996" type="Function">
                                                             <param id="0" name="Name">&quot;attack&quot;</param>
@@ -1298,10 +1147,10 @@
                                 </event-group>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="811009711319631" title="item pickups">
+                        <event-group description="" disabled="1" sid="811009711319631" title="item pickups">
                             <sub-events>
                                 <comment>currency</comment>
-                                <event-block sid="508537552323760">
+                                <event-block disabled="1" sid="508537552323760">
                                     <conditions>
                                         <condition id="1" name="Is overlapping another object" sid="304457559615030" type="Player">
                                             <param id="0" name="Object">rupee</param>
@@ -1322,7 +1171,7 @@
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="877705832197990">
+                                <event-block disabled="1" sid="877705832197990">
                                     <conditions />
                                     <actions>
                                         <action id="0" name="Set text" sid="442633844836811" type="SpriteFont">
@@ -1331,7 +1180,7 @@
                                     </actions>
                                 </event-block>
                                 <comment>arrows</comment>
-                                <event-block sid="810486515046546">
+                                <event-block disabled="1" sid="810486515046546">
                                     <conditions>
                                         <condition id="1" name="Is overlapping another object" sid="301975066961365" type="Player">
                                             <param id="0" name="Object">arrowPickup</param>
@@ -1354,9 +1203,9 @@
                                 </event-block>
                             </sub-events>
                         </event-group>
-                        <event-group description="" sid="334950754733292" title="wasd movement">
+                        <event-group description="" disabled="1" sid="334950754733292" title="wasd movement">
                             <sub-events>
-                                <event-block sid="302327735786066">
+                                <event-block disabled="1" sid="302327735786066">
                                     <conditions>
                                         <condition id="6" name="Compare value" sid="534490540193053" type="JS">
                                             <param id="0" name="Value">1</param>
@@ -1368,7 +1217,7 @@
                                     <actions />
                                     <sub-events>
                                         <comment>input</comment>
-                                        <event-block any="1" sid="956290004999264">
+                                        <event-block any="1" disabled="1" sid="956290004999264">
                                             <conditions>
                                                 <condition id="1" name="On any key pressed" sid="721694793038211" type="Keyboard" />
                                             </conditions>
@@ -1379,7 +1228,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block any="1" sid="509935270632013">
+                                        <event-block any="1" disabled="1" sid="509935270632013">
                                             <conditions>
                                                 <condition id="7" name="On any key released" sid="444435216879436" type="Keyboard" />
                                             </conditions>
@@ -1390,7 +1239,7 @@
                                                 </action>
                                             </actions>
                                             <sub-events>
-                                                <event-block sid="399450724360403">
+                                                <event-block disabled="1" sid="399450724360403">
                                                     <conditions>
                                                         <condition id="2" name="Key is down" sid="232938027724836" type="Keyboard">
                                                             <param id="0" name="Key">87</param>
@@ -1403,7 +1252,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="810877916528967">
+                                                <event-block disabled="1" sid="810877916528967">
                                                     <conditions>
                                                         <condition id="2" name="Key is down" sid="481486053578678" type="Keyboard">
                                                             <param id="0" name="Key">65</param>
@@ -1416,7 +1265,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="800834934838550">
+                                                <event-block disabled="1" sid="800834934838550">
                                                     <conditions>
                                                         <condition id="2" name="Key is down" sid="362575782478770" type="Keyboard">
                                                             <param id="0" name="Key">83</param>
@@ -1429,7 +1278,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="360921972882369">
+                                                <event-block disabled="1" sid="360921972882369">
                                                     <conditions>
                                                         <condition id="2" name="Key is down" sid="192322512188199" type="Keyboard">
                                                             <param id="0" name="Key">68</param>
@@ -1444,7 +1293,7 @@
                                                 </event-block>
                                             </sub-events>
                                         </event-block>
-                                        <event-block sid="684279180193632">
+                                        <event-block disabled="1" sid="684279180193632">
                                             <conditions>
                                                 <condition id="0" name="On key pressed" sid="468208930612125" type="Keyboard">
                                                     <param id="0" name="Key">32</param>
@@ -1458,7 +1307,7 @@
                                             </actions>
                                         </event-block>
                                         <comment>movement</comment>
-                                        <event-block sid="469661054669378">
+                                        <event-block disabled="1" sid="469661054669378">
                                             <conditions>
                                                 <condition id="2" name="Key is down" sid="346730941252100" type="Keyboard">
                                                     <param id="0" name="Key">87</param>
@@ -1470,7 +1319,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="230273426360676">
+                                        <event-block disabled="1" sid="230273426360676">
                                             <conditions>
                                                 <condition id="2" name="Key is down" sid="530622477167600" type="Keyboard">
                                                     <param id="0" name="Key">65</param>
@@ -1482,7 +1331,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="482973891185176">
+                                        <event-block disabled="1" sid="482973891185176">
                                             <conditions>
                                                 <condition id="2" name="Key is down" sid="512545336109955" type="Keyboard">
                                                     <param id="0" name="Key">83</param>
@@ -1494,7 +1343,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="207368101727126">
+                                        <event-block disabled="1" sid="207368101727126">
                                             <conditions>
                                                 <condition id="2" name="Key is down" sid="633300292880310" type="Keyboard">
                                                     <param id="0" name="Key">68</param>
@@ -1507,7 +1356,7 @@
                                             </actions>
                                         </event-block>
                                         <comment>animation</comment>
-                                        <event-block sid="693214986059692">
+                                        <event-block disabled="1" sid="693214986059692">
                                             <conditions>
                                                 <condition id="6" name="Compare value" sid="497424121963699" type="JS">
                                                     <param id="0" name="Value">0</param>
@@ -1523,7 +1372,7 @@
                                                 </action>
                                             </actions>
                                         </event-block>
-                                        <event-block sid="651444792752224">
+                                        <event-block disabled="1" sid="651444792752224">
                                             <conditions>
                                                 <condition id="-22" name="Else" sid="281795388459822" type="System" />
                                             </conditions>
@@ -1531,7 +1380,7 @@
                                                 <action id="2" name="Stop" sid="368548334850732" type="Player" />
                                             </actions>
                                             <sub-events>
-                                                <event-block any="1" sid="334938696877427">
+                                                <event-block any="1" disabled="1" sid="334938696877427">
                                                     <conditions>
                                                         <condition id="6" name="Compare value" sid="437304999761337" type="JS">
                                                             <param id="0" name="Value">&quot;stopped-w&quot;</param>
@@ -1547,7 +1396,7 @@
                                                         </action>
                                                     </actions>
                                                 </event-block>
-                                                <event-block sid="374910232089286">
+                                                <event-block disabled="1" sid="374910232089286">
                                                     <conditions>
                                                         <condition id="-22" name="Else" sid="558085736065397" type="System" />
                                                         <condition id="6" name="Compare value" sid="923755187645964" type="JS">
@@ -1642,7 +1491,7 @@
                                         </event-block>
                                     </sub-events>
                                 </event-block>
-                                <event-block sid="533520996600877">
+                                <event-block disabled="1" sid="533520996600877">
                                     <conditions>
                                         <condition id="0" name="On key pressed" sid="634493089320205" type="Keyboard">
                                             <param id="0" name="Key">32</param>
@@ -1659,319 +1508,6 @@
                         </event-group>
                     </sub-events>
                 </event-block>
-                <event-group description="" sid="733747976659751" title="Idle Characters">
-                    <sub-events>
-                        <event-block sid="364332443814736">
-                            <conditions>
-                                <condition id="1" inverted="1" name="Is overlapping another object" sid="198829345336049" type="Enemies">
-                                    <param id="0" name="Object">turnBlock</param>
-                                </condition>
-                                <condition id="1" inverted="1" name="Is overlapping another object" sid="662543603245115" type="Enemies">
-                                    <param id="0" name="Object">invertBlock</param>
-                                </condition>
-                                <condition id="1" name="Is overlapping another object" sid="308722963340688" type="Enemies">
-                                    <param id="0" name="Object">enemyTRack</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="992466550358294" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Value">enemyTRack.direction</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="734351389267824">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="581080821412705" type="Enemies">
-                                    <param id="0" name="Object">invertBlock</param>
-                                </condition>
-                                <condition id="-4" name="Trigger once while true" sid="314227760529867" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="-16" name="Wait" sid="628714460905803" type="System">
-                                    <param id="0" name="Seconds">0.2</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="297200661055267" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Value">invertBlock.direction</param>
-                                </action>
-                                <action id="0" name="Call function" sid="296127417771889" type="Function">
-                                    <param id="0" name="Name">&quot;inverseTracks&quot;</param>
-                                    <param id="1" name="Parameter {n}">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="369249449832895">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="880332287051252" type="Enemies">
-                                    <param id="0" name="Object">turnBlock</param>
-                                </condition>
-                                <condition id="-4" name="Trigger once while true" sid="396187167612205" type="System" />
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block any="1" sid="630946779384014">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="237822772774321" type="Enemies">
-                                            <param id="0" name="Instance variable">tempDirection</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;down&quot;</param>
-                                        </condition>
-                                        <condition id="-7" name="Compare instance variable" sid="901160771373427" type="Enemies">
-                                            <param id="0" name="Instance variable">tempDirection</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;up&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="448520166085602">
-                                            <conditions>
-                                                <condition id="-2" name="Compare Y" sid="631008663700603" type="Enemies">
-                                                    <param id="0" name="Comparison">3</param>
-                                                    <param id="1" name="Y co-ordinate">(turnBlock.y-30)</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-14" name="Toggle boolean" sid="529755919855731" type="turnBlock">
-                                                    <param id="0" name="Instance variable">flipped</param>
-                                                </action>
-                                            </actions>
-                                            <sub-events>
-                                                <event-block sid="855570986083672">
-                                                    <conditions>
-                                                        <condition id="-8" name="Is boolean instance variable set" sid="550955591182507" type="turnBlock">
-                                                            <param id="0" name="Instance variable">flipped</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="-10" name="Set value" sid="321027231964547" type="Enemies">
-                                                            <param id="0" name="Instance variable">tempDirection</param>
-                                                            <param id="1" name="Value">turnBlock.before</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="362781646347942" type="turnBlock">
-                                                            <param id="0" name="Instance variable">before</param>
-                                                            <param id="1" name="Value">turnBlock.after</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                                <event-block sid="106693875048746">
-                                                    <conditions>
-                                                        <condition id="-22" name="Else" sid="904906755544953" type="System" />
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="-10" name="Set value" sid="142213564433053" type="Enemies">
-                                                            <param id="0" name="Instance variable">tempDirection</param>
-                                                            <param id="1" name="Value">turnBlock.after</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="213587228693861" type="turnBlock">
-                                                            <param id="0" name="Instance variable">after</param>
-                                                            <param id="1" name="Value">turnBlock.before</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                                <event-block any="1" sid="443726584899524">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="199559319648019" type="Enemies">
-                                            <param id="0" name="Instance variable">tempDirection</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;left&quot;</param>
-                                        </condition>
-                                        <condition id="-7" name="Compare instance variable" sid="602577670664471" type="Enemies">
-                                            <param id="0" name="Instance variable">tempDirection</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;right&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="993187853016121">
-                                            <conditions>
-                                                <condition id="-1" name="Compare X" sid="239821083122960" type="Enemies">
-                                                    <param id="0" name="Comparison">5</param>
-                                                    <param id="1" name="X co-ordinate">(turnBlock.X+8)</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-14" name="Toggle boolean" sid="125959927280298" type="turnBlock">
-                                                    <param id="0" name="Instance variable">flipped</param>
-                                                </action>
-                                            </actions>
-                                            <sub-events>
-                                                <event-block sid="204887172864435">
-                                                    <conditions>
-                                                        <condition id="-8" name="Is boolean instance variable set" sid="360016369550762" type="turnBlock">
-                                                            <param id="0" name="Instance variable">flipped</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="-10" name="Set value" sid="509173556618213" type="Enemies">
-                                                            <param id="0" name="Instance variable">tempDirection</param>
-                                                            <param id="1" name="Value">turnBlock.before</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="625033352876682" type="turnBlock">
-                                                            <param id="0" name="Instance variable">before</param>
-                                                            <param id="1" name="Value">turnBlock.after</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                                <event-block sid="979064114375167">
-                                                    <conditions>
-                                                        <condition id="-22" name="Else" sid="620760513736411" type="System" />
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="-10" name="Set value" sid="782306775028152" type="Enemies">
-                                                            <param id="0" name="Instance variable">tempDirection</param>
-                                                            <param id="1" name="Value">turnBlock.after</param>
-                                                        </action>
-                                                        <action id="-10" name="Set value" sid="408578499789062" type="turnBlock">
-                                                            <param id="0" name="Instance variable">after</param>
-                                                            <param id="1" name="Value">turnBlock.before</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                            </sub-events>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                                <event-block disabled="1" sid="236897946844804">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="135006264857431" type="turnBlock">
-                                            <param id="0" name="Instance variable">before</param>
-                                            <param id="1" name="Comparison">1</param>
-                                            <param id="2" name="Value">&quot;null&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="616268112545637" type="Enemies">
-                                            <param id="0" name="Instance variable">tempDirection</param>
-                                            <param id="1" name="Value">turnBlock.before</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="697557907748297" type="turnBlock">
-                                            <param id="0" name="Instance variable">before</param>
-                                            <param id="1" name="Value">turnBlock.after</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block disabled="1" sid="642359765025086">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="613072764553599" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="372676724703693" type="Enemies">
-                                            <param id="0" name="Instance variable">tempDirection</param>
-                                            <param id="1" name="Value">turnBlock.after</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="847434034199337" type="turnBlock">
-                                            <param id="0" name="Instance variable">after</param>
-                                            <param id="1" name="Value">turnBlock.before</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block sid="734054889065237">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="315916028823166" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;left&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="471221263856027" type="Enemies">
-                                    <param id="0" name="Control">0</param>
-                                </action>
-                                <action id="7" name="Set mirrored" sid="877230927277211" type="Enemies">
-                                    <param id="0" name="State">0</param>
-                                </action>
-                                <action disabled="1" id="4" name="Set animation" sid="932327958776858" type="Enemies">
-                                    <param id="0" name="Animation">&quot;WalkLeft&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="639575778627926">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="691081444627989" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;right&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="451070355352176" type="Enemies">
-                                    <param id="0" name="Control">1</param>
-                                </action>
-                                <action disabled="1" id="4" name="Set animation" sid="669521619489569" type="Enemies">
-                                    <param id="0" name="Animation">&quot;WalkRight&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action id="7" name="Set mirrored" sid="940434859610869" type="Enemies">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="685608263826539">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="986022077226220" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;down&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="936902711551286" type="Enemies">
-                                    <param id="0" name="Control">3</param>
-                                </action>
-                                <action disabled="1" id="4" name="Set animation" sid="771927159169914" type="Enemies">
-                                    <param id="0" name="Animation">&quot;WalkDown&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action id="8" name="Set flipped" sid="324995368036591" type="Enemies">
-                                    <param id="0" name="State">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="177837489299296">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="375069443831379" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;up&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="823571263924406" type="Enemies">
-                                    <param id="0" name="Control">2</param>
-                                </action>
-                                <action disabled="1" id="4" name="Set animation" sid="250750405330564" type="Enemies">
-                                    <param id="0" name="Animation">&quot;WalkUp&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action id="8" name="Set flipped" sid="881896842489195" type="Enemies">
-                                    <param id="0" name="State">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="170855211583484">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="748766333187088" type="Enemies">
-                                    <param id="0" name="Instance variable">tempDirection</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;stop&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="0" name="Stop" sid="412770765440310" type="Enemies" />
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-group>
             </sub-events>
         </event-block>
         <event-block sid="338923440630601">
@@ -1987,106 +1523,114 @@
             </conditions>
             <actions />
         </event-block>
-        <event-block sid="456502122902600">
-            <conditions>
-                <condition id="0" name="On function" sid="109977295660546" type="Function">
-                    <param id="0" name="Name">&quot;inverseTracks&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
+        <event-group description="" sid="623647900862803" title="Smooth Camera">
             <sub-events>
-                <variable constant="0" name="id" sid="136866395242186" static="1" type="number">0</variable>
-                <event-block sid="122046362918881">
+                <event-block sid="356092277460138">
                     <conditions>
-                        <condition id="-11" name="For Each" sid="646300230363720" type="System">
-                            <param id="0" name="Object">enemyTRack</param>
+                        <condition id="0" name="On function" sid="579853429396497" type="Function">
+                            <param id="0" name="Name">&quot;moveCamera&quot;</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="916164189576899" type="System">
-                            <param id="0" name="Variable">id</param>
-                            <param id="1" name="Value">enemyTRack.groupID</param>
-                        </action>
-                    </actions>
+                    <actions />
                     <sub-events>
-                        <event-block sid="293747666479120">
+                        <variable constant="0" name="moveCamera" sid="224381640598623" static="1" type="number">0</variable>
+                        <variable constant="0" name="cameraX" sid="852474341300930" static="1" type="number">0</variable>
+                        <variable constant="0" name="cameraY" sid="999822636489698" static="1" type="number">0</variable>
+                        <variable constant="0" name="snapBackTime" sid="297170621133072" static="1" type="number">0</variable>
+                        <variable constant="0" name="cameraToTime" sid="875001472562196" static="1" type="number">0</variable>
+                        <event-block sid="611743895588195">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="193377747215673" type="System">
+                                    <param id="0" name="Variable">cameraX</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="320965593997809" type="System">
+                                    <param id="0" name="Variable">cameraY</param>
+                                    <param id="1" name="Value">Function.Param(1)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="659903245965801" type="System">
+                                    <param id="0" name="Variable">snapBackTime</param>
+                                    <param id="1" name="Value">Function.Param(2)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="190871116368218" type="System">
+                                    <param id="0" name="Variable">cameraToTime</param>
+                                    <param id="1" name="Value">Function.Param(3)</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="909404089678942" type="System">
+                                    <param id="0" name="Variable">moveCamera</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="347009823926402" type="System">
+                                    <param id="0" name="Group name">&quot;playerCamera&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="611011116798362" type="System">
+                                    <param id="0" name="Seconds">snapBackTime</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="399135288138323" type="System">
+                                    <param id="0" name="Group name">&quot;playerCamera&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="387308903483229" type="System">
+                                    <param id="0" name="Variable">moveCamera</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="653862022718702">
                             <conditions>
-                                <condition id="1" name="Compare parameter" sid="321007556575649" type="Function">
-                                    <param id="0" name="Index">0</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">id</param>
+                                <condition id="-10" name="For" sid="663721560606194" type="System">
+                                    <param id="0" name="Name">&quot;cameraMove&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">10000</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="-16" name="Wait" sid="973810506265871" type="System">
+                                    <param id="0" name="Seconds">0.016 * loopindex</param>
+                                </action>
+                            </actions>
                             <sub-events>
-                                <event-block sid="395139142669672">
+                                <event-block sid="181878370700222">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="499070196660700" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
+                                        <condition id="-14" name="Compare variable" sid="416910437843521" type="System">
+                                            <param id="0" name="Variable">moveCamera</param>
                                             <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;left&quot;</param>
+                                            <param id="2" name="Value">1</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="218149687463112" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">&quot;right&quot;</param>
+                                        <action id="-3" name="Set position" sid="367689344572682" type="Camera">
+                                            <param id="0" name="X">lerp(Self.X, cameraX, cameraToTime*dt)</param>
+                                            <param id="1" name="Y">lerp(Self.Y, cameraY, cameraToTime*dt)</param>
                                         </action>
                                     </actions>
                                 </event-block>
-                                <event-block sid="406956687885322">
+                                <event-block sid="464997636448512">
                                     <conditions>
-                                        <condition id="-22" name="Else" sid="515894492297755" type="System" />
-                                        <condition id="-7" name="Compare instance variable" sid="207055374075670" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;right&quot;</param>
-                                        </condition>
+                                        <condition id="-22" name="Else" sid="735500971933756" type="System" />
                                     </conditions>
                                     <actions>
-                                        <action id="-10" name="Set value" sid="103839185039086" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">&quot;left&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="362628181217398">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="457726541114400" type="System" />
-                                        <condition id="-7" name="Compare instance variable" sid="989794388794174" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;up&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="713447157783909" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">&quot;down&quot;</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="777348947371443">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="504346469276685" type="System" />
-                                        <condition id="-7" name="Compare instance variable" sid="349484188672236" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">&quot;down&quot;</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="583174360026402" type="enemyTRack">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">&quot;up&quot;</param>
-                                        </action>
+                                        <action id="-24" name="Stop loop" sid="798825140447959" type="System" />
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="357323212710213">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="938298210828231" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="133904147656742" type="Camera">
+                            <param id="0" name="X">lerp(Self.X, player.X, 10*dt)</param>
+                            <param id="1" name="Y">lerp(Self.Y, player.Y-5, 10*dt)</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
-        </event-block>
+        </event-group>
     </events>
 </c2eventsheet>
