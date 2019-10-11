@@ -11,10 +11,19 @@
                         <condition id="0" name="On key pressed" sid="630145458438939" type="Keyboard">
                             <param id="0" name="Key">72</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="904008413223799" type="hud_item_slot">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="338556397211945" type="hud_h_button">
                             <param id="0" name="Y">Self.Y+1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="336415775995166" type="hud_item_slot">
+                            <param id="0" name="Animation">&quot;Selected&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -23,10 +32,19 @@
                         <condition id="3" name="On key released" sid="836396793392573" type="Keyboard">
                             <param id="0" name="Key">72</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="964938470914914" type="hud_item_slot">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="989865813821561" type="hud_h_button">
                             <param id="0" name="Y">Self.Y-1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="104454400731291" type="hud_item_slot">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -36,10 +54,19 @@
                         <condition id="0" name="On key pressed" sid="104351956531081" type="Keyboard">
                             <param id="0" name="Key">74</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="451415647432532" type="hud_item_slot">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="708353346909481" type="hud_j_button">
                             <param id="0" name="Y">Self.Y+1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="391668176923166" type="hud_item_slot">
+                            <param id="0" name="Animation">&quot;Selected&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -48,10 +75,19 @@
                         <condition id="3" name="On key released" sid="625024861990153" type="Keyboard">
                             <param id="0" name="Key">74</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="366407697898274" type="hud_item_slot">
+                            <param id="0" name="Instance variable">id</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-2" name="Set Y" sid="809990772836616" type="hud_j_button">
                             <param id="0" name="Y">Self.Y-1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="223316477814051" type="hud_item_slot">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -66,6 +102,10 @@
                         <action id="-2" name="Set Y" sid="649559931979205" type="hud_k_button">
                             <param id="0" name="Y">Self.Y+1</param>
                         </action>
+                        <action id="4" name="Set animation" sid="829998396539140" type="hud_crouch">
+                            <param id="0" name="Animation">&quot;Selected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="724103784526727">
@@ -77,6 +117,10 @@
                     <actions>
                         <action id="-2" name="Set Y" sid="417743178731084" type="hud_k_button">
                             <param id="0" name="Y">Self.Y-1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="356485883336923" type="hud_crouch">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>
@@ -91,6 +135,10 @@
                         <action id="-2" name="Set Y" sid="538531835397883" type="hud_l_button">
                             <param id="0" name="Y">Self.Y+1</param>
                         </action>
+                        <action id="4" name="Set animation" sid="190972901893188" type="hud_roll">
+                            <param id="0" name="Animation">&quot;Selected&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="418664283277821">
@@ -102,6 +150,10 @@
                     <actions>
                         <action id="-2" name="Set Y" sid="481593208794104" type="hud_l_button">
                             <param id="0" name="Y">Self.Y-1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="181339285519133" type="hud_roll">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
                         </action>
                     </actions>
                 </event-block>

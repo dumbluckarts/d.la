@@ -301,11 +301,7 @@
                                 </event-group>
                                 <comment>player damaged by damaging family</comment>
                                 <event-block disabled="1" sid="828536721968843">
-                                    <conditions>
-                                        <condition id="0" name="On collision with another object" sid="992888219942277" type="Player">
-                                            <param id="0" name="Object">Damaging</param>
-                                        </condition>
-                                    </conditions>
+                                    <conditions />
                                     <actions>
                                         <action id="0" name="Call function" sid="363876429348977" type="Function">
                                             <param id="0" name="Name">&quot;damagePlayer&quot;</param>
@@ -330,20 +326,11 @@
                                                 <condition id="0" name="On key pressed" sid="300731126185033" type="Keyboard">
                                                     <param id="0" name="Key">49</param>
                                                 </condition>
-                                                <condition id="-7" name="Compare instance variable" sid="813114531691743" type="itemSelector">
-                                                    <param id="0" name="Instance variable">itemID</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">0</param>
-                                                </condition>
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Execute JS code" sid="691282508061248" type="JS">
                                                     <param id="0" name="JS code">&quot;inv.one = &apos;sword&apos;&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="683266276982498" type="itemSelector">
-                                                    <param id="0" name="Animation">&quot;sword&quot;</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -352,20 +339,11 @@
                                                 <condition id="0" name="On key pressed" sid="232217587111138" type="Keyboard">
                                                     <param id="0" name="Key">50</param>
                                                 </condition>
-                                                <condition id="-7" name="Compare instance variable" sid="579311786171387" type="itemSelector">
-                                                    <param id="0" name="Instance variable">itemID</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">0</param>
-                                                </condition>
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Execute JS code" sid="157774242871751" type="JS">
                                                     <param id="0" name="JS code">&quot;inv.one = &apos;empty&apos;&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="191334030287761" type="itemSelector">
-                                                    <param id="0" name="Animation">&quot;empty&quot;</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -384,20 +362,11 @@
                                                 <condition id="0" name="On key pressed" sid="142626859666103" type="Keyboard">
                                                     <param id="0" name="Key">49</param>
                                                 </condition>
-                                                <condition id="-7" name="Compare instance variable" sid="117486355170047" type="itemSelector">
-                                                    <param id="0" name="Instance variable">itemID</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">1</param>
-                                                </condition>
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Execute JS code" sid="457585229826747" type="JS">
                                                     <param id="0" name="JS code">&quot;inv.two = &apos;bow&apos;&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="128078852621691" type="itemSelector">
-                                                    <param id="0" name="Animation">&quot;bow&quot;</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -406,20 +375,11 @@
                                                 <condition id="0" name="On key pressed" sid="839708107893492" type="Keyboard">
                                                     <param id="0" name="Key">50</param>
                                                 </condition>
-                                                <condition id="-7" name="Compare instance variable" sid="319580788802364" type="itemSelector">
-                                                    <param id="0" name="Instance variable">itemID</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">1</param>
-                                                </condition>
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Execute JS code" sid="463013322277447" type="JS">
                                                     <param id="0" name="JS code">&quot;inv.two = &apos;bombs&apos;&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="516476625602522" type="itemSelector">
-                                                    <param id="0" name="Animation">&quot;bomb&quot;</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -428,20 +388,11 @@
                                                 <condition id="0" name="On key pressed" sid="146397264345506" type="Keyboard">
                                                     <param id="0" name="Key">51</param>
                                                 </condition>
-                                                <condition id="-7" name="Compare instance variable" sid="796946025994017" type="itemSelector">
-                                                    <param id="0" name="Instance variable">itemID</param>
-                                                    <param id="1" name="Comparison">0</param>
-                                                    <param id="2" name="Value">1</param>
-                                                </condition>
                                             </conditions>
                                             <actions>
                                                 <action id="0" name="Execute JS code" sid="792215671110415" type="JS">
                                                     <param id="0" name="JS code">&quot;inv.two = &apos;empty&apos;&quot;</param>
                                                     <param id="1" name="Parameter {n}"></param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="658796100045442" type="itemSelector">
-                                                    <param id="0" name="Animation">&quot;empty&quot;</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -499,9 +450,6 @@
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;empty&quot;</param>
                                         </condition>
-                                        <condition id="1" name="Is overlapping another object" sid="945036667058908" type="Player">
-                                            <param id="0" name="Object">Destructible</param>
-                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="-10" name="Set value" sid="484865915755064" type="Player">
@@ -511,10 +459,6 @@
                                         <action id="-13" name="Set boolean" sid="463904400775672" type="Player">
                                             <param id="0" name="Instance variable">stopControls</param>
                                             <param id="1" name="Value">1</param>
-                                        </action>
-                                        <action id="-4" name="Set position to another object" sid="221289478687232" type="Destructible">
-                                            <param id="0" name="Object">Player</param>
-                                            <param id="1" name="Image point (optional)">&quot;item&quot;</param>
                                         </action>
                                         <action id="-16" name="Wait" sid="804741403875449" type="System">
                                             <param id="0" name="Seconds">0.2</param>
@@ -530,10 +474,6 @@
                                             <param id="0" name="Instance variable">stopControls</param>
                                             <param id="1" name="Value">0</param>
                                         </action>
-                                        <action id="-9" name="Set value" sid="210792154426338" type="System">
-                                            <param id="0" name="Variable">objectName</param>
-                                            <param id="1" name="Value">Destructible.UID</param>
-                                        </action>
                                     </actions>
                                 </event-block>
                                 <event-block disabled="1" sid="194882465066405">
@@ -543,37 +483,18 @@
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;holding&quot;</param>
                                         </condition>
-                                        <condition id="-14" name="Pick by unique ID" sid="340022660187810" type="Destructible">
-                                            <param id="0" name="Unique ID">objectName</param>
-                                        </condition>
                                     </conditions>
-                                    <actions>
-                                        <action id="-4" name="Set position to another object" sid="681286609607367" type="Destructible">
-                                            <param id="0" name="Object">Player</param>
-                                            <param id="1" name="Image point (optional)">&quot;item&quot;</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                                 <event-block disabled="1" sid="652210626592357">
                                     <conditions>
-                                        <condition id="0" name="On collision with another object" sid="474704346916366" type="Destructible">
-                                            <param id="0" name="Object">Barrier_spr</param>
-                                        </condition>
                                         <condition id="-7" name="Compare instance variable" sid="162470805999824" type="Player">
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;empty&quot;</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action behavior="Bullet" id="5" name="Set enabled" sid="217554038599424" type="Destructible">
-                                            <param id="0" name="State">0</param>
-                                        </action>
-                                        <action id="4" name="Set animation" sid="253276945649520" type="Destructible">
-                                            <param id="0" name="Animation">&quot;Destroy&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                                 <event-block disabled="1" sid="489338988937932">
                                     <conditions>
@@ -584,9 +505,6 @@
                                             <param id="0" name="Instance variable">carrying</param>
                                             <param id="1" name="Comparison">0</param>
                                             <param id="2" name="Value">&quot;holding&quot;</param>
-                                        </condition>
-                                        <condition id="-14" name="Pick by unique ID" sid="458999829419319" type="Destructible">
-                                            <param id="0" name="Unique ID">objectName</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -609,17 +527,7 @@
                                                     <param id="3" name="Parameter {n}"></param>
                                                 </condition>
                                             </conditions>
-                                            <actions>
-                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="171392006885113" type="Destructible">
-                                                    <param id="0" name="Angle">-90</param>
-                                                </action>
-                                                <action behavior="Bullet" id="5" name="Set enabled" sid="599047398544347" type="Destructible">
-                                                    <param id="0" name="State">1</param>
-                                                </action>
-                                                <action disabled="1" id="9" name="Set scale" sid="729155245944289" type="Destructible">
-                                                    <param id="0" name="Scale"> lerp(Self.Width, Self.Width+2, 0.2*dt)</param>
-                                                </action>
-                                            </actions>
+                                            <actions />
                                         </event-block>
                                         <event-block disabled="1" sid="530169712883268">
                                             <conditions>
@@ -630,17 +538,7 @@
                                                     <param id="3" name="Parameter {n}"></param>
                                                 </condition>
                                             </conditions>
-                                            <actions>
-                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="828751578303417" type="Destructible">
-                                                    <param id="0" name="Angle">180</param>
-                                                </action>
-                                                <action behavior="Bullet" id="5" name="Set enabled" sid="998945549098355" type="Destructible">
-                                                    <param id="0" name="State">1</param>
-                                                </action>
-                                                <action disabled="1" id="9" name="Set scale" sid="526964249258064" type="Destructible">
-                                                    <param id="0" name="Scale"> lerp(Self.Width, Self.Width+2, 0.2*dt)</param>
-                                                </action>
-                                            </actions>
+                                            <actions />
                                         </event-block>
                                         <event-block disabled="1" sid="898038545607039">
                                             <conditions>
@@ -651,17 +549,7 @@
                                                     <param id="3" name="Parameter {n}"></param>
                                                 </condition>
                                             </conditions>
-                                            <actions>
-                                                <action behavior="Bullet" id="5" name="Set enabled" sid="674943258373977" type="Destructible">
-                                                    <param id="0" name="State">1</param>
-                                                </action>
-                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="153421107012542" type="Destructible">
-                                                    <param id="0" name="Angle">90</param>
-                                                </action>
-                                                <action disabled="1" id="9" name="Set scale" sid="114575746598425" type="Destructible">
-                                                    <param id="0" name="Scale"> lerp(Self.Width, Self.Width+2, 0.2*dt)</param>
-                                                </action>
-                                            </actions>
+                                            <actions />
                                         </event-block>
                                         <event-block disabled="1" sid="374681618181460">
                                             <conditions>
@@ -672,30 +560,13 @@
                                                     <param id="3" name="Parameter {n}"></param>
                                                 </condition>
                                             </conditions>
-                                            <actions>
-                                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="458419557165660" type="Destructible">
-                                                    <param id="0" name="Angle">0</param>
-                                                </action>
-                                                <action behavior="Bullet" id="5" name="Set enabled" sid="670179505534556" type="Destructible">
-                                                    <param id="0" name="State">1</param>
-                                                </action>
-                                                <action id="9" name="Set scale" sid="910874742970889" type="Destructible">
-                                                    <param id="0" name="Scale"> lerp(1, 1.5, 0.2*dt)</param>
-                                                </action>
-                                            </actions>
+                                            <actions />
                                         </event-block>
                                         <event-block disabled="1" sid="305334252585970">
                                             <conditions />
                                             <actions>
                                                 <action id="-16" name="Wait" sid="711302296560582" type="System">
                                                     <param id="0" name="Seconds">0.8</param>
-                                                </action>
-                                                <action behavior="Bullet" id="5" name="Set enabled" sid="606648977056457" type="Destructible">
-                                                    <param id="0" name="State">0</param>
-                                                </action>
-                                                <action id="4" name="Set animation" sid="595476451443378" type="Destructible">
-                                                    <param id="0" name="Animation">&quot;Destroy&quot;</param>
-                                                    <param id="1" name="From">1</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -799,10 +670,6 @@
                                                         </condition>
                                                     </conditions>
                                                     <actions>
-                                                        <action id="4" name="Set animation" sid="165058805475218" type="itemSelector">
-                                                            <param id="0" name="Animation">&quot;Lit&quot;</param>
-                                                            <param id="1" name="From">1</param>
-                                                        </action>
                                                         <action id="0" name="Spawn another object" sid="264140805863403" type="Player">
                                                             <param id="0" name="Object">Arrow</param>
                                                             <param id="1" name="Layer">1</param>
@@ -1041,20 +908,9 @@
                                                 <event-block disabled="1" sid="848405329018935">
                                                     <conditions>
                                                         <condition id="-22" name="Else" sid="269643699564541" type="System" />
-                                                        <condition id="1" name="Is overlapping another object" sid="606233759606414" type="bombsSprite">
-                                                            <param id="0" name="Object">Destructible</param>
-                                                        </condition>
-                                                        <condition id="-11" name="For Each" sid="968487563757895" type="System">
-                                                            <param id="0" name="Object">Destructible</param>
-                                                        </condition>
                                                         <condition id="-4" name="Trigger once while true" sid="921731586056883" type="System" />
                                                     </conditions>
-                                                    <actions>
-                                                        <action id="4" name="Set animation" sid="447670588585366" type="Destructible">
-                                                            <param id="0" name="Animation">&quot;Destroy&quot;</param>
-                                                            <param id="1" name="From">1</param>
-                                                        </action>
-                                                    </actions>
+                                                    <actions />
                                                 </event-block>
                                             </sub-events>
                                         </event-block>
@@ -1083,19 +939,6 @@
                                                         <action id="-4" name="Set position to another object" sid="901501629610556" type="attackHitbox">
                                                             <param id="0" name="Object">Player</param>
                                                             <param id="1" name="Image point (optional)">1</param>
-                                                        </action>
-                                                    </actions>
-                                                </event-block>
-                                                <event-block disabled="1" sid="628964564190820">
-                                                    <conditions>
-                                                        <condition id="1" name="Is overlapping another object" sid="990693735437702" type="attackHitbox">
-                                                            <param id="0" name="Object">Bush_1</param>
-                                                        </condition>
-                                                    </conditions>
-                                                    <actions>
-                                                        <action id="4" name="Set animation" sid="893026734835702" type="Bush_1">
-                                                            <param id="0" name="Animation">&quot;Destroy&quot;</param>
-                                                            <param id="1" name="From">1</param>
                                                         </action>
                                                     </actions>
                                                 </event-block>
@@ -1168,14 +1011,6 @@
                                         <action id="6" name="Call function" sid="952018619222052" type="JS">
                                             <param id="0" name="Expression">&quot;inv.print&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block disabled="1" sid="877705832197990">
-                                    <conditions />
-                                    <actions>
-                                        <action id="0" name="Set text" sid="442633844836811" type="SpriteFont">
-                                            <param id="0" name="Text">JS.JSCodeValue(&quot;inv.val(&apos;rupee&apos;)&quot;)</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -1623,12 +1458,85 @@
                     <conditions>
                         <condition id="-1" name="Every tick" sid="938298210828231" type="System" />
                     </conditions>
-                    <actions>
-                        <action id="-3" name="Set position" sid="133904147656742" type="Camera">
-                            <param id="0" name="X">lerp(Self.X, player.X, 10*dt)</param>
-                            <param id="1" name="Y">lerp(Self.Y, player.Y-5, 10*dt)</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="1" name="CAMERA_OFFSET" sid="118347511139603" static="0" type="number">4</variable>
+                        <variable constant="1" name="CAMERA_SPEED" sid="535669882744622" static="0" type="number">9</variable>
+                        <event-block sid="513596470215634">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="360310983239039" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;player&quot;, &quot;get&quot;, &quot;direction&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;up&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="133904147656742" type="Camera">
+                                    <param id="0" name="X">lerp(Self.X, player.X, CAMERA_SPEED*dt)</param>
+                                    <param id="1" name="Y">lerp(Self.Y, player.Y-CAMERA_OFFSET, CAMERA_SPEED*dt)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="987408361901558">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="943061123243179" type="System" />
+                                <condition id="-8" name="Compare two values" sid="774354802342628" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;player&quot;, &quot;get&quot;, &quot;direction&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;left&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="206317353418201" type="Camera">
+                                    <param id="0" name="X">lerp(Self.X, player.X-CAMERA_OFFSET, CAMERA_SPEED*dt)</param>
+                                    <param id="1" name="Y">lerp(Self.Y, player.Y, CAMERA_SPEED*dt)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="539976677693101">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="629844845567354" type="System" />
+                                <condition id="-8" name="Compare two values" sid="222384872035813" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;player&quot;, &quot;get&quot;, &quot;direction&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;down&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="935803478686939" type="Camera">
+                                    <param id="0" name="X">lerp(Self.X, player.X, CAMERA_SPEED*dt)</param>
+                                    <param id="1" name="Y">lerp(Self.Y, player.Y+CAMERA_OFFSET, CAMERA_SPEED*dt)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="979598780916544">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="608858896415784" type="System" />
+                                <condition id="-8" name="Compare two values" sid="889327173707629" type="System">
+                                    <param id="0" name="First value">Function.Call(&quot;player&quot;, &quot;get&quot;, &quot;direction&quot;)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="678469127448214" type="Camera">
+                                    <param id="0" name="X">lerp(Self.X, player.X+CAMERA_OFFSET, CAMERA_SPEED*dt)</param>
+                                    <param id="1" name="Y">lerp(Self.Y, player.Y, CAMERA_SPEED*dt)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="721946308372072">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="936086087253126" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="238406401370661" type="Camera">
+                                    <param id="0" name="X">lerp(Self.X, player.X, CAMERA_SPEED*dt)</param>
+                                    <param id="1" name="Y">lerp(Self.Y, player.Y-CAMERA_OFFSET, CAMERA_SPEED*dt)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>

@@ -149,7 +149,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ShadowLight" uid="44">
+                <instance type="Light" uid="44">
                     <properties>
                         <light-height>100</light-height>
                         <light-radius>3</light-radius>
@@ -247,14 +247,14 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>320</x>
-                        <y>272</y>
+                        <x>327</x>
+                        <y>279</y>
                         <z>0</z>
-                        <width>18</width>
-                        <height>19</height>
+                        <width>16</width>
+                        <height>16</height>
                         <depth>0</depth>
-                        <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotX>-0.0625</hotspotX>
+                        <hotspotY>-0.0625</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -276,8 +276,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>352</x>
-                        <y>480</y>
+                        <x>384</x>
+                        <y>256</y>
                         <z>0</z>
                         <width>16</width>
                         <height>16</height>
@@ -346,10 +346,10 @@
                     <behavior-instances>
                         <behavior-instance type="8Direction">
                             <properties>
-                                <max-speed>80</max-speed>
-                                <acceleration>1500</acceleration>
-                                <deceleration>1500</deceleration>
-                                <directions>8 directions</directions>
+                                <max-speed>100</max-speed>
+                                <acceleration>9999</acceleration>
+                                <deceleration>9999</deceleration>
+                                <directions>4 directions</directions>
                                 <set-angle>No</set-angle>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
@@ -374,8 +374,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>352</x>
-                        <y>480</y>
+                        <x>384</x>
+                        <y>272</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
@@ -405,7 +405,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="enemyTRack" uid="105">
+                <instance type="path_track" uid="105">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -417,11 +417,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>256</x>
-                        <y>400</y>
+                        <x>272</x>
+                        <y>272</y>
                         <z>0</z>
                         <width>16</width>
-                        <height>48</height>
+                        <height>192</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -429,7 +429,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="invertBlock" uid="107">
+                <instance type="path_invert" uid="107">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -443,8 +443,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>256</x>
-                        <y>384</y>
+                        <x>272</x>
+                        <y>256</y>
                         <z>0</z>
                         <width>16</width>
                         <height>16</height>
@@ -455,7 +455,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="invertBlock" uid="110">
+                <instance type="path_invert" uid="110">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -469,8 +469,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>336</x>
-                        <y>448</y>
+                        <x>352</x>
+                        <y>464</y>
                         <z>0</z>
                         <width>16</width>
                         <height>16</height>
@@ -481,7 +481,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="enemyTRack" uid="112">
+                <instance type="path_track" uid="112">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -493,8 +493,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>272</x>
-                        <y>464</y>
+                        <x>288</x>
+                        <y>480</y>
                         <z>0</z>
                         <width>16</width>
                         <height>64</height>
@@ -505,7 +505,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="turnBlock" uid="111">
+                <instance type="path_turn" uid="111">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -520,8 +520,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>256</x>
-                        <y>464</y>
+                        <x>272</x>
+                        <y>480</y>
                         <z>0</z>
                         <width>16</width>
                         <height>16</height>
