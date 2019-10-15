@@ -693,13 +693,19 @@
                 </instance-variables>
                 <texture />
             </object-type>
-            <object-type name="tb_textbox" sid="544289763585135">
-                <plugin id="TiledBg" />
-                <texture />
-            </object-type>
         </object-folder>
         <object-folder name="Tiles">
             <object-type name="Ground" sid="400010621800057">
+                <plugin id="Tilemap" />
+                <texture />
+                <tiles />
+            </object-type>
+            <object-type name="Dungeon" sid="401578857188104">
+                <plugin id="Tilemap" />
+                <texture />
+                <tiles />
+            </object-type>
+            <object-type name="16xTileTest" sid="149924758280694">
                 <plugin id="Tilemap" />
                 <texture />
                 <tiles />
@@ -904,43 +910,19 @@
         <object-folder name="Path Finding">
             <object-type name="path_track" sid="196712274692647">
                 <plugin id="TiledBg" />
-                <instance-variables>
-                    <instance-variable name="direction" sid="387321374083361" type="string" />
-                    <instance-variable name="groupID" sid="593307012395284" type="number" />
-                </instance-variables>
                 <texture />
             </object-type>
-            <object-type name="path_invert" sid="312400258117194">
-                <plugin id="Sprite" />
-                <instance-variables>
-                    <instance-variable name="direction" sid="886199967323119" type="string" />
-                    <instance-variable name="groupID" sid="824049697932377" type="number" />
-                </instance-variables>
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="981865550528393" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                </animation-folder>
+            <object-type name="path_invert" sid="449275789211426">
+                <plugin id="TiledBg" />
+                <texture />
             </object-type>
-            <object-type name="path_turn" sid="674919432306849">
-                <plugin id="Sprite" />
-                <instance-variables>
-                    <instance-variable name="before" sid="767627408106257" type="string" />
-                    <instance-variable name="after" sid="125798643945550" type="string" />
-                    <instance-variable name="flipped" sid="506011965935569" type="boolean" />
-                </instance-variables>
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="195997422612905" speed="5">
-                        <frame duration="1" hotspotX="0" hotspotY="1">
-                            <collision-poly>
-                                <point x="0" y="1" />
-                                <point x="0" y="0" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                            </collision-poly>
-                        </frame>
-                    </animation>
-                </animation-folder>
+            <object-type name="path_start" sid="975204044198225">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="path_turn" sid="463023011997586">
+                <plugin id="TiledBg" />
+                <texture />
             </object-type>
         </object-folder>
         <object-folder name="Barriers">
@@ -985,12 +967,27 @@
                 </behavior-type>
             </behaviors>
         </family>
+        <family name="Path" plugin-id="TiledBg" sid="719292505126925">
+            <members>
+                <member>path_invert</member>
+                <member>path_start</member>
+                <member>path_track</member>
+                <member>path_turn</member>
+            </members>
+            <instance-variables>
+                <instance-variable comment="initial directional value" name="direction" sid="933502774964996" type="string" />
+                <instance-variable comment="When the enemy hits a invert block, what will this set to?" name="inverseDirection" sid="315300657781012" type="string" />
+                <instance-variable name="inverted" sid="973414445914124" type="boolean" />
+            </instance-variables>
+        </family>
     </families>
     <layout-folder>
         <layout-folder name="GUI">
             <layout>hud.xml</layout>
         </layout-folder>
         <layout>TESTLAYOUT.xml</layout>
+        <layout>Test Level.xml</layout>
+        <layout>Smol Test.xml</layout>
         <layout>instance layout.xml</layout>
     </layout-folder>
     <event-folder>
