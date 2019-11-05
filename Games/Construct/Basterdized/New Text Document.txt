@@ -1,6 +1,0 @@
-combat slow down and then replay at full speed for sprees of 5 or more
--specific hitboxes for different death animations
--slo mo manipulation in fights	
--execution prompt
--2 shots death generally
--same with player

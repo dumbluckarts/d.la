@@ -1,1 +1,0 @@
-Drag all c2addon files into construct 2. Follow the prompts in Construct to install.
