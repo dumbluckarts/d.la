@@ -3,8 +3,8 @@ indie development studio hosted at [website]http://dumbluckarts.com
 
 Check out our main branch for archived projects at [website]http://git.dumbluckarts.com.
 
-## Project Glitch
-This file houses all planning, breifing and direction / storyboarding for "Glitch."
+## Project ________
+This file houses all planning, breifing and direction / storyboarding for "________."
 Edit this file any time you feel necessary as it can be helpful to archive things like
 animation changes, assets, planning, ideas, authors, etc.
 
