@@ -1,0 +1,38 @@
+FROM NOW ON, PLEASE CREATE A NEW GIT "BRANCH" FOR EVERY NEW PROJECT FOLLOWING 
+THE NAMING SCHEME "proj-". AN EXAMPLE WOULD BE "proj-glitch".
+
+- Sign into our git by vising the url at https://github.com/dumbluckarts/d.la and
+clicking "clone or download." 
+
+TO MAKE THIS PROCESS A TON BETTER - Get the Github Desktop application. Its cross
+platform and really easy. All you do is sign into your github account (which I have
+to add to our organization so please contact nelson@dumbluckarts.com), it'll show
+a repository (if you're added to it) named d.la. Click clone after selecting a
+location to save to.
+
+    * offers the ability for us to roll back mistakes as well gives us tools for
+    fixing "merge conflicts" when two or more people submit the same edits. For
+    example if someone changed the word "butts" to "apple" and another changed
+    it to "chris" before the other was able to commit their change it would cause
+    a "merge conflict." Two changes are trying to take over at the same time.
+
+    * this application makes it a ton easier to "pull" changes or "new versions"
+    of the project you're working on as well as makes it easier to "push" your
+    changes so everyone can see your work!
+
+    * it also makes it easier to handle your personal repositories which house an
+    easy location your employers to see your projects.
+
+- To create a new git branch in the application "github desktop" signed into your
+github account and on the d.la master branch look on to top 'ribbon' to the application
+for the large selection box for "current branch." It should say "master." Click it,
+then the button on the right named "new branch."
+
+DO NOT EDIT THE MASTER BRANCH.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+UPDATE BEFORE ANY EDITS YOU MAKE.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ 
+IT IS CONSIDERED ARCHIVED ON 6:50PM 2019 - October - 4.
+                 ^^^^^^^^
